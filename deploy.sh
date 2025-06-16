@@ -1,0 +1,1 @@
+npm run build && rsync -vhr --progress dist/ ubuntu@13.201.141.238:/var/www/prod/rhobots-website/ && ssh ubuntu@13.201.141.238 "sudo nginx -s reload"
