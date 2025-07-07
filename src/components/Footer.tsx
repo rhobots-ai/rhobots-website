@@ -36,7 +36,7 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-semibold mb-6 text-lg">Products</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">DeepCite</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">DocumentLM</a></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">FineTuning Platform</a></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">AI Browser Agent</a></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300">Voice AI Agent</a></li>

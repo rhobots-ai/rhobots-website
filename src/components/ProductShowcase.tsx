@@ -4,7 +4,7 @@ import { Search, Settings, Globe, Mic, ArrowRight } from 'lucide-react';
 const products = [
   {
     icon: Search,
-    name: 'DeepCite',
+    name: 'DocumentLM',
     tagline: 'Talk to your documents, cite your claims.',
     description: 'RAG-based research assistant with citations and traceability. Transform your documents into intelligent, queryable knowledge bases.',
     gradient: 'from-blue-500 to-cyan-500',
