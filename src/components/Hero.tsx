@@ -1,70 +1,130 @@
-import React from 'react';
-import {ArrowRight, Bot, Zap} from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Bot, Zap, Coffee, Brain, Lightbulb } from 'lucide-react';
 
 const Hero = () => {
+  const [currentThought, setCurrentThought] = useState(0);
+  const thoughts = [
+    "Processing your workflow...",
+    "Optimizing efficiency...",
+    "Brewing digital coffee...",
+    "Thinking outside the box...",
+    "Connecting the dots..."
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentThought((prev) => (prev + 1) % thoughts.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 overflow-hidden">
-      {/* Animated background elements */}
+      {/* Enhanced animated background elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-        <div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
       </div>
 
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
 
+      {/* Floating AI thought bubbles */}
+      <div className="absolute top-20 right-10 bg-white/10 backdrop-blur-sm rounded-2xl px-4 py-2 text-white text-sm animate-bounce delay-1000">
+        <div className="flex items-center space-x-2">
+          <Brain className="w-4 h-4 text-cyan-400" />
+          <span className="transition-all duration-500">{thoughts[currentThought]}</span>
+        </div>
+      </div>
+
+      <div className="absolute bottom-32 left-10 bg-white/10 backdrop-blur-sm rounded-2xl px-4 py-2 text-white text-sm animate-bounce delay-2000">
+        <div className="flex items-center space-x-2">
+          <Lightbulb className="w-4 h-4 text-yellow-400" />
+          <span>Innovation in progress...</span>
+        </div>
+      </div>
+
       <div className="relative z-10 container mx-auto px-6 py-20 lg:py-32">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Logo/Brand */}
-          <div className="flex items-center justify-center mb-8">
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Enhanced Logo/Brand */}
+          <div className="flex items-center justify-center mb-8 group">
             <div className="relative">
-              <Bot className="w-12 h-12 text-blue-400 animate-pulse"/>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-purple-500 rounded-full animate-ping"></div>
+              <img 
+                src="/images/icon.png" 
+                alt="Rhobots Logo" 
+                className="w-16 h-16 group-hover:scale-110 transition-all duration-300 drop-shadow-lg"
+              />
             </div>
-            <span className="ml-3 text-2xl font-bold text-white">Rhobots</span>
+            <span className="ml-4 text-3xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300">Rhobots</span>
           </div>
 
-          {/* Main headline */}
-          <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6">
-            AI Agents That
-          </h1>
-          <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6">
-            <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Think. Work. Scale.</span>
-          </h1>
+          {/* Quirky main headline */}
+          <div className="mb-8">
+            <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+              We Build AI That Actually
+            </h1>
+            <h1 className="text-5xl lg:text-7xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-pulse">
+                Gets Stuff Done
+              </span>
+            </h1>
+            <div className="flex items-center justify-center mt-4">
+              <Coffee className="w-6 h-6 text-amber-400 mr-2" />
+              <span className="text-lg text-gray-300 italic">(No coffee breaks required)</span>
+            </div>
+          </div>
 
-          {/* Subheadline */}
-          <p className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Unifying specialized AI capabilities to power your data, voice, workflow, and research.
-            Experience the future of intelligent automation.
+          {/* Enhanced subheadline */}
+          <p className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+            Your AI dream team is here! We've got specialized agents for documents, voice, web browsing, and custom training. 
+            <span className="text-cyan-400 font-semibold"> Think of us as your digital workforce that never calls in sick.</span>
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button
-              className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center">
-              Explore Our Solutions
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"/>
+          {/* Enhanced CTAs */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+            <button className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl flex items-center relative overflow-hidden">
+              <span className="relative z-10">Meet Our AI Squad</span>
+              <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform relative z-10"/>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
-            <button
-              className="group bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 flex items-center backdrop-blur-sm">
-              <Zap className="mr-2 w-5 h-5 group-hover:text-yellow-400 transition-colors"/>
-              Talk to an Agent
+            
+            <button className="group bg-transparent border-2 border-white/30 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 flex items-center backdrop-blur-sm hover:scale-105">
+              <Zap className="mr-3 w-6 h-6 group-hover:text-yellow-400 group-hover:animate-pulse transition-all"/>
+              <span>Try Our AI (It Won't Judge)</span>
             </button>
           </div>
 
-          {/* Trust indicators */}
-          <div className="mt-16 text-gray-400 text-sm">
-            Trusted by researchers, enterprises, and innovators worldwide
+          {/* Quirky trust indicators */}
+          <div className="mt-16">
+            <div className="text-gray-400 text-lg mb-4">
+              Trusted by humans who appreciate AI that actually works
+            </div>
+            <div className="flex justify-center items-center space-x-8 text-sm text-gray-500">
+              <span className="flex items-center">
+                <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                99.9% Uptime
+              </span>
+              <span className="flex items-center">
+                <div className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse delay-300"></div>
+                500+ Happy Clients
+              </span>
+              <span className="flex items-center">
+                <div className="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse delay-700"></div>
+                Zero Robot Uprisings
+              </span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Floating elements */}
-      <div className="absolute bottom-10 left-10 w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
-      <div className="absolute top-1/3 right-20 w-3 h-3 bg-purple-400 rounded-full animate-bounce delay-300"></div>
+      {/* Enhanced floating elements */}
+      <div className="absolute bottom-10 left-10 w-3 h-3 bg-blue-400 rounded-full animate-bounce"></div>
+      <div className="absolute top-1/3 right-20 w-4 h-4 bg-purple-400 rounded-full animate-bounce delay-300"></div>
       <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-indigo-400 rounded-full animate-bounce delay-700"></div>
+      <div className="absolute top-1/2 left-20 w-2 h-2 bg-cyan-400 rounded-full animate-bounce delay-1000"></div>
+      <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-pink-400 rounded-full animate-bounce delay-1500"></div>
     </section>
   );
 };
