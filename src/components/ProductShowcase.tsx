@@ -69,7 +69,7 @@ const ProductShowcase = () => {
   }, [activeVideoId]);
 
   return (
-    <section className="py-20 lg:py-32 bg-gray-900 relative overflow-hidden">
+    <section id="product-showcase" className="py-20 lg:py-32 bg-gray-900 relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-grid-white/[0.01] bg-[size:50px_50px]"></div>
 

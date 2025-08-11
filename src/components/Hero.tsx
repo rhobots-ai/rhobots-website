@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, Bot, Zap, Coffee, Brain, Lightbulb } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowRight, Zap, Brain, Lightbulb } from 'lucide-react';
 
 const Hero = () => {
   const [currentThought, setCurrentThought] = useState(0);
@@ -84,7 +84,15 @@ const Hero = () => {
 
           {/* Enhanced CTAs */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-            <button className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl flex items-center relative overflow-hidden">
+            <button
+              onClick={() => {
+                const el = document.getElementById('product-showcase');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl flex items-center relative overflow-hidden"
+            >
               <span className="relative z-10">Meet Our AI Squad</span>
               <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform relative z-10" />
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
