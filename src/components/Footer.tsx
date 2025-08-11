@@ -112,7 +112,7 @@ const Footer = () => {
                 <span className="mr-2 group-hover:animate-bounce">📰</span>
                 Press
               </a></li> */}
-              <li><a href="#contact" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+              <li><a href="/contact" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
                 <span className="mr-2 group-hover:animate-bounce">💬</span>
                 Contact Us
               </a></li>

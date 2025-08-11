@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Calendar, Zap, ArrowRight, Rocket, Heart, Star } from 'lucide-react';
 
 const CallToAction = () => {
@@ -16,6 +17,8 @@ const CallToAction = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, []);
+
+  const navigate = useNavigate();
 
   return (
     <section className="py-20 lg:py-32 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 relative overflow-hidden">
@@ -51,12 +54,7 @@ const CallToAction = () => {
           {/* Enhanced CTAs */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             <button
-              onClick={() => {
-                const el = document.getElementById('contact');
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
+              onClick={() => navigate('/contact')}
               className="group bg-white text-blue-600 px-10 py-5 rounded-full font-bold text-xl hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl flex items-center relative overflow-hidden"
             >
               <Calendar className="mr-3 w-7 h-7 group-hover:animate-bounce" />
