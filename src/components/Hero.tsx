@@ -51,9 +51,9 @@ const Hero = () => {
           {/* Enhanced Logo/Brand */}
           <div className="flex items-center justify-center mb-8 group">
             <div className="relative">
-              <img 
-                src="/images/icon.png" 
-                alt="Rhobots Logo" 
+              <img
+                src="/images/icon.png"
+                alt="Rhobots Logo"
                 className="w-16 h-16 group-hover:scale-110 transition-all duration-300 drop-shadow-lg"
               />
             </div>
@@ -63,36 +63,31 @@ const Hero = () => {
           {/* Quirky main headline */}
           <div className="mb-8">
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-              We Build AI That Actually
+              Turnkey, Enterprise‑Grade AI.
             </h1>
             <h1 className="text-5xl lg:text-7xl font-bold mb-4">
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-pulse">
-                Gets Stuff Done
+                Ready to Ship
               </span>
             </h1>
             <div className="flex items-center justify-center mt-4">
-              <Coffee className="w-6 h-6 text-amber-400 mr-2" />
-              <span className="text-lg text-gray-300 italic">(No coffee breaks required)</span>
+              <Zap className="w-6 h-6 text-yellow-400 mr-2" />
+              <span className="text-lg text-gray-300 italic">(From infra to production—fast)</span>
             </div>
           </div>
 
           {/* Enhanced subheadline */}
           <p className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Your AI dream team is here! We've got specialized agents for documents, voice, web browsing, and custom training. 
-            <span className="text-cyan-400 font-semibold"> Think of us as your digital workforce that never calls in sick.</span>
+            Productized services that harden your infra, integrate securely, and operationalize AI with governance, observability, and SLAs—
+            <span className="text-cyan-400 font-semibold">so you ship in days, not months.</span>
           </p>
 
           {/* Enhanced CTAs */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
             <button className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-full font-bold text-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl flex items-center relative overflow-hidden">
               <span className="relative z-10">Meet Our AI Squad</span>
-              <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform relative z-10"/>
+              <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform relative z-10" />
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
-            
-            <button className="group bg-transparent border-2 border-white/30 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 flex items-center backdrop-blur-sm hover:scale-105">
-              <Zap className="mr-3 w-6 h-6 group-hover:text-yellow-400 group-hover:animate-pulse transition-all"/>
-              <span>Try Our AI (It Won't Judge)</span>
             </button>
           </div>
 

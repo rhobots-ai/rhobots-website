@@ -1,65 +1,88 @@
-import React from 'react';
-import { Search, Settings, Globe, Mic, ArrowRight, BookOpen, Wrench, Compass, MessageCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { FileText, Wrench, BarChart3, PhoneCall, Play } from 'lucide-react';
 
 const products = [
   {
-    icon: BookOpen,
-    name: 'DocumentLM',
-    tagline: 'The AI That Actually Reads Your Docs',
-    subtitle: '(Unlike Your Intern)',
-    description: 'Finally, an AI that shows its work! Our RAG-powered research assistant reads through your documents, finds exactly what you need, and even cites its sources. Your high school English teacher would be proud.',
-    gradient: 'from-blue-500 to-cyan-500',
-    bgGradient: 'from-blue-500/10 to-cyan-500/10',
-    quirkyFact: '📚 Processes 1000+ pages in seconds'
-  },
-  {
     icon: Wrench,
-    name: 'FineTuning Platform',
+    name: 'Studio',
     tagline: 'Custom AI Training',
     subtitle: '(No Treats Required)',
     description: 'Train AI models that actually understand your business. Think of it as teaching your AI the company handbook, industry jargon, and all those unwritten rules that make your domain special.',
     gradient: 'from-purple-500 to-pink-500',
     bgGradient: 'from-purple-500/10 to-pink-500/10',
-    quirkyFact: '🎯 Domain-specific accuracy up to 95%'
+    quirkyFact: '🎯 Domain-specific accuracy up to 95%',
+    videoId: '-oODQSd9rLk'
   },
   {
-    icon: Compass,
-    name: 'AI Browser Agent',
-    tagline: 'Your Digital Detective',
-    subtitle: '(Sherlock Holmes, But Faster)',
-    description: 'This AI surfs the web like a pro researcher with ADHD - but in a good way. It finds information, summarizes findings, and connects dots you never knew existed.',
-    gradient: 'from-green-500 to-emerald-500',
-    bgGradient: 'from-green-500/10 to-emerald-500/10',
-    quirkyFact: '🔍 Scans 100+ sources simultaneously'
+    icon: FileText,
+    name: 'Extract',
+    tagline: 'The AI That Knows Your Invoices Better Than You Do',
+    subtitle: '(And Never Misses a Decimal)',
+    description: 'Built for MSME Invoice Financing, Extract automates disbursals by extracting key fields like invoice number, amount, and dates with unmatched accuracy. Trained on your data for the exact output you need—fast.',
+    gradient: 'from-emerald-500 to-teal-500',
+    bgGradient: 'from-emerald-500/10 to-teal-500/10',
+    quirkyFact: '📄 Parses 10,000+ invoices in minutes',
+    videoId: 'qPWJrMV-_8I'
   },
   {
-    icon: MessageCircle,
-    name: 'Voice AI Agent',
-    tagline: 'The AI That Talks Back',
-    subtitle: '(In a Good Way)',
-    description: 'Natural conversations, smart responses, and zero awkward silences. Perfect for customer service, sales calls, or just having someone to talk to who actually listens.',
-    gradient: 'from-orange-500 to-red-500',
-    bgGradient: 'from-orange-500/10 to-red-500/10',
-    quirkyFact: '🎙️ Understands 50+ languages & accents'
+    icon: BarChart3,
+    name: 'Sage',
+    tagline: 'The AI Layer Your BI Was Missing',
+    subtitle: '(Writes SQL So You Don’t Have To)',
+    description: 'Generative BI that lets you query your data in plain English—no SQL skills required. Sage auto-learns your database, works with zero manual setup, and keeps the continuity of your existing BI platform intact.',
+    gradient: 'from-purple-500 to-indigo-500',
+    bgGradient: 'from-purple-500/10 to-indigo-500/10',
+    quirkyFact: '📊 Writes complex SQL in seconds',
+    videoId: 'zzJqarZLEe8'
+  },
+  {
+    icon: PhoneCall,
+    name: 'Pulse',
+    tagline: 'The AI Co-Pilot for Every Call',
+    subtitle: '(Because Your Agents Deserve Superpowers)',
+    description: 'Embedded AI for functional call-centre apps—from real-time call script generation to accurate transcription, sentiment analysis, and quality control. Pulse turns every agent into your best agent.',
+    gradient: 'from-pink-500 to-red-500',
+    bgGradient: 'from-pink-500/10 to-red-500/10',
+    quirkyFact: '☎️ Analyses calls in milliseconds',
+    videoId: 'R_h2WEKYV4E'
   }
 ];
 
 const ProductShowcase = () => {
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setActiveVideoId(null);
+      }
+    };
+
+    if (activeVideoId) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [activeVideoId]);
+
   return (
     <section className="py-20 lg:py-32 bg-gray-900 relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-grid-white/[0.01] bg-[size:50px_50px]"></div>
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Meet Our AI{' '}
+            LLM as a Person{' '}
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Squad
+              LaaP
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-            Each agent has their own superpower, but they work together like the world's most efficient (and never-tired) team. 
+            Each agent has their own superpower, but they work together like the world's most efficient (and never-tired) team.
             <span className="text-cyan-400 font-semibold"> No office drama, guaranteed.</span>
           </p>
         </div>
@@ -89,7 +112,7 @@ const ProductShowcase = () => {
                 <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
                   {product.name}
                 </h3>
-                
+
                 <div className="mb-4">
                   <p className={`text-lg font-bold bg-gradient-to-r ${product.gradient} bg-clip-text text-transparent`}>
                     {product.tagline}
@@ -98,20 +121,25 @@ const ProductShowcase = () => {
                     {product.subtitle}
                   </p>
                 </div>
-                
+
                 <p className="text-gray-300 mb-6 leading-relaxed">
                   {product.description}
                 </p>
 
                 {/* Enhanced CTA */}
-                <button className="group/btn flex items-center text-white hover:text-blue-400 font-medium transition-all duration-300 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full">
-                  <span>Meet This Agent</span>
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                <button
+                  className="group/btn flex items-center text-white hover:text-blue-400 font-medium transition-all duration-300 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full border border-white/20 hover:border-blue-400/50"
+                  onClick={() => setActiveVideoId(product.videoId)}
+                >
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-white/10 group-hover/btn:bg-blue-400/20 transition-all duration-300 mr-3">
+                    <Play className="w-3 h-3 ml-0.5 group-hover/btn:scale-110 transition-transform duration-300" fill="currentColor" />
+                  </div>
+                  <span>Watch Demo</span>
                 </button>
 
                 {/* Enhanced hover effect overlay */}
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${product.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${product.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none`}></div>
+
                 {/* Floating particles on hover */}
                 <div className="absolute inset-0 pointer-events-none">
                   <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-white rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-all duration-1000 delay-100"></div>
@@ -148,6 +176,28 @@ const ProductShowcase = () => {
           </div>
         </div>
       </div>
+
+      {activeVideoId && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setActiveVideoId(null)}
+        >
+          <div
+            className="w-full max-w-4xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              className="w-full h-full"
+              src={`https://www.youtube.com/embed/${activeVideoId}?autoplay=1&rel=0`}
+              title="Agent demo video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

@@ -1,10 +1,9 @@
-import React from 'react';
-import Hero from './components/Hero';
-import ProductShowcase from './components/ProductShowcase';
-import WhyRhobots from './components/WhyRhobots';
-import WhoWeWorkWith from './components/WhoWeWorkWith';
 import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
+import Hero from './components/Hero';
+import ProductShowcase from './components/ProductShowcase';
+import WhoWeWorkWith from './components/WhoWeWorkWith';
+import WhyRhobots from './components/WhyRhobots';
 
 function App() {
   return (
