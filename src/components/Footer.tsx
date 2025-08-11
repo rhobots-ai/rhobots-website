@@ -1,5 +1,4 @@
-import React from 'react';
-import { Bot, Github, Twitter, Linkedin, Mail, MapPin, Phone, Heart, Coffee, Zap } from 'lucide-react';
+import { BarChart3, Coffee, FileText, Github, Heart, Linkedin, Mail, MapPin, Phone, PhoneCall, Wrench, XIcon, Zap } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -7,26 +6,26 @@ const Footer = () => {
       {/* Background elements */}
       <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
-      
+
       <div className="container mx-auto px-6 py-16 relative z-10">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
           {/* Enhanced Brand section */}
           <div className="lg:col-span-2">
             <div className="flex items-center mb-6 group">
               <div className="relative">
-                <img 
-                  src="/images/icon.png" 
-                  alt="Rhobots Logo" 
+                <img
+                  src="/images/icon.png"
+                  alt="Rhobots Logo"
                   className="w-10 h-10 group-hover:scale-110 transition-all duration-300 drop-shadow-md"
                 />
               </div>
               <span className="ml-3 text-3xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300">Rhobots</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
-              We build AI that actually gets stuff done. No fluff, no hype, just intelligent agents that make your work life better. 
+              We build AI that actually gets stuff done. No fluff, no hype, just intelligent agents that make your work life better.
               <span className="text-cyan-400 font-semibold">Because life's too short for bad AI.</span>
             </p>
-            
+
             {/* Fun stats */}
             <div className="grid grid-cols-3 gap-4 mb-6 text-center">
               <div className="bg-white/5 rounded-lg p-3 border border-white/10">
@@ -45,16 +44,16 @@ const Footer = () => {
 
             {/* Enhanced social links */}
             <div className="flex space-x-4">
-              <a href="#" className="group w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all duration-300 hover:scale-110">
-                <Twitter className="w-5 h-5 group-hover:animate-bounce" />
+              <a href="https://x.com/rhobotsai" target="_blank" className="group w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all duration-300 hover:scale-110">
+                <XIcon className="w-5 h-5 group-hover:animate-bounce" />
               </a>
-              <a href="#" className="group w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all duration-300 hover:scale-110">
+              <a href="https://www.linkedin.com/company/rhobotsai/" target="_blank" className="group w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all duration-300 hover:scale-110">
                 <Linkedin className="w-5 h-5 group-hover:animate-bounce" />
               </a>
-              <a href="#" className="group w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition-all duration-300 hover:scale-110">
+              <a href="https://github.com/rhobots-ai" target="_blank" className="group w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition-all duration-300 hover:scale-110">
                 <Github className="w-5 h-5 group-hover:animate-bounce" />
               </a>
-              <a href="#" className="group w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600 transition-all duration-300 hover:scale-110">
+              <a href="mailto:tech@rhobots.ai" className="group w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600 transition-all duration-300 hover:scale-110">
                 <Mail className="w-5 h-5 group-hover:animate-bounce" />
               </a>
             </div>
@@ -68,19 +67,19 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
-                <span className="mr-2 group-hover:animate-bounce">📚</span>
+                <Wrench className="w-4 h-4 mr-2 text-gray-400 group-hover:text-blue-400 group-hover:animate-bounce" />
                 Studio
               </a></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
-                <span className="mr-2 group-hover:animate-bounce">🎯</span>
+                <FileText className="w-4 h-4 mr-2 text-gray-400 group-hover:text-blue-400 group-hover:animate-bounce" />
                 Extract
               </a></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
-                <span className="mr-2 group-hover:animate-bounce">🔍</span>
+                <BarChart3 className="w-4 h-4 mr-2 text-gray-400 group-hover:text-blue-400 group-hover:animate-bounce" />
                 Sage
               </a></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
-                <span className="mr-2 group-hover:animate-bounce">🎙️</span>
+                <PhoneCall className="w-4 h-4 mr-2 text-gray-400 group-hover:text-blue-400 group-hover:animate-bounce" />
                 Pulse
               </a></li>
             </ul>
@@ -93,7 +92,7 @@ const Footer = () => {
               The Human Side
             </h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+              {/* <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
                 <span className="mr-2 group-hover:animate-bounce">🤖</span>
                 About Rhobots
               </a></li>
@@ -112,7 +111,7 @@ const Footer = () => {
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
                 <span className="mr-2 group-hover:animate-bounce">📰</span>
                 Press
-              </a></li>
+              </a></li> */}
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
                 <span className="mr-2 group-hover:animate-bounce">💬</span>
                 Contact Us
