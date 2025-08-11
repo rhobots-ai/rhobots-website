@@ -1,4 +1,5 @@
 import CallToAction from './components/CallToAction';
+import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import ProductShowcase from './components/ProductShowcase';
@@ -13,6 +14,7 @@ function App() {
       <WhyRhobots />
       <WhoWeWorkWith />
       <CallToAction />
+      <ContactUs />
       <Footer />
     </div>
   );

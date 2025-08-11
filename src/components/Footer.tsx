@@ -112,7 +112,7 @@ const Footer = () => {
                 <span className="mr-2 group-hover:animate-bounce">📰</span>
                 Press
               </a></li> */}
-              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+              <li><a href="#contact" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
                 <span className="mr-2 group-hover:animate-bounce">💬</span>
                 Contact Us
               </a></li>
@@ -120,32 +120,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Enhanced contact info */}
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="text-center mb-8">
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center justify-center">
-              <Coffee className="w-5 h-5 mr-2 text-amber-400" />
-              Let's Chat Over Digital Coffee
-            </h3>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="flex items-center justify-center text-gray-400 bg-white/5 rounded-lg p-4 border border-white/10 hover:border-white/20 transition-all duration-300">
-              <MapPin className="w-5 h-5 mr-3 text-blue-400" />
-              <span>🌍 Worldwide (Remote-First)</span>
-            </div>
-            <div className="flex items-center justify-center text-gray-400 bg-white/5 rounded-lg p-4 border border-white/10 hover:border-white/20 transition-all duration-300">
-              <Mail className="w-5 h-5 mr-3 text-blue-400" />
-              <span>tech@rhobots.ai</span>
-            </div>
-            <div className="flex items-center justify-center text-gray-400 bg-white/5 rounded-lg p-4 border border-white/10 hover:border-white/20 transition-all duration-300">
-              <Phone className="w-5 h-5 mr-3 text-blue-400" />
-              <span>+91 (704) 200-8497</span>
-            </div>
-          </div>
-        </div>
-
         {/* Enhanced bottom bar */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 text-sm mb-4 md:mb-0 flex items-center">
             <span>© 2025 Rhobots. Made with</span>
             <Heart className="w-4 h-4 mx-1 text-red-400 animate-pulse" />

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar, Zap, ArrowRight, Coffee, Rocket, Heart, Star } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Calendar, Zap, ArrowRight, Rocket, Heart, Star } from 'lucide-react';
 
 const CallToAction = () => {
   const [currentMessage, setCurrentMessage] = useState(0);
@@ -50,7 +50,15 @@ const CallToAction = () => {
 
           {/* Enhanced CTAs */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <button className="group bg-white text-blue-600 px-10 py-5 rounded-full font-bold text-xl hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl flex items-center relative overflow-hidden">
+            <button
+              onClick={() => {
+                const el = document.getElementById('contact');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="group bg-white text-blue-600 px-10 py-5 rounded-full font-bold text-xl hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl flex items-center relative overflow-hidden"
+            >
               <Calendar className="mr-3 w-7 h-7 group-hover:animate-bounce" />
               <span className="relative z-10">Let's Talk AI Magic</span>
               <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform relative z-10" />
@@ -82,7 +90,7 @@ const CallToAction = () => {
                 description: 'We never sleep',
                 gradient: 'from-cyan-400 to-blue-400'
               }
-            ].map((prop, index) => {
+            ].map((prop) => {
               const Icon = prop.icon;
               return (
                 <div key={prop.title} className="group">
