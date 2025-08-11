@@ -1,5 +1,4 @@
-import React from 'react';
-import { GraduationCap, Heart, Scale, Building, Users, DollarSign, Briefcase, Shield } from 'lucide-react';
+import { Building, DollarSign, Heart, Scale, Shield, ShoppingCart, Cog, GraduationCap, Film, Wifi, Zap, Truck, Home, Smartphone, Cloud, Plane, Users } from 'lucide-react';
 
 const sectors = [
   {
@@ -46,6 +45,114 @@ const sectors = [
     gradient: 'from-purple-500 to-violet-500',
     emoji: '🏛️',
     quirkyFact: 'Security clearance not required (but appreciated)'
+  },
+  {
+    icon: ShoppingCart,
+    title: 'Retail & E-commerce',
+    subtitle: 'Cart Smarts',
+    description: 'Personalized shopping, demand forecasting, and support that doesn\'t bounce at checkout. Turn browsers into buyers—at scale.',
+    gradient: 'from-pink-500 to-rose-500',
+    emoji: '🛍️',
+    quirkyFact: 'Predicts trends faster than they trend'
+  },
+  {
+    icon: Cog,
+    title: 'Manufacturing',
+    subtitle: 'Smarter Production',
+    description: 'Predictive maintenance, quality inspection, and supply chain optimization that keep lines moving and margins happy.',
+    gradient: 'from-gray-500 to-slate-500',
+    emoji: '⚙️',
+    quirkyFact: 'Finds bottlenecks before they bottleneck'
+  },
+  {
+    icon: GraduationCap,
+    title: 'Education',
+    subtitle: 'Learning Amplified',
+    description: 'Adaptive learning, research copilots, and automated admin that give educators more time to actually teach.',
+    gradient: 'from-indigo-500 to-blue-500',
+    emoji: '🎓',
+    quirkyFact: 'Never sleeps through class'
+  },
+  {
+    icon: Film,
+    title: 'Media & Entertainment',
+    subtitle: 'Lights, Camera, Insights',
+    description: 'Content tagging, highlight generation, and audience insights so good they deserve their own trailer.',
+    gradient: 'from-red-500 to-orange-500',
+    emoji: '🎬',
+    quirkyFact: 'Binge-processes footage without spoilers'
+  },
+  {
+    icon: Wifi,
+    title: 'Telecommunications',
+    subtitle: 'Connected Intelligence',
+    description: 'Network monitoring, churn prediction, and AI support that understands “my internet is being weird.”',
+    gradient: 'from-cyan-500 to-blue-500',
+    emoji: '📶',
+    quirkyFact: 'Optimizes before the bars drop'
+  },
+  {
+    icon: Zap,
+    title: 'Energy & Utilities',
+    subtitle: 'Powering Efficiency',
+    description: 'Load forecasting, anomaly detection, and safety monitoring that keep the lights on and the costs down.',
+    gradient: 'from-yellow-500 to-amber-500',
+    emoji: '⚡',
+    quirkyFact: 'Finds spikes before they shock you'
+  },
+  {
+    icon: Truck,
+    title: 'Transportation & Logistics',
+    subtitle: 'Right Place, Right Time',
+    description: 'Route optimization, ETA predictions, and ops copilots that make “on time” your new default.',
+    gradient: 'from-emerald-500 to-teal-500',
+    emoji: '🚚',
+    quirkyFact: 'Finds the fastest path through chaos'
+  },
+  {
+    icon: Home,
+    title: 'Real Estate',
+    subtitle: 'Smart Properties',
+    description: 'Lead scoring, document automation, and market analysis that makes closing feel... well, easier.',
+    gradient: 'from-lime-500 to-green-500',
+    emoji: '🏠',
+    quirkyFact: 'Spots value before the listings do'
+  },
+  {
+    icon: Smartphone,
+    title: 'Consumer Technology',
+    subtitle: 'Delight at Scale',
+    description: 'Feedback analysis, product insights, and support that sounds human—because it is.',
+    gradient: 'from-purple-500 to-fuchsia-500',
+    emoji: '📱',
+    quirkyFact: 'Understands users better than your backlog'
+  },
+  {
+    icon: Cloud,
+    title: 'Software & SaaS',
+    subtitle: 'Ship Smarter',
+    description: 'Release notes, docs, and support workflows that actually keep up with your sprints.',
+    gradient: 'from-sky-500 to-cyan-500',
+    emoji: '☁️',
+    quirkyFact: 'Cuts tickets before they pile up'
+  },
+  {
+    icon: Plane,
+    title: 'Travel & Hospitality',
+    subtitle: 'Smooth Journeys',
+    description: 'Personalized recommendations, guest support, and ops automation that make every trip feel first-class.',
+    gradient: 'from-orange-500 to-amber-500',
+    emoji: '✈️',
+    quirkyFact: 'Reduces turbulence in your CX'
+  },
+  {
+    icon: Users,
+    title: 'Nonprofits & NGOs',
+    subtitle: 'Impact First',
+    description: 'Grant writing copilots, donor insights, and program reporting that free up time to drive real impact.',
+    gradient: 'from-rose-500 to-pink-500',
+    emoji: '🤝',
+    quirkyFact: 'Stretches every dollar further'
   }
 ];
 
@@ -56,7 +163,7 @@ const WhoWeWorkWith = () => {
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]"></div>
       <div className="absolute top-1/4 left-0 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 right-0 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -66,7 +173,7 @@ const WhoWeWorkWith = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-            From Fortune 500 giants to highly regulated industries, we help organizations that take their data seriously 
+            From Fortune 500 giants to highly regulated industries, we help organizations that take their data seriously
             (and appreciate AI that doesn't cause compliance nightmares). <span className="text-cyan-400 font-semibold">We're picky like that.</span>
           </p>
         </div>
@@ -96,18 +203,18 @@ const WhoWeWorkWith = () => {
                 <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
                   {sector.title}
                 </h3>
-                
+
                 <p className="text-sm text-gray-400 mb-4 italic">
                   {sector.subtitle}
                 </p>
-                
+
                 <p className="text-gray-300 leading-relaxed">
                   {sector.description}
                 </p>
 
                 {/* Enhanced hover gradient overlay */}
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${sector.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-                
+
                 {/* Floating particles on hover */}
                 <div className="absolute inset-0 pointer-events-none">
                   <div className="absolute top-1/3 left-1/4 w-1 h-1 bg-white rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-all duration-1000 delay-100"></div>
@@ -120,31 +227,6 @@ const WhoWeWorkWith = () => {
 
         {/* Enhanced trust section */}
         <div className="text-center">
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-white mb-4">The Cool Kids Club</h3>
-            <p className="text-gray-400 text-lg">Organizations that trust us with their most important stuff</p>
-          </div>
-          
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
-            {[
-              { label: 'Fortune 500', subtitle: 'Big names, bigger results' },
-              { label: 'Financial Services', subtitle: 'Money talks, we listen' },
-              { label: 'Global Law Firms', subtitle: 'Justice served digitally' },
-              { label: 'Healthcare Systems', subtitle: 'Caring for the carers' }
-            ].map((client, index) => (
-              <div key={client.label} className="group">
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105">
-                  <div className="text-white font-bold text-lg mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">
-                    {client.label}
-                  </div>
-                  <div className="text-xs text-gray-400">
-                    {client.subtitle}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
           {/* Fun testimonial */}
           <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-2xl p-8 max-w-3xl mx-auto border border-white/10">
             <div className="text-2xl mb-4">💬</div>

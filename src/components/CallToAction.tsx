@@ -56,11 +56,6 @@ const CallToAction = () => {
               <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform relative z-10" />
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
             </button>
-            
-            <button className="group bg-transparent border-2 border-white/50 text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-white/10 hover:border-white/70 transition-all duration-300 flex items-center backdrop-blur-sm hover:scale-105">
-              <Coffee className="mr-3 w-7 h-7 group-hover:animate-spin" />
-              <span>Try Our AI (Coffee Optional)</span>
-            </button>
           </div>
 
           {/* Enhanced value props */}
@@ -70,7 +65,7 @@ const CallToAction = () => {
                 icon: Heart, 
                 title: 'Free', 
                 subtitle: 'Initial Consultation', 
-                description: 'No strings attached (except maybe friendship)',
+                description: 'No strings attached',
                 gradient: 'from-red-400 to-pink-400'
               },
               { 
@@ -84,7 +79,7 @@ const CallToAction = () => {
                 icon: Rocket, 
                 title: '24/7', 
                 subtitle: 'Expert Support', 
-                description: 'We never sleep (our AI doesn\'t either)',
+                description: 'We never sleep',
                 gradient: 'from-cyan-400 to-blue-400'
               }
             ].map((prop, index) => {

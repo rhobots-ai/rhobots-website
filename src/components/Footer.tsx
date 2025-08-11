@@ -69,27 +69,19 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
                 <span className="mr-2 group-hover:animate-bounce">📚</span>
-                DocumentLM
+                Studio
               </a></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
                 <span className="mr-2 group-hover:animate-bounce">🎯</span>
-                FineTuning Platform
+                Extract
               </a></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
                 <span className="mr-2 group-hover:animate-bounce">🔍</span>
-                AI Browser Agent
+                Sage
               </a></li>
               <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
                 <span className="mr-2 group-hover:animate-bounce">🎙️</span>
-                Voice AI Agent
-              </a></li>
-              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
-                <span className="mr-2 group-hover:animate-bounce">📖</span>
-                API Documentation
-              </a></li>
-              <li><a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
-                <span className="mr-2 group-hover:animate-bounce">💰</span>
-                Pricing (It's Fair)
+                Pulse
               </a></li>
             </ul>
           </div>

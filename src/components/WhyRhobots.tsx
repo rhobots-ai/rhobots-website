@@ -126,13 +126,13 @@ const WhyRhobots = () => {
             ].map((stat, index) => (
               <div key={stat.label} className="text-center group">
                 <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105">
-                  <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2 group-hover:from-cyan-400 group-hover:to-pink-400 transition-all duration-300">
+                  <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2 group-hover:from-cyan-400 group-hover:to-pink-400 transition-all duration-300">
                     {stat.number}
                   </div>
                   <div className="text-white font-semibold mb-2">
                     {stat.label}
                   </div>
-                  <div className="text-xs text-gray-400 leading-relaxed">
+                  <div className="text-s text-gray-400 leading-relaxed">
                     {stat.subtitle}
                   </div>
                 </div>
