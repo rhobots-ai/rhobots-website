@@ -195,7 +195,7 @@ const ContactPage = () => {
               </a>
             </div>
 
-            <ContactUs variant="compact" />
+            <ContactUs />
           </div>
         </div>
       </main>

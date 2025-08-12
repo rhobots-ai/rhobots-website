@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 overflow-hidden">
       {/* Enhanced animated background elements */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-500"></div>
@@ -33,17 +33,17 @@ const Hero = () => {
       </div>
 
       {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px] pointer-events-none"></div>
 
       {/* Floating AI thought bubbles */}
-      <div className="absolute top-20 right-10 bg-white/10 backdrop-blur-sm rounded-2xl px-4 py-2 text-white text-sm animate-bounce delay-1000">
+      <div className="absolute top-20 right-10 bg-white/10 backdrop-blur-sm rounded-2xl px-4 py-2 text-white text-sm animate-bounce delay-1000 hidden md:block pointer-events-none">
         <div className="flex items-center space-x-2">
           <Brain className="w-4 h-4 text-cyan-400" />
           <span className="transition-all duration-500">{thoughts[currentThought]}</span>
         </div>
       </div>
 
-      <div className="absolute bottom-32 left-10 bg-white/10 backdrop-blur-sm rounded-2xl px-4 py-2 text-white text-sm animate-bounce delay-2000">
+      <div className="absolute bottom-32 left-10 bg-white/10 backdrop-blur-sm rounded-2xl px-4 py-2 text-white text-sm animate-bounce delay-2000 hidden md:block pointer-events-none">
         <div className="flex items-center space-x-2">
           <Lightbulb className="w-4 h-4 text-yellow-400" />
           <span>Innovation in progress...</span>
@@ -126,11 +126,11 @@ const Hero = () => {
       </div>
 
       {/* Enhanced floating elements */}
-      <div className="absolute bottom-10 left-10 w-3 h-3 bg-blue-400 rounded-full animate-bounce"></div>
-      <div className="absolute top-1/3 right-20 w-4 h-4 bg-purple-400 rounded-full animate-bounce delay-300"></div>
-      <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-indigo-400 rounded-full animate-bounce delay-700"></div>
-      <div className="absolute top-1/2 left-20 w-2 h-2 bg-cyan-400 rounded-full animate-bounce delay-1000"></div>
-      <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-pink-400 rounded-full animate-bounce delay-1500"></div>
+      <div className="absolute bottom-10 left-10 w-3 h-3 bg-blue-400 rounded-full animate-bounce hidden md:block pointer-events-none"></div>
+      <div className="absolute top-1/3 right-20 w-4 h-4 bg-purple-400 rounded-full animate-bounce delay-300 hidden md:block pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-indigo-400 rounded-full animate-bounce delay-700 hidden md:block pointer-events-none"></div>
+      <div className="absolute top-1/2 left-20 w-2 h-2 bg-cyan-400 rounded-full animate-bounce delay-1000 hidden md:block pointer-events-none"></div>
+      <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-pink-400 rounded-full animate-bounce delay-1500 hidden md:block pointer-events-none"></div>
     </section>
   );
 };
