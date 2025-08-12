@@ -5,7 +5,7 @@ type ContactUsProps = {
   variant?: 'section' | 'compact';
 };
 
-const ContactUs: FC<ContactUsProps> = () => {
+const ContactUs: FC<ContactUsProps> = ({ variant = 'section' }) => {
   return (
     <section id="contact" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900 overflow-hidden">
       <div className="absolute inset-0 bg-grid-white/[0.03] bg-[size:50px_50px]"></div>
@@ -17,7 +17,13 @@ const ContactUs: FC<ContactUsProps> = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div
+          className={
+            variant === 'compact'
+              ? 'grid grid-cols-1 gap-4'
+              : 'grid md:grid-cols-3 gap-6 max-w-5xl mx-auto'
+          }
+        >
           <a
             href="mailto:tech@rhobots.ai"
             className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl p-6 transition-all duration-300 flex items-start gap-4"

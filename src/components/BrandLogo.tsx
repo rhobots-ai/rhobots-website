@@ -10,7 +10,7 @@ interface BrandLogoProps {
 }
 
 const BrandLogo: React.FC<BrandLogoProps> = ({ variant = 'lg', className = '', label = 'Rhobots', align = 'center' }) => {
-  const imageSizeClass = variant === 'sm' ? 'w-10 h-10' : 'w-20 h-20';
+  const imageSizeClass = variant === 'sm' ? 'w-6 h-6' : 'w-20 h-20';
   const justificationClass = align === 'start' ? 'justify-start' : 'justify-center';
 
   return (

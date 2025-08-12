@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Mail, Send, User, Building2, MessageSquareMore, Rocket } from 'lucide-react';
 import ContactUs from '../components/ContactUs';
 import Footer from '../components/Footer';
+import BrandLogo from '../components/BrandLogo';
 
 const ContactPage = () => {
   const navigate = useNavigate();
@@ -51,10 +52,7 @@ const ContactPage = () => {
             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to Home
           </button>
-          <div className="flex items-center gap-3">
-            <img src="/images/icon.png" alt="Rhobots" className="w-8 h-8 rounded-md" />
-            <span className="text-xl font-bold">Rhobots</span>
-          </div>
+          <BrandLogo variant="sm"/>
         </div>
       </header>
 
@@ -83,7 +81,7 @@ const ContactPage = () => {
         </div>
       </section>
 
-      <main className="relative z-10 container mx-auto px-6 pb-20">
+      <main className="relative z-10 container mx-auto px-6 py-20">
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6 lg:p-8 backdrop-blur-sm">
             <div className="mb-6">
@@ -195,7 +193,7 @@ const ContactPage = () => {
               </a>
             </div>
 
-            <ContactUs />
+            <ContactUs variant="compact" />
           </div>
         </div>
       </main>
