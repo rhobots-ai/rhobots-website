@@ -1,6 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Mail, Send, User, Building2, MessageSquareMore, Rocket } from 'lucide-react';
+import { ArrowLeft, Mail, Send, User, Building2, Rocket } from 'lucide-react';
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
 import ContactUs from '../components/ContactUs';
 import Footer from '../components/Footer';
 import BrandLogo from '../components/BrandLogo';
@@ -11,8 +12,9 @@ const ContactPage = () => {
   const [fullName, setFullName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
   const [companyName, setCompanyName] = useState('');
-  const [projectScope, setProjectScope] = useState('');
-  const [messageBody, setMessageBody] = useState('');
+  const [phoneValue, setPhoneValue] = useState('');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const isValidEmail = (value: string) => /.+@.+\..+/.test(value);
 
@@ -20,25 +22,62 @@ const ContactPage = () => {
     return (
       fullName.trim().length > 1 &&
       isValidEmail(emailAddress) &&
-      messageBody.trim().length > 10
+      isValidPhoneNumber(phoneValue || '')
     );
-  }, [fullName, emailAddress, messageBody]);
+  }, [fullName, emailAddress, phoneValue]);
 
-  const handleSubmit = () => {
-    if (!isSubmitEnabled) return;
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!isSubmitEnabled || status === 'submitting') return;
 
-    const subject = encodeURIComponent(`Rhobots Contact — ${companyName || fullName}`);
-    const bodyLines = [
-      `Name: ${fullName}`,
-      `Email: ${emailAddress}`,
-      companyName ? `Company: ${companyName}` : undefined,
-      projectScope ? `Scope: ${projectScope}` : undefined,
-      '',
-      messageBody,
-    ].filter(Boolean);
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
+    if (!accessKey) {
+      setStatus('error');
+      setErrorMessage('Missing Web3Forms access key. Set VITE_WEB3FORMS_ACCESS_KEY in your environment.');
+      return;
+    }
 
-    const body = encodeURIComponent(bodyLines.join('\n'));
-    window.location.href = `mailto:tech@rhobots.ai?subject=${subject}&body=${body}`;
+    try {
+      setStatus('submitting');
+      setErrorMessage('');
+
+      const formElement = event.currentTarget;
+      const formData = new FormData(formElement);
+
+      // Ensure required fields are present in the payload
+      formData.set('access_key', accessKey);
+      formData.set('subject', `Rhobots Contact — ${companyName || fullName}`);
+      formData.set('from_name', 'Rhobots.ai Website');
+      formData.set('phone', phoneValue);
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      const result = (await response.json()) as { success?: boolean; message?: string };
+
+      if (response.ok && result?.success) {
+        setStatus('success');
+        // Clear form inputs
+        setFullName('');
+        setEmailAddress('');
+        setCompanyName('');
+        setPhoneValue('');
+        // Reset the hidden honeypot field
+        const botInput = formElement.querySelector<HTMLInputElement>('input[name="botcheck"]');
+        if (botInput) botInput.checked = false;
+      } else {
+        setStatus('error');
+        setErrorMessage(result?.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage('Network error. Please try again.');
+    }
   };
 
   return (
@@ -52,7 +91,7 @@ const ContactPage = () => {
             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to Home
           </button>
-          <BrandLogo variant="sm"/>
+          <BrandLogo variant="sm" />
         </div>
       </header>
 
@@ -71,12 +110,10 @@ const ContactPage = () => {
               <span className="text-sm text-gray-200">Let’s build something brilliant together</span>
             </div>
             <h1 className="text-4xl lg:text-6xl font-extrabold leading-tight mb-6">
-              Tell us about your use case.
+              Share your details.
               <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">We’ll reply within 1 business day.</span>
             </h1>
-            <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
-              Whether you’re exploring agents, automating a process, or aiming for enterprise-grade deployment with governance and SLAs, we’ve got you.
-            </p>
+            <p className="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">We just need a few basics to get in touch.</p>
           </div>
         </div>
       </section>
@@ -89,16 +126,22 @@ const ContactPage = () => {
               <p className="text-gray-400">A short brief is perfect. We’ll follow up with the right specialist.</p>
             </div>
 
-            <div className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+              {/* Honeypot to reduce spam */}
+              <input type="checkbox" name="botcheck" tabIndex={-1} className="hidden" aria-hidden="true" />
+
               <div>
                 <label className="block text-sm text-gray-300 mb-2">Full name</label>
                 <div className="flex items-center bg-gray-900 border border-white/10 rounded-xl px-3">
                   <User className="w-5 h-5 text-gray-400" />
                   <input
+                    name="name"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="Jane Doe"
                     className="w-full bg-transparent px-3 py-3 outline-none text-white placeholder:text-gray-500"
+                    required
+                    minLength={2}
                   />
                 </div>
               </div>
@@ -109,10 +152,12 @@ const ContactPage = () => {
                   <Mail className="w-5 h-5 text-gray-400" />
                   <input
                     type="email"
+                    name="email"
                     value={emailAddress}
                     onChange={(e) => setEmailAddress(e.target.value)}
                     placeholder="you@company.com"
                     className="w-full bg-transparent px-3 py-3 outline-none text-white placeholder:text-gray-500"
+                    required
                   />
                 </div>
                 {!isValidEmail(emailAddress) && emailAddress.length > 0 && (
@@ -120,65 +165,65 @@ const ContactPage = () => {
                 )}
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-sm text-gray-300 mb-2">Company</label>
-                  <div className="flex items-center bg-gray-900 border border-white/10 rounded-xl px-3">
-                    <Building2 className="w-5 h-5 text-gray-400" />
-                    <input
-                      value={companyName}
-                      onChange={(e) => setCompanyName(e.target.value)}
-                      placeholder="Acme Corp"
-                      className="w-full bg-transparent px-3 py-3 outline-none text-white placeholder:text-gray-500"
-                    />
-                  </div>
+              <div>
+                <label className="block text-sm text-gray-300 mb-2">Phone number</label>
+                <div className="bg-gray-900 border border-white/10 rounded-xl p-3">
+                  <PhoneInput
+                    name="phone"
+                    value={phoneValue || ''}
+                    onChange={(v) => setPhoneValue(v || '')}
+                    defaultCountry="US"
+                    international
+                    className="text-white"
+                    numberInputProps={{
+                      className: 'PhoneInputInput bg-transparent w-full outline-none text-white placeholder:text-gray-500',
+                      required: true,
+                    }}
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm text-gray-300 mb-2">Project scope</label>
-                  <select
-                    value={projectScope}
-                    onChange={(e) => setProjectScope(e.target.value)}
-                    className="w-full bg-gray-900 border border-white/10 rounded-xl px-4 py-3 text-gray-300"
-                  >
-                    <option value="">Select one</option>
-                    <option>Discovery / Strategy</option>
-                    <option>Pilot / POC</option>
-                    <option>Production rollout</option>
-                    <option>MLOps / Governance</option>
-                    <option>Something else</option>
-                  </select>
-                </div>
+                {!(!phoneValue || isValidPhoneNumber(phoneValue)) && (
+                  <div className="text-xs text-amber-300 mt-1">Please enter a valid phone number.</div>
+                )}
               </div>
 
               <div>
-                <label className="block text-sm text-gray-300 mb-2">Tell us more</label>
-                <div className="flex items-start bg-gray-900 border border-white/10 rounded-xl px-3">
-                  <MessageSquareMore className="w-5 h-5 text-gray-400 mt-3" />
-                  <textarea
-                    value={messageBody}
-                    onChange={(e) => setMessageBody(e.target.value)}
-                    placeholder="What problem are you solving? What does success look like? Any timelines we should know about?"
-                    rows={6}
+                <label className="block text-sm text-gray-300 mb-2">Company</label>
+                <div className="flex items-center bg-gray-900 border border-white/10 rounded-xl px-3">
+                  <Building2 className="w-5 h-5 text-gray-400" />
+                  <input
+                    name="company"
+                    value={companyName}
+                    onChange={(e) => setCompanyName(e.target.value)}
+                    placeholder="Acme Corp"
                     className="w-full bg-transparent px-3 py-3 outline-none text-white placeholder:text-gray-500"
                   />
                 </div>
-                <div className="flex justify-between text-xs text-gray-400 mt-1">
-                  <span>We’ll keep it confidential.</span>
-                  <span>{messageBody.length} chars</span>
-                </div>
               </div>
 
+              <div className="text-xs text-gray-400">We’ll keep your details confidential.</div>
+
+              {status === 'success' && (
+                <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 text-sm px-4 py-3">
+                  Thanks! Your message has been sent. We’ll be in touch within 1 business day.
+                </div>
+              )}
+              {status === 'error' && (
+                <div className="rounded-xl border border-rose-500/30 bg-rose-500/10 text-rose-300 text-sm px-4 py-3">
+                  {errorMessage || 'There was an error sending your message.'}
+                </div>
+              )}
+
               <button
-                onClick={handleSubmit}
-                disabled={!isSubmitEnabled}
+                type="submit"
+                disabled={!isSubmitEnabled || status === 'submitting'}
                 className="group inline-flex items-center justify-center w-full bg-gradient-to-r from-blue-600 to-purple-600 disabled:from-gray-700 disabled:to-gray-700 text-white font-semibold px-5 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all"
               >
                 <Send className="w-5 h-5 mr-2 group-hover:translate-x-0.5 transition-transform" />
-                Send to Rhobots
+                {status === 'submitting' ? 'Sending…' : 'Send to Rhobots'}
               </button>
 
               <div className="text-xs text-gray-400 text-center">Or email us directly at <a href="mailto:tech@rhobots.ai" className="text-blue-300 hover:underline">tech@rhobots.ai</a></div>
-            </div>
+            </form>
           </div>
 
           <div>
