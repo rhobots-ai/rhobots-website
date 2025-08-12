@@ -1,4 +1,5 @@
-import { BarChart3, Coffee, FileText, Github, Heart, Linkedin, Mail, MapPin, Phone, PhoneCall, Wrench, XIcon, Zap } from 'lucide-react';
+import { BarChart3, Coffee, FileText, Github, Heart, Linkedin, Mail, PhoneCall, Wrench, XIcon, Zap } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 const Footer = () => {
   return (
@@ -11,16 +12,7 @@ const Footer = () => {
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
           {/* Enhanced Brand section */}
           <div className="lg:col-span-2">
-            <div className="flex items-center mb-6 group">
-              <div className="relative">
-                <img
-                  src="/images/icon.png"
-                  alt="Rhobots Logo"
-                  className="w-10 h-10 group-hover:scale-110 transition-all duration-300 drop-shadow-md"
-                />
-              </div>
-              <span className="ml-3 text-3xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300">Rhobots</span>
-            </div>
+            <BrandLogo variant="sm" align="start" className="mb-6" />
             <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
               We build AI that actually gets stuff done. No fluff, no hype, just intelligent agents that make your work life better.
               <span className="text-cyan-400 font-semibold">Because life's too short for bad AI.</span>
