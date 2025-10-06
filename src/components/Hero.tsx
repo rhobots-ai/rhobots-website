@@ -79,7 +79,7 @@ const Hero = () => {
 
           {/* Enhanced CTAs */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-            <button
+            {/* <button
               onClick={() => {
                 const el = document.getElementById('product-showcase');
                 if (el) {
@@ -91,7 +91,7 @@ const Hero = () => {
               <span className="relative z-10">Meet Our AI Squad</span>
               <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform relative z-10" />
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
+            </button> */}
             <button
               onClick={() => navigate('/contact')}
               className="group bg-white text-blue-700 px-10 py-5 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-2xl flex items-center relative overflow-hidden"
