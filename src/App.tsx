@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, CheckCircle, Play, Building2, Shield, Zap, TrendingUp, Users, Lock, Globe, Award, BarChart } from 'lucide-react';
+import { ArrowRight, CheckCircle, Play, Building2, Shield, Zap, TrendingUp, Users, Lock, Globe, Award, BarChart, Bot } from 'lucide-react';
 import BrandLogo from './components/BrandLogo';
 import Footer from './components/Footer';
 import { useNavigate } from 'react-router-dom';
@@ -47,6 +47,14 @@ const UnifyStyleLanding = () => {
       features: ['Real-time transcription', 'Script assistance', 'Sentiment tracking', 'Quality scoring'],
       icon: Users,
       gradient: 'from-pink-600 to-red-600'
+    },
+    {
+      title: 'Operator',
+      subtitle: 'Browser Automation Platform',
+      description: 'Enterprise-grade browser automation leveraging AI agents for task execution, with session management, video recording, and multi-provider support.',
+      features: ['AI-powered automation', 'Real-time monitoring', 'Video recording & audit trails', 'Multi-LLM support'],
+      icon: Bot,
+      gradient: 'from-orange-600 to-amber-600'
     }
   ];
 
