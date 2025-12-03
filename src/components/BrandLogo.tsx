@@ -1,35 +1,57 @@
 import React from 'react';
 
 type BrandLogoVariant = 'sm' | 'lg';
+type BrandLogoTheme = 'light' | 'dark';
 
 interface BrandLogoProps {
   variant?: BrandLogoVariant;
+  theme?: BrandLogoTheme;
   className?: string;
   label?: string;
   align?: 'start' | 'center';
 }
 
-const BrandLogo: React.FC<BrandLogoProps> = ({ variant = 'lg', className = '', label = 'Rhobots', align = 'center' }) => {
-  const imageSizeClass = variant === 'sm' ? 'w-6 h-6' : 'w-20 h-20';
+const BrandLogo: React.FC<BrandLogoProps> = ({
+  variant = 'lg',
+  theme = 'light',
+  className = '',
+  label = 'Rhobots',
+  align = 'center'
+}) => {
+  const imageSizeClass = variant === 'sm' ? 'w-8 h-8' : 'w-12 h-12';
+  const textSizeClass = variant === 'sm' ? 'text-xl' : 'text-2xl';
   const justificationClass = align === 'start' ? 'justify-start' : 'justify-center';
+
+  // Theme-specific styles
+  const isLight = theme === 'light';
+  const hoverShadowClass = isLight
+    ? 'bg-blue-500/5'
+    : 'bg-blue-500/10';
+  const borderClass = isLight
+    ? 'bg-gradient-to-br from-gray-200 to-gray-300 group-hover:from-blue-200 group-hover:to-cyan-200'
+    : 'bg-gradient-to-br from-gray-700 to-gray-800 group-hover:from-gray-600 group-hover:to-gray-700';
+  const bgClass = isLight ? 'bg-white' : 'bg-gray-900';
+  const textClass = isLight
+    ? 'text-gray-900 group-hover:text-blue-600'
+    : 'text-white group-hover:text-blue-400';
 
   return (
     <div className={`flex items-center ${justificationClass} group ${className}`}>
       <div className="relative">
-        {/* soft glowing aura */}
-        <div className="absolute -inset-3 rounded-2xl bg-gradient-to-r from-blue-500/30 via-cyan-400/25 to-purple-500/30 blur-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
-        {/* gradient ring wrapper */}
-        <div className="relative p-[2px] rounded-2xl bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500 group-hover:from-blue-400 group-hover:to-purple-400 transition-colors duration-500">
-          <div className="rounded-2xl bg-gray-900/80 p-2 backdrop-blur-sm">
+        {/* Subtle shadow on hover */}
+        <div className={`absolute -inset-2 rounded-xl ${hoverShadowClass} blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+        {/* Simple border wrapper */}
+        <div className={`relative p-[1px] rounded-xl ${borderClass} transition-colors duration-300`}>
+          <div className={`rounded-xl ${bgClass} p-1.5`}>
             <img
               src="/images/icon.png"
               alt="Rhobots Logo"
-              className={`${imageSizeClass} rounded-xl ring-2 ring-white/10 shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
+              className={`${imageSizeClass} rounded-lg transition-transform duration-300 group-hover:scale-105`}
             />
           </div>
         </div>
       </div>
-      <span className="ml-4 text-3xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300">
+      <span className={`ml-3 ${textSizeClass} font-bold ${textClass} transition-colors duration-300`}>
         {label}
       </span>
     </div>
