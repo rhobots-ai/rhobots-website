@@ -263,7 +263,7 @@ const UnifyStyleLanding = () => {
               </h1>
 
               <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                Rhobots delivers production-grade AI that integrates securely into your systems,
+                MayvionAI delivers production-grade AI that integrates securely into your systems,
                 drives measurable efficiency, and operationalizes at scale.
                 <span className="block mt-4 text-blue-600 font-semibold">
                   We don't experiment. We ship reliable AI in days, not months.
@@ -302,7 +302,7 @@ const UnifyStyleLanding = () => {
                     <iframe
                       className="w-full h-full"
                       src="https://www.youtube.com/embed/-oODQSd9rLk?autoplay=1&rel=0"
-                      title="Rhobots Platform Demo"
+                      title="MayvionAI Platform Demo"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     ></iframe>
@@ -481,7 +481,7 @@ const UnifyStyleLanding = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Why Enterprises
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent"> Choose Rhobots</span>
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent"> Choose MayvionAI</span>
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Built for production from day one, with the security, governance, and reliability that enterprise teams require.
@@ -517,7 +517,7 @@ const UnifyStyleLanding = () => {
               <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent"> AI from pilot to production?</span>
             </h2>
             <p className="text-xl text-gray-700 mb-10">
-              Join leading enterprises that are operationalizing AI at scale with Rhobots.
+              Join leading enterprises that are operationalizing AI at scale with MayvionAI.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button onClick={() => navigate('contact')} className="group bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-10 py-5 rounded-lg font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center">

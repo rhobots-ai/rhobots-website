@@ -24,7 +24,7 @@ const ContactUs: FC<ContactUsProps> = ({ variant = 'section' }) => {
               : 'grid md:grid-cols-3 gap-6 max-w-5xl mx-auto'
           }
         >
-          <a
+          {/* <a
             href="mailto:tech@rhobots.ai"
             className="group bg-white hover:bg-gray-50 border border-gray-200 hover:border-blue-300 rounded-2xl p-6 transition-all duration-300 flex items-start gap-4 hover:shadow-lg"
           >
@@ -36,7 +36,7 @@ const ContactUs: FC<ContactUsProps> = ({ variant = 'section' }) => {
               <div className="text-gray-700">tech@rhobots.ai</div>
               <div className="text-gray-500 text-sm mt-1">Fastest way to reach the team</div>
             </div>
-          </a>
+          </a> */}
 
           <a
             href="tel:+917042008497"

@@ -35,7 +35,7 @@ const Footer = () => {
             </div>
 
             {/* Enhanced social links */}
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <a href="https://x.com/rhobotsai" target="_blank" className="group w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all duration-300 hover:scale-110">
                 <XIcon className="w-5 h-5 group-hover:animate-bounce" />
               </a>
@@ -48,7 +48,7 @@ const Footer = () => {
               <a href="mailto:tech@rhobots.ai" className="group w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600 transition-all duration-300 hover:scale-110">
                 <Mail className="w-5 h-5 group-hover:animate-bounce" />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Products */}
@@ -115,7 +115,7 @@ const Footer = () => {
         {/* Enhanced bottom bar */}
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 text-sm mb-4 md:mb-0">
-            <span>© 2025 Rhobots. All rights reserved.</span>
+            <span>© 2025 MayvionAI. All rights reserved.</span>
           </div>
           <div className="flex space-x-6 text-sm">
             <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:underline">Privacy Policy</a>

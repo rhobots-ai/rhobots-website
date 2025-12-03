@@ -219,10 +219,10 @@ const ContactPage = () => {
                 className="group inline-flex items-center justify-center w-full bg-gradient-to-r from-blue-600 to-purple-600 disabled:from-gray-300 disabled:to-gray-400 text-white font-semibold px-5 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all disabled:cursor-not-allowed"
               >
                 <Send className="w-5 h-5 mr-2 group-hover:translate-x-0.5 transition-transform" />
-                {status === 'submitting' ? 'Sending…' : 'Send to Rhobots'}
+                {status === 'submitting' ? 'Sending…' : 'Send to MayvionAI'}
               </button>
 
-              <div className="text-xs text-gray-600 text-center">Or email us directly at <a href="mailto:tech@rhobots.ai" className="text-blue-600 hover:underline">tech@rhobots.ai</a></div>
+              {/* <div className="text-xs text-gray-600 text-center">Or email us directly at <a href="mailto:tech@rhobots.ai" className="text-blue-600 hover:underline">tech@rhobots.ai</a></div> */}
             </form>
           </div>
 
