@@ -1,12 +1,23 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, CheckCircle, Play, Building2, Shield, Zap, TrendingUp, Users, Lock, Globe, Award, BarChart, Bot } from 'lucide-react';
+import { ArrowRight, CheckCircle, Play, Building2, Shield, Zap, TrendingUp, Users, Lock, Globe, Award, BarChart, Bot, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import BrandLogo from './components/BrandLogo';
 import Footer from './components/Footer';
 import { useNavigate } from 'react-router-dom';
 
+interface HackerNewsStory {
+  id: number;
+  title: string;
+  url?: string;
+  by: string;
+  score: number;
+}
+
 const UnifyStyleLanding = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [topStories, setTopStories] = useState<HackerNewsStory[]>([]);
+  const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
+  const [isLoadingStory, setIsLoadingStory] = useState(true);
 
   const stats = [
     { value: '85%', label: 'Faster Deployment', description: 'From pilot to production' },
@@ -98,10 +109,135 @@ const UnifyStyleLanding = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Fetch top 10 HackerNews stories about AI
+  useEffect(() => {
+    const fetchTopStories = async () => {
+      try {
+        setIsLoadingStory(true);
+
+        // Fetch top 10 AI-related stories using Algolia HN API
+        const response = await fetch('https://hn.algolia.com/api/v1/search?query=artificial%20intelligence&tags=story&hitsPerPage=10');
+        const data = await response.json();
+
+        if (data.hits && data.hits.length > 0) {
+          const stories: HackerNewsStory[] = data.hits.map((hit: any) => ({
+            id: hit.objectID,
+            title: hit.title,
+            url: hit.url,
+            by: hit.author,
+            score: hit.points
+          }));
+          setTopStories(stories);
+        }
+        setIsLoadingStory(false);
+      } catch (error) {
+        console.error('Failed to fetch HackerNews stories:', error);
+        setIsLoadingStory(false);
+      }
+    };
+
+    fetchTopStories();
+  }, []);
+
+  // Auto-rotate stories every 5 seconds
+  useEffect(() => {
+    if (topStories.length === 0) return;
+
+    const interval = setInterval(() => {
+      setCurrentStoryIndex((prev) => (prev + 1) % topStories.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [topStories]);
+
+  const handlePreviousStory = () => {
+    setCurrentStoryIndex((prev) => (prev - 1 + topStories.length) % topStories.length);
+  };
+
+  const handleNextStory = () => {
+    setCurrentStoryIndex((prev) => (prev + 1) % topStories.length);
+  };
+
+  const currentStory = topStories[currentStoryIndex];
+
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white">
+      {/* HackerNews Flash Bar */}
+      <div className="relative bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 text-white py-3 px-6 overflow-hidden">
+        {/* Animated background pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+
+        <div className="container mx-auto relative z-10">
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3 flex-1 min-w-0">
+              <Sparkles className="w-5 h-5 flex-shrink-0 animate-pulse" />
+
+              <div className="flex items-center gap-2 overflow-hidden">
+                <span className="font-semibold whitespace-nowrap">Top AI News on HackerNews:</span>
+                {isLoadingStory ? (
+                  <span className="text-sm">Loading...</span>
+                ) : currentStory ? (
+                  <a
+                    href={currentStory.url || `https://news.ycombinator.com/item?id=${currentStory.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="truncate hover:underline transition-all"
+                  >
+                    {currentStory.title}
+                  </a>
+                ) : (
+                  <span className="text-sm">Unable to load stories</span>
+                )}
+              </div>
+
+              {/* Story counter and discuss link */}
+              {currentStory && !isLoadingStory && (
+                <>
+                  <span className="whitespace-nowrap text-sm text-white/80">
+                    {currentStoryIndex + 1}/{topStories.length}
+                  </span>
+                  <a
+                    href={`https://news.ycombinator.com/item?id=${currentStory.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="whitespace-nowrap text-sm underline hover:text-orange-200 transition-colors"
+                  >
+                    Discuss ({currentStory.score} points) →
+                  </a>
+                </>
+              )}
+            </div>
+
+            {/* Navigation Arrows on Right */}
+            <div className="flex items-center gap-2">
+              {topStories.length > 0 && (
+                <>
+                  <button
+                    onClick={handlePreviousStory}
+                    className="flex-shrink-0 p-1 hover:bg-white/20 rounded transition-colors"
+                    aria-label="Previous story"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={handleNextStory}
+                    className="flex-shrink-0 p-1 hover:bg-white/20 rounded transition-colors"
+                    aria-label="Next story"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 to-blue-50">
         {/* Animated background */}
