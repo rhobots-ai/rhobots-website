@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, CheckCircle, Play, Building2, Shield, Zap, TrendingUp, Users, Lock, Globe, Award, BarChart, Bot, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, CheckCircle, Play, Building2, Shield, Zap, TrendingUp, Users, Lock, Globe, Award, BarChart, Bot } from 'lucide-react';
 import BrandLogo from './components/BrandLogo';
 import Footer from './components/Footer';
 import { useNavigate } from 'react-router-dom';
@@ -103,20 +103,20 @@ const Landing = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 to-blue-50">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 to-blue-50 pt-16 pb-20">
         {/* Animated background */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
 
-        <div className="container mx-auto px-6 py-20 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-6 max-w-7xl relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Content */}
             <div>
               <BrandLogo className="mb-8" variant="lg" align="start" />
 
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                 <span className="text-amber-600">95% of AI pilots fail</span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
@@ -124,15 +124,16 @@ const Landing = () => {
                 </span>
               </h1>
 
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                 MayvionAI delivers production-grade AI that integrates securely into your systems,
                 drives measurable efficiency, and operationalizes at scale.
-                <span className="block mt-4 text-blue-600 font-semibold">
-                  We don't experiment. We ship reliable AI in days, not months.
-                </span>
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <p className="text-lg text-blue-600 font-semibold mb-8">
+                We don't experiment. We ship reliable AI in days, not months.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <button onClick={() => navigate('contact')} className="group bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center">
                   Request a Demo
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -140,17 +141,17 @@ const Landing = () => {
               </div>
 
               {/* Trust indicators */}
-              <div className="flex flex-wrap gap-6 text-sm text-gray-600">
+              <div className="flex flex-wrap gap-4 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-green-600" />
                   <span>SOC 2 Type II</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-green-600" />
                   <span>On-Premise Available</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <CheckCircle className="w-4 h-4 text-green-600" />
                   <span>Enterprise SLA</span>
                 </div>
               </div>
@@ -213,20 +214,16 @@ const Landing = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Stats Bar */}
-      <section className="py-16 bg-gray-50 border-y border-gray-200">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Stats integrated into hero */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-20 pt-16 border-t border-gray-200">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
+                <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
                   {stat.value}
                 </div>
-                <div className="text-gray-900 font-semibold mb-1">{stat.label}</div>
-                <div className="text-sm text-gray-600">{stat.description}</div>
+                <div className="text-gray-900 font-semibold mb-1 text-sm lg:text-base">{stat.label}</div>
+                <div className="text-xs lg:text-sm text-gray-600">{stat.description}</div>
               </div>
             ))}
           </div>
@@ -235,7 +232,7 @@ const Landing = () => {
 
       {/* Trusted By */}
       <section className="py-12 bg-white border-b border-gray-200">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-8">
             <h3 className="text-gray-500 text-sm uppercase tracking-wider mb-6">Trusted by enterprises across</h3>
             <div className="flex flex-wrap justify-center items-center gap-12">
@@ -255,7 +252,7 @@ const Landing = () => {
 
       {/* Solutions Section with Tabs */}
       <section className="py-20 lg:py-32 bg-white">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Production-Grade AI
@@ -288,7 +285,7 @@ const Landing = () => {
           </div>
 
           {/* Tab Content */}
-          <div className="max-w-5xl mx-auto">
+          <div>
             {solutions.map((solution, index) => {
               const Icon = solution.icon;
               return (
@@ -339,7 +336,7 @@ const Landing = () => {
 
       {/* Differentiators Grid */}
       <section className="py-20 lg:py-32 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Why Enterprises
@@ -350,7 +347,7 @@ const Landing = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             {differentiators.map((item, index) => {
               const Icon = item.icon;
               return (
@@ -372,8 +369,8 @@ const Landing = () => {
 
       {/* CTA Section */}
       <section className="py-20 lg:py-32 bg-gradient-to-br from-blue-50 to-cyan-50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="text-center">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Ready to transform your
               <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent"> AI from pilot to production?</span>
