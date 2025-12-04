@@ -4,20 +4,9 @@ import BrandLogo from './components/BrandLogo';
 import Footer from './components/Footer';
 import { useNavigate } from 'react-router-dom';
 
-interface HackerNewsStory {
-  id: number;
-  title: string;
-  url?: string;
-  by: string;
-  score: number;
-}
-
-const UnifyStyleLanding = () => {
+const Landing = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const [topStories, setTopStories] = useState<HackerNewsStory[]>([]);
-  const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
-  const [isLoadingStory, setIsLoadingStory] = useState(true);
 
   const stats = [
     { value: '85%', label: 'Faster Deployment', description: 'From pilot to production' },
@@ -109,137 +98,10 @@ const UnifyStyleLanding = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Fetch top 10 HackerNews stories about AI
-  useEffect(() => {
-    const fetchTopStories = async () => {
-      try {
-        setIsLoadingStory(true);
-
-        // Fetch top 10 AI-related stories using Algolia HN API
-        const response = await fetch('https://hn.algolia.com/api/v1/search?query=artificial%20intelligence&tags=story&hitsPerPage=10');
-        const data = await response.json();
-
-        if (data.hits && data.hits.length > 0) {
-          const stories: HackerNewsStory[] = data.hits.map((hit: any) => ({
-            id: hit.objectID,
-            title: hit.title,
-            url: hit.url,
-            by: hit.author,
-            score: hit.points
-          }));
-          setTopStories(stories);
-        }
-        setIsLoadingStory(false);
-      } catch (error) {
-        console.error('Failed to fetch HackerNews stories:', error);
-        setIsLoadingStory(false);
-      }
-    };
-
-    fetchTopStories();
-  }, []);
-
-  // Auto-rotate stories every 5 seconds
-  useEffect(() => {
-    if (topStories.length === 0) return;
-
-    const interval = setInterval(() => {
-      setCurrentStoryIndex((prev) => (prev + 1) % topStories.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [topStories]);
-
-  const handlePreviousStory = () => {
-    setCurrentStoryIndex((prev) => (prev - 1 + topStories.length) % topStories.length);
-  };
-
-  const handleNextStory = () => {
-    setCurrentStoryIndex((prev) => (prev + 1) % topStories.length);
-  };
-
-  const currentStory = topStories[currentStoryIndex];
-
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white">
-      {/* HackerNews Flash Bar */}
-      <div className="relative bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 text-white py-2 md:py-3 px-3 md:px-6 overflow-hidden">
-        {/* Animated background pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        </div>
-
-        <div className="container mx-auto relative z-10">
-          <div className="flex items-center justify-between gap-2 md:gap-4">
-            <div className="flex items-center gap-2 md:gap-3 flex-1 min-w-0">
-              <Sparkles className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0 animate-pulse" />
-
-              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 overflow-hidden flex-1 min-w-0">
-                <span className="font-semibold whitespace-nowrap text-xs sm:text-sm md:text-base">
-                  <span className="hidden sm:inline">Top AI News on HackerNews:</span>
-                  <span className="sm:hidden">HN AI News:</span>
-                </span>
-                <div className="flex items-center gap-2 overflow-hidden min-w-0">
-                  {isLoadingStory ? (
-                    <span className="text-xs sm:text-sm">Loading...</span>
-                  ) : currentStory ? (
-                    <>
-                      <a
-                        href={currentStory.url || `https://news.ycombinator.com/item?id=${currentStory.id}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="truncate hover:underline transition-all text-xs sm:text-sm md:text-base"
-                      >
-                        {currentStory.title}
-                      </a>
-                    </>
-                  ) : (
-                    <span className="text-xs sm:text-sm">Unable to load stories</span>
-                  )}
-                </div>
-              </div>
-
-              {/* Discuss link - hidden on mobile, visible on tablet+ */}
-              {currentStory && !isLoadingStory && (
-                <a
-                  href={`https://news.ycombinator.com/item?id=${currentStory.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hidden md:inline-flex whitespace-nowrap text-xs sm:text-sm underline hover:text-orange-200 transition-colors flex-shrink-0"
-                >
-                  Discuss ({currentStory.score}) →
-                </a>
-              )}
-            </div>
-
-            {/* Navigation Arrows on Right */}
-            <div className="flex items-center gap-1 flex-shrink-0">
-              {topStories.length > 0 && (
-                <>
-                  <button
-                    onClick={handlePreviousStory}
-                    className="flex-shrink-0 p-1.5 md:p-2 hover:bg-white/20 active:bg-white/30 rounded transition-colors touch-manipulation"
-                    aria-label="Previous story"
-                  >
-                    <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
-                  </button>
-                  <button
-                    onClick={handleNextStory}
-                    className="flex-shrink-0 p-1.5 md:p-2 hover:bg-white/20 active:bg-white/30 rounded transition-colors touch-manipulation"
-                    aria-label="Next story"
-                  >
-                    <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
-                  </button>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 to-blue-50">
         {/* Animated background */}
@@ -537,4 +399,4 @@ const UnifyStyleLanding = () => {
   );
 };
 
-export default UnifyStyleLanding;
+export default Landing;
