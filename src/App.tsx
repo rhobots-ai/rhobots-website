@@ -3,6 +3,8 @@ import { ArrowRight, CheckCircle, Play, Building2, Shield, Zap, TrendingUp, User
 import BrandLogo from './components/BrandLogo';
 import Footer from './components/Footer';
 import { useNavigate } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
+
 
 const Landing = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -392,6 +394,8 @@ const Landing = () => {
       </section>
 
       <Footer />
+
+      <Analytics />
     </div>
   );
 };
