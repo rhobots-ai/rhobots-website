@@ -210,7 +210,7 @@ const OnePager = () => {
         {/* Header */}
         <div className="border-b-2 border-blue-600 pb-4 mb-6">
           <h1 className="text-4xl font-bold tracking-tight text-blue-600">Ravi Piplani</h1>
-          <p className="text-lg mt-1 font-medium text-gray-700">Co-Founder, MayvionAI</p>
+          <p className="text-lg mt-1 font-medium text-gray-700">Co-Founder, Rhobots</p>
           <div className="text-xs mt-3 space-y-1">
             <p>✉️ <a href="mailto:ravi@rhobots.ai" className="text-blue-600 hover:underline">ravi@rhobots.ai</a></p>
             <p>🔗 LinkedIn: ravipiplani</p>
@@ -224,7 +224,7 @@ const OnePager = () => {
             Ravi builds AI products that move beyond demos and <strong>transform real business operations</strong>.
           </p>
           <p className="text-xs leading-relaxed">
-            At <strong>MayvionAI</strong>, he leads the architecture and vision behind platforms such as Studio, Operator, Document, and Voice —
+            At <strong>Rhobots</strong>, he leads the architecture and vision behind platforms such as Studio, Operator, Document, and Voice —
             bringing <strong>production-grade enterprise AI</strong> into mission-critical workflows at scale.
           </p>
         </section>
@@ -235,7 +235,7 @@ const OnePager = () => {
 
           <div className="space-y-3">
             <div>
-              <h3 className="text-sm font-bold">Mayvion AI — Co-Founder (Oct 2025 – Present)</h3>
+              <h3 className="text-sm font-bold">Rhobots AI — Co-Founder (Oct 2025 – Present)</h3>
               <p className="text-xs leading-relaxed mt-1">
                 Building next-gen enterprise automation platforms. Responsibilities include:
               </p>
@@ -338,7 +338,7 @@ const OnePager = () => {
 
           <div className="space-y-3">
             <div>
-              <h3 className="text-sm font-bold">Mayvion AI — Co-Founder (Oct 2025 – Present)</h3>
+              <h3 className="text-sm font-bold">Rhobots AI — Co-Founder (Oct 2025 – Present)</h3>
               <p className="text-xs leading-relaxed mt-1">
                 Working on enterprise-grade AI platforms and automation solutions.
               </p>

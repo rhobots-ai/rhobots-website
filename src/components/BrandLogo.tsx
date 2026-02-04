@@ -15,7 +15,7 @@ const BrandLogo: React.FC<BrandLogoProps> = ({
   variant = 'lg',
   theme = 'light',
   className = '',
-  label = 'MayvionAI',
+  label = 'Rhobots',
   align = 'center'
 }) => {
   const imageSizeClass = variant === 'sm' ? 'w-8 h-8' : 'w-12 h-12';
@@ -45,7 +45,7 @@ const BrandLogo: React.FC<BrandLogoProps> = ({
           <div className={`rounded-xl ${bgClass} p-1.5`}>
             <img
               src="/images/icon.png"
-              alt="MayvionAI Logo"
+              alt="Rhobots Logo"
               className={`${imageSizeClass} rounded-lg transition-transform duration-300 group-hover:scale-105`}
             />
           </div>
