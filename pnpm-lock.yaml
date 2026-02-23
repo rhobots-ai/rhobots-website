@@ -41,6 +41,9 @@ importers:
       maath:
         specifier: ^0.10.7
         version: 0.10.8(@types/three@0.182.0)(three@0.160.1)
+      postprocessing:
+        specifier: ^6.38.3
+        version: 6.38.3(three@0.160.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
