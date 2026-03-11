@@ -118,8 +118,8 @@ const Footer = () => {
             <span>© 2026 Rhobots. All rights reserved.</span>
           </div>
           <div className="flex space-x-6 text-sm">
-            <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:underline">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:underline">Terms of Service</a>
+            <a href="/privacy" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:underline">Privacy Policy</a>
+            <a href="/terms" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:underline">Terms of Service</a>
             <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:underline">Security</a>
             <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:underline">Compliance</a>
           </div>

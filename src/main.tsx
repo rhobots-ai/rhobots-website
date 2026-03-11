@@ -2,6 +2,8 @@ import { StrictMode, lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ContactPage from './pages/ContactPage.tsx';
+import TermsPage from './pages/TermsPage.tsx';
+import PrivacyPage from './pages/PrivacyPage.tsx';
 import './index.css';
 import App from './App.tsx';
 
@@ -24,6 +26,8 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
         <Route
           path="/mission-control"
           element={
