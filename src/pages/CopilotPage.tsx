@@ -2,29 +2,29 @@ export default function CopilotPage() {
   return (
     <main className="flex-grow">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+      <section className="relative pt-16 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
           <div className="lg:col-span-8">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4 sm:mb-6">
               <span className="bg-secondary-container text-on-secondary-container font-label text-[10px] px-2 py-0.5 uppercase tracking-widest">SYSTEM_ACTIVE</span>
               <span className="text-outline-variant font-label text-[10px] uppercase tracking-widest">BUILD_v4.02.1</span>
             </div>
-            <h1 className="text-6xl md:text-8xl font-black font-headline tracking-tighter uppercase leading-[0.85] text-white">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black font-headline tracking-tighter uppercase leading-[0.85] text-white">
               AUTOMATED<br />ENGINEERING<br />FLOWS
             </h1>
-            <p className="mt-8 text-xl text-on-surface-variant max-w-xl font-body leading-relaxed">
+            <p className="mt-6 sm:mt-8 text-base sm:text-xl text-on-surface-variant max-w-xl font-body leading-relaxed">
               End-to-end AI orchestration for technical high-performance teams. Synthesize logic, validate pull requests, and command your IDE through a unified industrial engine.
             </p>
-            <div className="mt-12 flex gap-4">
-              <button className="bg-primary-fixed text-on-primary-fixed px-8 py-4 font-headline font-black tracking-widest uppercase hover:ring-2 hover:ring-primary-fixed/30 transition-all active:scale-95">
+            <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <button className="bg-primary-fixed text-on-primary-fixed px-6 sm:px-8 py-3 sm:py-4 font-headline font-black tracking-widest uppercase text-sm sm:text-base hover:ring-2 hover:ring-primary-fixed/30 transition-all active:scale-95">
                 ESTABLISH COMMAND
               </button>
-              <button className="border border-outline-variant text-primary px-8 py-4 font-headline font-black tracking-widest uppercase hover:bg-white/5 transition-all">
+              <button className="border border-outline-variant text-primary px-6 sm:px-8 py-3 sm:py-4 font-headline font-black tracking-widest uppercase text-sm sm:text-base hover:bg-white/5 transition-all">
                 VIEW_SPEC
               </button>
             </div>
           </div>
-          <div className="lg:col-span-4 bg-surface-container-high p-8 scanline border-l-4 border-primary-container relative">
+          <div className="lg:col-span-4 bg-surface-container-high p-6 sm:p-8 scanline border-l-4 border-primary-container relative">
             <div className="absolute top-4 right-4 text-primary-fixed/20">
               <span className="material-symbols-outlined text-6xl">analytics</span>
             </div>
@@ -53,15 +53,15 @@ export default function CopilotPage() {
       </section>
 
       {/* Core Functions Bento Grid */}
-      <section className="py-24 px-6 bg-surface">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-surface">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
+          <div className="mb-10 sm:mb-16">
             <span className="font-label text-primary-fixed text-sm uppercase tracking-widest">_CORE_FUNCTIONS</span>
-            <h2 className="text-4xl font-black font-headline tracking-tight uppercase text-white mt-2">KINETIC ENGINE MODULES</h2>
+            <h2 className="text-2xl sm:text-4xl font-black font-headline tracking-tight uppercase text-white mt-2">KINETIC ENGINE MODULES</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
             {/* Ticket Refinement */}
-            <div className="md:col-span-2 bg-surface-container-high p-10 hover:bg-surface-bright transition-colors group">
+            <div className="md:col-span-2 bg-surface-container-high p-6 sm:p-10 hover:bg-surface-bright transition-colors group">
               <div className="w-12 h-12 bg-surface-container-lowest flex items-center justify-center mb-8 border border-outline-variant/30">
                 <span className="material-symbols-outlined text-primary-fixed">assignment_turned_in</span>
               </div>
@@ -78,7 +78,7 @@ export default function CopilotPage() {
             </div>
 
             {/* IDE Command */}
-            <div className="bg-surface-container-low p-10 flex flex-col justify-between border border-outline-variant/10 group">
+            <div className="bg-surface-container-low p-6 sm:p-10 flex flex-col justify-between border border-outline-variant/10 group">
               <div>
                 <span className="material-symbols-outlined text-on-surface-variant mb-6">terminal</span>
                 <h3 className="text-xl font-black font-headline tracking-tighter uppercase mb-4 text-white">IDE Command</h3>
@@ -94,7 +94,7 @@ export default function CopilotPage() {
             </div>
 
             {/* Logic Synthesis */}
-            <div className="bg-surface-container-low p-10 flex flex-col justify-between border border-outline-variant/10">
+            <div className="bg-surface-container-low p-6 sm:p-10 flex flex-col justify-between border border-outline-variant/10">
               <div>
                 <span className="material-symbols-outlined text-on-surface-variant mb-6">psychology</span>
                 <h3 className="text-xl font-black font-headline tracking-tighter uppercase mb-4 text-white">Logic Synthesis</h3>
@@ -108,13 +108,13 @@ export default function CopilotPage() {
             </div>
 
             {/* PR Validation (Wide Bottom) */}
-            <div className="md:col-span-4 flex flex-col md:flex-row bg-[#1a1a1a] relative overflow-hidden min-h-[300px]">
-              <div className="p-10 md:w-1/2 z-10">
-                <h3 className="text-3xl font-black font-headline tracking-tighter uppercase mb-4 text-white">PR Validation</h3>
+            <div className="md:col-span-4 flex flex-col md:flex-row bg-[#1a1a1a] relative overflow-hidden min-h-[250px] sm:min-h-[300px]">
+              <div className="p-6 sm:p-10 md:w-1/2 z-10">
+                <h3 className="text-2xl sm:text-3xl font-black font-headline tracking-tighter uppercase mb-4 text-white">PR Validation</h3>
                 <p className="text-on-surface-variant font-body mb-8 max-w-sm">
                   Automated architectural review, security scanning, and logic verification before the first human review.
                 </p>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-3 sm:gap-4">
                   <div className="flex items-center gap-2 bg-surface-container-lowest px-3 py-1">
                     <span className="material-symbols-outlined text-primary-fixed text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
                     <span className="font-label text-[10px] uppercase">LINT_PASSED</span>
@@ -142,13 +142,13 @@ export default function CopilotPage() {
       </section>
 
       {/* Industrial Ecosystem */}
-      <section className="py-24 px-6 border-t border-outline-variant/10">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-start">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 border-t border-outline-variant/10">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 sm:gap-16 items-start">
           <div className="lg:w-1/3">
             <span className="font-label text-[#393939] text-sm uppercase tracking-widest">_ECOSYSTEM_SYNC</span>
-            <h2 className="text-4xl font-black font-headline tracking-tight uppercase text-white mt-4 leading-none">SEAMLESS INDUSTRIAL INTEGRATION</h2>
+            <h2 className="text-2xl sm:text-4xl font-black font-headline tracking-tight uppercase text-white mt-4 leading-none">SEAMLESS INDUSTRIAL INTEGRATION</h2>
           </div>
-          <div className="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-8 grayscale opacity-40">
+          <div className="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 grayscale opacity-40">
             <div className="flex items-center justify-center h-12 bg-surface-container p-4">
               <span className="font-headline font-black text-xl text-white">GITHUB</span>
             </div>
@@ -178,12 +178,12 @@ export default function CopilotPage() {
       </section>
 
       {/* Command CTA Section */}
-      <section className="py-32 px-6 bg-primary-fixed flex items-center justify-center text-center">
+      <section className="py-20 sm:py-32 px-4 sm:px-6 bg-primary-fixed flex items-center justify-center text-center">
         <div className="max-w-3xl">
-          <h2 className="text-5xl md:text-7xl font-black font-headline tracking-tighter uppercase text-on-primary-fixed mb-8 leading-[0.9]">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl font-black font-headline tracking-tighter uppercase text-on-primary-fixed mb-6 sm:mb-8 leading-[0.9]">
             READY TO UPGRADE YOUR ENGINE?
           </h2>
-          <button className="bg-surface-container-lowest text-white px-12 py-5 font-headline font-black tracking-widest uppercase hover:scale-105 transition-all">
+          <button className="w-full sm:w-auto bg-surface-container-lowest text-white px-8 sm:px-12 py-4 sm:py-5 font-headline font-black tracking-widest uppercase hover:scale-105 transition-all">
             ESTABLISH COMMAND _
           </button>
           <p className="mt-8 font-label text-on-primary-fixed uppercase tracking-widest text-sm">

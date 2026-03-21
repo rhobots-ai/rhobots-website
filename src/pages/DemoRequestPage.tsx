@@ -1,4 +1,89 @@
+import { useMemo, useState, type FormEvent } from 'react';
+
+const modules = [
+  { id: 'operator', icon: 'settings_input_component', name: 'Operator', desc: 'Autonomous process automation for enterprise workflows' },
+  { id: 'extract', icon: 'database_upload', name: 'Extract', desc: 'Unstructured data extraction from documents & media' },
+  { id: 'sage', icon: 'psychology', name: 'Sage', desc: 'Natural language queries across your databases' },
+  { id: 'pulse', icon: 'insights', name: 'Pulse', desc: 'Real-time AI monitoring for contact centers' },
+  { id: 'copilot', icon: 'code', name: 'Copilot', desc: 'Enterprise LLM coding assistant for dev teams' },
+  { id: 'studio', icon: 'dashboard_customize', name: 'Studio', desc: 'Fine-tuning, orchestration & AI safety command center' },
+];
+
 export default function DemoRequestPage() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [company, setCompany] = useState('');
+  const [selectedModules, setSelectedModules] = useState<string[]>([]);
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const isValidEmail = (value: string) => /.+@.+\..+/.test(value);
+
+  const isSubmitEnabled = useMemo(() => {
+    return (
+      firstName.trim().length > 0 &&
+      lastName.trim().length > 0 &&
+      isValidEmail(email) &&
+      selectedModules.length > 0
+    );
+  }, [firstName, lastName, email, selectedModules]);
+
+  const toggleModule = (id: string) => {
+    setSelectedModules((prev) =>
+      prev.includes(id) ? prev.filter((m) => m !== id) : [...prev, id]
+    );
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!isSubmitEnabled || status === 'submitting') return;
+
+    const accessKey = '6d056dc9-8f49-4375-83a5-767eff98673b';
+    if (!accessKey) {
+      setStatus('error');
+      setErrorMessage('Form submission is not configured. Please contact us directly.');
+      return;
+    }
+
+    try {
+      setStatus('submitting');
+      setErrorMessage('');
+
+      const formData = new FormData();
+      formData.set('access_key', accessKey);
+      formData.set('subject', `Rhobots Demo Request — ${company || `${firstName} ${lastName}`}`);
+      formData.set('from_name', 'Rhobots.ai Website');
+      formData.set('name', `${firstName} ${lastName}`);
+      formData.set('email', email);
+      formData.set('company', company);
+      formData.set('modules', selectedModules.map((m) => m.toUpperCase()).join(', '));
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      });
+
+      const result = (await response.json()) as { success?: boolean; message?: string };
+
+      if (response.ok && result?.success) {
+        setStatus('success');
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setCompany('');
+        setSelectedModules([]);
+      } else {
+        setStatus('error');
+        setErrorMessage(result?.message || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setStatus('error');
+      setErrorMessage('Network error. Please try again.');
+    }
+  };
+
   return (
     <main className="min-h-screen grid-substrate relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface-container-lowest/50 to-surface-container-lowest pointer-events-none"></div>
@@ -62,57 +147,123 @@ export default function DemoRequestPage() {
                 </div>
                 <span className="material-symbols-outlined text-primary-fixed text-4xl" style={{ fontVariationSettings: "'FILL' 0" }}>terminal</span>
               </div>
-              <form className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-8" noValidate>
+                {/* Honeypot */}
+                <input type="checkbox" name="botcheck" tabIndex={-1} className="hidden" aria-hidden="true" />
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="relative">
                     <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block">Operator_First_Name</label>
-                    <input className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body placeholder:text-surface-bright uppercase transition-all" placeholder="REQUIRED" type="text" />
+                    <input
+                      name="first_name"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body placeholder:text-surface-bright uppercase transition-all"
+                      placeholder="REQUIRED"
+                      type="text"
+                      required
+                    />
                   </div>
                   <div className="relative">
                     <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block">Operator_Last_Name</label>
-                    <input className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body placeholder:text-surface-bright uppercase transition-all" placeholder="REQUIRED" type="text" />
+                    <input
+                      name="last_name"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                      className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body placeholder:text-surface-bright uppercase transition-all"
+                      placeholder="REQUIRED"
+                      type="text"
+                      required
+                    />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="relative">
                     <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block">Work_Protocol_Email</label>
-                    <input className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body placeholder:text-surface-bright transition-all" placeholder="example@system.org" type="email" />
+                    <input
+                      name="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body placeholder:text-surface-bright transition-all"
+                      placeholder="example@system.org"
+                      required
+                    />
+                    {!isValidEmail(email) && email.length > 0 && (
+                      <p className="font-mono text-[9px] text-red-400 uppercase tracking-widest mt-1">Invalid email protocol</p>
+                    )}
                   </div>
                   <div className="relative">
                     <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block">Organization_ID</label>
-                    <input className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body placeholder:text-surface-bright uppercase transition-all" placeholder="COMPANY NAME" type="text" />
+                    <input
+                      name="company"
+                      value={company}
+                      onChange={(e) => setCompany(e.target.value)}
+                      className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body placeholder:text-surface-bright uppercase transition-all"
+                      placeholder="COMPANY NAME"
+                      type="text"
+                    />
                   </div>
                 </div>
                 <div className="relative">
                   <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-3 block">Interest_Module_Select</label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                    {[
-                      { id: 'operator', icon: 'settings_input_component', name: 'Operator', desc: 'Autonomous process automation for enterprise workflows' },
-                      { id: 'extract', icon: 'database_upload', name: 'Extract', desc: 'Unstructured data extraction from documents & media' },
-                      { id: 'sage', icon: 'psychology', name: 'Sage', desc: 'Natural language queries across your databases' },
-                      { id: 'pulse', icon: 'insights', name: 'Pulse', desc: 'Real-time AI monitoring for contact centers' },
-                      { id: 'copilot', icon: 'code', name: 'Copilot', desc: 'Enterprise LLM coding assistant for dev teams' },
-                      { id: 'studio', icon: 'dashboard_customize', name: 'Studio', desc: 'Fine-tuning, orchestration & AI safety command center' },
-                    ].map((mod) => (
-                      <label
+                    {modules.map((mod) => (
+                      <button
                         key={mod.id}
-                        className="group cursor-pointer bg-surface-container-lowest border border-outline-variant/20 p-4 hover:border-primary-fixed/50 has-[:checked]:border-primary-fixed has-[:checked]:bg-primary-fixed/5 transition-all"
+                        type="button"
+                        onClick={() => toggleModule(mod.id)}
+                        className={`group cursor-pointer text-left bg-surface-container-lowest border p-4 transition-all ${
+                          selectedModules.includes(mod.id)
+                            ? 'border-primary-fixed bg-primary-fixed/5'
+                            : 'border-outline-variant/20 hover:border-primary-fixed/50'
+                        }`}
                       >
-                        <input type="checkbox" name="modules" value={mod.id} className="sr-only" />
                         <div className="flex items-start gap-3">
-                          <span className="material-symbols-outlined text-on-surface-variant group-has-[:checked]:text-primary-fixed transition-colors mt-0.5" style={{ fontSize: '20px' }}>{mod.icon}</span>
+                          <span
+                            className={`material-symbols-outlined mt-0.5 transition-colors ${
+                              selectedModules.includes(mod.id) ? 'text-primary-fixed' : 'text-on-surface-variant'
+                            }`}
+                            style={{ fontSize: '20px' }}
+                          >
+                            {mod.icon}
+                          </span>
                           <div className="min-w-0">
-                            <div className="font-headline text-xs font-bold text-white uppercase tracking-widest group-has-[:checked]:text-primary-fixed transition-colors">{mod.name}</div>
+                            <div
+                              className={`font-headline text-xs font-bold uppercase tracking-widest transition-colors ${
+                                selectedModules.includes(mod.id) ? 'text-primary-fixed' : 'text-white'
+                              }`}
+                            >
+                              {mod.name}
+                            </div>
                             <div className="text-on-surface-variant/60 text-[10px] font-body leading-snug mt-1">{mod.desc}</div>
                           </div>
                         </div>
-                      </label>
+                      </button>
                     ))}
                   </div>
                 </div>
+
+                {status === 'success' && (
+                  <div className="border border-primary-fixed/30 bg-primary-fixed/5 px-4 py-3">
+                    <p className="font-mono text-[10px] text-primary-fixed uppercase tracking-widest">TRANSMISSION_COMPLETE — We'll be in touch within 1 business day.</p>
+                  </div>
+                )}
+                {status === 'error' && (
+                  <div className="border border-red-500/30 bg-red-500/5 px-4 py-3">
+                    <p className="font-mono text-[10px] text-red-400 uppercase tracking-widest">{errorMessage || 'Transmission failed. Please retry.'}</p>
+                  </div>
+                )}
+
                 <div className="pt-6">
-                  <button className="w-full group relative flex items-center justify-between bg-primary-fixed px-6 py-4 transition-all hover:shadow-[0_0_20px_rgba(210,240,0,0.3)]" type="submit">
-                    <span className="font-headline font-black text-xl text-on-primary-fixed uppercase tracking-widest">INITIALIZE DEMO</span>
+                  <button
+                    className="w-full group relative flex items-center justify-between bg-primary-fixed px-6 py-4 transition-all hover:shadow-[0_0_20px_rgba(210,240,0,0.3)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none"
+                    type="submit"
+                    disabled={!isSubmitEnabled || status === 'submitting'}
+                  >
+                    <span className="font-headline font-black text-xl text-on-primary-fixed uppercase tracking-widest">
+                      {status === 'submitting' ? 'TRANSMITTING...' : 'INITIALIZE DEMO'}
+                    </span>
                     <span className="material-symbols-outlined text-on-primary-fixed group-hover:translate-x-2 transition-transform">arrow_forward</span>
                   </button>
                   <p className="mt-4 font-mono text-[9px] text-center text-on-surface-variant/60 uppercase tracking-widest leading-relaxed">
