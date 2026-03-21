@@ -39,7 +39,7 @@ export default function DemoRequestPage() {
     event.preventDefault();
     if (!isSubmitEnabled || status === 'submitting') return;
 
-    const accessKey = '6d056dc9-8f49-4375-83a5-767eff98673b';
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
     if (!accessKey) {
       setStatus('error');
       setErrorMessage('Form submission is not configured. Please contact us directly.');
