@@ -280,28 +280,28 @@ export default function DemoRequestPage() {
           <h3 className="font-mono text-[10px] text-primary-fixed uppercase tracking-[0.5em] mb-8">ACTIVE_DEPLOYMENT_SECTORS</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
-              <span className="material-symbols-outlined text-primary-fixed">rocket_launch</span>
-              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Aerospace</span>
+              <span className="material-symbols-outlined text-primary-fixed">local_shipping</span>
+              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Logistics</span>
             </div>
             <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
-              <span className="material-symbols-outlined text-primary-fixed">biotech</span>
-              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Bio-Neural</span>
+              <span className="material-symbols-outlined text-primary-fixed">shopping_cart</span>
+              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Ecommerce</span>
+            </div>
+            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
+              <span className="material-symbols-outlined text-primary-fixed">currency_exchange</span>
+              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Fintech</span>
             </div>
             <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
               <span className="material-symbols-outlined text-primary-fixed">factory</span>
               <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Industrial</span>
             </div>
             <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
-              <span className="material-symbols-outlined text-primary-fixed">shield_lock</span>
-              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Defense</span>
+              <span className="material-symbols-outlined text-primary-fixed">health_and_safety</span>
+              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Insurance</span>
             </div>
             <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
-              <span className="material-symbols-outlined text-primary-fixed">electric_bolt</span>
-              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Energy</span>
-            </div>
-            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
-              <span className="material-symbols-outlined text-primary-fixed">database</span>
-              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Logistics</span>
+              <span className="material-symbols-outlined text-primary-fixed">account_balance</span>
+              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Banking</span>
             </div>
           </div>
         </div>

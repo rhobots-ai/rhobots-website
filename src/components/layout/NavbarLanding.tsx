@@ -17,7 +17,10 @@ export default function NavbarLanding() {
     <nav className="bg-[#0E0E0E] sticky top-0 z-50 w-full max-w-none border-b border-white/5">
       <div className="flex justify-between items-center px-4 sm:px-8 py-4">
         <div className="flex items-center gap-12">
-          <Link to="/" className="text-xl sm:text-2xl font-black text-white tracking-widest uppercase">RHOBOTS AI</Link>
+          <Link to="/" className="flex items-center gap-2 text-xl sm:text-2xl font-black text-white tracking-widest uppercase">
+            <img src="/icon.svg" alt="Rhobots AI" className="h-8 sm:h-9 w-auto" />
+            RHOBOTS AI
+          </Link>
           <div className="hidden md:flex gap-8 items-center h-full font-headline font-bold tracking-tighter uppercase">
             <Link className="text-[#D2F000] border-b-2 border-[#D2F000] pb-1 transition-colors duration-150" to="/">Platform</Link>
 
