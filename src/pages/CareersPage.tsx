@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { organizationSchema } from '../lib/structuredData';
 
 const openings = [
   { team: 'Engineering', title: 'Senior Backend Engineer', location: 'Remote / San Francisco', type: 'Full-time' },
@@ -12,6 +14,12 @@ const openings = [
 export default function CareersPage() {
   return (
     <main>
+      <SEO
+        title="Careers - Join the Team"
+        description="Join Rhobots AI and help build the cognitive layer for enterprise. Open positions in engineering, product, design, and go-to-market across San Francisco, New York, and remote."
+        path="/careers"
+        jsonLd={organizationSchema()}
+      />
       {/* Hero */}
       <section className="py-32 px-8 md:px-24 border-b border-outline cyber-grid relative overflow-hidden">
         <div className="scanline-animated"></div>

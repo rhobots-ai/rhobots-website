@@ -1,6 +1,19 @@
+import SEO from '../components/SEO';
+import { organizationSchema, productSchema, breadcrumbSchema } from '../lib/structuredData';
+
 export default function ExtractPage() {
   return (
     <main className="grid-substrate min-h-screen">
+      <SEO
+        title="Extract - Unstructured Data Extraction Engine"
+        description="Transform unstructured documents into operational intelligence. Rhobots Extract handles complex PDF parsing, inbox streams, and legacy scan digitization with autonomous AI pipelines."
+        path="/products/extract"
+        jsonLd={[
+          organizationSchema(),
+          productSchema({ name: 'Rhobots Extract', description: 'Unstructured data extraction from documents and media', path: '/products/extract' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Extract', path: '/products/extract' }]),
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 pt-20 pb-20 md:pt-24 md:pb-32 max-w-7xl mx-auto overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">

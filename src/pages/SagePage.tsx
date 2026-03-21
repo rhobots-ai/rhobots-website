@@ -1,6 +1,19 @@
+import SEO from '../components/SEO';
+import { organizationSchema, productSchema, breadcrumbSchema } from '../lib/structuredData';
+
 export default function SagePage() {
   return (
     <main className="min-h-screen grid-substrate">
+      <SEO
+        title="Sage - Natural Language Database Queries"
+        description="Query multi-petabyte data stacks with plain English. Rhobots Sage bypasses traditional BI dashboards, delivering engineering-grade analytics through natural language interfaces."
+        path="/products/sage"
+        jsonLd={[
+          organizationSchema(),
+          productSchema({ name: 'Rhobots Sage', description: 'Natural language queries across enterprise databases', path: '/products/sage' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Sage', path: '/products/sage' }]),
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 pt-20 sm:pt-24 pb-12 flex flex-col items-start max-w-7xl mx-auto">
         <div className="absolute -top-12 -left-12 w-64 h-64 bg-primary-container/5 blur-[120px] rounded-full pointer-events-none"></div>

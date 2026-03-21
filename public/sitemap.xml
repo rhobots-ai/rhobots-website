@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.w3.org/2000/Sitemaps/schemas/sitemap/0.9">
+  <url><loc>https://rhobots.ai/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://rhobots.ai/products/operator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://rhobots.ai/products/extract</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://rhobots.ai/products/sage</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://rhobots.ai/products/pulse</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://rhobots.ai/products/copilot</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://rhobots.ai/demo</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rhobots.ai/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rhobots.ai/careers</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rhobots.ai/pricing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rhobots.ai/security</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rhobots.ai/docs</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rhobots.ai/legal</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://rhobots.ai/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://rhobots.ai/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://rhobots.ai/cookie</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://rhobots.ai/sla</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>

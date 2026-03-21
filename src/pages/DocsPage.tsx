@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { organizationSchema } from '../lib/structuredData';
 
 const sections = [
   { icon: 'rocket_launch', title: 'Getting Started', desc: 'Quick start guides, SDK installation, and your first API call.', tag: 'START_HERE' },
@@ -15,6 +17,12 @@ const sections = [
 export default function DocsPage() {
   return (
     <main>
+      <SEO
+        title="Developer Documentation"
+        description="API reference, SDK guides, and quick start documentation for the Rhobots AI platform. Integrate Operator, Extract, Sage, Pulse, and Copilot into your enterprise systems."
+        path="/docs"
+        jsonLd={organizationSchema()}
+      />
       {/* Hero */}
       <section className="py-32 px-8 md:px-24 border-b border-outline cyber-grid relative overflow-hidden">
         <div className="scanline-animated"></div>

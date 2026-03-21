@@ -1,14 +1,22 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { organizationSchema } from '../lib/structuredData';
 
 export default function LandingPage() {
   return (
     <main>
+      <SEO
+        title="Production-Grade Enterprise AI Platform"
+        description="Deploy production-grade AI without overhauling your systems. Rhobots AI provides cognitive automation for process orchestration, data extraction, NL analytics, and contact center intelligence."
+        path="/"
+        jsonLd={organizationSchema()}
+      />
       {/* Hero Section */}
       <section className="min-h-[85vh] flex items-center relative overflow-hidden px-8 md:px-24 cyber-grid border-b border-outline">
         <div className="scanline-animated"></div>
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-30 pointer-events-none border-l border-outline/50">
           <div className="absolute inset-0 bg-gradient-to-l from-background to-transparent z-10"></div>
-          <img className="w-full h-full object-cover grayscale contrast-125" alt="Cyber-industrial data structure" src="/images/hero-data-structure.jpg" />
+          <img className="w-full h-full object-cover grayscale contrast-125" alt="Cyber-industrial data structure" src="/images/hero-data-structure.jpg" fetchPriority="high" />
         </div>
         <div className="relative z-10 max-w-4xl">
           <div className="inline-flex items-center gap-2 bg-surface-container border border-primary-fixed/30 px-4 py-1 mb-8">
@@ -81,7 +89,7 @@ export default function LandingPage() {
               <span className="text-outline group-hover:text-primary-fixed transition-colors material-symbols-outlined text-5xl">arrow_outward</span>
             </div>
             <div className="mt-12 industrial-border p-2 grayscale hover:grayscale-0 transition-all duration-500 overflow-hidden">
-              <img className="w-full h-48 object-cover" alt="Interface dashboard" src="/images/interface-dashboard.jpg" />
+              <img className="w-full h-48 object-cover" alt="Interface dashboard" src="/images/interface-dashboard.jpg" loading="lazy" />
             </div>
           </Link>
           {/* Pulse */}
@@ -175,7 +183,7 @@ export default function LandingPage() {
                 <span className="text-[10px] text-outline uppercase font-bold tracking-[0.2em]">NODE: RH_STUDIO_V4.0</span>
               </div>
               <div className="relative">
-                <img className="w-full h-auto grayscale" alt="High tech server room" src="/images/server-room.jpg" />
+                <img className="w-full h-auto grayscale" alt="High tech server room" src="/images/server-room.jpg" loading="lazy" />
                 <div className="absolute bottom-4 right-4 bg-background border border-primary-fixed p-4 shadow-2xl">
                   <div className="text-[10px] font-bold text-primary-fixed mb-1 uppercase tracking-tighter">ACCURACY_RANK</div>
                   <div className="text-4xl font-black italic text-white tracking-tighter leading-none">99.8%</div>

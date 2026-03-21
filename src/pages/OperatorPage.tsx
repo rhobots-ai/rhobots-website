@@ -1,6 +1,19 @@
+import SEO from '../components/SEO';
+import { organizationSchema, productSchema, breadcrumbSchema } from '../lib/structuredData';
+
 export default function OperatorPage() {
   return (
     <main className="grid-substrate min-h-screen">
+      <SEO
+        title="Operator - Autonomous Process Automation"
+        description="Automate complex enterprise workflows with AI-powered orchestration. Rhobots Operator deploys specialized agents that discover, reason, and govern business processes at machine scale."
+        path="/products/operator"
+        jsonLd={[
+          organizationSchema(),
+          productSchema({ name: 'Rhobots Operator', description: 'Autonomous process automation for enterprise workflows', path: '/products/operator' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Operator', path: '/products/operator' }]),
+        ]}
+      />
       {/* Hero Section: Kinetic Engine */}
       <section className="relative min-h-[60vh] md:min-h-[819px] flex items-center px-4 sm:px-6 md:px-12 py-16 md:py-0 overflow-hidden">
         <div className="z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-end gap-8 md:gap-12">

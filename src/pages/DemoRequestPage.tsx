@@ -1,4 +1,6 @@
 import { useMemo, useState, type FormEvent } from 'react';
+import SEO from '../components/SEO';
+import { organizationSchema } from '../lib/structuredData';
 
 const modules = [
   { id: 'operator', icon: 'settings_input_component', name: 'Operator', desc: 'Autonomous process automation for enterprise workflows' },
@@ -86,6 +88,12 @@ export default function DemoRequestPage() {
 
   return (
     <main className="min-h-screen grid-substrate relative">
+      <SEO
+        title="Request a Demo"
+        description="See Rhobots AI in action. Request a personalized demo of our enterprise AI platform for process automation, data extraction, NL analytics, contact center AI, and developer tools."
+        path="/demo"
+        jsonLd={organizationSchema()}
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface-container-lowest/50 to-surface-container-lowest pointer-events-none"></div>
       <div className="container mx-auto px-6 py-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

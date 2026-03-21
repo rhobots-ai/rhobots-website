@@ -1,6 +1,19 @@
+import SEO from '../components/SEO';
+import { organizationSchema, productSchema, breadcrumbSchema } from '../lib/structuredData';
+
 export default function PulsePage() {
   return (
     <main className="min-h-screen grid-substrate">
+      <SEO
+        title="Pulse - Contact Center AI Monitoring"
+        description="Real-time AI monitoring for contact centers. Rhobots Pulse delivers sub-second transcription, compliance tracking, and acoustic signal analysis to transform every customer dialogue."
+        path="/products/pulse"
+        jsonLd={[
+          organizationSchema(),
+          productSchema({ name: 'Rhobots Pulse', description: 'Real-time AI monitoring for contact centers', path: '/products/pulse' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Pulse', path: '/products/pulse' }]),
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative px-4 sm:px-6 py-16 sm:py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">

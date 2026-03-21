@@ -1,6 +1,15 @@
+import SEO from '../components/SEO';
+import { organizationSchema } from '../lib/structuredData';
+
 export default function LegalPage() {
   return (
     <main>
+      <SEO
+        title="Legal"
+        description="Legal information and corporate disclosures for Rhobots AI."
+        path="/legal"
+        jsonLd={organizationSchema()}
+      />
       <section className="py-32 px-8 md:px-24 border-b border-outline cyber-grid relative overflow-hidden">
         <div className="scanline-animated"></div>
         <div className="relative z-10 max-w-4xl">

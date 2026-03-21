@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { organizationSchema } from '../lib/structuredData';
 
 export default function SecurityPage() {
   return (
     <main>
+      <SEO
+        title="Security & Compliance"
+        description="Enterprise-grade security is our foundation. SOC 2 Type II certified, HIPAA compliant, with end-to-end encryption, air-gapped deployment, and data residency controls."
+        path="/security"
+        jsonLd={organizationSchema()}
+      />
       {/* Hero */}
       <section className="py-32 px-8 md:px-24 border-b border-outline cyber-grid relative overflow-hidden">
         <div className="scanline-animated"></div>

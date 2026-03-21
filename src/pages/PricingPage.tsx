@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { organizationSchema } from '../lib/structuredData';
 
 const tiers = [
   {
@@ -30,6 +32,12 @@ const tiers = [
 export default function PricingPage() {
   return (
     <main>
+      <SEO
+        title="Pricing - Starter, Enterprise & Government Plans"
+        description="Flexible pricing for teams of every size. Choose from Starter, Enterprise, or Government tiers with custom API limits, dedicated infrastructure, SSO, and compliance-ready deployment."
+        path="/pricing"
+        jsonLd={organizationSchema()}
+      />
       {/* Hero */}
       <section className="py-32 px-8 md:px-24 border-b border-outline cyber-grid relative overflow-hidden">
         <div className="scanline-animated"></div>

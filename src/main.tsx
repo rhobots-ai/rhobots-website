@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import './index.css';
 import Layout from './components/layout/Layout';
 import ScrollToTop from './components/ScrollToTop';
@@ -25,6 +26,7 @@ import SecurityPage from './pages/SecurityPage';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <HelmetProvider>
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
@@ -50,5 +52,6 @@ createRoot(document.getElementById('root')!).render(
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
+    </HelmetProvider>
   </StrictMode>,
 );

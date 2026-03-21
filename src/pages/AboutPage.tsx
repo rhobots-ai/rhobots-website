@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import { organizationSchema } from '../lib/structuredData';
 
 export default function AboutPage() {
   return (
     <main>
+      <SEO
+        title="About - Building the Cognitive Layer"
+        description="Rhobots AI is the structural layer between legacy enterprise systems and generative intelligence. Learn about our mission to democratize cognitive automation for global enterprise."
+        path="/about"
+        jsonLd={organizationSchema()}
+      />
       {/* Hero */}
       <section className="py-32 px-8 md:px-24 border-b border-outline cyber-grid relative overflow-hidden">
         <div className="scanline-animated"></div>

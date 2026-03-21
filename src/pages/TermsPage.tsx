@@ -1,6 +1,15 @@
+import SEO from '../components/SEO';
+import { organizationSchema } from '../lib/structuredData';
+
 export default function TermsPage() {
   return (
     <main>
+      <SEO
+        title="Terms of Service"
+        description="Terms of service for the Rhobots AI enterprise platform. Read our usage policies, service agreements, and user responsibilities."
+        path="/terms"
+        jsonLd={organizationSchema()}
+      />
       <section className="py-32 px-8 md:px-24 border-b border-outline cyber-grid relative overflow-hidden">
         <div className="scanline-animated"></div>
         <div className="relative z-10 max-w-4xl">

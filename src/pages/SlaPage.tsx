@@ -1,6 +1,15 @@
+import SEO from '../components/SEO';
+import { organizationSchema } from '../lib/structuredData';
+
 export default function SlaPage() {
   return (
     <main>
+      <SEO
+        title="Service Level Agreement"
+        description="Rhobots AI SLA details. Review our uptime commitments, support response times, and service availability guarantees for enterprise customers."
+        path="/sla"
+        jsonLd={organizationSchema()}
+      />
       <section className="py-32 px-8 md:px-24 border-b border-outline cyber-grid relative overflow-hidden">
         <div className="scanline-animated"></div>
         <div className="relative z-10 max-w-4xl">

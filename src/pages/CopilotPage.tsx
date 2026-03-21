@@ -1,6 +1,19 @@
+import SEO from '../components/SEO';
+import { organizationSchema, productSchema, breadcrumbSchema } from '../lib/structuredData';
+
 export default function CopilotPage() {
   return (
     <main className="flex-grow">
+      <SEO
+        title="Copilot - Enterprise LLM Coding Assistant"
+        description="End-to-end AI orchestration for engineering teams. Rhobots Copilot synthesizes code, validates pull requests, and integrates with your IDE through a unified enterprise engine."
+        path="/products/copilot"
+        jsonLd={[
+          organizationSchema(),
+          productSchema({ name: 'Rhobots Copilot', description: 'Enterprise LLM coding assistant for development teams', path: '/products/copilot' }),
+          breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Copilot', path: '/products/copilot' }]),
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative pt-16 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
