@@ -8,7 +8,7 @@ export default function LandingPage() {
         <div className="scanline-animated"></div>
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-30 pointer-events-none border-l border-outline/50">
           <div className="absolute inset-0 bg-gradient-to-l from-background to-transparent z-10"></div>
-          <img className="w-full h-full object-cover grayscale contrast-125" alt="Cyber-industrial data structure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeoJgjwin6ZecVlR2OE5Bv54Z5pne2oc-DpvrnptarVIelwFNEb54IWoTw7EikKBtvrokEgPLRrehZr2K2eSeiqZq-9K45PnNRyUPvrLv06aGnfgtJ91hj9Pz2ZQgeAtqXbYnZKxAf_DRsugPKJD8SbxgS-KlglgFImi0MX3T-JUXxDUWkeX-q7TtS8i1ZeXdfW9h4QEyW2_tb2yAHzuZXd05E4LJSXplzB1maQ8YtwR2LEq2DDP2VeM77IUgaGrGAjJ4teGlkMg" />
+          <img className="w-full h-full object-cover grayscale contrast-125" alt="Cyber-industrial data structure" src="/images/hero-data-structure.jpg" />
         </div>
         <div className="relative z-10 max-w-4xl">
           <div className="inline-flex items-center gap-2 bg-surface-container border border-primary-fixed/30 px-4 py-1 mb-8">
@@ -26,10 +26,10 @@ export default function LandingPage() {
             <Link to="/demo" className="bg-primary-fixed text-background px-10 py-5 font-headline font-black text-sm uppercase tracking-widest hover:bg-white transition-all text-center">
               Request a Demo
             </Link>
-            <button className="bg-surface border border-outline text-white px-10 py-5 font-headline font-black text-sm uppercase tracking-widest hover:bg-outline transition-all flex items-center justify-center gap-3">
+            <a href="#intelligence-suite" className="bg-surface border border-outline text-white px-10 py-5 font-headline font-black text-sm uppercase tracking-widest hover:bg-outline transition-all flex items-center justify-center gap-3">
               View Architecture
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -62,7 +62,7 @@ export default function LandingPage() {
       </section>
 
       {/* Product Showcase: Bento Grid */}
-      <section className="py-32 px-8 md:px-24 bg-background cyber-grid">
+      <section id="intelligence-suite" className="py-32 px-8 md:px-24 bg-background cyber-grid">
         <div className="mb-20 space-y-4">
           <span className="text-primary-fixed font-bold text-xs tracking-[0.3em] uppercase">// PRODUCT_SUITE_001</span>
           <h2 className="font-headline text-5xl md:text-7xl font-black italic uppercase tracking-tighter text-white">The Intelligence Suite</h2>
@@ -81,7 +81,7 @@ export default function LandingPage() {
               <span className="text-outline group-hover:text-primary-fixed transition-colors material-symbols-outlined text-5xl">arrow_outward</span>
             </div>
             <div className="mt-12 industrial-border p-2 grayscale hover:grayscale-0 transition-all duration-500 overflow-hidden">
-              <img className="w-full h-48 object-cover" alt="Interface dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_Aejojpb9hPMJGtmHXGrcge0pw_VH4oNXtk5xm_ooBJQoi8kMSxiPBu0GHSQ6ICj7ExTplm86mS1nAYUrDOhqNk4S6MJV7lYBvyslEdBzVbPMefWqidWhjg5C-Y3OcdwdXJdcVo4slQ617z4FToNaLI3glf-nZUsdwB8QmIe-PyV-0b4dAabSN_uiYD3OxQXnQEPFGK_y1KE3ioAQGtF0rNrtxJMCmQWerA1Wz8jT3ctzo9YLVDcdKA6MaJ4b9FBc9jk-AfSq2w" />
+              <img className="w-full h-48 object-cover" alt="Interface dashboard" src="/images/interface-dashboard.jpg" />
             </div>
           </Link>
           {/* Pulse */}
@@ -175,7 +175,7 @@ export default function LandingPage() {
                 <span className="text-[10px] text-outline uppercase font-bold tracking-[0.2em]">NODE: RH_STUDIO_V4.0</span>
               </div>
               <div className="relative">
-                <img className="w-full h-auto grayscale" alt="High tech server room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADp_4LpKSQiSNBgJJbykavz9rmWAOnNU5xsP7RcXA18ZN2PGQ_N7hHBda_QOOIi4jLKWqCSRL_xug9gwRNw4birXDVuY0ayp1tBqTKx_TchWCc5qOprRNov4CPwZ_3y9F3r6hPCajv8QSM8CEZxr9ZDoXprbO0GhVYwpZ9xBcF6pNlmf47vQr38rsrACZi0H3nW_LGnE-J16roI0w_6qm-rwK1YjmnbgIteBeN-ceDoiXC0_N5rVdtH_Hn3HSBh-dRX0qGarBvrA" />
+                <img className="w-full h-auto grayscale" alt="High tech server room" src="/images/server-room.jpg" />
                 <div className="absolute bottom-4 right-4 bg-background border border-primary-fixed p-4 shadow-2xl">
                   <div className="text-[10px] font-bold text-primary-fixed mb-1 uppercase tracking-tighter">ACCURACY_RANK</div>
                   <div className="text-4xl font-black italic text-white tracking-tighter leading-none">99.8%</div>

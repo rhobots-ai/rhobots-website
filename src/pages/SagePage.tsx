@@ -1,6 +1,6 @@
 export default function SagePage() {
   return (
-    <main className="pt-16 min-h-screen grid-substrate">
+    <main className="min-h-screen grid-substrate">
       {/* Hero Section */}
       <section className="relative px-6 pt-24 pb-12 flex flex-col items-start max-w-7xl mx-auto">
         <div className="absolute -top-12 -left-12 w-64 h-64 bg-primary-container/5 blur-[120px] rounded-full pointer-events-none"></div>
@@ -101,7 +101,7 @@ export default function SagePage() {
               <img
                 alt="Technical server hardware with glowing green lights"
                 className="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-700"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4UgrbX3JLtFD16wpKhIFDFb4UTk0cqD8QeGo9WmHRBBGuXZau9GOc1LbRd-quc_3yyNhKAtCHaCC4hpn2rj7_EfsGduStKW0cZc6uhAaaQUrmFpiqDeiZovM4m1n8wrnTDrs-joxG3Pnfixm-oNE-5b3ywg4Pv9qLrtT9Pn0UQNOX6LpRXWVnxPqqXrBgyPvOCeh4gYTf8jOBJfoBbgH6BW5kToe67HtTSC2z34PZGwhg5MgJYt-fCxpMOsGL3z-2bgSgufVr4Q"
+                src="/images/server-hardware-green.jpg"
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="bg-primary-fixed/90 p-8">

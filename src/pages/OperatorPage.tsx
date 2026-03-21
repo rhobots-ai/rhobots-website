@@ -1,6 +1,6 @@
 export default function OperatorPage() {
   return (
-    <main className="pt-16 grid-substrate min-h-screen">
+    <main className="grid-substrate min-h-screen">
       {/* Hero Section: Kinetic Engine */}
       <section className="relative min-h-[819px] flex items-center px-6 md:px-12 overflow-hidden">
         <div className="z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-end gap-12">
@@ -59,7 +59,7 @@ export default function OperatorPage() {
           <img
             className="w-full h-full object-cover mix-blend-overlay"
             alt="Abstract neural network structure with glowing nodes and digital wires"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7UnJJnOFBjqUC9tC8wuNh3wC61SuD8D-qKgPb5JUiKnpb8PGepgQWuKyePEW7d8KsB1vF6ae_Q_6BaWt4Q_r7m9fa5SsWQ4we-wZIcXSoPp0qDJL-tgGJZ5v3cNXa8Ixh4_rYS0nndKL1_CjfvNnyEjupxSg9p-iozRhYMT2ftLRRoG70FGWszByd5RLxD0jCh8iCmWsm4leKT-R9DDhANiUI36JendByja5_V70FdxYnsuGvvRSExklknQY7pOLCNFwlSGkobQ"
+            src="/images/neural-network.jpg"
           />
         </div>
       </section>
@@ -121,12 +121,12 @@ export default function OperatorPage() {
               <img
                 className="h-16 w-full object-cover grayscale opacity-50 border border-outline-variant"
                 alt="Technical security circuitry and abstract hardware components"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw4GEpLgsFluVXlGDBmLCPsun9d7wtoDZD3YLp4zOt4Vz7d1Nnk3uJ7GLz6vDM4Qnq4fhup278UZI0SLx64s4noaPtAQvnyw1qN9nU2nQN1PfJUXArbx9Mcdg4fcDnJRUoqB1zSB18AVG0VCXRuCxe_3hAfsBKB8Qk-hu5ssPU08YvKIuc0V7wbs9bzn2bGAx19G5ExSgSx1ZrdUk7E8MNoO4JHSWQADlrU-N6mtRUssWeC6gXQ9hgvPTO-EFd-NobpuB6ZLFWAA"
+                src="/images/security-circuitry.jpg"
               />
               <img
                 className="h-16 w-full object-cover grayscale opacity-50 border border-outline-variant"
                 alt="Global satellite data visualization mapping network connectivity"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrub6_nT8SGgw-84G2Ggo2BUCYTagvB4vdjH2uacMeX7C6je0HmGJQBwdQ-8mwqWkK0vNDgthNYeTtVmScUa6pcSlFD4rjU810MVpCKFRjbrYcij_t0yGCc9KvqGhQoQPHtPVu8KbPg0TJvSdw5IuoywLUQE3eZste-dL1XkVReZzn-MKkoDwNAAuGzZe-06yQPWW0XM1oszYVSz9XzelPfpYSByjYsYw0mn_N3Q5xcE4cRuPKGv-PBM-OoyzFKWCtECb_G89FtQ"
+                src="/images/satellite-network.jpg"
               />
             </div>
           </div>
@@ -167,7 +167,7 @@ export default function OperatorPage() {
             <img
               className="w-full h-auto object-cover grayscale brightness-75"
               alt="Digital dashboard showing complex data graphs and node connections"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzM44dETRVUVayCtJ0jGeyveRfVeXQRarV74PT4OAZO-oiidA8KxNcCoF0sVzQm59kEM5qpSgMPHJ1xPZyFz38SMWnaFJ8OVkl0ujcjHQr8ormAS6TJK7GcSSB5l2Eeku8K00FF74nI2qwUnmlJuz7-DAvfaoYgi2cFs0uKtAm4tmJK6GedSDUdX8EGZsW4d1kPSxHcf3HaX2OZiNl8fPlnnBpbQIBqLjt5D9fFCYjqAPon7YiuhV6g9_oThsBFFxobKwAxF_6OA"
+              src="/images/dashboard-data-graphs.jpg"
             />
             <div className="absolute inset-0 bg-primary-fixed/5 pointer-events-none mix-blend-overlay"></div>
           </div>

@@ -1,6 +1,6 @@
 export default function ExtractPage() {
   return (
-    <main className="pt-16 grid-substrate min-h-screen">
+    <main className="grid-substrate min-h-screen">
       {/* Hero Section */}
       <section className="relative px-6 pt-24 pb-32 max-w-7xl mx-auto overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">

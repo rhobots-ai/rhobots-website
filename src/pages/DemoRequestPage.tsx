@@ -1,6 +1,6 @@
 export default function DemoRequestPage() {
   return (
-    <main className="min-h-screen pt-16 grid-substrate relative">
+    <main className="min-h-screen grid-substrate relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface-container-lowest/50 to-surface-container-lowest pointer-events-none"></div>
       <div className="container mx-auto px-6 py-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -84,14 +84,31 @@ export default function DemoRequestPage() {
                   </div>
                 </div>
                 <div className="relative">
-                  <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block">Interest_Module_Select</label>
-                  <select className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body uppercase transition-all appearance-none">
-                    <option>Select Product Module</option>
-                    <option>RHOBOTS_OPERATOR_CORE</option>
-                    <option>RHOBOTS_EXTRACT_PIPELINE</option>
-                    <option>RHOBOTS_SAGE_ANALYTICS</option>
-                    <option>RHOBOTS_COPILOT_HUD</option>
-                  </select>
+                  <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-3 block">Interest_Module_Select</label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {[
+                      { id: 'operator', icon: 'settings_input_component', name: 'Operator', desc: 'Autonomous process automation for enterprise workflows' },
+                      { id: 'extract', icon: 'database_upload', name: 'Extract', desc: 'Unstructured data extraction from documents & media' },
+                      { id: 'sage', icon: 'psychology', name: 'Sage', desc: 'Natural language queries across your databases' },
+                      { id: 'pulse', icon: 'insights', name: 'Pulse', desc: 'Real-time AI monitoring for contact centers' },
+                      { id: 'copilot', icon: 'code', name: 'Copilot', desc: 'Enterprise LLM coding assistant for dev teams' },
+                      { id: 'studio', icon: 'dashboard_customize', name: 'Studio', desc: 'Fine-tuning, orchestration & AI safety command center' },
+                    ].map((mod) => (
+                      <label
+                        key={mod.id}
+                        className="group cursor-pointer bg-surface-container-lowest border border-outline-variant/20 p-4 hover:border-primary-fixed/50 has-[:checked]:border-primary-fixed has-[:checked]:bg-primary-fixed/5 transition-all"
+                      >
+                        <input type="checkbox" name="modules" value={mod.id} className="sr-only" />
+                        <div className="flex items-start gap-3">
+                          <span className="material-symbols-outlined text-on-surface-variant group-has-[:checked]:text-primary-fixed transition-colors mt-0.5" style={{ fontSize: '20px' }}>{mod.icon}</span>
+                          <div className="min-w-0">
+                            <div className="font-headline text-xs font-bold text-white uppercase tracking-widest group-has-[:checked]:text-primary-fixed transition-colors">{mod.name}</div>
+                            <div className="text-on-surface-variant/60 text-[10px] font-body leading-snug mt-1">{mod.desc}</div>
+                          </div>
+                        </div>
+                      </label>
+                    ))}
+                  </div>
                 </div>
                 <div className="pt-6">
                   <button className="w-full group relative flex items-center justify-between bg-primary-fixed px-6 py-4 transition-all hover:shadow-[0_0_20px_rgba(210,240,0,0.3)]" type="submit">

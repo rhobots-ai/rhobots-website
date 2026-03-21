@@ -1,6 +1,6 @@
 export default function PulsePage() {
   return (
-    <main className="pt-16 min-h-screen grid-substrate">
+    <main className="min-h-screen grid-substrate">
       {/* Hero Section */}
       <section className="relative px-6 py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -108,7 +108,7 @@ export default function PulsePage() {
                 <img
                   alt="Abstract cyber industrial digital grid and data streams"
                   className="w-full h-full object-cover opacity-50 grayscale"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAutCiZrtMy_w8qd1lY2yGc-idYfVEtyPI_Nc3WfayUTMheIclj8gVEu7awameHe8Sno_9KHzF-6vlOSmKKZrSKyPanvnH4AJva0FGtouCx1XFyG3UtzUW3W8bWi5tYEb0dLQgA4diX3L2cH5oChd6JKlURzV3OQejZcvBowbl_bNPEhsCNisNdA253tabhzyfADT1FEbuMbPnNSdHRQ5bqWdiXEYdtAPDvLYT4dxQRnU03PTciXbwe6dIEIutUu6X1w2Ex2zaZdg"
+                  src="/images/cyber-grid-datastreams.jpg"
                 />
                 <div className="absolute inset-0 bg-primary-fixed/5 scanline"></div>
               </div>

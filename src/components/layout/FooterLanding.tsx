@@ -15,35 +15,37 @@ export default function FooterLanding() {
           <ul className="space-y-4 font-mono text-xs uppercase tracking-widest text-white/40">
             <li><Link className="hover:text-white transition-all" to="/">Studio</Link></li>
             <li><Link className="hover:text-white transition-all" to="/products/operator">Operator</Link></li>
-            <li><Link className="hover:text-white transition-all" to="/products/sage">Sage</Link></li>
             <li><Link className="hover:text-white transition-all" to="/products/extract">Extract</Link></li>
+            <li><Link className="hover:text-white transition-all" to="/products/sage">Sage</Link></li>
+            <li><Link className="hover:text-white transition-all" to="/products/pulse">Pulse</Link></li>
+            <li><Link className="hover:text-white transition-all" to="/products/copilot">Copilot</Link></li>
           </ul>
         </div>
         <div>
           <h5 className="font-mono text-xs uppercase tracking-widest text-[#D2F000] mb-8">Resources</h5>
           <ul className="space-y-4 font-mono text-xs uppercase tracking-widest text-white/40">
-            <li><a className="hover:text-white transition-all" href="#">Docs</a></li>
-            <li><a className="hover:text-white transition-all" href="#">API Ref</a></li>
-            <li><a className="hover:text-white transition-all" href="#">Security</a></li>
-            <li><a className="hover:text-white transition-all" href="#">Cases</a></li>
+            {/* <li><Link className="hover:text-white transition-all" to="/docs">Docs</Link></li> */}
+            {/* <li><Link className="hover:text-white transition-all" to="/pricing">Pricing</Link></li> */}
+            <li><Link className="hover:text-white transition-all" to="/security">Security</Link></li>
           </ul>
         </div>
         <div>
           <h5 className="font-mono text-xs uppercase tracking-widest text-[#D2F000] mb-8">Company</h5>
           <ul className="space-y-4 font-mono text-xs uppercase tracking-widest text-white/40">
-            <li><a className="hover:text-white transition-all" href="#">About</a></li>
-            <li><a className="hover:text-white transition-all" href="#">Careers</a></li>
-            <li><a className="hover:text-white transition-all" href="#">Legal</a></li>
-            <li><a className="hover:text-white transition-all" href="#">Privacy</a></li>
+            <li><Link className="hover:text-white transition-all" to="/about">About</Link></li>
+            {/* <li><Link className="hover:text-white transition-all" to="/careers">Careers</Link></li> */}
+            <li><Link className="hover:text-white transition-all" to="/legal">Legal</Link></li>
+            <li><Link className="hover:text-white transition-all" to="/privacy">Privacy</Link></li>
           </ul>
         </div>
       </div>
       <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/5 gap-6 font-mono text-xs uppercase tracking-widest">
-        <p className="text-white/40">&copy; 2024 RHOBOTS AI. ALL RIGHTS RESERVED.</p>
+        <p className="text-white/40">&copy; 2026 RHOBOTS AI. ALL RIGHTS RESERVED.</p>
         <div className="flex gap-8 text-white/40">
-          <a className="hover:text-[#D2F000]" href="#">TERMS</a>
-          <a className="hover:text-[#D2F000]" href="#">COOKIE</a>
-          <a className="hover:text-[#D2F000]" href="#">SLA_V1</a>
+          <Link className="hover:text-[#D2F000]" to="/demo">REQUEST DEMO</Link>
+          <Link className="hover:text-[#D2F000]" to="/terms">TERMS</Link>
+          <Link className="hover:text-[#D2F000]" to="/cookie">COOKIE</Link>
+          <Link className="hover:text-[#D2F000]" to="/sla">SLA_V1</Link>
         </div>
       </div>
     </footer>
