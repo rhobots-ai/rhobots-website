@@ -1,0 +1,26 @@
+import { Link } from 'react-router-dom';
+
+export default function NavbarLanding() {
+  return (
+    <nav className="bg-[#0E0E0E] sticky top-0 z-50 flex justify-between items-center px-8 py-4 w-full max-w-none border-b border-white/5">
+      <div className="flex items-center gap-12">
+        <Link to="/" className="text-2xl font-black text-white tracking-widest uppercase">RHOBOTS AI</Link>
+        <div className="hidden md:flex gap-8 items-center h-full font-headline font-bold tracking-tighter uppercase">
+          <Link className="text-[#D2F000] border-b-2 border-[#D2F000] pb-1 transition-colors duration-150" to="/">Platform</Link>
+          <Link className="text-white/70 hover:text-[#D2F000] transition-colors duration-150" to="/">Products</Link>
+          <a className="text-white/70 hover:text-[#D2F000] transition-colors duration-150" href="#">Docs</a>
+          <a className="text-white/70 hover:text-[#D2F000] transition-colors duration-150" href="#">Pricing</a>
+        </div>
+      </div>
+      <div className="flex items-center gap-6">
+        <div className="hidden sm:flex gap-4 text-white/50">
+          <span className="material-symbols-outlined cursor-pointer hover:text-[#D2F000] transition-all">search</span>
+          <span className="material-symbols-outlined cursor-pointer hover:text-[#D2F000] transition-all">terminal</span>
+        </div>
+        <Link to="/demo" className="bg-[#D2F000] text-[#0E0E0E] px-6 py-2 rounded-none font-headline font-bold text-xs uppercase tracking-widest hover:opacity-80 active:opacity-70 transition-all">
+          Request Demo
+        </Link>
+      </div>
+    </nav>
+  );
+}
