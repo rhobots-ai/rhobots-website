@@ -77,7 +77,7 @@ export default function LandingPage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0 border border-outline">
           {/* Operator */}
-          <Link to="/products/operator" className="md:col-span-8 bg-surface p-12 border-r border-b border-outline flex flex-col justify-between group">
+          <Link to="/products/operator" className="md:col-span-8 bg-surface p-6 md:p-12 border-r border-b border-outline flex flex-col justify-between group">
             <div className="flex justify-between items-start">
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
@@ -86,14 +86,13 @@ export default function LandingPage() {
                 </div>
                 <p className="text-on-surface text-sm max-w-lg leading-relaxed border-l border-outline pl-6">Intelligent automation that learns your business processes. Cut manual work by 84% without brittle scripts or constant maintenance.</p>
               </div>
-              <span className="text-outline group-hover:text-primary-fixed transition-colors material-symbols-outlined text-5xl">arrow_outward</span>
             </div>
             <div className="mt-12 industrial-border p-2 grayscale hover:grayscale-0 transition-all duration-500 overflow-hidden">
               <img className="w-full h-48 object-cover" alt="Interface dashboard" src="/images/interface-dashboard.jpg" loading="lazy" />
             </div>
           </Link>
           {/* Pulse */}
-          <Link to="/products/pulse" className="md:col-span-4 bg-surface p-12 border-b border-outline flex flex-col group hover:bg-[#1a1a1a] transition-all">
+          <Link to="/products/pulse" className="md:col-span-4 bg-surface p-6 md:p-12 border-b border-outline flex flex-col group hover:bg-[#1a1a1a] transition-all">
             <span className="material-symbols-outlined text-primary-fixed text-4xl mb-8">insights</span>
             <h3 className="font-headline text-2xl font-black uppercase italic text-white mb-6">Pulse</h3>
             <p className="text-on-surface text-xs leading-relaxed flex-grow opacity-70">Real-time intelligence for your contact center. Reduce handle time by 40% and boost customer satisfaction with live agent guidance.</p>
@@ -103,7 +102,7 @@ export default function LandingPage() {
             </div>
           </Link>
           {/* Extract */}
-          <Link to="/products/extract" className="md:col-span-4 bg-surface p-12 border-r border-outline flex flex-col group hover:bg-[#1a1a1a] transition-all">
+          <Link to="/products/extract" className="md:col-span-4 bg-surface p-6 md:p-12 border-t md:border-t-0 border-r border-outline flex flex-col group hover:bg-[#1a1a1a] transition-all">
             <span className="material-symbols-outlined text-primary-fixed text-4xl mb-8">database_upload</span>
             <h3 className="font-headline text-2xl font-black uppercase italic text-white mb-6">Extract</h3>
             <p className="text-on-surface text-xs leading-relaxed flex-grow opacity-70">Turn unstructured documents — PDFs, emails, handwritten notes — into clean, usable data for your business systems.</p>
@@ -112,7 +111,7 @@ export default function LandingPage() {
             </div>
           </Link>
           {/* Sage */}
-          <Link to="/products/sage" className="md:col-span-4 bg-surface p-12 border-r border-outline flex flex-col group hover:bg-[#1a1a1a] transition-all">
+          <Link to="/products/sage" className="md:col-span-4 bg-surface p-6 md:p-12 border-t md:border-t-0 border-r border-outline flex flex-col group hover:bg-[#1a1a1a] transition-all">
             <span className="material-symbols-outlined text-primary-fixed text-4xl mb-8">psychology</span>
             <h3 className="font-headline text-2xl font-black uppercase italic text-white mb-6">Sage</h3>
             <p className="text-on-surface text-xs leading-relaxed flex-grow opacity-70">Ask questions about your business data in plain English and get answers in seconds. No dashboards to build, no analysts to wait on.</p>
@@ -125,7 +124,7 @@ export default function LandingPage() {
             </div>
           </Link>
           {/* Dev Copilot */}
-          <Link to="/products/copilot" className="md:col-span-4 bg-primary-fixed p-12 flex flex-col group relative overflow-hidden">
+          <Link to="/products/copilot" className="md:col-span-4 bg-primary-fixed p-6 md:p-12 border-t md:border-t-0 border-outline flex flex-col group relative overflow-hidden">
             <div className="absolute -right-6 -bottom-6 opacity-20 group-hover:scale-110 transition-transform">
               <span className="material-symbols-outlined text-[160px] text-background">terminal</span>
             </div>
@@ -175,10 +174,9 @@ export default function LandingPage() {
           <div className="lg:w-1/2 w-full">
             <div className="industrial-border p-4 bg-background">
               <div className="flex items-center justify-between mb-6 border-b border-outline pb-4 px-2">
-                <div className="flex gap-2">
-                  <div className="w-2 h-2 bg-primary-fixed"></div>
-                  <div className="w-2 h-2 bg-outline"></div>
-                  <div className="w-2 h-2 bg-outline"></div>
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-primary-fixed text-sm">terminal</span>
+                  <span className="text-primary-fixed font-bold animate-[blink_0.7s_step-start_infinite]">_</span>
                 </div>
                 <span className="text-[10px] text-outline uppercase font-bold tracking-[0.2em]">RHOBOTS STUDIO // LIVE</span>
               </div>
@@ -229,12 +227,11 @@ export default function LandingPage() {
 
       {/* CTA Section */}
       <section className="py-40 px-8 md:px-24 bg-background cyber-grid">
-        <div className="industrial-border bg-surface p-16 md:p-24 text-center relative overflow-hidden">
+        <div className="industrial-border bg-surface px-4 py-12 md:p-24 text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-primary-fixed"></div>
           <div className="relative z-10 max-w-3xl mx-auto space-y-10">
             <h2 className="font-headline text-3xl md:text-7xl font-black italic uppercase text-white tracking-tighter leading-none">
-              Lead Your <br />
-              <span className="text-primary-fixed">AI Transformation.</span>
+              Lead Your <span className="text-primary-fixed">AI Transformation.</span>
             </h2>
             <p className="text-on-surface text-sm max-w-xl mx-auto leading-relaxed border-y border-outline py-6 font-bold uppercase tracking-tight">
               Join 40+ enterprise leaders already driving measurable results with production-ready AI.

@@ -66,6 +66,11 @@
   animation: scanline-move 10s linear infinite;
 }
 
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 @keyframes scanline-move {
   0% { bottom: 100%; }
   100% { bottom: -100px; }
