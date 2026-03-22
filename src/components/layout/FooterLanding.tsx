@@ -7,7 +7,7 @@ export default function FooterLanding() {
         <div className="col-span-2 md:col-span-1">
           <span className="text-lg font-bold text-white uppercase tracking-widest mb-8 block">RHOBOTS AI</span>
           <p className="font-mono text-xs uppercase tracking-widest text-white/40 leading-loose">
-            Cognitive Architect for Global Enterprise. Redefining production AI without the friction.
+            Enterprise AI That Works With What You Have. Production-grade intelligence, zero disruption.
           </p>
         </div>
         <div>
@@ -45,7 +45,7 @@ export default function FooterLanding() {
           <Link className="hover:text-[#D2F000]" to="/demo">REQUEST DEMO</Link>
           <Link className="hover:text-[#D2F000]" to="/terms">TERMS</Link>
           <Link className="hover:text-[#D2F000]" to="/cookie">COOKIE</Link>
-          <Link className="hover:text-[#D2F000]" to="/sla">SLA_V1</Link>
+          <Link className="hover:text-[#D2F000]" to="/sla">SLA</Link>
         </div>
       </div>
     </footer>

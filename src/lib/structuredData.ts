@@ -8,7 +8,7 @@ export function organizationSchema() {
     url: SITE_URL,
     logo: `${SITE_URL}/icon.svg`,
     description:
-      'Enterprise AI platform for cognitive automation — process automation, data extraction, natural language analytics, and more.',
+      'Enterprise AI platform that works with your existing systems — intelligent automation, document processing, business analytics, and more.',
   };
 }
 

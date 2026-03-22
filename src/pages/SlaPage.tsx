@@ -17,7 +17,7 @@ export default function SlaPage() {
             <span className="w-2 h-2 bg-primary-fixed"></span>
             <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">LEGAL // SLA_V1</span>
           </div>
-          <h1 className="font-headline text-5xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] mb-8 uppercase italic">
+          <h1 className="font-headline text-3xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] mb-8 uppercase italic">
             Service Level <span className="text-primary-fixed">Agreement.</span>
           </h1>
           <p className="text-on-surface text-sm opacity-50">Version 1.0 — Effective March 2026</p>

@@ -6,8 +6,8 @@ export default function AboutPage() {
   return (
     <main>
       <SEO
-        title="About - Building the Cognitive Layer"
-        description="Rhobots AI is the structural layer between legacy enterprise systems and generative intelligence. Learn about our mission to democratize cognitive automation for global enterprise."
+        title="About - Building AI That Works for Business"
+        description="Rhobots AI helps enterprises unlock the power of AI without replacing their existing systems. Learn about our mission to make enterprise AI accessible to every organization."
         path="/about"
         jsonLd={organizationSchema()}
       />
@@ -19,12 +19,12 @@ export default function AboutPage() {
             <span className="w-2 h-2 bg-primary-fixed"></span>
             <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">COMPANY // ABOUT</span>
           </div>
-          <h1 className="font-headline text-5xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] mb-8 uppercase italic">
-            Building the <br />
-            <span className="text-primary-fixed">Cognitive Layer.</span>
+          <h1 className="font-headline text-3xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] mb-8 uppercase italic">
+            Building AI That <br />
+            <span className="text-primary-fixed">Works for Business.</span>
           </h1>
           <p className="text-on-surface text-sm md:text-base max-w-xl font-body leading-relaxed border-l-2 border-primary-fixed pl-6 py-2">
-            RHOBOTS AI is the structural layer between legacy enterprise systems and generative intelligence — production-grade AI without the friction.
+            RHOBOTS AI helps enterprises unlock the power of AI without replacing the systems that run their business. Production-grade AI, zero disruption.
           </p>
         </div>
       </section>
@@ -35,13 +35,13 @@ export default function AboutPage() {
           <div className="p-12 border-b md:border-b-0 md:border-r border-outline">
             <h3 className="font-headline text-2xl font-black text-white uppercase tracking-tighter mb-6">Mission</h3>
             <p className="text-on-surface text-sm leading-relaxed opacity-70">
-              To democratize cognitive automation for global enterprise. We believe every organization — regardless of technical debt or infrastructure age — deserves access to production-grade AI that works within their existing systems.
+              To make enterprise AI accessible to every organization. We believe no company should have to rebuild from scratch to benefit from AI. Rhobots works with what you have, delivering results from day one.
             </p>
           </div>
           <div className="p-12">
             <h3 className="font-headline text-2xl font-black text-white uppercase tracking-tighter mb-6">Vision</h3>
             <p className="text-on-surface text-sm leading-relaxed opacity-70">
-              A world where AI augments every enterprise workflow — not by replacing infrastructure, but by bridging the gap between legacy systems and next-generation intelligence.
+              A world where every business benefits from AI — not by replacing what works, but by making it smarter. We bridge the gap between where you are and where AI can take you.
             </p>
           </div>
         </div>
@@ -54,9 +54,9 @@ export default function AboutPage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-l border-outline">
           {[
-            { icon: 'security', title: 'Enterprise-First Security', desc: 'SOC 2 Type II, HIPAA-ready, and on-premise deployment options. Your data never leaves your perimeter unless you want it to.' },
-            { icon: 'integration_instructions', title: 'Zero-Disruption Integration', desc: 'SDK wrappers that connect to mainframes, legacy databases, and modern cloud — without changing a single line of core logic.' },
-            { icon: 'visibility', title: 'Radical Transparency', desc: 'Full audit trails, explainable AI outputs, and human-in-the-loop controls at every step of the automation chain.' },
+            { icon: 'security', title: 'Enterprise-First Security', desc: 'Meets the strictest compliance standards including SOC 2 and HIPAA. Your data stays within your control, always.' },
+            { icon: 'integration_instructions', title: 'Zero-Disruption Integration', desc: 'Works with your mainframes, databases, and cloud systems. No code changes, no downtime, no disruption to daily operations.' },
+            { icon: 'visibility', title: 'Radical Transparency', desc: 'Complete audit trails, clear explanations for every AI decision, and human oversight built into every workflow.' },
           ].map((v) => (
             <div key={v.title} className="p-12 border-r border-b border-outline group hover:bg-surface transition-all">
               <div className="w-10 h-10 flex items-center justify-center bg-outline text-primary-fixed mb-8 group-hover:bg-primary-fixed group-hover:text-background transition-colors">

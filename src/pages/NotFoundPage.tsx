@@ -14,7 +14,7 @@ export default function NotFoundPage() {
         <div className="inline-block px-3 py-1 bg-primary-fixed/10 border-l-4 border-primary-fixed">
           <span className="font-mono text-xs tracking-widest text-primary-fixed uppercase">ERROR_CODE: 404</span>
         </div>
-        <h1 className="font-headline text-6xl md:text-8xl font-black tracking-tighter text-white uppercase">
+        <h1 className="font-headline text-3xl md:text-8xl font-black tracking-tighter text-white uppercase">
           SIGNAL <span className="text-primary-fixed">LOST</span>
         </h1>
         <p className="text-on-surface text-sm max-w-md mx-auto">

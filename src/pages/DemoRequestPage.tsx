@@ -3,12 +3,12 @@ import SEO from '../components/SEO';
 import { organizationSchema } from '../lib/structuredData';
 
 const modules = [
-  { id: 'operator', icon: 'settings_input_component', name: 'Operator', desc: 'Autonomous process automation for enterprise workflows' },
-  { id: 'extract', icon: 'database_upload', name: 'Extract', desc: 'Unstructured data extraction from documents & media' },
-  { id: 'sage', icon: 'psychology', name: 'Sage', desc: 'Natural language queries across your databases' },
-  { id: 'pulse', icon: 'insights', name: 'Pulse', desc: 'Real-time AI monitoring for contact centers' },
-  { id: 'copilot', icon: 'code', name: 'Copilot', desc: 'Enterprise LLM coding assistant for dev teams' },
-  { id: 'studio', icon: 'dashboard_customize', name: 'Studio', desc: 'Fine-tuning, orchestration & AI safety command center' },
+  { id: 'operator', icon: 'settings_input_component', name: 'Operator', desc: 'Intelligent workflow automation for your business processes' },
+  { id: 'extract', icon: 'database_upload', name: 'Extract', desc: 'Automated document processing for clean, usable data' },
+  { id: 'sage', icon: 'psychology', name: 'Sage', desc: 'Business intelligence in plain English' },
+  { id: 'pulse', icon: 'insights', name: 'Pulse', desc: 'Real-time contact center intelligence & coaching' },
+  { id: 'copilot', icon: 'code', name: 'Copilot', desc: 'AI-powered development acceleration for eng teams' },
+  { id: 'studio', icon: 'dashboard_customize', name: 'Studio', desc: 'Central platform for AI configuration & governance' },
 ];
 
 export default function DemoRequestPage() {
@@ -90,7 +90,7 @@ export default function DemoRequestPage() {
     <main className="min-h-screen grid-substrate relative">
       <SEO
         title="Request a Demo"
-        description="See Rhobots AI in action. Request a personalized demo of our enterprise AI platform for process automation, data extraction, NL analytics, contact center AI, and developer tools."
+        description="See Rhobots AI in action. Request a personalized demo of our enterprise AI platform — intelligent automation, document processing, business analytics, and more."
         path="/demo"
         jsonLd={organizationSchema()}
       />
@@ -101,15 +101,15 @@ export default function DemoRequestPage() {
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div className="mb-4">
               <span className="font-mono text-[10px] tracking-[0.3em] text-primary-fixed uppercase px-2 py-1 bg-primary-fixed/10 border-l-2 border-primary-fixed">
-                Inbound Terminal_v.4.0
+                REQUEST A DEMO
               </span>
             </div>
-            <h1 className="font-headline font-black text-6xl md:text-7xl lg:text-8xl text-white leading-none tracking-tighter uppercase mb-8">
-              ARCHITECT <br />THE <span className="text-primary-fixed">FUTURE</span>
+            <h1 className="font-headline font-black text-3xl md:text-7xl lg:text-8xl text-white leading-none tracking-tighter uppercase mb-8">
+              SEE AI <br />IN <span className="text-primary-fixed">ACTION</span>
             </h1>
             <div className="space-y-8 max-w-md">
               <p className="text-on-surface-variant text-lg leading-relaxed">
-                Initialize a high-fidelity orchestration environment. RHOBOTS Kinetic Engine is the specialized interface for industrial AI deployment and neural architecture management.
+                Get a personalized walkthrough of how Rhobots can automate your operations, eliminate manual work, and deliver measurable ROI — without replacing your existing systems.
               </p>
 
               {/* Testimonial Section */}
@@ -118,15 +118,15 @@ export default function DemoRequestPage() {
                 <div className="absolute top-0 left-0 w-1 h-full bg-primary-fixed"></div>
                 <span className="material-symbols-outlined text-primary-fixed/40 mb-4" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
                 <blockquote className="text-white font-body italic mb-6">
-                  "The level of precision and real-time observability in the RHOBOTS terminal has fundamentally shifted our deployment speed. It's not just a tool; it's our central nervous system."
+                  "Rhobots cut our manual processing time by 60% in the first quarter. We saw ROI within weeks, not years — and we didn't have to change a single existing system."
                 </blockquote>
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 bg-surface-bright flex items-center justify-center">
                     <span className="material-symbols-outlined text-primary-fixed">precision_manufacturing</span>
                   </div>
                   <div>
-                    <p className="font-headline font-bold text-xs uppercase tracking-wider text-white">Chief Technology Officer</p>
-                    <p className="font-mono text-[10px] text-on-surface-variant uppercase">Global Neural Systems Corp.</p>
+                    <p className="font-headline font-bold text-xs uppercase tracking-wider text-white">Chief Executive Officer</p>
+                    <p className="font-mono text-[10px] text-on-surface-variant uppercase">Enterprise Client</p>
                   </div>
                 </div>
               </div>
@@ -134,12 +134,12 @@ export default function DemoRequestPage() {
               {/* Security Protocols */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="border-l border-outline-variant/30 pl-4 py-2">
-                  <p className="font-mono text-[10px] text-primary-fixed uppercase tracking-widest mb-1">Status: SECURE</p>
-                  <p className="font-headline text-sm font-bold text-white uppercase">AES-256 Protocol</p>
+                  <p className="font-mono text-[10px] text-primary-fixed uppercase tracking-widest mb-1">SECURITY</p>
+                  <p className="font-headline text-sm font-bold text-white uppercase">Enterprise-Grade</p>
                 </div>
                 <div className="border-l border-outline-variant/30 pl-4 py-2">
-                  <p className="font-mono text-[10px] text-primary-fixed uppercase tracking-widest mb-1">Access: LEVEL 5</p>
-                  <p className="font-headline text-sm font-bold text-white uppercase">Air-Gapped Ops</p>
+                  <p className="font-mono text-[10px] text-primary-fixed uppercase tracking-widest mb-1">DEPLOYMENT</p>
+                  <p className="font-headline text-sm font-bold text-white uppercase">Your Cloud or Ours</p>
                 </div>
               </div>
             </div>
@@ -150,8 +150,8 @@ export default function DemoRequestPage() {
             <div className="w-full bg-surface-container-low p-8 md:p-12 relative border-t-4 border-primary-fixed">
               <div className="flex justify-between items-start mb-10">
                 <div>
-                  <h2 className="font-headline font-black text-3xl text-white uppercase tracking-tighter">DEMO_INITIATION</h2>
-                  <p className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">Awaiting operator credentials...</p>
+                  <h2 className="font-headline font-black text-3xl text-white uppercase tracking-tighter">REQUEST YOUR DEMO</h2>
+                  <p className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">Tell us about your needs</p>
                 </div>
                 <span className="material-symbols-outlined text-primary-fixed text-4xl" style={{ fontVariationSettings: "'FILL' 0" }}>terminal</span>
               </div>
@@ -161,7 +161,7 @@ export default function DemoRequestPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="relative">
-                    <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block">Operator_First_Name</label>
+                    <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block">First Name</label>
                     <input
                       name="first_name"
                       value={firstName}
@@ -173,7 +173,7 @@ export default function DemoRequestPage() {
                     />
                   </div>
                   <div className="relative">
-                    <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block">Operator_Last_Name</label>
+                    <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block">Last Name</label>
                     <input
                       name="last_name"
                       value={lastName}
@@ -187,7 +187,7 @@ export default function DemoRequestPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="relative">
-                    <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block">Work_Protocol_Email</label>
+                    <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block">Work Email</label>
                     <input
                       name="email"
                       type="email"
@@ -198,11 +198,11 @@ export default function DemoRequestPage() {
                       required
                     />
                     {!isValidEmail(email) && email.length > 0 && (
-                      <p className="font-mono text-[9px] text-red-400 uppercase tracking-widest mt-1">Invalid email protocol</p>
+                      <p className="font-mono text-[9px] text-red-400 uppercase tracking-widest mt-1">Please enter a valid email</p>
                     )}
                   </div>
                   <div className="relative">
-                    <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block">Organization_ID</label>
+                    <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block">Company</label>
                     <input
                       name="company"
                       value={company}
@@ -214,7 +214,7 @@ export default function DemoRequestPage() {
                   </div>
                 </div>
                 <div className="relative">
-                  <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-3 block">Interest_Module_Select</label>
+                  <label className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-3 block">Products You're Interested In</label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                     {modules.map((mod) => (
                       <button
@@ -254,12 +254,12 @@ export default function DemoRequestPage() {
 
                 {status === 'success' && (
                   <div className="border border-primary-fixed/30 bg-primary-fixed/5 px-4 py-3">
-                    <p className="font-mono text-[10px] text-primary-fixed uppercase tracking-widest">TRANSMISSION_COMPLETE — We'll be in touch within 1 business day.</p>
+                    <p className="font-mono text-[10px] text-primary-fixed uppercase tracking-widest">REQUEST RECEIVED — We'll be in touch within 1 business day.</p>
                   </div>
                 )}
                 {status === 'error' && (
                   <div className="border border-red-500/30 bg-red-500/5 px-4 py-3">
-                    <p className="font-mono text-[10px] text-red-400 uppercase tracking-widest">{errorMessage || 'Transmission failed. Please retry.'}</p>
+                    <p className="font-mono text-[10px] text-red-400 uppercase tracking-widest">{errorMessage || 'Something went wrong. Please try again.'}</p>
                   </div>
                 )}
 
@@ -270,12 +270,12 @@ export default function DemoRequestPage() {
                     disabled={!isSubmitEnabled || status === 'submitting'}
                   >
                     <span className="font-headline font-black text-xl text-on-primary-fixed uppercase tracking-widest">
-                      {status === 'submitting' ? 'TRANSMITTING...' : 'INITIALIZE DEMO'}
+                      {status === 'submitting' ? 'SUBMITTING...' : 'REQUEST YOUR DEMO'}
                     </span>
                     <span className="material-symbols-outlined text-on-primary-fixed group-hover:translate-x-2 transition-transform">arrow_forward</span>
                   </button>
                   <p className="mt-4 font-mono text-[9px] text-center text-on-surface-variant/60 uppercase tracking-widest leading-relaxed">
-                    BY INITIALIZING, YOU AGREE TO SYSTEM ACCESS PROTOCOLS <br /> AND DATA ENCRYPTION STANDARDS.
+                    BY SUBMITTING, YOU AGREE TO OUR TERMS OF SERVICE <br /> AND PRIVACY POLICY.
                   </p>
                 </div>
               </form>
@@ -285,7 +285,7 @@ export default function DemoRequestPage() {
 
         {/* Deployment Sectors */}
         <div className="mt-24 border-t border-outline-variant/20 pt-12">
-          <h3 className="font-mono text-[10px] text-primary-fixed uppercase tracking-[0.5em] mb-8">ACTIVE_DEPLOYMENT_SECTORS</h3>
+          <h3 className="font-mono text-[10px] text-primary-fixed uppercase tracking-[0.5em] mb-8">TRUSTED ACROSS INDUSTRIES</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
               <span className="material-symbols-outlined text-primary-fixed">local_shipping</span>

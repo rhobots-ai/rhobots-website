@@ -6,7 +6,7 @@ const tiers = [
   {
     name: 'Starter',
     price: 'Custom',
-    desc: 'For teams evaluating cognitive automation.',
+    desc: 'For teams starting their AI journey.',
     features: ['Single product access', 'Community support', 'Standard SLA (99.5%)', '100K API calls/month', 'Shared infrastructure'],
     cta: 'Get Started',
     highlight: false,
@@ -14,7 +14,7 @@ const tiers = [
   {
     name: 'Enterprise',
     price: 'Custom',
-    desc: 'For organizations running production AI at scale.',
+    desc: 'For organizations driving business results with AI.',
     features: ['Full platform access', 'Dedicated support engineer', 'Enterprise SLA (99.9%)', 'Unlimited API calls', 'Dedicated infrastructure', 'SSO & RBAC', 'Custom model fine-tuning', 'On-premise deployment'],
     cta: 'Contact Sales',
     highlight: true,
@@ -46,7 +46,7 @@ export default function PricingPage() {
             <span className="w-2 h-2 bg-primary-fixed"></span>
             <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">PLATFORM // PRICING</span>
           </div>
-          <h1 className="font-headline text-5xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] mb-8 uppercase italic">
+          <h1 className="font-headline text-3xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] mb-8 uppercase italic">
             Built for <span className="text-primary-fixed">Scale.</span>
           </h1>
           <p className="text-on-surface text-sm md:text-base max-w-xl font-body leading-relaxed border-l-2 border-primary-fixed pl-6 py-2">

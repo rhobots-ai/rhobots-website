@@ -31,7 +31,7 @@ export default function DocsPage() {
             <span className="w-2 h-2 bg-primary-fixed"></span>
             <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">RESOURCES // DOCUMENTATION</span>
           </div>
-          <h1 className="font-headline text-5xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] mb-8 uppercase italic">
+          <h1 className="font-headline text-3xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] mb-8 uppercase italic">
             Developer <span className="text-primary-fixed">Docs.</span>
           </h1>
           <p className="text-on-surface text-sm md:text-base max-w-xl font-body leading-relaxed border-l-2 border-primary-fixed pl-6 py-2">

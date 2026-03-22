@@ -5,12 +5,12 @@ export default function ExtractPage() {
   return (
     <main className="grid-substrate min-h-screen">
       <SEO
-        title="Extract - Unstructured Data Extraction Engine"
-        description="Transform unstructured documents into operational intelligence. Rhobots Extract handles complex PDF parsing, inbox streams, and legacy scan digitization with autonomous AI pipelines."
+        title="Extract - Automated Document Processing"
+        description="Stop manual data entry. Rhobots Extract automatically processes documents, emails, and scanned files into clean, structured data for your business systems."
         path="/products/extract"
         jsonLd={[
           organizationSchema(),
-          productSchema({ name: 'Rhobots Extract', description: 'Unstructured data extraction from documents and media', path: '/products/extract' }),
+          productSchema({ name: 'Rhobots Extract', description: 'Automated document processing for enterprise data', path: '/products/extract' }),
           breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Extract', path: '/products/extract' }]),
         ]}
       />
@@ -20,16 +20,16 @@ export default function ExtractPage() {
           <div className="w-full h-full bg-gradient-to-l from-primary-container to-transparent"></div>
         </div>
         <div className="flex flex-col space-y-4">
-          <span className="font-label text-primary-fixed tracking-[0.3em] uppercase text-xs">Terminal // Extract v4.0.1</span>
-          <h1 className="font-headline text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter leading-none text-white uppercase">
+          <span className="font-label text-primary-fixed tracking-[0.3em] uppercase text-xs">PRODUCT: EXTRACT</span>
+          <h1 className="font-headline text-3xl sm:text-7xl md:text-9xl font-black tracking-tighter leading-none text-white uppercase">
             EXTRACT.<br />STRUCTURE.<br /><span className="text-primary-fixed">SCALE.</span>
           </h1>
           <p className="max-w-xl text-on-surface-variant font-body text-base md:text-lg leading-relaxed mt-8 border-l-4 border-primary-container pl-6">
-            Turn chaos into operational intelligence. Autonomous data engine for complex PDF parsing, inbox streams, and legacy scan digitization.
+            Stop losing hours to manual data entry. Extract automatically reads your documents, emails, and scanned files — and turns them into clean, usable data for your business systems.
           </p>
           <div className="mt-8 md:mt-12 flex flex-col sm:flex-row gap-4">
-            <button className="bg-primary-fixed text-on-primary-fixed font-headline font-black px-6 py-4 md:px-10 md:py-5 text-lg md:text-xl tracking-tighter shadow-[0_0_20px_rgba(210,240,0,0.15)] hover:shadow-[0_0_30px_rgba(210,240,0,0.3)] transition-all">INITIALIZE PROTOCOL</button>
-            <button className="border border-outline-variant text-primary font-headline font-black px-6 py-4 md:px-10 md:py-5 text-lg md:text-xl tracking-tighter hover:bg-surface-bright transition-colors">_DOCUMENTATION</button>
+            <button className="bg-primary-fixed text-on-primary-fixed font-headline font-black px-6 py-4 md:px-10 md:py-5 text-lg md:text-xl tracking-tighter shadow-[0_0_20px_rgba(210,240,0,0.15)] hover:shadow-[0_0_30px_rgba(210,240,0,0.3)] transition-all">GET STARTED</button>
+            <button className="border border-outline-variant text-primary font-headline font-black px-6 py-4 md:px-10 md:py-5 text-lg md:text-xl tracking-tighter hover:bg-surface-bright transition-colors">LEARN MORE</button>
           </div>
         </div>
       </section>
@@ -42,7 +42,7 @@ export default function ExtractPage() {
             <div className="flex justify-between items-start mb-12">
               <div>
                 <h3 className="font-headline text-3xl font-bold uppercase text-white">Universal Ingestion</h3>
-                <p className="font-label text-on-surface-variant text-xs mt-1">MODULE_TYPE: MULTI_STREAM_INPUT</p>
+                <p className="font-label text-on-surface-variant text-xs mt-1">HANDLES ANY DOCUMENT FORMAT</p>
               </div>
               <span className="material-symbols-outlined text-primary-fixed text-4xl">system_update_alt</span>
             </div>
@@ -50,17 +50,17 @@ export default function ExtractPage() {
               <div className="bg-surface-container p-6 space-y-4 border-b border-outline-variant/20">
                 <span className="material-symbols-outlined text-primary-fixed">picture_as_pdf</span>
                 <h4 className="font-headline font-bold text-sm">COMPLEX PDFS</h4>
-                <p className="text-xs text-on-surface-variant font-label leading-tight">Spatial awareness for nested tables and handwritten annotations.</p>
+                <p className="text-xs text-on-surface-variant font-label leading-tight">Reads complex layouts, nested tables, and even handwritten notes with near-perfect accuracy.</p>
               </div>
               <div className="bg-surface-container p-6 space-y-4 border-b border-outline-variant/20">
                 <span className="material-symbols-outlined text-primary-fixed">mail</span>
                 <h4 className="font-headline font-bold text-sm">INBOX STREAMS</h4>
-                <p className="text-xs text-on-surface-variant font-label leading-tight">Real-time IMAP/SMTP monitoring for automated triage.</p>
+                <p className="text-xs text-on-surface-variant font-label leading-tight">Automatically processes incoming emails and routes them to the right team or system.</p>
               </div>
               <div className="bg-surface-container p-6 space-y-4 border-b border-outline-variant/20">
                 <span className="material-symbols-outlined text-primary-fixed">scanner</span>
                 <h4 className="font-headline font-bold text-sm">LEGACY SCANS</h4>
-                <p className="text-xs text-on-surface-variant font-label leading-tight">Multi-pass OCR with 99.9% semantic accuracy restoration.</p>
+                <p className="text-xs text-on-surface-variant font-label leading-tight">Digitizes legacy paper documents with 99.9% accuracy — even faded or low-quality scans.</p>
               </div>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function ExtractPage() {
           <div className="md:col-span-4 bg-surface-container-lowest border border-outline-variant/20 p-5 md:p-8 flex flex-col justify-between">
             <div>
               <h3 className="font-headline text-3xl font-bold uppercase text-white">Structured API</h3>
-              <p className="font-label text-primary-fixed text-xs mt-2 font-bold tracking-widest">JSON_PAYLOAD_V4</p>
+              <p className="font-label text-primary-fixed text-xs mt-2 font-bold tracking-widest">STRUCTURED OUTPUT</p>
             </div>
             <div className="my-8 font-label text-[10px] text-primary-fixed-dim leading-relaxed bg-black p-4 opacity-80">
               <pre>{`{
@@ -78,18 +78,18 @@ export default function ExtractPage() {
   "endpoint": "/v1/extract"
 }`}</pre>
             </div>
-            <button className="font-label text-xs uppercase underline underline-offset-8 hover:text-primary-fixed transition-colors">_VIEW_ENDPOINT_RECORDS</button>
+            <button className="font-label text-xs uppercase underline underline-offset-8 hover:text-primary-fixed transition-colors">VIEW INTEGRATIONS</button>
           </div>
           {/* Integration Flow */}
           <div className="md:col-span-12 bg-surface-container p-6 md:p-12">
             <div className="flex flex-col md:flex-row items-center justify-between gap-12">
               <div className="flex-1 space-y-6">
-                <h3 className="font-headline text-2xl md:text-4xl font-black uppercase tracking-tight text-white">System Integration Flow</h3>
-                <p className="text-on-surface-variant max-w-lg">Native webhooks and low-latency piping for SAP, Salesforce, and custom ERP environments. Zero-buffer processing.</p>
+                <h3 className="font-headline text-2xl md:text-4xl font-black uppercase tracking-tight text-white">Connects to Your Business Systems</h3>
+                <p className="text-on-surface-variant max-w-lg">Works directly with SAP, Salesforce, and your custom ERP systems. Data flows automatically — no manual exports or imports needed.</p>
                 <div className="flex flex-wrap gap-4">
-                  <span className="bg-surface-container-highest font-label text-[10px] px-3 py-1 border border-outline-variant/20">AWS_S3</span>
+                  <span className="bg-surface-container-highest font-label text-[10px] px-3 py-1 border border-outline-variant/20">AWS</span>
                   <span className="bg-surface-container-highest font-label text-[10px] px-3 py-1 border border-outline-variant/20">SNOWFLAKE</span>
-                  <span className="bg-surface-container-highest font-label text-[10px] px-3 py-1 border border-outline-variant/20">POSTGRES_CDC</span>
+                  <span className="bg-surface-container-highest font-label text-[10px] px-3 py-1 border border-outline-variant/20">DATABASES</span>
                 </div>
               </div>
               <div className="flex-1 w-full h-48 bg-surface-container-lowest border border-outline-variant/20 flex items-center justify-center relative overflow-hidden">
@@ -122,33 +122,33 @@ export default function ExtractPage() {
       <section className="px-4 sm:px-6 py-16 md:py-24 bg-surface-container-lowest relative">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 md:gap-16">
           <div className="md:w-1/3">
-            <h2 className="font-headline text-4xl md:text-5xl font-black uppercase text-white mb-6">Hardware<br />Benchmarks</h2>
-            <p className="text-on-surface-variant font-body">Performance measured on RHOBOTS KINETIC node arrays. Optimized for H100 GPU clusters.</p>
+            <h2 className="font-headline text-3xl md:text-5xl font-black uppercase text-white mb-6">Performance<br />You Can Count On</h2>
+            <p className="text-on-surface-variant font-body">Built for enterprise-scale workloads. Handles millions of documents without slowing down.</p>
           </div>
           <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-px bg-outline-variant/20">
             <div className="bg-surface p-8">
-              <span className="font-label text-primary-fixed text-xs block mb-4 tracking-tighter">LATENCY_MS</span>
-              <div className="font-headline text-4xl md:text-5xl font-black text-white italic">0.14<span className="text-sm font-label font-normal text-on-surface-variant ml-2">MS</span></div>
+              <span className="font-label text-primary-fixed text-xs block mb-4 tracking-tighter">RESPONSE TIME</span>
+              <div className="font-headline text-4xl md:text-5xl font-black text-white italic">Real-Time</div>
               <div className="mt-4 w-full h-1 bg-surface-container-highest">
                 <div className="w-[95%] h-full bg-primary-container"></div>
               </div>
             </div>
             <div className="bg-surface p-8">
-              <span className="font-label text-primary-fixed text-xs block mb-4 tracking-tighter">THROUGHPUT</span>
+              <span className="font-label text-primary-fixed text-xs block mb-4 tracking-tighter">PROCESSING SPEED</span>
               <div className="font-headline text-4xl md:text-5xl font-black text-white italic">4.8<span className="text-sm font-label font-normal text-on-surface-variant ml-2">GB/S</span></div>
               <div className="mt-4 w-full h-1 bg-surface-container-highest">
                 <div className="w-[88%] h-full bg-primary-container"></div>
               </div>
             </div>
             <div className="bg-surface p-8">
-              <span className="font-label text-primary-fixed text-xs block mb-4 tracking-tighter">RELIABILITY</span>
+              <span className="font-label text-primary-fixed text-xs block mb-4 tracking-tighter">UPTIME</span>
               <div className="font-headline text-4xl md:text-5xl font-black text-white italic">99.99<span className="text-sm font-label font-normal text-on-surface-variant ml-2">%</span></div>
               <div className="mt-4 w-full h-1 bg-surface-container-highest">
                 <div className="w-[99.9%] h-full bg-primary-container"></div>
               </div>
             </div>
             <div className="bg-surface p-8">
-              <span className="font-label text-primary-fixed text-xs block mb-4 tracking-tighter">NODE_SYNC</span>
+              <span className="font-label text-primary-fixed text-xs block mb-4 tracking-tighter">SYNC SPEED</span>
               <div className="font-headline text-4xl md:text-5xl font-black text-white italic">INSTANT</div>
               <div className="mt-4 w-full h-1 bg-surface-container-highest">
                 <div className="w-full h-full bg-primary-container"></div>
@@ -161,8 +161,8 @@ export default function ExtractPage() {
       {/* Final CTA */}
       <section className="px-4 sm:px-6 py-20 md:py-32 border-t border-outline-variant/20 overflow-hidden relative">
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="font-headline text-4xl sm:text-6xl md:text-8xl font-black uppercase text-white mb-8 md:mb-12 tracking-tighter">READY TO CONVERT?</h2>
-          <button className="bg-primary-fixed text-on-primary-fixed font-headline font-black px-8 py-5 md:px-16 md:py-8 text-xl md:text-2xl tracking-tighter hover:scale-105 transition-transform">INITIALIZE PROTOCOL</button>
+          <h2 className="font-headline text-3xl sm:text-6xl md:text-8xl font-black uppercase text-white mb-8 md:mb-12 tracking-tighter">READY TO ELIMINATE MANUAL DATA ENTRY?</h2>
+          <button className="bg-primary-fixed text-on-primary-fixed font-headline font-black px-8 py-5 md:px-16 md:py-8 text-xl md:text-2xl tracking-tighter hover:scale-105 transition-transform">SCHEDULE A DEMO</button>
         </div>
         <div className="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center">
           <span className="font-headline text-[10rem] md:text-[30rem] font-black uppercase leading-none text-white select-none">RHBT</span>

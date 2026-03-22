@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const products = [
-  { name: 'Operator', path: '/products/operator', icon: 'settings_input_component', desc: 'Autonomous process automation' },
-  { name: 'Extract', path: '/products/extract', icon: 'database_upload', desc: 'Unstructured data extraction' },
-  { name: 'Sage', path: '/products/sage', icon: 'psychology', desc: 'Natural language database queries' },
-  { name: 'Pulse', path: '/products/pulse', icon: 'insights', desc: 'Contact center AI monitoring' },
-  { name: 'Copilot', path: '/products/copilot', icon: 'code', desc: 'Enterprise LLM coding assistant' },
+  { name: 'Operator', path: '/products/operator', icon: 'settings_input_component', desc: 'Intelligent workflow automation' },
+  { name: 'Extract', path: '/products/extract', icon: 'database_upload', desc: 'Automated document processing' },
+  { name: 'Sage', path: '/products/sage', icon: 'psychology', desc: 'Business intelligence in plain English' },
+  { name: 'Pulse', path: '/products/pulse', icon: 'insights', desc: 'Real-time contact center intelligence' },
+  { name: 'Copilot', path: '/products/copilot', icon: 'code', desc: 'AI-powered development acceleration' },
 ];
 
 export default function NavbarLanding() {
