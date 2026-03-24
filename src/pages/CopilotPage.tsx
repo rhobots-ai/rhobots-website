@@ -1,5 +1,31 @@
+import { useEffect, useRef } from 'react';
+import { useInView, useMotionValue, useSpring } from 'framer-motion';
 import SEO from '../components/SEO';
+import AgenticPipeline from '../components/AgenticPipeline';
 import { organizationSchema, productSchema, breadcrumbSchema } from '../lib/structuredData';
+
+function AnimatedStat({ value, prefix = '', suffix = '', className = '' }: { value: number, prefix?: string, suffix?: string, className?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, { stiffness: 50, damping: 20 });
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value);
+    }
+  }, [isInView, motionValue, value]);
+
+  useEffect(() => {
+    return springValue.on("change", (latest) => {
+      if (ref.current) {
+        ref.current.textContent = `${prefix}${Math.round(latest)}${suffix}`;
+      }
+    });
+  }, [springValue, prefix, suffix]);
+
+  return <span ref={ref} className={className}>{prefix}0{suffix}</span>;
+}
 
 export default function CopilotPage() {
   return (
@@ -45,19 +71,15 @@ export default function CopilotPage() {
               <div>
                 <span className="font-label text-xs text-outline-variant uppercase">MEASURED IMPACT</span>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-mono font-bold text-primary-fixed">40%</span>
+                  <AnimatedStat value={10} suffix="x" className="text-5xl font-mono font-bold text-primary-fixed" />
                   <span className="text-on-surface uppercase font-headline font-bold">Faster</span>
                 </div>
                 <span className="text-on-surface-variant text-sm font-label uppercase">Average Delivery Velocity</span>
               </div>
-              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/20">
-                <div>
-                  <span className="block font-label text-[10px] text-outline-variant uppercase">ANNUAL SAVINGS</span>
-                  <span className="font-mono text-lg text-white">$22.4K/dev</span>
-                </div>
+              <div className="pt-6 border-t border-outline-variant/20">
                 <div>
                   <span className="block font-label text-[10px] text-outline-variant uppercase">BUG FIX TIME</span>
-                  <span className="font-mono text-lg text-white">-18.5%</span>
+                  <AnimatedStat value={90} prefix="-" suffix="%" className="font-mono text-lg text-white" />
                 </div>
               </div>
             </div>
@@ -153,6 +175,9 @@ export default function CopilotPage() {
           </div>
         </div>
       </section>
+
+      {/* Agentic Pipeline Section */}
+      <AgenticPipeline />
 
       {/* Industrial Ecosystem */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 border-t border-outline-variant/10">
