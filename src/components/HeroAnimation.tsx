@@ -12,8 +12,21 @@ type LogEntry = {
 export default function HeroAnimation() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const isVisibleRef = useRef(true);
   const [dataStream, setDataStream] = useState<LogEntry[]>([]);
   const mouseRef = useRef({ x: -1000, y: -1000 }); // Initially off-screen
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        isVisibleRef.current = entries[0].isIntersecting;
+      },
+      { rootMargin: "100px", threshold: 0 }
+    );
+    if (containerRef.current) observer.observe(containerRef.current);
+    
+    return () => observer.disconnect();
+  }, []);
 
   // Generate inference-like data stream logs
   useEffect(() => {
@@ -33,8 +46,8 @@ export default function HeroAnimation() {
       const act = actions[Math.floor(Math.random() * actions.length)];
       const stat = statuses[Math.floor(Math.random() * statuses.length)];
       const ms = Math.floor(Math.random() * 30 + 5) + 'ms';
-      const hex = Array.from({length: 4}, () => '0123456789ABCDEF'[Math.floor(Math.random() * 16)]).join('');
-      return { id: hex, module: mod, action: act, status: stat, time: ms };
+      const uniqueId = Math.random().toString(36).substring(2, 9) + Date.now().toString(36);
+      return { id: uniqueId, module: mod, action: act, status: stat, time: ms };
     };
 
     // Pre-fill
@@ -61,7 +74,7 @@ export default function HeroAnimation() {
     const resize = () => {
       const parent = canvas.parentElement;
       if (parent) {
-        const dpr = window.devicePixelRatio || 1;
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
         canvas.width = parent.clientWidth * dpr;
         canvas.height = parent.clientHeight * dpr;
         ctx.scale(dpr, dpr);
@@ -86,8 +99,8 @@ export default function HeroAnimation() {
         this.y = Math.random() * height;
         this.baseX = this.x;
         this.baseY = this.y;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
+        this.vx = (Math.random() - 0.5) * 2.5;
+        this.vy = (Math.random() - 0.5) * 2.5;
         this.size = Math.random() * 2 + 0.5;
         this.colorAlpha = Math.random() * 0.5 + 0.3;
       }
@@ -141,14 +154,17 @@ export default function HeroAnimation() {
       particles = [];
       // Increase density and cap the maximum number of particles to avoid jank on large screens
       const isMobile = window.innerWidth <= 768;
-      const density = isMobile ? 30000 : 15000;
-      const numParticles = Math.min(isMobile ? 40 : 150, Math.floor((width * height) / density));
+      const density = isMobile ? 12000 : 9000;
+      const numParticles = Math.min(isMobile ? 80 : 250, Math.floor((width * height) / density));
       for (let i = 0; i < numParticles; i++) {
         particles.push(new Particle(width, height));
       }
     };
 
     const animate = () => {
+      animationFrameId = requestAnimationFrame(animate);
+      if (!isVisibleRef.current) return;
+
       const parent = canvas.parentElement;
       if (!parent) return;
       const width = parent.clientWidth;
@@ -168,10 +184,10 @@ export default function HeroAnimation() {
           const dy = particle.y - particles[j].y;
           const distSq = dx * dx + dy * dy;
 
-          if (distSq < 19600) { // 140^2
+          if (distSq < 28900) { // 170^2
             const distance = Math.sqrt(distSq);
             ctx.beginPath();
-            const opacity = (1 - distance / 140) * Math.min(particle.colorAlpha, particles[j].colorAlpha);
+            const opacity = (1 - distance / 170) * Math.min(particle.colorAlpha, particles[j].colorAlpha);
             ctx.strokeStyle = `rgba(210, 240, 0, ${opacity * 0.8})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particle.x, particle.y);
@@ -205,8 +221,6 @@ export default function HeroAnimation() {
         ctx.strokeStyle = 'rgba(210, 240, 0, 0.05)';
         ctx.stroke();
       }
-
-      animationFrameId = requestAnimationFrame(animate);
     };
 
     resize();
@@ -321,9 +335,10 @@ export default function HeroAnimation() {
             <div className="space-y-3">
               {dataStream.map((log, i) => (
                   <motion.div 
-                      key={`${log.id}-${i}`}
-                      initial={{ opacity: 1, x: -10 }}
-                      animate={{ opacity: Math.max(0.2, 1 - i * 0.25), x: 0 }}
+                      key={log.id}
+                      layout
+                      initial={{ opacity: 0, x: -10, y: -10 }}
+                      animate={{ opacity: Math.max(0.2, 1 - i * 0.25), x: 0, y: 0 }}
                       transition={{ duration: 0.5 }}
                       className="font-mono flex flex-col gap-1"
                   >
