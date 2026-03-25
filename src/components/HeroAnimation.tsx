@@ -101,11 +101,13 @@ export default function HeroAnimation() {
 
         const dx = mouseInfo.x - this.baseX;
         const dy = mouseInfo.y - this.baseY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+        const distSq = dx * dx + dy * dy;
         
         const interactionRadius = 200;
+        const interactionRadiusSq = 40000; // 200^2
         
-        if (distance < interactionRadius) {
+        if (distSq < interactionRadiusSq) {
+          const distance = Math.sqrt(distSq);
           const force = (interactionRadius - distance) / interactionRadius;
           const pushX = (dx / distance) * force * 40;
           const pushY = (dy / distance) * force * 40;
@@ -137,8 +139,10 @@ export default function HeroAnimation() {
 
     const initParticles = (width: number, height: number) => {
       particles = [];
-      const density = window.innerWidth > 768 ? 8000 : 12000;
-      const numParticles = Math.floor((width * height) / density);
+      // Increase density and cap the maximum number of particles to avoid jank on large screens
+      const isMobile = window.innerWidth <= 768;
+      const density = isMobile ? 30000 : 15000;
+      const numParticles = Math.min(isMobile ? 40 : 150, Math.floor((width * height) / density));
       for (let i = 0; i < numParticles; i++) {
         particles.push(new Particle(width, height));
       }
@@ -162,9 +166,10 @@ export default function HeroAnimation() {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particle.x - particles[j].x;
           const dy = particle.y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          if (distance < 140) {
+          if (distSq < 19600) { // 140^2
+            const distance = Math.sqrt(distSq);
             ctx.beginPath();
             const opacity = (1 - distance / 140) * Math.min(particle.colorAlpha, particles[j].colorAlpha);
             ctx.strokeStyle = `rgba(210, 240, 0, ${opacity * 0.8})`;
@@ -177,8 +182,9 @@ export default function HeroAnimation() {
         
         const mdx = particle.x - mouseInfo.x;
         const mdy = particle.y - mouseInfo.y;
-        const mDistance = Math.sqrt(mdx * mdx + mdy * mdy);
-        if (mDistance < 150) {
+        const mDistSq = mdx * mdx + mdy * mdy;
+        if (mDistSq < 22500) { // 150^2
+            const mDistance = Math.sqrt(mDistSq);
             ctx.beginPath();
             const opacity = (1 - mDistance / 150) * 0.3;
             ctx.strokeStyle = `rgba(210, 240, 0, ${opacity})`;
@@ -248,7 +254,7 @@ export default function HeroAnimation() {
             x: { duration: 1, delay: 0.5 },
             y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
           }}
-          className="self-end text-right relative bg-background/60 backdrop-blur-md border border-outline/30 p-5 rounded-sm shadow-2xl w-64"
+          className="self-end text-right relative bg-background/60 backdrop-blur-md border border-outline/30 p-5 rounded-sm shadow-2xl w-64 hidden md:block"
         >
           <div className="flex items-center justify-end gap-3 text-primary-fixed mb-4">
             <span className="material-symbols-outlined text-base animate-spin" style={{ animationDuration: '4s' }}>autorenew</span>
@@ -275,11 +281,11 @@ export default function HeroAnimation() {
         </motion.div>
 
         {/* Decorator Grid Lines */}
-        <div className="absolute bottom-[30%] right-0 w-[40%] border-t border-primary-fixed/10 border-dashed" />
-        <div className="absolute top-[20%] left-[30%] h-[40%] border-l border-primary-fixed/10 border-dashed" />
+        <div className="absolute bottom-[30%] right-0 w-[40%] border-t border-primary-fixed/10 border-dashed hidden md:block" />
+        <div className="absolute top-[20%] left-[30%] h-[40%] border-l border-primary-fixed/10 border-dashed hidden md:block" />
 
         {/* Center Intricate Scanning Assembly */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30 mix-blend-screen">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-15 md:opacity-30 mix-blend-screen -z-10 md:z-auto">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
@@ -305,7 +311,7 @@ export default function HeroAnimation() {
                 opacity: { duration: 1, delay: 1.5 },
                 y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }
             }}
-            className="absolute bottom-[20%] left-6 md:left-12 bg-background/60 backdrop-blur-md p-5 border border-outline/30 rounded-sm shadow-xl w-[300px]"
+            className="absolute bottom-[20%] left-6 md:left-12 bg-background/60 backdrop-blur-md p-5 border border-outline/30 rounded-sm shadow-xl w-[300px] hidden md:block"
         >
             <div className="text-[10px] text-primary-fixed font-label tracking-widest mb-4 border-b border-primary-fixed/20 pb-2 uppercase flex justify-between items-center">
               <span>LLM Inference Logs</span>
@@ -345,7 +351,7 @@ export default function HeroAnimation() {
             opacity: { duration: 1, delay: 1 },
             y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }
           }}
-          className="self-start mt-auto bg-background/60 backdrop-blur-md p-5 border-l-4 border-primary-fixed rounded-sm shadow-2xl border-y border-r border-y-outline/30 border-r-outline/30"
+          className="self-start mt-auto bg-background/60 backdrop-blur-md p-5 border-l-4 border-primary-fixed rounded-sm shadow-2xl border-y border-r border-y-outline/30 border-r-outline/30 hidden md:flex"
         >
           <div className="flex items-center gap-3 text-white mb-4">
             <span className="relative flex h-2.5 w-2.5">

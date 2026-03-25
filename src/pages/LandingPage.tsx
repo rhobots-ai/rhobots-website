@@ -15,8 +15,8 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="min-h-[85vh] flex items-center relative overflow-hidden px-8 md:px-24 cyber-grid border-b border-outline">
         <div className="scanline-animated"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none border-l border-outline/50">
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-full md:w-1/2 h-full pointer-events-none md:border-l border-outline/50 opacity-40 md:opacity-100">
+          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-background via-background/80 md:via-background/40 to-transparent z-10 pointer-events-none"></div>
           <HeroAnimation />
         </div>
         <div className="relative z-10 max-w-4xl">
