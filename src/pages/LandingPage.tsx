@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { organizationSchema } from '../lib/structuredData';
+import HeroAnimation from '../components/HeroAnimation';
 
 export default function LandingPage() {
   return (
@@ -14,9 +15,9 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="min-h-[85vh] flex items-center relative overflow-hidden px-8 md:px-24 cyber-grid border-b border-outline">
         <div className="scanline-animated"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-40 pointer-events-none border-l border-outline/50">
-          <div className="absolute inset-0 bg-gradient-to-l from-background to-transparent z-10"></div>
-          <img className="w-full h-full object-cover grayscale contrast-125" alt="Cyber-industrial data structure" src="/images/hero-data-structure.jpg" />
+        <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none border-l border-outline/50">
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent z-10 pointer-events-none"></div>
+          <HeroAnimation />
         </div>
         <div className="relative z-10 max-w-4xl">
           <div className="inline-flex items-center gap-2 bg-surface-container border border-primary-fixed/30 px-4 py-1 mb-8">
