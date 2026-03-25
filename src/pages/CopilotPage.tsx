@@ -177,11 +177,11 @@ export default function CopilotPage() {
         </div>
       </section>
 
-      {/* Agentic Pipeline Section */}
-      <AgenticPipeline />
-
       {/* Development Insights Dashboard */}
       <DevelopmentInsights />
+
+      {/* Agentic Pipeline Section */}
+      <AgenticPipeline />
 
       {/* Industrial Ecosystem */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 border-t border-outline-variant/10">
