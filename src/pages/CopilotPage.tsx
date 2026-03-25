@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useInView, useMotionValue, useSpring } from 'framer-motion';
 import SEO from '../components/SEO';
 import AgenticPipeline from '../components/AgenticPipeline';
+import DevelopmentInsights from '../components/DevelopmentInsights';
 import { organizationSchema, productSchema, breadcrumbSchema } from '../lib/structuredData';
 
 function AnimatedStat({ value, prefix = '', suffix = '', className = '' }: { value: number, prefix?: string, suffix?: string, className?: string }) {
@@ -178,6 +179,9 @@ export default function CopilotPage() {
 
       {/* Agentic Pipeline Section */}
       <AgenticPipeline />
+
+      {/* Development Insights Dashboard */}
+      <DevelopmentInsights />
 
       {/* Industrial Ecosystem */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 border-t border-outline-variant/10">
