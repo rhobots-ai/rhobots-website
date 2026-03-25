@@ -94,12 +94,12 @@ export default function AgenticPipeline() {
               </defs>
 
               {/* Column labels */}
-              <text x="120" y="40" textAnchor="middle" fontFamily="'Barlow Condensed',sans-serif" fontSize="10" fontWeight="600" fill="#333" letterSpacing="3">QUICK OUTCOME</text>
-              <text x="350" y="40" textAnchor="middle" fontFamily="'Barlow Condensed',sans-serif" fontSize="10" fontWeight="600" fill="#333" letterSpacing="3">PIPELINE STAGE</text>
+              <text x="120" y="40" textAnchor="middle" fontFamily="'Barlow Condensed',sans-serif" fontSize="10" fontWeight="600" fill="#888" letterSpacing="3">QUICK OUTCOME</text>
+              <text x="350" y="40" textAnchor="middle" fontFamily="'Barlow Condensed',sans-serif" fontSize="10" fontWeight="600" fill="#888" letterSpacing="3">PIPELINE STAGE</text>
               <line x1="185" y1="46" x2="300" y2="46" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
               <line x1="400" y1="46" x2="515" y2="46" stroke="rgba(255,255,255,0.05)" strokeWidth="0.5" />
               
-              <text x="700" y="40" textAnchor="middle" fontFamily="'Barlow Condensed',sans-serif" fontSize="10" fontWeight="600" fill="#2244aa" letterSpacing="3">ESCALATION PATHS</text>
+              <text x="700" y="40" textAnchor="middle" fontFamily="'Barlow Condensed',sans-serif" fontSize="10" fontWeight="600" fill="#6688cc" letterSpacing="3">ESCALATION PATHS</text>
 
 
               {/* Stage: ISSUE CREATED */}
