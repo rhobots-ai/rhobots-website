@@ -169,70 +169,78 @@ export default function DevelopmentInsights() {
               <h3 className="font-label text-sm text-white uppercase tracking-widest font-bold">Contributors</h3>
             </div>
 
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="border-b border-outline-variant/20">
-                  <th className="pb-3 text-[10px] font-label uppercase text-outline-variant tracking-widest w-1/2">User</th>
-                  <th className="pb-3 text-[10px] font-label uppercase text-outline-variant tracking-widest text-right">Commits</th>
-                  <th className="pb-3 text-[10px] font-label uppercase text-outline-variant tracking-widest text-right">Lines+</th>
-                  <th className="pb-3 text-[10px] font-label uppercase text-outline-variant tracking-widest text-right">Lines-</th>
-                  <th className="pb-3 text-[10px] font-label uppercase text-outline-variant tracking-widest text-right">LOC%</th>
-                </tr>
-              </thead>
-              <tbody className="font-mono text-sm">
-                <tr className="border-b border-outline-variant/10 hover:bg-surface-bright/50 transition-colors">
-                  <td className="py-4 flex items-center gap-3">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center bg-primary-fixed/10 border border-primary-fixed/30 text-[10px] font-bold" style={{ color: aiColor }}>AI</div>
-                    <span className="text-white font-bold">Copilot AI</span>
-                  </td>
-                  <td className="py-4 text-right text-on-surface">350</td>
-                  <td className="py-4 text-right" style={{ color: aiColor }}>+23,460</td>
-                  <td className="py-4 text-right text-error">-3,120</td>
-                  <td className="py-4 text-right">
-                    <div className="flex items-center justify-end gap-2">
-                      <div className="w-8 h-1 bg-surface-container-highest">
-                        <div className="h-full" style={{ width: '95%', backgroundColor: aiColor }}></div>
+            <div className="overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide">
+              <table className="w-full text-left border-collapse min-w-[500px]">
+                <thead>
+                  <tr className="border-b border-outline-variant/20">
+                    <th className="pb-3 text-[10px] font-label uppercase text-outline-variant tracking-widest text-left whitespace-nowrap">User</th>
+                    <th className="pb-3 text-[10px] font-label uppercase text-outline-variant tracking-widest text-right whitespace-nowrap px-2">Commits</th>
+                    <th className="pb-3 text-[10px] font-label uppercase text-outline-variant tracking-widest text-right whitespace-nowrap px-2">Lines+</th>
+                    <th className="pb-3 text-[10px] font-label uppercase text-outline-variant tracking-widest text-right whitespace-nowrap px-2">Lines-</th>
+                    <th className="pb-3 text-[10px] font-label uppercase text-outline-variant tracking-widest text-right whitespace-nowrap pl-2">LOC%</th>
+                  </tr>
+                </thead>
+                <tbody className="font-mono text-sm">
+                  <tr className="border-b border-outline-variant/10 hover:bg-surface-bright/50 transition-colors">
+                    <td className="py-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 flex shrink-0 items-center justify-center bg-primary-fixed/10 border border-primary-fixed/30 text-[10px] font-bold" style={{ color: aiColor }}>AI</div>
+                        <span className="text-white font-bold whitespace-nowrap">Copilot AI</span>
                       </div>
-                      <span className="text-on-surface text-xs w-8">95%</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="border-b border-outline-variant/10 hover:bg-surface-bright/50 transition-colors">
-                  <td className="py-4 flex items-center gap-3">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center bg-[#00E5FF]/10 border border-[#00E5FF]/30 text-[10px] font-bold text-[#00E5FF]">RN</div>
-                    <span className="text-on-surface-variant text-xs sm:text-sm truncate max-w-[80px] sm:max-w-none">RudreshNarwal</span>
-                  </td>
-                  <td className="py-4 text-right text-on-surface">70</td>
-                  <td className="py-4 text-right text-[#00E5FF]">+860</td>
-                  <td className="py-4 text-right text-error">-240</td>
-                  <td className="py-4 text-right">
-                    <div className="flex items-center justify-end gap-2">
-                      <div className="w-8 h-1 bg-surface-container-highest">
-                        <div className="h-full" style={{ width: '3.5%', backgroundColor: humanColor }}></div>
+                    </td>
+                    <td className="py-4 text-right text-on-surface">350</td>
+                    <td className="py-4 text-right" style={{ color: aiColor }}>+23,460</td>
+                    <td className="py-4 text-right text-error">-3,120</td>
+                    <td className="py-4 text-right">
+                      <div className="flex items-center justify-end gap-2">
+                        <div className="w-8 h-1 bg-surface-container-highest">
+                          <div className="h-full" style={{ width: '95%', backgroundColor: aiColor }}></div>
+                        </div>
+                        <span className="text-on-surface text-xs w-8">95%</span>
                       </div>
-                      <span className="text-on-surface text-xs w-8">3.5%</span>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="hover:bg-surface-bright/50 transition-colors">
-                  <td className="py-4 flex items-center gap-3">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center bg-[#00E5FF]/10 border border-[#00E5FF]/30 text-[10px] font-bold text-[#00E5FF]">RP</div>
-                    <span className="text-on-surface-variant text-xs sm:text-sm truncate max-w-[80px] sm:max-w-none">ravipiplani</span>
-                  </td>
-                  <td className="py-4 text-right text-on-surface">30</td>
-                  <td className="py-4 text-right text-[#00E5FF]">+380</td>
-                  <td className="py-4 text-right text-error">-160</td>
-                  <td className="py-4 text-right">
-                    <div className="flex items-center justify-end gap-2">
-                      <div className="w-8 h-1 bg-surface-container-highest">
-                        <div className="h-full" style={{ width: '1.5%', backgroundColor: humanColor }}></div>
+                    </td>
+                  </tr>
+                  <tr className="border-b border-outline-variant/10 hover:bg-surface-bright/50 transition-colors">
+                    <td className="py-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 flex shrink-0 items-center justify-center bg-[#00E5FF]/10 border border-[#00E5FF]/30 text-[10px] font-bold text-[#00E5FF]">RN</div>
+                        <span className="text-on-surface-variant text-xs sm:text-sm truncate max-w-[80px] sm:max-w-[150px]">RudreshNarwal</span>
                       </div>
-                      <span className="text-on-surface text-xs w-8">1.5%</span>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                    </td>
+                    <td className="py-4 text-right text-on-surface">70</td>
+                    <td className="py-4 text-right text-[#00E5FF]">+860</td>
+                    <td className="py-4 text-right text-error">-240</td>
+                    <td className="py-4 text-right">
+                      <div className="flex items-center justify-end gap-2">
+                        <div className="w-8 h-1 bg-surface-container-highest">
+                          <div className="h-full" style={{ width: '3.5%', backgroundColor: humanColor }}></div>
+                        </div>
+                        <span className="text-on-surface text-xs w-8">3.5%</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-surface-bright/50 transition-colors">
+                    <td className="py-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 flex shrink-0 items-center justify-center bg-[#00E5FF]/10 border border-[#00E5FF]/30 text-[10px] font-bold text-[#00E5FF]">RP</div>
+                        <span className="text-on-surface-variant text-xs sm:text-sm truncate max-w-[80px] sm:max-w-[150px]">ravipiplani</span>
+                      </div>
+                    </td>
+                    <td className="py-4 text-right text-on-surface">30</td>
+                    <td className="py-4 text-right text-[#00E5FF]">+380</td>
+                    <td className="py-4 text-right text-error">-160</td>
+                    <td className="py-4 text-right">
+                      <div className="flex items-center justify-end gap-2">
+                        <div className="w-8 h-1 bg-surface-container-highest">
+                          <div className="h-full" style={{ width: '1.5%', backgroundColor: humanColor }}></div>
+                        </div>
+                        <span className="text-on-surface text-xs w-8">1.5%</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           {/* Bottom Stats Row */}
