@@ -30,12 +30,12 @@ export default function PulsePage() {
               Turn every customer conversation into a competitive advantage. Real-time coaching, automatic compliance monitoring, and instant insights from every call.
             </p>
             <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button className="bg-primary-fixed text-on-primary-fixed px-6 sm:px-8 py-3 sm:py-4 font-headline font-black tracking-widest uppercase text-sm sm:text-base hover:ring-2 hover:ring-primary-fixed/30 transition-all active:scale-95">
+              <a href="#try-pulse-now" className="bg-primary-fixed text-on-primary-fixed px-6 sm:px-8 py-3 sm:py-4 font-headline font-black tracking-widest uppercase text-sm sm:text-base hover:ring-2 hover:ring-primary-fixed/30 transition-all active:scale-95 text-center">
                 SEE PULSE IN ACTION
-              </button>
-              <button className="border border-outline-variant text-primary px-6 sm:px-8 py-3 sm:py-4 font-headline font-black tracking-widest uppercase text-sm sm:text-base hover:bg-white/5 transition-all">
+              </a>
+              <a href="#how-pulse-works" className="border border-outline-variant text-primary px-6 sm:px-8 py-3 sm:py-4 font-headline font-black tracking-widest uppercase text-sm sm:text-base hover:bg-white/5 transition-all text-center">
                 LEARN MORE
-              </button>
+              </a>
             </div>
           </div>
           <div className="lg:col-span-4 bg-surface-container-high p-6 sm:p-8 scanline border-l-4 border-primary-container relative">
@@ -63,7 +63,7 @@ export default function PulsePage() {
       </section>
 
       {/* Try It Live */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-surface border-t border-outline-variant/10">
+      <section id="try-pulse-now" className="py-16 sm:py-24 px-4 sm:px-6 bg-surface border-t border-outline-variant/10">
         <div className="max-w-7xl mx-auto">
           <div className="mb-10 sm:mb-16">
             <span className="font-label text-primary-fixed text-sm uppercase tracking-widest">LIVE DEMO</span>
@@ -77,7 +77,7 @@ export default function PulsePage() {
       </section>
 
       {/* Key Capabilities Bento Grid */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6">
+      <section id="how-pulse-works" className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="mb-10 sm:mb-16">
             <span className="font-label text-primary-fixed text-sm uppercase tracking-widest">KEY CAPABILITIES</span>
@@ -193,9 +193,9 @@ export default function PulsePage() {
           <h2 className="text-3xl sm:text-5xl md:text-7xl font-black font-headline tracking-tighter uppercase text-on-primary-fixed mb-6 sm:mb-8 leading-[0.9]">
             READY TO TRANSFORM YOUR CONTACT CENTER?
           </h2>
-          <button className="w-full sm:w-auto bg-surface-container-lowest text-white px-8 sm:px-12 py-4 sm:py-5 font-headline font-black tracking-widest uppercase hover:scale-105 transition-all">
+          <a href="/demo" className="w-full sm:w-auto bg-surface-container-lowest text-white px-8 sm:px-12 py-4 sm:py-5 font-headline font-black tracking-widest uppercase hover:scale-105 transition-all text-center">
             SCHEDULE A DEMO
-          </button>
+          </a>
           <p className="mt-8 font-label text-on-primary-fixed uppercase tracking-widest text-sm">
             Limited availability. Request early access today.
           </p>

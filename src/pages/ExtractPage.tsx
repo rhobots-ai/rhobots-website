@@ -28,14 +28,14 @@ export default function ExtractPage() {
             Stop losing hours to manual data entry. Extract automatically reads your documents, emails, and scanned files — and turns them into clean, usable data for your business systems.
           </p>
           <div className="mt-8 md:mt-12 flex flex-col sm:flex-row gap-4">
-            <button className="bg-primary-fixed text-on-primary-fixed font-headline font-black px-6 py-4 md:px-10 md:py-5 text-lg md:text-xl tracking-tighter shadow-[0_0_20px_rgba(210,240,0,0.15)] hover:shadow-[0_0_30px_rgba(210,240,0,0.3)] transition-all">GET STARTED</button>
-            <button className="border border-outline-variant text-primary font-headline font-black px-6 py-4 md:px-10 md:py-5 text-lg md:text-xl tracking-tighter hover:bg-surface-bright transition-colors">LEARN MORE</button>
+            <a href="/demo" className="bg-primary-fixed text-on-primary-fixed font-headline font-black px-6 py-4 md:px-10 md:py-5 text-lg md:text-xl tracking-tighter shadow-[0_0_20px_rgba(210,240,0,0.15)] hover:shadow-[0_0_30px_rgba(210,240,0,0.3)] transition-all text-center">GET STARTED</a>
+            <a href="#what-extract-does" className="border border-outline-variant text-primary font-headline font-black px-6 py-4 md:px-10 md:py-5 text-lg md:text-xl tracking-tighter hover:bg-surface-bright transition-colors text-center">LEARN MORE</a>
           </div>
         </div>
       </section>
 
       {/* Technical Modules (Bento Grid) */}
-      <section className="px-4 sm:px-6 py-16 md:py-24 max-w-7xl mx-auto">
+      <section id="what-extract-does" className="px-4 sm:px-6 py-16 md:py-24 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Ingestion Module */}
           <div className="md:col-span-8 bg-surface-container-high relative p-5 md:p-8 scanline overflow-hidden border-l-4 border-primary-container">
@@ -162,7 +162,7 @@ export default function ExtractPage() {
       <section className="px-4 sm:px-6 py-20 md:py-32 border-t border-outline-variant/20 overflow-hidden relative">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="font-headline text-3xl sm:text-6xl md:text-8xl font-black uppercase text-white mb-8 md:mb-12 tracking-tighter">READY TO ELIMINATE MANUAL DATA ENTRY?</h2>
-          <button className="bg-primary-fixed text-on-primary-fixed font-headline font-black px-8 py-5 md:px-16 md:py-8 text-xl md:text-2xl tracking-tighter hover:scale-105 transition-transform">SCHEDULE A DEMO</button>
+          <a href="/demo" className="bg-primary-fixed text-on-primary-fixed font-headline font-black px-8 py-5 md:px-16 md:py-8 text-xl md:text-2xl tracking-tighter hover:scale-105 transition-transform text-center">SCHEDULE A DEMO</a>
         </div>
         <div className="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center">
           <span className="font-headline text-[10rem] md:text-[30rem] font-black uppercase leading-none text-white select-none">RHBT</span>

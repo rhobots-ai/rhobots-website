@@ -1,7 +1,23 @@
+import { useState } from 'react';
 import SEO from '../components/SEO';
 import { organizationSchema, productSchema, breadcrumbSchema } from '../lib/structuredData';
 
+const QUERY_RESULT = [
+  { region: 'North America', q4_revenue: '$4.2M', yoy_delta: '+18.3%', vs_forecast: '+6.1%' },
+  { region: 'Europe',        q4_revenue: '$3.1M', yoy_delta: '+11.7%', vs_forecast: '-2.4%' },
+  { region: 'Asia Pacific',  q4_revenue: '$2.8M', yoy_delta: '+29.5%', vs_forecast: '+14.2%' },
+  { region: 'Latin America', q4_revenue: '$0.9M', yoy_delta: '+5.2%',  vs_forecast: '-1.8%' },
+];
+
 export default function SagePage() {
+  const [ran, setRan] = useState(false);
+  const [running, setRunning] = useState(false);
+
+  function handleRunQuery() {
+    setRunning(true);
+    setTimeout(() => { setRunning(false); setRan(true); }, 900);
+  }
+
   return (
     <main className="min-h-screen grid-substrate">
       <SEO
@@ -43,11 +59,49 @@ export default function SagePage() {
             </div>
             <div className="h-px w-full bg-outline-variant/20 my-4 sm:my-6"></div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-              <button className="bg-primary-fixed text-on-primary-fixed px-6 sm:px-8 py-3 font-headline font-black uppercase text-xs sm:text-sm tracking-widest hover:bg-primary-fixed-dim transition-colors w-full sm:w-auto text-center">
-                RUN QUERY
+              <button
+                onClick={handleRunQuery}
+                disabled={running || ran}
+                className="bg-primary-fixed text-on-primary-fixed px-6 sm:px-8 py-3 font-headline font-black uppercase text-xs sm:text-sm tracking-widest hover:bg-primary-fixed-dim transition-colors w-full sm:w-auto text-center disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {running ? 'RUNNING...' : 'RUN QUERY'}
               </button>
-              <span className="font-mono text-[10px] text-surface-bright uppercase animate-pulse">Waiting for system call...</span>
+              <span className="font-mono text-[10px] text-surface-bright uppercase animate-pulse">
+                {running ? 'Executing query...' : ran ? '' : 'Waiting for system call...'}
+              </span>
             </div>
+            {ran && (
+              <div className="mt-6 overflow-x-auto">
+                <table className="w-full font-mono text-[10px] sm:text-xs border-collapse">
+                  <thead>
+                    <tr className="border-b border-outline-variant/30">
+                      <th className="text-left text-primary-fixed py-2 pr-6 tracking-widest uppercase">Region</th>
+                      <th className="text-right text-primary-fixed py-2 pr-6 tracking-widest uppercase">Q4 Revenue</th>
+                      <th className="text-right text-primary-fixed py-2 pr-6 tracking-widest uppercase">YoY</th>
+                      <th className="text-right text-primary-fixed py-2 tracking-widest uppercase">vs Forecast</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {QUERY_RESULT.map((row) => (
+                      <tr key={row.region} className="border-b border-outline-variant/10">
+                        <td className="py-2 pr-6 text-on-surface">{row.region}</td>
+                        <td className="py-2 pr-6 text-right text-on-surface">{row.q4_revenue}</td>
+                        <td className={`py-2 pr-6 text-right ${row.yoy_delta.startsWith('+') ? 'text-primary-fixed' : 'text-error'}`}>{row.yoy_delta}</td>
+                        <td className={`py-2 text-right ${row.vs_forecast.startsWith('+') ? 'text-primary-fixed' : 'text-error'}`}>{row.vs_forecast}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <div className="mt-4 font-mono text-[10px] text-on-surface-variant">
+                  <span className="text-primary-fixed">✓</span> Query completed in 0.42s — 4 rows returned from 84M+ records
+                </div>
+                <div className="mt-6 flex items-center gap-4">
+                  <a href="/demo" className="bg-primary-fixed text-on-primary-fixed px-6 py-3 font-headline font-black uppercase text-xs tracking-widest hover:shadow-[0_0_20px_rgba(210,240,0,0.3)] transition-all">
+                    GET THIS FOR YOUR DATA →
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -160,9 +214,9 @@ export default function SagePage() {
       <section className="px-4 sm:px-6 py-20 sm:py-32 bg-primary-fixed flex flex-col items-center text-center">
         <h2 className="font-headline font-black text-3xl sm:text-6xl md:text-8xl text-on-primary-fixed uppercase tracking-tighter mb-6 sm:mb-8">Ready for Instant Business Answers?</h2>
         <p className="font-body text-on-primary-container text-base sm:text-xl max-w-xl mb-8 sm:mb-12 font-medium">Go live in under 15 minutes. Stop waiting for reports. Start getting answers.</p>
-        <button className="bg-on-primary-fixed text-white px-8 sm:px-12 py-4 sm:py-5 font-headline font-black text-lg sm:text-2xl uppercase tracking-[0.2em] hover:bg-black transition-colors active:scale-95 duration-75 w-full sm:w-auto">
+        <a href="/demo" className="bg-on-primary-fixed text-white px-8 sm:px-12 py-4 sm:py-5 font-headline font-black text-lg sm:text-2xl uppercase tracking-[0.2em] hover:bg-black transition-colors active:scale-95 duration-75 w-full sm:w-auto text-center">
           SCHEDULE A DEMO
-        </button>
+        </a>
       </section>
     </main>
   );

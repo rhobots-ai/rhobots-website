@@ -56,12 +56,15 @@ export default function CopilotPage() {
               Help your engineering teams ship faster and with fewer bugs. Copilot automates code reviews, generates solutions, and integrates with the tools your developers already use.
             </p>
             <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button className="bg-primary-fixed text-on-primary-fixed px-6 sm:px-8 py-3 sm:py-4 font-headline font-black tracking-widest uppercase text-sm sm:text-base hover:ring-2 hover:ring-primary-fixed/30 transition-all active:scale-95">
+              <a href="/demo" className="bg-primary-fixed text-on-primary-fixed px-6 sm:px-8 py-3 sm:py-4 font-headline font-black tracking-widest uppercase text-sm sm:text-base hover:ring-2 hover:ring-primary-fixed/30 transition-all active:scale-95 text-center">
                 GET STARTED
-              </button>
-              <button className="border border-outline-variant text-primary px-6 sm:px-8 py-3 sm:py-4 font-headline font-black tracking-widest uppercase text-sm sm:text-base hover:bg-white/5 transition-all">
-                SEE DETAILS
-              </button>
+              </a>
+              <a href="#development-insights" className="border border-outline-variant text-primary px-6 sm:px-8 py-3 sm:py-4 font-headline font-black tracking-widest uppercase text-sm sm:text-base hover:bg-white/5 transition-all text-center">
+                DEVELOPMENT INSIGHTS
+              </a>
+              <a href="#ticket-workflow" className="border border-outline-variant text-primary px-6 sm:px-8 py-3 sm:py-4 font-headline font-black tracking-widest uppercase text-sm sm:text-base hover:bg-white/5 transition-all text-center">
+                TICKET WORKFLOW
+              </a>
             </div>
           </div>
           <div className="lg:col-span-4 bg-surface-container-high p-6 sm:p-8 scanline border-l-4 border-primary-container relative">
@@ -89,7 +92,7 @@ export default function CopilotPage() {
       </section>
 
       {/* Core Functions Bento Grid */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-surface">
+      <section id="what-copilot-does" className="py-16 sm:py-24 px-4 sm:px-6 bg-surface">
         <div className="max-w-7xl mx-auto">
           <div className="mb-10 sm:mb-16">
             <span className="font-label text-primary-fixed text-sm uppercase tracking-widest">KEY CAPABILITIES</span>
@@ -178,10 +181,14 @@ export default function CopilotPage() {
       </section>
 
       {/* Development Insights Dashboard */}
-      <DevelopmentInsights />
+      <div id="development-insights">
+        <DevelopmentInsights />
+      </div>
 
       {/* Agentic Pipeline Section */}
-      <AgenticPipeline />
+      <div id="ticket-workflow">
+        <AgenticPipeline />
+      </div>
 
       {/* Industrial Ecosystem */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 border-t border-outline-variant/10">
@@ -225,9 +232,9 @@ export default function CopilotPage() {
           <h2 className="text-3xl sm:text-5xl md:text-7xl font-black font-headline tracking-tighter uppercase text-on-primary-fixed mb-6 sm:mb-8 leading-[0.9]">
             READY TO SHIP FASTER?
           </h2>
-          <button className="w-full sm:w-auto bg-surface-container-lowest text-white px-8 sm:px-12 py-4 sm:py-5 font-headline font-black tracking-widest uppercase hover:scale-105 transition-all">
+          <a href="/demo" className="w-full sm:w-auto bg-surface-container-lowest text-white px-8 sm:px-12 py-4 sm:py-5 font-headline font-black tracking-widest uppercase hover:scale-105 transition-all text-center">
             SCHEDULE A DEMO
-          </button>
+          </a>
           <p className="mt-8 font-label text-on-primary-fixed uppercase tracking-widest text-sm">
             Limited availability. Request early access today.
           </p>

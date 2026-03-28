@@ -29,12 +29,12 @@ export default function OperatorPage() {
               Put your most time-consuming business processes on autopilot. Operator discovers inefficiencies, automates repetitive tasks, and scales operations — without ripping out your existing systems.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-              <button className="px-6 sm:px-8 py-3 sm:py-4 bg-primary-fixed text-on-primary-fixed font-headline font-black uppercase tracking-widest text-sm sm:text-base hover:shadow-[0_0_20px_rgba(210,240,0,0.3)] transition-all">
+              <a href="/demo" className="px-6 sm:px-8 py-3 sm:py-4 bg-primary-fixed text-on-primary-fixed font-headline font-black uppercase tracking-widest text-sm sm:text-base hover:shadow-[0_0_20px_rgba(210,240,0,0.3)] transition-all text-center">
                 START AUTOMATING
-              </button>
-              <button className="px-6 sm:px-8 py-3 sm:py-4 border border-outline-variant text-white font-headline font-black uppercase tracking-widest text-sm sm:text-base hover:bg-white hover:text-black transition-all">
+              </a>
+              <a href="#what-operator-does" className="px-6 sm:px-8 py-3 sm:py-4 border border-outline-variant text-white font-headline font-black uppercase tracking-widest text-sm sm:text-base hover:bg-white hover:text-black transition-all text-center">
                 LEARN MORE
-              </button>
+              </a>
             </div>
           </div>
           {/* Industrial Data Cluster (Right Side) */}
@@ -78,7 +78,7 @@ export default function OperatorPage() {
       </section>
 
       {/* Precision Capabilities: Bento Grid */}
-      <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
+      <section id="what-operator-does" className="py-16 md:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-10 md:mb-16 gap-4">
           <div>
             <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">KEY CAPABILITIES</span>
