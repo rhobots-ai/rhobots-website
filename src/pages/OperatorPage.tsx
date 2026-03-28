@@ -49,7 +49,7 @@ export default function OperatorPage() {
             <div className="flex-1 md:flex-none bg-surface-container-high p-4 sm:p-6">
               <span className="font-mono text-[10px] text-primary-fixed/60 block mb-2 uppercase tracking-widest">MANUAL WORK ELIMINATED</span>
               <div className="flex items-baseline gap-2">
-                <span className="text-2xl sm:text-4xl font-headline font-black text-white">84%</span>
+                <span className="text-2xl sm:text-4xl font-headline font-black text-white">88%</span>
                 <span className="material-symbols-outlined text-primary-fixed text-sm">auto_mode</span>
               </div>
             </div>
@@ -178,9 +178,9 @@ export default function OperatorPage() {
           <div className="bg-surface-container-lowest p-2 border border-outline-variant/30 shadow-2xl relative">
             <div className="absolute -top-4 -left-4 bg-primary-fixed text-on-primary-fixed px-3 py-1 font-mono text-[10px] uppercase font-bold">LIVE_PREVIEW</div>
             <img
-              className="w-full h-auto object-cover grayscale brightness-75"
-              alt="Digital dashboard showing complex data graphs and node connections"
-              src="/images/dashboard-data-graphs.jpg"
+              className="w-full h-auto object-cover"
+              alt="Operator product dashboard screenshot"
+              src="/images/operator.png"
             />
             <div className="absolute inset-0 bg-primary-fixed/5 pointer-events-none mix-blend-overlay"></div>
           </div>

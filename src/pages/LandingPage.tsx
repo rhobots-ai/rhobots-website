@@ -89,7 +89,7 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="mt-12 industrial-border p-2 grayscale hover:grayscale-0 transition-all duration-500 overflow-hidden">
-              <img className="w-full h-48 object-cover" alt="Interface dashboard" src="/images/interface-dashboard.jpg" loading="lazy" />
+              <img className="w-full h-48 object-cover object-top" alt="Operator product dashboard screenshot" src="/images/operator.png" loading="lazy" />
             </div>
           </Link>
           {/* Pulse */}
