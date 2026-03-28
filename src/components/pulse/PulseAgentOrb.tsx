@@ -29,7 +29,7 @@ export default function PulseAgentOrb() {
       <div className="logo-container">
         <div className={`logo-glow ${stateClass}-glow`} />
         <div className={`logo-wrapper ${stateClass}`}>
-          <img src="/icon.png" alt="Rhobots Pulse" className="logo-img" draggable={false} />
+          <img src="/icon.svg" alt="Rhobots Pulse" className="logo-img" draggable={false} />
         </div>
         <div className={`logo-ring ${stateClass}-ring`} />
         <div className={`logo-ring logo-ring-2 ${stateClass}-ring`} />
