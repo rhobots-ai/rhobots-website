@@ -28,6 +28,10 @@ const CHANNELS = [
     desc: "Natural voice conversations that resolve issues without 'Press 1 for...' menus. Understands accents, slang, and context.",
     span: '',
     visual: 'record_voice_over',
+    action: {
+      label: 'TEST LIVE AGENT',
+      href: 'https://pulse.rhobots.ai'
+    }
   },
   {
     num: '04',
@@ -219,6 +223,19 @@ export default function PulseCustomerSupportPage() {
                         {tag}
                       </span>
                     ))}
+                  </div>
+                )}
+                {ch.action && (
+                  <div className="mt-4">
+                    <a
+                      href={ch.action.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 border border-primary-fixed text-primary-fixed hover:bg-primary-fixed hover:text-on-primary-fixed px-3 py-1.5 sm:px-4 sm:py-2 font-mono text-[9px] sm:text-[10px] font-bold tracking-widest transition-all uppercase"
+                    >
+                      <span className="w-1.5 h-1.5 bg-current rounded-full animate-pulse"></span>
+                      {ch.action.label}
+                    </a>
                   </div>
                 )}
                 {/* Decorative corner accent on hover */}
