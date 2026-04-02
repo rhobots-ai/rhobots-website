@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import './index.css';
+import '@livekit/components-styles';
 import Layout from './components/layout/Layout';
 import ScrollToTop from './components/ScrollToTop';
 import LandingPage from './pages/LandingPage';

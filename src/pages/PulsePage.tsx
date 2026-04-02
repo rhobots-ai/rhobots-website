@@ -1,9 +1,10 @@
 import SEO from '../components/SEO';
 import { organizationSchema, productSchema, breadcrumbSchema } from '../lib/structuredData';
+import PulseDemoWidget from '../components/pulse/PulseDemoWidget';
 
 export default function PulsePage() {
   return (
-    <main className="min-h-screen grid-substrate">
+    <main className="flex-grow">
       <SEO
         title="Pulse - Real-Time Contact Center Intelligence"
         description="Transform your contact center with real-time AI. Reduce handle time by 42%, boost satisfaction by 18%, and ensure 99.8% compliance accuracy with Rhobots Pulse."
@@ -15,53 +16,45 @@ export default function PulsePage() {
         ]}
       />
       {/* Hero Section */}
-      <section className="relative px-4 sm:px-6 py-16 sm:py-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <div className="lg:col-span-7 z-10">
-            <div className="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-container px-3 py-1 font-mono text-[10px] tracking-widest uppercase mb-4 sm:mb-6">
-              <span className="w-2 h-2 bg-primary-fixed animate-pulse"></span>
-              REAL-TIME INTELLIGENCE ACTIVE
+      <section className="relative pt-16 sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+          <div className="lg:col-span-8">
+            <div className="flex items-center gap-3 mb-4 sm:mb-6">
+              <span className="bg-secondary-container text-on-secondary-container font-label text-[10px] px-2 py-0.5 uppercase tracking-widest">PRODUCT: PULSE</span>
+              <span className="text-outline-variant font-label text-[10px] uppercase tracking-widest">CONTACT CENTER EDITION</span>
             </div>
-            <h1 className="font-headline text-3xl sm:text-6xl md:text-8xl font-black tracking-tighter text-white uppercase leading-none mb-6 sm:mb-8">
-              EVOLVE EVERY <span className="text-primary-fixed">DIALOGUE.</span>
+            <h1 className="font-headline text-3xl sm:text-6xl md:text-8xl font-black tracking-tighter text-white uppercase leading-[0.85]">
+              EVOLVE EVERY<br />DIALOGUE
             </h1>
-            <p className="text-on-surface-variant max-w-xl text-base sm:text-lg mb-8 sm:mb-10 leading-relaxed">
+            <p className="mt-6 sm:mt-8 text-base sm:text-xl text-on-surface-variant max-w-xl font-body leading-relaxed">
               Turn every customer conversation into a competitive advantage. Real-time coaching, automatic compliance monitoring, and instant insights from every call.
             </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-              <button className="bg-primary-fixed text-on-primary-fixed px-6 sm:px-8 py-3 sm:py-4 font-mono font-bold tracking-widest text-sm sm:text-base hover:glow-bleed transition-all">
+            <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <a href="#try-pulse-now" className="bg-primary-fixed text-on-primary-fixed px-6 sm:px-8 py-3 sm:py-4 font-headline font-black tracking-widest uppercase text-sm sm:text-base hover:ring-2 hover:ring-primary-fixed/30 transition-all active:scale-95 text-center">
                 SEE PULSE IN ACTION
-              </button>
-              <button className="border border-outline-variant/20 text-primary-fixed px-6 sm:px-8 py-3 sm:py-4 font-mono font-bold tracking-widest text-sm sm:text-base hover:bg-surface-bright/20 transition-all">
+              </a>
+              <a href="#how-pulse-works" className="border border-outline-variant text-primary px-6 sm:px-8 py-3 sm:py-4 font-headline font-black tracking-widest uppercase text-sm sm:text-base hover:bg-white/5 transition-all text-center">
                 LEARN MORE
-              </button>
+              </a>
             </div>
           </div>
-          <div className="lg:col-span-5 relative">
-            <div className="bg-surface-container-high p-4 border-l-4 border-primary-container relative scanline">
-              <div className="flex justify-between items-center mb-4 border-b border-outline-variant/10 pb-2">
-                <span className="font-mono text-[10px] text-primary-fixed">LIVE PERFORMANCE</span>
-                <span className="font-mono text-[10px] text-[#393939]">CONNECTED</span>
+          <div className="lg:col-span-4 bg-surface-container-high p-6 sm:p-8 scanline border-l-4 border-primary-container relative">
+            <div className="absolute top-4 right-4 text-primary-fixed/20">
+              <span className="material-symbols-outlined text-6xl">headset_mic</span>
+            </div>
+            <div className="space-y-6">
+              <div>
+                <span className="font-label text-xs text-outline-variant uppercase">HANDLE TIME REDUCTION</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-5xl font-mono font-bold text-primary-fixed">-42%</span>
+                  <span className="text-on-surface uppercase font-headline font-bold">Faster</span>
+                </div>
+                <span className="text-on-surface-variant text-sm font-label uppercase">Average Per Call</span>
               </div>
-              <div className="space-y-3">
-                <div className="h-2 w-full bg-surface-container-highest">
-                  <div className="h-full bg-primary-fixed w-[78%]"></div>
-                </div>
-                <div className="h-2 w-full bg-surface-container-highest">
-                  <div className="h-full bg-primary-fixed w-[45%]"></div>
-                </div>
-                <div className="h-2 w-full bg-surface-container-highest">
-                  <div className="h-full bg-primary-fixed w-[92%]"></div>
-                </div>
-              </div>
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                <div className="bg-surface-container-lowest p-3 font-mono">
-                  <div className="text-[10px] text-[#393939]">HANDLE TIME</div>
-                  <div className="text-2xl text-primary-fixed">-42.00%</div>
-                </div>
-                <div className="bg-surface-container-lowest p-3 font-mono">
-                  <div className="text-[10px] text-[#393939]">RESPONSE</div>
-                  <div className="text-2xl text-white">0.084</div>
+              <div className="pt-6 border-t border-outline-variant/20">
+                <div>
+                  <span className="block font-label text-[10px] text-outline-variant uppercase">COMPLIANCE ACCURACY</span>
+                  <span className="font-mono text-lg text-white">99.8%</span>
                 </div>
               </div>
             </div>
@@ -69,60 +62,101 @@ export default function PulsePage() {
         </div>
       </section>
 
-      {/* Operational Stack - Bento Grid */}
-      <section className="px-4 sm:px-6 py-16 sm:py-20 bg-surface">
+      {/* Try It Live */}
+      <section id="try-pulse-now" className="py-16 sm:py-24 px-4 sm:px-6 bg-surface border-t border-outline-variant/10">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col mb-10 sm:mb-16">
-            <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-2 uppercase">KEY CAPABILITIES</span>
-            <h2 className="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-white uppercase">How Pulse Works</h2>
+          <div className="mb-10 sm:mb-16">
+            <span className="font-label text-primary-fixed text-sm uppercase tracking-widest">LIVE DEMO</span>
+            <h2 className="font-headline text-2xl sm:text-4xl font-black tracking-tight text-white uppercase mt-2">TRY PULSE NOW</h2>
+            <p className="text-on-surface-variant text-sm mt-2 font-body">Select an industry, speak naturally, and see Pulse in action.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {/* Precision Transcript */}
-            <div className="md:col-span-2 bg-surface-container-high p-6 sm:p-8 relative group overflow-hidden">
-              <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-outline-variant">01</div>
-              <span className="material-symbols-outlined text-primary-fixed text-3xl sm:text-4xl mb-4 sm:mb-6">description</span>
-              <h3 className="font-headline text-xl font-bold text-white uppercase mb-4">Live Transcription</h3>
-              <p className="text-on-surface-variant text-sm mb-6 leading-relaxed">
+          <div className="max-w-lg bg-surface-container-high border border-outline-variant/20 p-6 scanline relative">
+            <PulseDemoWidget />
+          </div>
+        </div>
+      </section>
+
+      {/* Key Capabilities Bento Grid */}
+      <section id="how-pulse-works" className="py-16 sm:py-24 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-10 sm:mb-16">
+            <span className="font-label text-primary-fixed text-sm uppercase tracking-widest">KEY CAPABILITIES</span>
+            <h2 className="font-headline text-2xl sm:text-4xl font-black tracking-tight text-white uppercase mt-2">HOW PULSE WORKS</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
+            {/* Live Transcription */}
+            <div className="md:col-span-2 bg-surface-container-high p-6 sm:p-10 hover:bg-surface-bright transition-colors group">
+              <div className="w-12 h-12 bg-surface-container-lowest flex items-center justify-center mb-8 border border-outline-variant/30">
+                <span className="material-symbols-outlined text-primary-fixed">description</span>
+              </div>
+              <h3 className="text-2xl font-black font-headline tracking-tighter uppercase mb-4 text-white">Live Transcription</h3>
+              <p className="text-on-surface-variant font-body mb-8">
                 Captures every word in real time with 99.8% accuracy. Understands intent, not just words.
               </p>
+              <div className="bg-surface-container-lowest p-4 border-l-2 border-primary-fixed">
+                <span className="font-mono text-xs text-primary-fixed opacity-70 block mb-1">TRANSCRIBING...</span>
+                <div className="h-1 bg-outline-variant/20 w-full overflow-hidden">
+                  <div className="bg-primary-fixed h-full w-4/5"></div>
+                </div>
+              </div>
             </div>
 
             {/* Compliance Watch */}
-            <div className="bg-surface-container p-6 sm:p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-outline-variant">02</div>
-              <span className="material-symbols-outlined text-primary-fixed text-3xl sm:text-4xl mb-4 sm:mb-6">verified_user</span>
-              <h3 className="font-headline text-xl font-bold text-white uppercase mb-4">Compliance Watch</h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed">
-                Automatically flags compliance risks and protects sensitive customer information in real time.
-              </p>
-            </div>
-
-            {/* Pulse Mapping */}
-            <div className="bg-surface-container p-6 sm:p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-4 font-mono text-[10px] text-outline-variant">03</div>
-              <span className="material-symbols-outlined text-primary-fixed text-3xl sm:text-4xl mb-4 sm:mb-6">analytics</span>
-              <h3 className="font-headline text-xl font-bold text-white uppercase mb-4">Sentiment Analysis</h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed">
-                Track customer sentiment throughout every conversation. Know when calls are going off track before it's too late.
-              </p>
-            </div>
-
-            {/* Dynamic Orchestration */}
-            <div className="md:col-span-3 lg:col-span-4 bg-surface-container-highest p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8 sm:gap-12 border-l-4 border-primary-fixed">
-              <div className="flex-1">
-                <span className="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 font-mono text-[10px] font-bold mb-4 inline-block uppercase">KEY FEATURE</span>
-                <h3 className="font-headline text-2xl sm:text-3xl font-black text-white uppercase mb-4">Live Agent Guidance</h3>
-                <p className="text-on-surface-variant text-base sm:text-lg">
-                  Gives your agents real-time suggestions and automatically triggers follow-up workflows based on conversation outcomes.
+            <div className="bg-surface-container-low p-6 sm:p-10 flex flex-col justify-between border border-outline-variant/10 group">
+              <div>
+                <span className="material-symbols-outlined text-on-surface-variant mb-6">verified_user</span>
+                <h3 className="text-xl font-black font-headline tracking-tighter uppercase mb-4 text-white">Compliance Watch</h3>
+                <p className="text-sm text-on-surface-variant leading-relaxed">
+                  Automatically flags compliance risks and protects sensitive customer information in real time.
                 </p>
               </div>
-              <div className="w-full md:w-1/3 aspect-video bg-surface-container-lowest border border-outline-variant/10 p-2 relative">
-                <img
-                  alt="Abstract cyber industrial digital grid and data streams"
-                  className="w-full h-full object-cover opacity-50 grayscale"
-                  src="/images/cyber-grid-datastreams.jpg"
-                />
-                <div className="absolute inset-0 bg-primary-fixed/5 scanline"></div>
+              <div className="mt-8 font-mono text-[10px] text-outline-variant uppercase">
+                Risk Score: 0.0 | Clear
+              </div>
+            </div>
+
+            {/* Sentiment Analysis */}
+            <div className="bg-surface-container-low p-6 sm:p-10 flex flex-col justify-between border border-outline-variant/10">
+              <div>
+                <span className="material-symbols-outlined text-on-surface-variant mb-6">analytics</span>
+                <h3 className="text-xl font-black font-headline tracking-tighter uppercase mb-4 text-white">Sentiment Analysis</h3>
+                <p className="text-sm text-on-surface-variant leading-relaxed">
+                  Track customer sentiment throughout every conversation. Know when calls are going off track before it's too late.
+                </p>
+              </div>
+              <div className="mt-8 font-mono text-[10px] text-outline-variant uppercase">
+                Sentiment: Positive | Stable
+              </div>
+            </div>
+
+            {/* Live Agent Guidance (Wide Bottom) */}
+            <div className="md:col-span-4 flex flex-col md:flex-row bg-[#1a1a1a] relative overflow-hidden min-h-[250px] sm:min-h-[300px]">
+              <div className="p-6 sm:p-10 md:w-1/2 z-10">
+                <h3 className="text-2xl sm:text-3xl font-black font-headline tracking-tighter uppercase mb-4 text-white">Live Agent Guidance</h3>
+                <p className="text-on-surface-variant font-body mb-8 max-w-sm">
+                  Gives your agents real-time suggestions and automatically triggers follow-up workflows based on conversation outcomes.
+                </p>
+                <div className="flex flex-wrap gap-3 sm:gap-4">
+                  <div className="flex items-center gap-2 bg-surface-container-lowest px-3 py-1">
+                    <span className="material-symbols-outlined text-primary-fixed text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>bolt</span>
+                    <span className="font-label text-[10px] uppercase">REAL-TIME HINTS</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-surface-container-lowest px-3 py-1">
+                    <span className="material-symbols-outlined text-primary-fixed text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
+                    <span className="font-label text-[10px] uppercase">AUTO WORKFLOWS</span>
+                  </div>
+                </div>
+              </div>
+              <div className="md:w-1/2 relative bg-surface-container-highest scanline opacity-50">
+                <div className="absolute inset-0 flex items-center justify-center p-8">
+                  <div className="w-full font-mono text-[10px] text-primary-fixed/40 leading-tight select-none">
+                    {'{ "agent": "PULSE", "status": "active", "sentiment": "positive", "compliance": "clear" }'}<br />
+                    &gt; TRANSCRIBING CALL... [LIVE]<br />
+                    &gt; SCANNING FOR COMPLIANCE RISK... [CLEAR]<br />
+                    &gt; ANALYZING SENTIMENT... [POSITIVE]<br />
+                    &gt; COACHING SUGGESTION READY
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -130,26 +164,41 @@ export default function PulsePage() {
       </section>
 
       {/* Impact Section */}
-      <section className="px-4 sm:px-6 py-16 sm:py-24 border-t border-outline-variant/10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-12">
-          <div className="max-w-lg">
-            <h2 className="font-headline text-3xl sm:text-5xl font-black text-white uppercase tracking-tighter mb-4">Validated Impact</h2>
-            <p className="text-on-surface-variant font-mono uppercase text-xs tracking-widest">Results from Enterprise Deployments</p>
+      <section className="py-16 sm:py-24 px-4 sm:px-6 border-t border-outline-variant/10">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 sm:gap-16 items-start">
+          <div className="lg:w-1/3">
+            <span className="font-label text-[#393939] text-sm uppercase tracking-widest">VALIDATED IMPACT</span>
+            <h2 className="text-2xl sm:text-4xl font-black font-headline tracking-tight uppercase text-white mt-4 leading-none">RESULTS FROM ENTERPRISE DEPLOYMENTS</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 w-full md:w-auto">
-            <div className="text-center p-4 sm:p-6 bg-surface-container-high">
-              <div className="font-mono text-primary-fixed text-2xl sm:text-4xl font-bold mb-1">-42%</div>
-              <div className="font-mono text-[10px] text-outline text-center uppercase tracking-widest">Handle Time Reduction</div>
+          <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+            <div className="p-6 sm:p-8 bg-surface-container-high">
+              <div className="font-mono text-primary-fixed text-3xl sm:text-5xl font-bold mb-2">-42%</div>
+              <div className="font-mono text-[10px] text-outline uppercase tracking-widest">Handle Time Reduction</div>
             </div>
-            <div className="text-center p-4 sm:p-6 bg-surface-container-high">
-              <div className="font-mono text-white text-2xl sm:text-4xl font-bold mb-1">+18%</div>
-              <div className="font-mono text-[10px] text-outline text-center uppercase tracking-widest">Customer Satisfaction Lift</div>
+            <div className="p-6 sm:p-8 bg-surface-container-high">
+              <div className="font-mono text-white text-3xl sm:text-5xl font-bold mb-2">+18%</div>
+              <div className="font-mono text-[10px] text-outline uppercase tracking-widest">Customer Satisfaction Lift</div>
             </div>
-            <div className="text-center p-4 sm:p-6 bg-surface-container-high col-span-2 md:col-span-1">
-              <div className="font-mono text-white text-2xl sm:text-4xl font-bold mb-1">99.8%</div>
-              <div className="font-mono text-[10px] text-outline text-center uppercase tracking-widest">Compliance Accuracy</div>
+            <div className="p-6 sm:p-8 bg-surface-container-high">
+              <div className="font-mono text-white text-3xl sm:text-5xl font-bold mb-2">99.8%</div>
+              <div className="font-mono text-[10px] text-outline uppercase tracking-widest">Compliance Accuracy</div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Command CTA Section */}
+      <section className="py-20 sm:py-32 px-4 sm:px-6 bg-primary-fixed flex items-center justify-center text-center">
+        <div className="max-w-3xl">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl font-black font-headline tracking-tighter uppercase text-on-primary-fixed mb-6 sm:mb-8 leading-[0.9]">
+            READY TO TRANSFORM YOUR CONTACT CENTER?
+          </h2>
+          <a href="/demo" className="w-full sm:w-auto bg-surface-container-lowest text-white px-8 sm:px-12 py-4 sm:py-5 font-headline font-black tracking-widest uppercase hover:scale-105 transition-all text-center">
+            SCHEDULE A DEMO
+          </a>
+          <p className="mt-8 font-label text-on-primary-fixed uppercase tracking-widest text-sm">
+            Limited availability. Request early access today.
+          </p>
         </div>
       </section>
     </main>

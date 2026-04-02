@@ -87,3 +87,241 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* ── Pulse Voice Demo ──────────────────────────────────────────────── */
+
+/* Agent orb container */
+.logo-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-glow {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(210, 240, 0, 0.25) 0%, transparent 70%);
+  filter: blur(25px);
+  transition: all 0.5s ease;
+}
+
+.logo-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: filter 0.4s ease;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+.logo-ring {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(210, 240, 0, 0.15);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+}
+
+.logo-ring-2 {
+  width: 170px;
+  height: 170px;
+  border-color: rgba(210, 240, 0, 0.07);
+}
+
+/* Idle: gentle breathing */
+.logo-idle { animation: logo-breathe 3s ease-in-out infinite; }
+.logo-idle-glow { animation: glow-breathe 3s ease-in-out infinite; }
+.logo-idle-ring { animation: ring-breathe 3s ease-in-out infinite; }
+
+/* Listening: steady pulse, lime */
+.logo-listening {
+  animation: logo-pulse-listen 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(210, 240, 0, 0.5));
+}
+.logo-listening-glow {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(210, 240, 0, 0.4) 0%, transparent 70%);
+  animation: glow-pulse-listen 1.8s ease-in-out infinite;
+}
+.logo-listening-ring {
+  border-color: rgba(210, 240, 0, 0.3);
+  animation: ring-pulse-listen 1.8s ease-in-out infinite;
+}
+
+/* Speaking: energetic pulse, teal */
+.logo-speaking {
+  animation: logo-pulse-speak 0.7s ease-in-out infinite;
+  filter: drop-shadow(0 0 18px rgba(6, 182, 212, 0.6));
+}
+.logo-speaking-glow {
+  width: 170px;
+  height: 170px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.45) 0%, transparent 70%);
+  animation: glow-pulse-speak 0.7s ease-in-out infinite;
+}
+.logo-speaking-ring {
+  border-color: rgba(6, 182, 212, 0.35);
+  animation: ring-pulse-speak 0.7s ease-in-out infinite;
+}
+
+/* Thinking: slow rotation with amber glow */
+.logo-thinking {
+  animation: logo-think 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.5));
+}
+.logo-thinking-glow {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.35) 0%, transparent 70%);
+  animation: glow-think 2s ease-in-out infinite;
+}
+.logo-thinking-ring {
+  border-color: rgba(245, 158, 11, 0.25);
+  animation: ring-think 3s linear infinite;
+}
+
+/* Keyframes — Logo */
+@keyframes logo-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+@keyframes logo-pulse-listen {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+}
+@keyframes logo-pulse-speak {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.12); }
+  55% { transform: scale(0.96); }
+}
+@keyframes logo-think {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.03) rotate(3deg); }
+  75% { transform: scale(1.03) rotate(-3deg); }
+}
+
+/* Keyframes — Glow */
+@keyframes glow-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+@keyframes glow-pulse-listen {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+@keyframes glow-pulse-speak {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  25% { transform: scale(1.25); opacity: 1; }
+  55% { transform: scale(0.9); opacity: 0.5; }
+}
+@keyframes glow-think {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+
+/* Keyframes — Rings */
+@keyframes ring-breathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(1.06); opacity: 0.5; }
+}
+@keyframes ring-pulse-listen {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.4; }
+}
+@keyframes ring-pulse-speak {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  25% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  55% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.3; }
+}
+@keyframes ring-think {
+  0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); }
+}
+
+/* Spinner */
+.pulse-spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid rgba(210, 240, 0, 0.15);
+  border-top-color: #d2f000;
+  animation: pulse-spin 0.8s linear infinite;
+}
+@keyframes pulse-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Form elements — industry/language toggles */
+.pulse-industry-option {
+  @apply flex-1 flex flex-col items-center gap-1 py-2.5 px-2 border border-outline-variant/40 bg-surface-container text-on-surface-variant cursor-pointer transition-all duration-200 font-mono text-xs;
+}
+.pulse-industry-option:hover {
+  @apply border-outline text-on-surface;
+}
+.pulse-industry-option-selected {
+  @apply border-primary-fixed bg-primary-fixed/10 text-primary-fixed;
+}
+
+.pulse-language-option {
+  @apply flex-1 py-2 px-4 border border-outline-variant/40 bg-surface-container text-on-surface-variant text-sm cursor-pointer transition-all duration-200 font-mono;
+}
+.pulse-language-option:hover {
+  @apply border-outline text-on-surface;
+}
+.pulse-language-option-selected {
+  @apply border-primary-fixed bg-primary-fixed/10 text-primary-fixed;
+}
+
+.pulse-name-input {
+  @apply w-full px-3 py-2 border border-outline-variant/40 bg-surface-container text-on-surface placeholder-outline text-sm outline-none transition-all duration-200 font-mono;
+}
+.pulse-name-input:focus {
+  @apply border-primary-fixed;
+}
+
+.pulse-join-button {
+  @apply w-full py-2.5 bg-primary-fixed text-on-primary-fixed font-mono font-bold text-sm uppercase tracking-widest cursor-pointer transition-all duration-200;
+}
+.pulse-join-button:disabled {
+  @apply opacity-30 cursor-not-allowed;
+}
+.pulse-join-button:not(:disabled):hover {
+  @apply opacity-90;
+}
+
+/* LiveKit control bar overrides inside the demo widget */
+.pulse-demo-widget .lk-agent-control-bar {
+  border-top: 0;
+  padding: 0;
+  height: min-content;
+  margin-right: 1rem;
+}
+.pulse-demo-widget .lk-disconnect-button {
+  height: 36px;
+  background-color: #31100c;
+  border-color: #6b221a;
+  color: white;
+}
+.pulse-demo-widget .lk-disconnect-button:hover {
+  background-color: #6b221a;
+}
