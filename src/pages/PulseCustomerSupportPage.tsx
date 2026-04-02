@@ -106,7 +106,7 @@ export default function PulseCustomerSupportPage() {
               <span className="w-2 h-2 bg-primary-fixed animate-pulse"></span>
               AI CUSTOMER SUPPORT // ACTIVE
             </div>
-            <h1 className="font-headline text-[1.75rem] leading-[1.1] sm:text-5xl md:text-7xl lg:text-8xl sm:leading-[0.95] font-black tracking-tighter text-white uppercase mb-5 sm:mb-8">
+            <h1 className="font-headline text-[1.75rem] leading-[1.1] sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] sm:leading-[0.95] font-black tracking-tighter text-white uppercase mb-5 sm:mb-8">
               RESOLVE 90%<br />
               OF TICKETS.<br />
               <span className="text-primary-fixed">AUTOMATICALLY.</span>
