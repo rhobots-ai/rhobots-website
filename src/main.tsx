@@ -23,6 +23,7 @@ import SlaPage from './pages/SlaPage';
 import DocsPage from './pages/DocsPage';
 import PricingPage from './pages/PricingPage';
 import SecurityPage from './pages/SecurityPage';
+import PulseCustomerSupportPage from './pages/PulseCustomerSupportPage';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -36,6 +37,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/products/extract" element={<ExtractPage />} />
           <Route path="/products/sage" element={<SagePage />} />
           <Route path="/products/pulse" element={<PulsePage />} />
+          <Route path="/pulse/customer-support" element={<PulseCustomerSupportPage />} />
           <Route path="/products/copilot" element={<CopilotPage />} />
           <Route path="/demo" element={<DemoRequestPage />} />
           <Route path="/about" element={<AboutPage />} />
