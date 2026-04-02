@@ -106,9 +106,10 @@ export default function PulseCustomerSupportPage() {
               <span className="w-2 h-2 bg-primary-fixed animate-pulse"></span>
               AI CUSTOMER SUPPORT // ACTIVE
             </div>
-            <h1 className="font-headline text-[1.75rem] leading-[1.1] sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase mb-5 sm:mb-8">
-              RESOLVE 90% OF TICKETS.{' '}
-              <span className="text-primary-fixed block sm:inline">AUTOMATICALLY.</span>
+            <h1 className="font-headline text-[1.75rem] leading-[1.1] sm:text-5xl md:text-7xl lg:text-8xl sm:leading-[0.95] font-black tracking-tighter text-white uppercase mb-5 sm:mb-8">
+              RESOLVE 90%<br />
+              OF TICKETS.<br />
+              <span className="text-primary-fixed">AUTOMATICALLY.</span>
             </h1>
             <p className="text-on-surface-variant max-w-xl text-sm sm:text-lg mb-6 sm:mb-10 leading-relaxed">
               Your customers get instant, accurate answers across every channel — chat, email, voice, and social. Your agents get freed from repetitive tickets to handle what actually needs a human.

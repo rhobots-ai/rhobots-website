@@ -9,27 +9,27 @@ interface Step {
 const DEMO_STEPS: Step[] = [
   {
     type: 'customer',
-    content: "I ordered a laptop 3 days ago and it still hasn't shipped. Order #8847. This is ridiculous.",
+    content: "My package was supposed to arrive yesterday but the tracking hasn't updated. AWB #9928341. What's going on?",
     delay: 1200,
   },
   {
     type: 'reasoning',
-    content: '> INTENT: order_status_inquiry\n> SENTIMENT: frustrated [0.87]\n> ACTION: lookup_order(#8847)',
+    content: '> INTENT: tracking_status_inquiry\n> SENTIMENT: frustrated [0.87]\n> ACTION: lookup_awb(#9928341)',
     delay: 1800,
   },
   {
     type: 'ai',
-    content: "I completely understand your frustration. Let me check on order #8847 right now.",
+    content: "I completely understand your frustration. Let me check on the status of AWB #9928341 right now.",
     delay: 1400,
   },
   {
     type: 'reasoning',
-    content: '> RESULT: warehouse_delay | est_ship: tomorrow\n> POLICY_CHECK: compensation_eligible = true\n> ACTION: apply_priority_shipping, generate_discount',
+    content: '> RESULT: weather_delay_hub | est_delivery: today_by_8pm\n> POLICY_CHECK: proactively_notify = true\n> ACTION: setup_sms_tracking, generate_apology_credit',
     delay: 2000,
   },
   {
     type: 'ai',
-    content: "I found your order — there was a brief warehouse delay, but it's shipping tomorrow with priority delivery at no extra charge. You'll have tracking within the hour. I've also applied a 10% discount to your next order as an apology.",
+    content: "I found your package — there was a brief weather delay at our transit hub, but it's out for delivery and will arrive by 8 PM today. I've set up real-time SMS updates for you and applied a $15 credit to your account for the inconvenience.",
     delay: 1800,
   },
   {
@@ -93,7 +93,7 @@ export default function ConversationDemo() {
             <span className="w-2 h-2 bg-primary-fixed rounded-full animate-pulse"></span>
             <span className="font-mono text-[9px] sm:text-[10px] text-primary-fixed tracking-widest">LIVE CHAT</span>
           </div>
-          <span className="font-mono text-[9px] sm:text-[10px] text-outline">TICKET #8847</span>
+          <span className="font-mono text-[9px] sm:text-[10px] text-outline">AWB #9928341</span>
         </div>
         <div className="flex-1 p-3 sm:p-4 space-y-3 sm:space-y-4 min-h-[260px] sm:min-h-[380px]">
           {visibleMessages.map((step, i) => (
