@@ -37,6 +37,7 @@ type Props = {
   userName: string;
   setUserName: (v: string) => void;
   isFormValid: boolean;
+  lockedIndustry?: string;
 };
 
 export default function PulseVoiceAssistant(props: Props) {
@@ -53,24 +54,26 @@ export default function PulseVoiceAssistant(props: Props) {
           transition={{ duration: 0.3, ease: [0.09, 1.04, 0.245, 1.055] }}
           className="flex flex-col gap-5"
         >
-          {/* Industry */}
-          <div>
-            <label className="block font-mono text-[10px] tracking-widest uppercase text-on-surface-variant mb-2">
-              Select Industry
-            </label>
-            <div className="flex gap-2">
-              {INDUSTRIES.map((ind) => (
-                <button
-                  key={ind.value}
-                  onClick={() => props.setIndustry(ind.value)}
-                  className={`pulse-industry-option ${props.industry === ind.value ? 'pulse-industry-option-selected' : ''}`}
-                >
-                  <span className="text-lg">{ind.icon}</span>
-                  <span>{ind.label}</span>
-                </button>
-              ))}
+          {/* Industry — hidden when locked */}
+          {!props.lockedIndustry && (
+            <div>
+              <label className="block font-mono text-[10px] tracking-widest uppercase text-on-surface-variant mb-2">
+                Select Industry
+              </label>
+              <div className="flex gap-2">
+                {INDUSTRIES.map((ind) => (
+                  <button
+                    key={ind.value}
+                    onClick={() => props.setIndustry(ind.value)}
+                    className={`pulse-industry-option ${props.industry === ind.value ? 'pulse-industry-option-selected' : ''}`}
+                  >
+                    <span className="text-lg">{ind.icon}</span>
+                    <span>{ind.label}</span>
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Language */}
           <div>

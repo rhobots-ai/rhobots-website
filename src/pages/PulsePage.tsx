@@ -70,7 +70,7 @@ export default function PulsePage() {
             <h2 className="font-headline text-2xl sm:text-4xl font-black tracking-tight text-white uppercase mt-2">TRY PULSE NOW</h2>
             <p className="text-on-surface-variant text-sm mt-2 font-body">Select an industry, speak naturally, and see Pulse in action.</p>
           </div>
-          <div className="max-w-lg bg-surface-container-high border border-outline-variant/20 p-6 scanline relative">
+          <div className="bg-surface-container-high border border-outline-variant/20 scanline relative">
             <PulseDemoWidget />
           </div>
         </div>

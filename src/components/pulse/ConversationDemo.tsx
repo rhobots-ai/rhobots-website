@@ -1,12 +1,7 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, forwardRef, useImperativeHandle } from 'react';
+import { type DemoStep } from '../../lib/customerConfigs';
 
-interface Step {
-  type: 'customer' | 'ai' | 'reasoning';
-  content: string;
-  delay: number;
-}
-
-const DEMO_STEPS: Step[] = [
+const DEMO_STEPS: DemoStep[] = [
   {
     type: 'customer',
     content: "My package was supposed to arrive yesterday but the tracking hasn't updated. AWB #9928341. What's going on?",
@@ -44,7 +39,17 @@ const DEMO_STEPS: Step[] = [
   },
 ];
 
-export default function ConversationDemo() {
+export interface ConversationDemoHandle {
+  replay: () => void;
+}
+
+interface ConversationDemoProps {
+  steps?: DemoStep[];
+}
+
+const ConversationDemo = forwardRef<ConversationDemoHandle, ConversationDemoProps>(
+  function ConversationDemo({ steps: stepsProp }, ref) {
+  const steps = stepsProp ?? DEMO_STEPS;
   const [currentStep, setCurrentStep] = useState(-1);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
@@ -55,21 +60,23 @@ export default function ConversationDemo() {
     setHasStarted(true);
   }, []);
 
+  useImperativeHandle(ref, () => ({ replay: play }), [play]);
+
   useEffect(() => {
     if (!isPlaying) return;
 
     const nextStep = currentStep + 1;
-    if (nextStep >= DEMO_STEPS.length) {
+    if (nextStep >= steps.length) {
       setIsPlaying(false);
       return;
     }
 
     const timer = setTimeout(() => {
       setCurrentStep(nextStep);
-    }, nextStep === 0 ? 600 : DEMO_STEPS[nextStep - 1].delay);
+    }, nextStep === 0 ? 600 : steps[nextStep - 1].delay);
 
     return () => clearTimeout(timer);
-  }, [currentStep, isPlaying]);
+  }, [currentStep, isPlaying, steps]);
 
   // Auto-play on mount
   useEffect(() => {
@@ -77,10 +84,10 @@ export default function ConversationDemo() {
     return () => clearTimeout(timer);
   }, [play]);
 
-  const visibleMessages = DEMO_STEPS.slice(0, currentStep + 1).filter(
+  const visibleMessages = steps.slice(0, currentStep + 1).filter(
     (s) => s.type === 'customer' || s.type === 'ai'
   );
-  const visibleReasoning = DEMO_STEPS.slice(0, currentStep + 1).filter(
+  const visibleReasoning = steps.slice(0, currentStep + 1).filter(
     (s) => s.type === 'reasoning'
   );
 
@@ -115,7 +122,7 @@ export default function ConversationDemo() {
               </div>
             </div>
           ))}
-          {isPlaying && DEMO_STEPS[currentStep + 1]?.type === 'ai' && (
+          {isPlaying && steps[currentStep + 1]?.type === 'ai' && (
             <div className="flex justify-end">
               <div className="bg-primary-fixed/10 border border-primary-fixed/20 px-3 sm:px-4 py-2.5 sm:py-3">
                 <div className="font-mono text-[9px] sm:text-[10px] text-primary-fixed mb-1 sm:mb-1.5">PULSE AI</div>
@@ -133,7 +140,7 @@ export default function ConversationDemo() {
             </div>
           )}
         </div>
-        {!isPlaying && hasStarted && currentStep >= DEMO_STEPS.length - 1 && (
+        {!isPlaying && hasStarted && currentStep >= steps.length - 1 && (
           <div className="px-3 sm:px-4 py-2.5 sm:py-3 border-t border-outline-variant/10 flex items-center justify-between">
             <span className="font-mono text-[9px] sm:text-[10px] text-primary-fixed">RESOLVED IN 12s</span>
             <button
@@ -189,4 +196,7 @@ export default function ConversationDemo() {
       </div>
     </div>
   );
-}
+  }
+);
+
+export default ConversationDemo;
