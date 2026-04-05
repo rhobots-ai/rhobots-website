@@ -45,10 +45,11 @@ export interface ConversationDemoHandle {
 
 interface ConversationDemoProps {
   steps?: DemoStep[];
+  autoLoop?: boolean;
 }
 
 const ConversationDemo = forwardRef<ConversationDemoHandle, ConversationDemoProps>(
-  function ConversationDemo({ steps: stepsProp }, ref) {
+  function ConversationDemo({ steps: stepsProp, autoLoop = false }, ref) {
   const steps = stepsProp ?? DEMO_STEPS;
   const [currentStep, setCurrentStep] = useState(-1);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -68,6 +69,10 @@ const ConversationDemo = forwardRef<ConversationDemoHandle, ConversationDemoProp
     const nextStep = currentStep + 1;
     if (nextStep >= steps.length) {
       setIsPlaying(false);
+      if (autoLoop) {
+        const loopTimer = setTimeout(play, 3000);
+        return () => clearTimeout(loopTimer);
+      }
       return;
     }
 

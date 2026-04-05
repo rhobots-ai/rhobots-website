@@ -85,6 +85,20 @@ const HERO_MODES = [
   { label: 'INTELLIGENT AUTOMATION', headline: 'AI TICKETING — NO MANUAL ENTRY.' },
 ];
 
+function useLiveCounter(start: number, intervalMs = 2500) {
+  const [count, setCount] = useState(start);
+  const [flash, setFlash] = useState(false);
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount(c => c + 1);
+      setFlash(true);
+      setTimeout(() => setFlash(false), 400);
+    }, intervalMs);
+    return () => clearInterval(id);
+  }, [start, intervalMs]);
+  return { count, flash };
+}
+
 function useTyping(text: string, trigger: number, speed = 35) {
   const [charIndex, setCharIndex] = useState(0);
   useEffect(() => {
@@ -119,6 +133,7 @@ export default function PulseCustomerSupportPage() {
 
   const currentMode = HERO_MODES[modeIndex];
   const typing = useTyping(currentMode.headline, tick);
+  const liveCounter = useLiveCounter(customerConfig?.ticketCounterStart ?? 12400, 2500);
 
   const scrollToDemo = () => {
     document.getElementById('live-demo')?.scrollIntoView({ behavior: 'smooth' });
@@ -166,18 +181,37 @@ export default function PulseCustomerSupportPage() {
               {customerConfig?.hero?.subheadline ?? 'Your customers get instant, accurate answers across every channel — chat, email, voice, and social. Your agents get freed from repetitive tickets to handle what actually needs a human.'}
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-              <button
-                onClick={scrollToDemo}
-                className="bg-primary-fixed text-on-primary-fixed px-5 sm:px-8 py-3 sm:py-4 font-mono font-bold tracking-widest text-xs sm:text-base hover:glow-bleed transition-all"
-              >
-                SEE IT RESOLVE A TICKET
-              </button>
-              <Link
-                to="/demo"
-                className="border border-outline-variant/20 text-primary-fixed px-5 sm:px-8 py-3 sm:py-4 font-mono font-bold tracking-widest text-xs sm:text-base hover:bg-surface-bright/20 transition-all text-center"
-              >
-                TALK TO OUR TEAM
-              </Link>
+              {customerConfig ? (
+                <>
+                  <button
+                    onClick={scrollToDemo}
+                    className="bg-primary-fixed text-on-primary-fixed px-5 sm:px-8 py-3 sm:py-4 font-mono font-bold tracking-widest text-xs sm:text-base hover:glow-bleed transition-all"
+                  >
+                    EXPERIENCE NOW
+                  </button>
+                  <button
+                    onClick={scrollToDemo}
+                    className="border border-outline-variant/20 text-primary-fixed px-5 sm:px-8 py-3 sm:py-4 font-mono font-bold tracking-widest text-xs sm:text-base hover:bg-surface-bright/20 transition-all text-center"
+                  >
+                    SEE IT RESOLVE A TICKET
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    onClick={scrollToDemo}
+                    className="bg-primary-fixed text-on-primary-fixed px-5 sm:px-8 py-3 sm:py-4 font-mono font-bold tracking-widest text-xs sm:text-base hover:glow-bleed transition-all"
+                  >
+                    SEE IT RESOLVE A TICKET
+                  </button>
+                  <Link
+                    to="/demo"
+                    className="border border-outline-variant/20 text-primary-fixed px-5 sm:px-8 py-3 sm:py-4 font-mono font-bold tracking-widest text-xs sm:text-base hover:bg-surface-bright/20 transition-all text-center"
+                  >
+                    TALK TO OUR TEAM
+                  </Link>
+                </>
+              )}
             </div>
           </div>
           {/* Right panel — system connectivity for customer pages, generic feed otherwise */}
@@ -189,36 +223,41 @@ export default function PulseCustomerSupportPage() {
                   <span className="font-mono text-[10px] text-outline">ACTIVE</span>
                 </div>
                 <div className="space-y-2 sm:space-y-3 mb-3 sm:mb-4">
-                  {[
-                    { name: 'SAFEXPRESS TMS', status: 'CONNECTED', color: 'text-primary-fixed', pulse: true },
-                    { name: 'SALESFORCE CRM', status: 'SYNCING', color: 'text-yellow-400', pulse: true },
-                    { name: 'WAREHOUSE WMS', status: 'CONNECTED', color: 'text-primary-fixed', pulse: true },
-                  ].map((sys) => (
-                    <div key={sys.name} className="flex items-center justify-between bg-surface-container-lowest p-2.5 sm:p-3 gap-2">
-                      <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-                        <span className="material-symbols-outlined text-primary-fixed text-base shrink-0">hub</span>
-                        <span className="text-on-surface-variant text-[11px] sm:text-xs font-mono tracking-wider">{sys.name}</span>
+                  {(customerConfig.systems ?? []).map((sys) => {
+                    const isSyncing = sys.status === 'SYNCING';
+                    const color = isSyncing ? 'text-yellow-400' : 'text-primary-fixed';
+                    const bg = isSyncing ? 'bg-yellow-400' : 'bg-primary-fixed';
+                    return (
+                      <div key={sys.name} className="flex items-center justify-between bg-surface-container-lowest p-2.5 sm:p-3 gap-2">
+                        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                          <span className="material-symbols-outlined text-primary-fixed text-base shrink-0">hub</span>
+                          <span className="text-on-surface-variant text-[11px] sm:text-xs font-mono tracking-wider">{sys.name}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          <span className={`w-1.5 h-1.5 rounded-full ${bg} animate-pulse`}></span>
+                          <span className={`font-mono text-[9px] sm:text-[10px] ${color}`}>{sys.status}</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-1.5 shrink-0">
-                        <span className={`w-1.5 h-1.5 rounded-full ${sys.color.replace('text-', 'bg-')} animate-pulse`}></span>
-                        <span className={`font-mono text-[9px] sm:text-[10px] ${sys.color}`}>{sys.status}</span>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
-                <div className="bg-surface-container-lowest p-2.5 sm:p-3 border-l-2 border-primary-fixed mb-3">
-                  <div className="font-mono text-[9px] text-outline mb-1">LATEST TICKET</div>
-                  <div className="font-mono text-[10px] sm:text-xs text-on-surface-variant">AWB#SFX-8842917 · PRIORITY</div>
-                  <div className="font-mono text-[10px] sm:text-xs text-primary-fixed mt-0.5">RESOLVED <span className="text-outline">in</span> 9s</div>
-                </div>
+                {customerConfig.latestTicket && (
+                  <div className={`bg-surface-container-lowest p-2.5 sm:p-3 border-l-2 border-primary-fixed mb-3 transition-opacity duration-300 ${liveCounter.flash ? 'opacity-60' : 'opacity-100'}`}>
+                    <div className="font-mono text-[9px] text-outline mb-1">LATEST TICKET</div>
+                    <div className="font-mono text-[10px] sm:text-xs text-on-surface-variant">{customerConfig.latestTicket.id} · {customerConfig.latestTicket.label}</div>
+                    <div className="font-mono text-[10px] sm:text-xs text-primary-fixed mt-0.5">RESOLVED <span className="text-outline">in</span> {customerConfig.latestTicket.resolvedIn}</div>
+                  </div>
+                )}
                 <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   <div className="bg-surface-container-lowest p-2.5 sm:p-3 font-mono">
                     <div className="text-[10px] text-outline">AVG RESOLUTION</div>
-                    <div className="text-xl sm:text-2xl text-primary-fixed">9s</div>
+                    <div className="text-xl sm:text-2xl text-primary-fixed">{customerConfig.latestTicket?.resolvedIn ?? '9s'}</div>
                   </div>
                   <div className="bg-surface-container-lowest p-2.5 sm:p-3 font-mono">
                     <div className="text-[10px] text-outline">TICKETS TODAY</div>
-                    <div className="text-xl sm:text-2xl text-white">12,400</div>
+                    <div className={`text-xl sm:text-2xl text-white transition-colors duration-300 ${liveCounter.flash ? 'text-primary-fixed' : 'text-white'}`}>
+                      {liveCounter.count.toLocaleString()}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -384,6 +423,23 @@ export default function PulseCustomerSupportPage() {
         </div>
       </section>
 
+      {/* ===================== INDUSTRY STAT CALLOUT (customer pages only) ===================== */}
+      {customerConfig?.industryStat && (
+        <section className="px-4 sm:px-6 py-8 sm:py-12 border-t border-outline-variant/10 bg-primary-fixed/5">
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10">
+            <span className="material-symbols-outlined text-primary-fixed text-3xl shrink-0">insights</span>
+            <div>
+              <p className="font-headline text-lg sm:text-2xl font-black text-primary-fixed uppercase tracking-tight mb-1">
+                {customerConfig.industryStat.headline}
+              </p>
+              <p className="text-on-surface-variant text-sm sm:text-base leading-relaxed">
+                {customerConfig.industryStat.detail}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ===================== SECTION 6: CONVERSATION DEMO ===================== */}
       <section id="live-demo" className="px-4 sm:px-6 py-16 sm:py-24 border-t border-outline-variant/10">
         <div className="max-w-7xl mx-auto">
@@ -396,7 +452,7 @@ export default function PulseCustomerSupportPage() {
               See how Pulse handles a frustrated customer — from intent detection to resolution — with full reasoning transparency.
             </p>
           </div>
-          <ConversationDemo ref={demoRef} steps={customerConfig?.demoSteps} />
+          <ConversationDemo ref={demoRef} steps={customerConfig?.demoSteps} autoLoop={!!customerConfig} />
         </div>
       </section>
 
@@ -548,21 +604,34 @@ export default function PulseCustomerSupportPage() {
       {/* ===================== SECTION 11: CTA ===================== */}
       <section className="py-14 md:py-32 px-4 sm:px-6 text-center relative overflow-hidden border-t border-outline-variant/10">
         <div className="relative z-10 max-w-3xl mx-auto">
-          <h2 className="font-headline text-2xl sm:text-5xl md:text-7xl font-black uppercase text-white mb-2 sm:mb-4 leading-tight">
-            Stop Scaling Headcount.
-          </h2>
-          <h2 className="font-headline text-2xl sm:text-5xl md:text-7xl font-black uppercase text-primary-fixed mb-5 sm:mb-8 leading-tight">
-            Start Scaling Intelligence.
-          </h2>
-          <p className="text-on-surface-variant mb-8 md:mb-12 text-base sm:text-lg max-w-xl mx-auto">
-            Join enterprise support teams resolving 500M+ conversations with AI. See it handle your tickets.
-          </p>
+          {customerConfig?.cta ? (
+            <>
+              <h2 className="font-headline text-2xl sm:text-5xl md:text-6xl font-black uppercase text-white mb-2 sm:mb-4 leading-tight">
+                {customerConfig.cta.headline}
+              </h2>
+              <p className="text-on-surface-variant mb-8 md:mb-12 text-base sm:text-lg max-w-xl mx-auto">
+                {customerConfig.cta.subtext}
+              </p>
+            </>
+          ) : (
+            <>
+              <h2 className="font-headline text-2xl sm:text-5xl md:text-7xl font-black uppercase text-white mb-2 sm:mb-4 leading-tight">
+                Stop Scaling Headcount.
+              </h2>
+              <h2 className="font-headline text-2xl sm:text-5xl md:text-7xl font-black uppercase text-primary-fixed mb-5 sm:mb-8 leading-tight">
+                Start Scaling Intelligence.
+              </h2>
+              <p className="text-on-surface-variant mb-8 md:mb-12 text-base sm:text-lg max-w-xl mx-auto">
+                Join enterprise support teams resolving 500M+ conversations with AI. See it handle your tickets.
+              </p>
+            </>
+          )}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/demo"
               className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-primary-fixed text-on-primary-fixed font-mono font-bold tracking-widest text-sm sm:text-base hover:glow-bleed transition-all"
             >
-              SCHEDULE A DEMO
+              {customerConfig ? `BUILD ${customerConfig.displayName.toUpperCase()}'S ROLLOUT PLAN` : 'SCHEDULE A DEMO'}
             </Link>
             <Link
               to="/pricing"

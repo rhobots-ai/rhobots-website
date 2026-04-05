@@ -4,6 +4,11 @@ export interface DemoStep {
   delay: number;
 }
 
+export interface SystemEntry {
+  name: string;
+  status: 'CONNECTED' | 'SYNCING' | 'ACTIVE';
+}
+
 export interface CustomerConfig {
   displayName: string;
   seoTitle?: string;
@@ -11,6 +16,21 @@ export interface CustomerConfig {
   hero?: {
     headline?: string;
     subheadline?: string;
+  };
+  systems?: SystemEntry[];
+  latestTicket?: {
+    id: string;
+    label: string;
+    resolvedIn: string;
+  };
+  ticketCounterStart?: number;
+  industryStat?: {
+    headline: string;
+    detail: string;
+  };
+  cta?: {
+    headline: string;
+    subtext: string;
   };
   demoSteps?: DemoStep[];
 }
@@ -24,6 +44,25 @@ export const CUSTOMER_CONFIGS: Record<string, CustomerConfig> = {
       headline: 'SUPPORT AT THE SPEED OF YOUR SHIPMENTS.',
       subheadline:
         "Every ticket resolved — automatically. Pulse connects directly to your TMS, CRM, and WMS to pull shipment data, trigger priority flags, and close tickets before your agents even see them.",
+    },
+    systems: [
+      { name: 'SAFEXPRESS TMS', status: 'CONNECTED' },
+      { name: 'SALESFORCE CRM', status: 'SYNCING' },
+      { name: 'WAREHOUSE WMS', status: 'CONNECTED' },
+    ],
+    latestTicket: {
+      id: 'AWB#SFX-8842917',
+      label: 'PRIORITY',
+      resolvedIn: '9s',
+    },
+    ticketCounterStart: 12400,
+    industryStat: {
+      headline: 'Logistics companies on Pulse resolve shipment queries 94% faster.',
+      detail: 'From missed-SLA escalations to proactive status updates — all automated, across every channel your customers use.',
+    },
+    cta: {
+      headline: "Ready to automate support for Safexpress?",
+      subtext: "Let's build your rollout plan — most logistics teams go live in under 48 hours.",
     },
     demoSteps: [
       {
@@ -73,6 +112,25 @@ export const CUSTOMER_CONFIGS: Record<string, CustomerConfig> = {
       headline: 'BUILT FOR\nACME CORP.',
       subheadline:
         "Acme Corp's customers get instant, accurate answers across every channel — chat, email, voice, and social. Your agents get freed from repetitive tickets to handle what actually needs a human.",
+    },
+    systems: [
+      { name: 'STRIPE BILLING', status: 'CONNECTED' },
+      { name: 'SALESFORCE CRM', status: 'CONNECTED' },
+      { name: 'ZENDESK HELPDESK', status: 'SYNCING' },
+    ],
+    latestTicket: {
+      id: 'INV#-20481',
+      label: 'BILLING DISPUTE',
+      resolvedIn: '7s',
+    },
+    ticketCounterStart: 8750,
+    industryStat: {
+      headline: 'Fintech companies on Pulse cut billing dispute resolution time by 91%.',
+      detail: 'From charge-back investigations to instant refunds — Pulse connects to your billing stack and resolves disputes automatically, 24/7.',
+    },
+    cta: {
+      headline: "Ready to automate support for Acme Corp?",
+      subtext: "Let's build your rollout plan — most fintech teams go live in under 48 hours.",
     },
     demoSteps: [
       {
