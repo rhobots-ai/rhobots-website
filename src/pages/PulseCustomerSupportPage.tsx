@@ -136,6 +136,10 @@ export default function PulseCustomerSupportPage() {
   const liveCounter = useLiveCounter(customerConfig?.ticketCounterStart ?? 12400, 2500);
 
   const scrollToDemo = () => {
+    document.getElementById('voice-demo')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToTicketDemo = () => {
     document.getElementById('live-demo')?.scrollIntoView({ behavior: 'smooth' });
     demoRef.current?.replay();
   };
@@ -190,7 +194,7 @@ export default function PulseCustomerSupportPage() {
                     EXPERIENCE NOW
                   </button>
                   <button
-                    onClick={scrollToDemo}
+                    onClick={scrollToTicketDemo}
                     className="border border-outline-variant/20 text-primary-fixed px-5 sm:px-8 py-3 sm:py-4 font-mono font-bold tracking-widest text-xs sm:text-base hover:bg-surface-bright/20 transition-all text-center"
                   >
                     SEE IT RESOLVE A TICKET
@@ -304,7 +308,7 @@ export default function PulseCustomerSupportPage() {
       </section>
 
       {/* ===================== SECTION 2: LIVE VOICE DEMO ===================== */}
-      <section className="px-4 sm:px-6 py-16 sm:py-24 border-t border-outline-variant/10 bg-surface">
+      <section id="voice-demo" className="px-4 sm:px-6 py-16 sm:py-24 border-t border-outline-variant/10 bg-surface">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col mb-10 sm:mb-16">
             <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-2 uppercase">// LIVE VOICE DEMO</span>
