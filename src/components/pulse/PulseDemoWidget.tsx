@@ -60,13 +60,14 @@ const DEFAULT_USE_CASES: { icon: string; title: string; queries: string[] }[] = 
 
 interface PulseDemoWidgetProps {
   lockedIndustry?: string;
+  defaultUserName?: string;
 }
 
-export default function PulseDemoWidget({ lockedIndustry }: PulseDemoWidgetProps = {}) {
+export default function PulseDemoWidget({ lockedIndustry, defaultUserName = '' }: PulseDemoWidgetProps = {}) {
   const [room] = useState(() => new Room());
   const [industry, setIndustry] = useState(lockedIndustry ?? '');
   const [language, setLanguage] = useState('');
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState(defaultUserName);
 
   useEffect(() => {
     room.on(RoomEvent.MediaDevicesError, onDeviceFailure);

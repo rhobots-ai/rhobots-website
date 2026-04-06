@@ -3,6 +3,7 @@ import SEO from '../components/SEO';
 import PulseDemoWidget from '../components/pulse/PulseDemoWidget';
 import PulseSampleRecordings from '../components/pulse/PulseSampleRecordings';
 import { getCustomerConfig, type CustomerConfig } from '../lib/customerConfigs';
+import { breadcrumbSchema, organizationSchema } from '../lib/structuredData';
 import { useState, useEffect } from 'react';
 
 export default function PulseDemoPage() {
@@ -20,9 +21,18 @@ export default function PulseDemoPage() {
   return (
     <>
       <SEO
-        title="Pulse Live Demo — Rhobots"
-        description="Talk to Pulse right now. Pick a scenario, speak naturally, and see how Pulse resolves your query in real time."
+        title="Pulse Live Demo — Try AI Voice Support Now"
+        description="Experience Pulse in action. Pick an industry scenario, speak naturally, and watch our AI voice agent resolve customer queries in real time — no sign-up required."
         path="/pulse/demo"
+        noIndex
+        jsonLd={[
+          organizationSchema(),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Pulse', path: '/products/pulse' },
+            { name: 'Live Demo', path: '/pulse/demo' },
+          ]),
+        ]}
       />
 
       {/* Sample Recording */}
@@ -54,7 +64,7 @@ export default function PulseDemoPage() {
             </p>
           </div>
           <div className="bg-surface-container-high border border-outline-variant/20 scanline">
-            <PulseDemoWidget lockedIndustry={customerConfig?.industry} />
+            <PulseDemoWidget lockedIndustry={customerConfig?.industry} defaultUserName="Rubal" />
           </div>
         </div>
       </section>
