@@ -1,26 +1,11 @@
-import { useSearchParams } from 'react-router-dom';
 import SEO from '../components/SEO';
 import PulseDemoWidget, { PulseUseCases } from '../components/pulse/PulseDemoWidget';
 import PulseSampleRecordings from '../components/pulse/PulseSampleRecordings';
-import { getCustomerConfig, type CustomerConfig } from '../lib/customerConfigs';
 import { breadcrumbSchema, organizationSchema } from '../lib/structuredData';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function PulseDemoPage() {
-  const [searchParams] = useSearchParams();
-  const [customerConfig, setCustomerConfig] = useState<CustomerConfig | null>(null);
   const [selectedIndustry, setSelectedIndustry] = useState<string>('');
-
-  useEffect(() => {
-    const customerId = searchParams.get('customer');
-    if (customerId) {
-      const config = getCustomerConfig(customerId);
-      setCustomerConfig(config ?? null);
-      if (config?.industry) {
-        setSelectedIndustry(config.industry);
-      }
-    }
-  }, [searchParams]);
 
   return (
     <>
