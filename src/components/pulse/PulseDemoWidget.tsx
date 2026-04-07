@@ -6,7 +6,7 @@ import PulseVoiceAssistant from './PulseVoiceAssistant';
 const CONN_DETAILS_URL =
   import.meta.env.VITE_PULSE_API_URL ?? 'http://localhost:3000/api/connection-details';
 
-const USE_CASES: Record<string, { icon: string; title: string; queries: string[] }[]> = {
+export const USE_CASES: Record<string, { icon: string; title: string; queries: string[] }[]> = {
   logistics: [
     {
       icon: 'local_shipping',
@@ -45,7 +45,7 @@ const USE_CASES: Record<string, { icon: string; title: string; queries: string[]
   ],
 };
 
-const DEFAULT_USE_CASES: { icon: string; title: string; queries: string[] }[] = [
+export const DEFAULT_USE_CASES: { icon: string; title: string; queries: string[] }[] = [
   {
     icon: 'chat',
     title: 'General Support',
@@ -58,16 +58,56 @@ const DEFAULT_USE_CASES: { icon: string; title: string; queries: string[] }[] = 
   },
 ];
 
+export function PulseUseCases({ industry }: { industry: string }) {
+  const useCases = (industry && USE_CASES[industry]) ? USE_CASES[industry] : DEFAULT_USE_CASES;
+
+  return (
+    <div className="w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+        {useCases.map((uc) => (
+          <div key={uc.title} className="bg-surface-container-lowest border border-outline-variant/10 p-4 lg:p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="material-symbols-outlined text-primary-fixed text-2xl lg:text-3xl">{uc.icon}</span>
+              <span className="font-headline text-lg font-bold text-white uppercase tracking-tight">{uc.title}</span>
+            </div>
+            <div className="flex flex-col gap-2">
+              {uc.queries.map((q) => (
+                <div key={q} className="flex items-center gap-2 bg-surface-container px-4 py-3">
+                  <span className="text-primary-fixed text-sm font-bold shrink-0">›</span>
+                  <span className="text-on-surface-variant text-sm lg:text-base leading-snug">"{q}"</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+      {!industry && (
+        <p className="mt-6 font-mono text-[10px] text-outline tracking-widest uppercase text-center">
+          ← Select an industry above to see tailored examples
+        </p>
+      )}
+    </div>
+  );
+}
+
 interface PulseDemoWidgetProps {
   lockedIndustry?: string;
   defaultUserName?: string;
+  hideUseCases?: boolean;
+  onIndustryChange?: (industry: string) => void;
 }
 
-export default function PulseDemoWidget({ lockedIndustry, defaultUserName = '' }: PulseDemoWidgetProps = {}) {
+export default function PulseDemoWidget({ lockedIndustry, defaultUserName = '', hideUseCases = false, onIndustryChange }: PulseDemoWidgetProps = {}) {
   const [room] = useState(() => new Room());
   const [industry, setIndustry] = useState(lockedIndustry ?? '');
   const [language, setLanguage] = useState('');
   const [userName, setUserName] = useState(defaultUserName);
+
+  useEffect(() => {
+    if (onIndustryChange) {
+      onIndustryChange(industry);
+    }
+  }, [industry, onIndustryChange]);
 
   useEffect(() => {
     room.on(RoomEvent.MediaDevicesError, onDeviceFailure);
@@ -90,7 +130,32 @@ export default function PulseDemoWidget({ lockedIndustry, defaultUserName = '' }
   }, [room, industry, language, userName]);
 
   const isFormValid = industry !== '' && language !== '' && userName.trim() !== '';
-  const useCases = (industry && USE_CASES[industry]) ? USE_CASES[industry] : DEFAULT_USE_CASES;
+
+  const demoContent = (
+    <div className="p-4 sm:p-6" data-lk-theme="default">
+      <div className="flex items-center gap-2 mb-4">
+        <span className="w-1.5 h-1.5 bg-primary-fixed rounded-full animate-pulse"></span>
+        <span className="font-mono text-[10px] text-primary-fixed tracking-widest uppercase">// LIVE VOICE DEMO</span>
+      </div>
+      <RoomContext.Provider value={room}>
+        <PulseVoiceAssistant
+          onConnectButtonClicked={onConnectButtonClicked}
+          industry={industry}
+          setIndustry={setIndustry}
+          language={language}
+          setLanguage={setLanguage}
+          userName={userName}
+          setUserName={setUserName}
+          isFormValid={isFormValid}
+          lockedIndustry={lockedIndustry}
+        />
+      </RoomContext.Provider>
+    </div>
+  );
+
+  if (hideUseCases) {
+    return <div className="w-full">{demoContent}</div>;
+  }
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 divide-y lg:divide-y-0 lg:divide-x divide-outline-variant/10">
@@ -102,51 +167,11 @@ export default function PulseDemoWidget({ lockedIndustry, defaultUserName = '' }
             {industry ? `// ${industry.toUpperCase()} USE CASES` : '// WHAT YOU CAN ASK'}
           </span>
         </div>
-        <div className="space-y-3">
-          {useCases.map((uc) => (
-            <div key={uc.title} className="bg-surface-container-lowest border border-outline-variant/10 p-4">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="material-symbols-outlined text-primary-fixed text-2xl">{uc.icon}</span>
-                <span className="font-headline text-base font-bold text-white uppercase tracking-tight">{uc.title}</span>
-              </div>
-              <div className="flex flex-col gap-2">
-                {uc.queries.map((q) => (
-                  <div key={q} className="flex items-center gap-2 bg-surface-container px-3 py-2">
-                    <span className="text-primary-fixed text-sm font-bold shrink-0">›</span>
-                    <span className="text-on-surface-variant text-sm leading-snug">"{q}"</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-        {!industry && (
-          <p className="mt-5 font-mono text-[10px] text-outline tracking-widest uppercase">
-            ← Select an industry to see tailored examples
-          </p>
-        )}
+        <PulseUseCases industry={industry} />
       </div>
 
       {/* Right: Voice Demo */}
-      <div className="p-4 sm:p-6" data-lk-theme="default">
-        <div className="flex items-center gap-2 mb-4">
-          <span className="w-1.5 h-1.5 bg-primary-fixed rounded-full animate-pulse"></span>
-          <span className="font-mono text-[10px] text-primary-fixed tracking-widest uppercase">// LIVE VOICE DEMO</span>
-        </div>
-        <RoomContext.Provider value={room}>
-          <PulseVoiceAssistant
-            onConnectButtonClicked={onConnectButtonClicked}
-            industry={industry}
-            setIndustry={setIndustry}
-            language={language}
-            setLanguage={setLanguage}
-            userName={userName}
-            setUserName={setUserName}
-            isFormValid={isFormValid}
-            lockedIndustry={lockedIndustry}
-          />
-        </RoomContext.Provider>
-      </div>
+      {demoContent}
     </div>
   );
 }
