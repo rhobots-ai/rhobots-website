@@ -1,5 +1,6 @@
 import SEO from '../components/SEO';
 import { organizationSchema } from '../lib/structuredData';
+import { openConsentSettings } from '../lib/consent';
 
 export default function CookiePage() {
   return (
@@ -37,9 +38,9 @@ export default function CookiePage() {
             <h2 className="font-headline text-2xl font-black text-white uppercase tracking-tighter mb-6">Cookies We Use</h2>
             <div className="space-y-6">
               {[
-                { name: 'Essential Cookies', desc: 'Required for basic site functionality such as authentication and security. These cannot be disabled.' },
-                { name: 'Analytics Cookies', desc: 'Help us understand how visitors interact with our site. Data is aggregated and anonymized.' },
-                { name: 'Functional Cookies', desc: 'Remember your preferences and settings to provide a personalized experience.' },
+                { name: 'Essential Cookies', desc: 'Required for basic site functionality such as security and remembering your cookie choice. These are always on and cannot be disabled.' },
+                { name: 'Analytics Cookies', desc: 'Set only with your consent, via Google Tag Manager / Google Analytics. They help us understand how visitors interact with our site. Data is aggregated and anonymized.' },
+                { name: 'Marketing Cookies', desc: 'Set only with your consent. Advertising pixels (such as LinkedIn, Meta and Google Ads) measure ad performance and support retargeting. Not loaded until you accept.' },
               ].map((cookie) => (
                 <div key={cookie.name} className="border border-outline p-6">
                   <h3 className="font-headline text-lg font-black text-white uppercase tracking-tighter mb-2">{cookie.name}</h3>
@@ -52,9 +53,15 @@ export default function CookiePage() {
           <div>
             <h2 className="font-headline text-2xl font-black text-white uppercase tracking-tighter mb-6">Managing Cookies</h2>
             <div className="text-on-surface text-sm leading-relaxed opacity-70 space-y-4">
-              <p>You can control and manage cookies through your browser settings. Please note that disabling certain cookies may affect the functionality of our website.</p>
+              <p>Analytics and marketing cookies load only after you accept them. You can withdraw or change your consent at any time using the button below, or control cookies through your browser settings. Disabling essential cookies may affect site functionality.</p>
               <p>For questions about our cookie practices, contact us at <span className="text-primary-fixed">tech@rhobots.ai</span></p>
             </div>
+            <button
+              onClick={openConsentSettings}
+              className="mt-6 px-5 py-3 bg-primary-fixed text-on-primary-fixed font-headline font-bold uppercase tracking-widest text-xs hover:shadow-[0_0_20px_rgba(210,240,0,0.3)] transition-all"
+            >
+              Manage cookie consent
+            </button>
           </div>
         </div>
       </section>
