@@ -26,6 +26,7 @@ export default function FooterLanding() {
           <ul className="space-y-4 font-mono text-xs uppercase tracking-widest text-white/40">
             {/* <li><Link className="hover:text-white transition-all" to="/docs">Docs</Link></li> */}
             {/* <li><Link className="hover:text-white transition-all" to="/pricing">Pricing</Link></li> */}
+            <li><Link className="hover:text-white transition-all" to="/case-studies">Case Studies</Link></li>
             <li><Link className="hover:text-white transition-all" to="/security">Security</Link></li>
           </ul>
         </div>
