@@ -28,6 +28,8 @@ import PulseCustomerSupportPage from './pages/PulseCustomerSupportPage';
 import PulseDemoPage from './pages/PulseDemoPage';
 import PartnersPage from './pages/PartnersPage';
 import PartnersThankYouPage from './pages/PartnersThankYouPage';
+import CaseStudiesPage from './pages/CaseStudiesPage';
+import CaseStudyDetailPage from './pages/CaseStudyDetailPage';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -57,6 +59,8 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/security" element={<SecurityPage />} />
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/partners/thank-you" element={<PartnersThankYouPage />} />
+          <Route path="/case-studies" element={<CaseStudiesPage />} />
+          <Route path="/case-studies/:slug" element={<CaseStudyDetailPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

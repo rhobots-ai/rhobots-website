@@ -47,6 +47,8 @@ export default function NavbarLanding() {
               </div>
             </div>
 
+            <Link className="text-white/70 hover:text-[#D2F000] transition-colors duration-150" to="/case-studies">Case Studies</Link>
+
             {/* <Link className="text-white/70 hover:text-[#D2F000] transition-colors duration-150" to="/docs">Docs</Link> */}
             {/* <Link className="text-white/70 hover:text-[#D2F000] transition-colors duration-150" to="/pricing">Pricing</Link> */}
           </div>
@@ -110,6 +112,14 @@ export default function NavbarLanding() {
                 ))}
               </div>
             )}
+
+            <Link
+              className="text-white/70 py-3 border-b border-white/5"
+              to="/case-studies"
+              onClick={() => setMobileOpen(false)}
+            >
+              Case Studies
+            </Link>
           </div>
 
           <Link
