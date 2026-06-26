@@ -53,6 +53,37 @@ export const caseStudies: CaseStudy[] = [
     },
     listingMetric: '$2M saved · 300 redeployed',
   },
+  {
+    slug: 'insurance-extract',
+    industry: 'INSURANCE / BFSI',
+    eyebrow: 'DOCUMENT AI · ON-PREM · FINE-TUNED',
+    title:
+      'Policy extraction, brought in-house. 10× cheaper. 99% accurate. Zero data leaving the building.',
+    highlight: '99% accurate.',
+    summary:
+      "India's largest insurance broker was sending sensitive policy documents to an expensive third-party parser — accurate less than 60% of the time, so every output still needed manual review. We replaced it with a model fine-tuned on their own data, running entirely on their infrastructure.",
+    metrics: [
+      { value: '99%', label: 'Extraction accuracy', sub: 'fields right, first time', subDim: 'up from <60%' },
+      { value: '10×', label: 'Cost per document', sub: 'lower than the old vendor', subDim: '~$2M / year projected savings' },
+      { value: '0', label: 'Third-party data exposure', sub: 'data leaves their environment', subDim: 'fully on-prem and private' },
+    ],
+    challenge:
+      "A third-party service parsed every policy document — expensive, and accurate under 60% of the time, so staff had to re-check the output. Worse, sensitive policyholder data had to leave the business to reach the vendor.",
+    approach:
+      "We fine-tuned a model on the broker's own policy data and deployed it entirely on their infrastructure — in four weeks. Nothing leaves their environment, accuracy reached 99%, and cost fell to a tenth of the vendor's.",
+    pullQuote: {
+      heading: 'A cost cut today — an in-house AI capability for everything next.',
+      body: "The same fine-tuned model now runs as the broker's in-house AI foundation — reused across new projects without paying a vendor or exposing data again.",
+    },
+    poweredBy: {
+      product: 'Extract',
+      tagline: 'document AI on a fine-tuned, on-prem model',
+      description:
+        'Extract turns policy documents, forms and unstructured files into clean, structured data — fine-tuned on your own data, deployed in your environment, with no third party in the loop.',
+      path: '/products/extract',
+    },
+    listingMetric: '99% accurate · 10× cheaper',
+  },
 ];
 
 export function getCaseStudy(slug: string | undefined): CaseStudy | undefined {

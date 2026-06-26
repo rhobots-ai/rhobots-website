@@ -128,7 +128,7 @@ export default function CaseStudyDetailPage() {
       {/* CTA */}
       <section className="py-24 px-8 md:px-24 bg-surface border-b border-outline text-center">
         <h2 className="font-headline text-3xl md:text-5xl font-black tracking-tighter text-white uppercase mb-8">
-          See What <span className="text-primary-fixed">Operator</span> Can Do
+          See What <span className="text-primary-fixed">{study.poweredBy.product}</span> Can Do
         </h2>
         <p className="text-on-surface text-sm max-w-lg mx-auto mb-12 opacity-70">
           In your operation, inside your existing systems. Book a walkthrough with our team.
@@ -137,8 +137,8 @@ export default function CaseStudyDetailPage() {
           <Link to="/demo" className="bg-primary-fixed text-background px-10 py-5 font-headline font-black text-sm uppercase tracking-widest hover:bg-white transition-all text-center">
             Request a Demo
           </Link>
-          <Link to="/products/operator" className="bg-surface border border-outline text-white px-10 py-5 font-headline font-black text-sm uppercase tracking-widest hover:bg-outline transition-all text-center">
-            Explore Operator
+          <Link to={study.poweredBy.path} className="bg-surface border border-outline text-white px-10 py-5 font-headline font-black text-sm uppercase tracking-widest hover:bg-outline transition-all text-center">
+            Explore {study.poweredBy.product}
           </Link>
         </div>
       </section>
