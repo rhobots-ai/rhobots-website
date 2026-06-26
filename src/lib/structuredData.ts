@@ -27,6 +27,37 @@ export function productSchema(product: {
   };
 }
 
+export function caseStudyCollectionSchema(items: { name: string; path: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Case Studies',
+    url: `${SITE_URL}/case-studies`,
+    hasPart: items.map((item) => ({
+      '@type': 'CreativeWork',
+      name: item.name,
+      url: `${SITE_URL}${item.path}`,
+    })),
+  };
+}
+
+export function caseStudySchema(study: {
+  title: string;
+  description: string;
+  industry: string;
+  path: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: study.title,
+    description: study.description,
+    url: `${SITE_URL}${study.path}`,
+    publisher: { '@type': 'Organization', name: 'RHOBOTS AI' },
+    about: study.industry,
+  };
+}
+
 export function breadcrumbSchema(items: { name: string; path: string }[]) {
   return {
     '@context': 'https://schema.org',
