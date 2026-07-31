@@ -1,0 +1,34 @@
+{
+  "projectId": "595a9d67-cc08-42ee-bd4f-9d89db179ed6",
+  "shape": "package",
+  "pkg": "rhobots-website",
+  "globalName": "Rhobots",
+  "buildCmd": "bash .design-sync/build-css.sh",
+  "srcDir": "src",
+  "tsconfig": "tsconfig.app.json",
+  "cssEntry": ".design-sync/assets/ds.css",
+  "provider": { "component": "PreviewProvider" },
+  "docsMap": { "Layout": ".design-sync/docs/Layout.md" },
+  "readmeHeader": ".design-sync/conventions.md",
+  "overrides": {
+    "Layout": { "cardMode": "column" },
+    "NavbarLanding": { "cardMode": "column" },
+    "FooterLanding": { "cardMode": "column" },
+    "ConversationDemo": { "cardMode": "column" },
+    "PulseDemoWidget": { "cardMode": "column" },
+    "PulseUseCases": { "cardMode": "column" },
+    "PulseVoiceAssistant": { "cardMode": "column" }
+  },
+  "componentSrcMap": {
+    "Layout": "src/components/layout/Layout.tsx",
+    "NavbarLanding": "src/components/layout/NavbarLanding.tsx",
+    "FooterLanding": "src/components/layout/FooterLanding.tsx",
+    "PulseAgentOrb": "src/components/pulse/PulseAgentOrb.tsx",
+    "PulseDemoWidget": "src/components/pulse/PulseDemoWidget.tsx",
+    "PulseUseCases": "src/components/pulse/PulseDemoWidget.tsx",
+    "PulseSampleRecordings": "src/components/pulse/PulseSampleRecordings.tsx",
+    "PulseTranscriptionView": "src/components/pulse/PulseTranscriptionView.tsx",
+    "PulseVoiceAssistant": "src/components/pulse/PulseVoiceAssistant.tsx",
+    "ConversationDemo": "src/components/pulse/ConversationDemo.tsx"
+  }
+}
