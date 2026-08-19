@@ -32,8 +32,8 @@ export default function PulseDemoPage() {
             {/* Left Column: Sample Recording */}
             <div className="flex flex-col">
               <div className="flex flex-col mb-6 lg:mb-10">
-                <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-2 uppercase">// Sample Recording</span>
-                <h2 className="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-white uppercase">
+                <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-2 uppercase">Sample Recording</span>
+                <h2 className="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-on-surface">
                   Hear Pulse In Action
                 </h2>
                 <p className="text-on-surface-variant text-sm sm:text-base mt-3 max-w-lg">
@@ -48,15 +48,15 @@ export default function PulseDemoPage() {
             {/* Right Column: Live Voice Demo */}
             <div className="flex flex-col">
               <div className="flex flex-col mb-6 lg:mb-10">
-                <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-2 uppercase">// LIVE VOICE DEMO</span>
-                <h2 className="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-white uppercase">
+                <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-2 uppercase">LIVE VOICE DEMO</span>
+                <h2 className="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-on-surface">
                   Talk To Pulse. Right Now.
                 </h2>
                 <p className="text-on-surface-variant text-sm sm:text-base mt-3 max-w-lg">
                   Pick a scenario, speak naturally, and see how Pulse resolves your query in real time.
                 </p>
               </div>
-              <div className="bg-surface-container-high border border-outline-variant/20 scanline">
+              <div className="bg-surface-container-high border border-outline-variant/20">
                 <PulseDemoWidget
                   lockedIndustry={'logistics'}
                   hideUseCases={true}
@@ -70,7 +70,7 @@ export default function PulseDemoPage() {
           {/* Use Cases Section (2nd fold) */}
           <div className="mt-20 lg:mt-32 pt-16 border-t border-outline-variant/10">
             <div className="flex flex-col mb-10 text-center items-center">
-              <h2 className="font-headline text-3xl sm:text-5xl font-bold tracking-tight text-white uppercase">
+              <h2 className="font-headline text-3xl sm:text-3xl font-bold tracking-tight text-on-surface">
                 {selectedIndustry ? `${selectedIndustry.toUpperCase()} USE CASES` : 'WHAT YOU CAN ASK'}
               </h2>
               <p className="text-on-surface-variant text-sm sm:text-base mt-4 max-w-2xl">

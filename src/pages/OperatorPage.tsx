@@ -3,7 +3,7 @@ import { organizationSchema, productSchema, breadcrumbSchema } from '../lib/stru
 
 export default function OperatorPage() {
   return (
-    <main className="grid-substrate min-h-screen">
+    <main className=" min-h-screen">
       <SEO
         title="Operator - Intelligent Workflow Automation"
         description="Automate your most complex business processes with intelligent AI. Rhobots Operator eliminates manual work, reduces costs, and scales operations — without replacing your existing systems."
@@ -21,19 +21,19 @@ export default function OperatorPage() {
             <div className="inline-block px-3 py-1 bg-primary-fixed/10 border-l-4 border-primary-fixed mb-4 md:mb-6">
               <span className="font-mono text-[10px] sm:text-xs tracking-widest text-primary-fixed uppercase">STATUS: ENTERPRISE READY</span>
             </div>
-            <h1 className="font-headline text-3xl sm:text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] uppercase text-white mb-6 md:mb-8">
-              AUTOMATE YOUR <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-fixed to-primary-fixed-dim">MOST COMPLEX WORKFLOWS</span>
+            <h1 className="font-headline text-3xl sm:text-3xl md:text-3xl font-semibold leading-[1.1] text-on-surface mb-6 md:mb-8">
+              Automate your <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-fixed to-primary-fixed-dim">most complex workflows</span>
             </h1>
             <p className="text-on-surface-variant text-base sm:text-lg max-w-xl mb-8 md:mb-10 leading-relaxed">
               Put your most time-consuming business processes on autopilot. Operator discovers inefficiencies, automates repetitive tasks, and scales operations — without ripping out your existing systems.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-              <a href="/demo" className="px-6 sm:px-8 py-3 sm:py-4 bg-primary-fixed text-on-primary-fixed font-headline font-black uppercase tracking-widest text-sm sm:text-base hover:shadow-[0_0_20px_rgba(210,240,0,0.3)] transition-all text-center">
-                START AUTOMATING
+              <a href="/demo" className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-on-primary font-body font-medium text-sm sm:text-base transition-all text-center">
+                Start automating
               </a>
-              <a href="#what-operator-does" className="px-6 sm:px-8 py-3 sm:py-4 border border-outline-variant text-white font-headline font-black uppercase tracking-widest text-sm sm:text-base hover:bg-white hover:text-black transition-all text-center">
-                LEARN MORE
+              <a href="#what-operator-does" className="px-6 sm:px-8 py-3 sm:py-4 border border-outline text-on-surface font-body font-medium text-sm sm:text-base hover:bg-surface-container transition-all text-center">
+                Learn more
               </a>
             </div>
           </div>
@@ -42,19 +42,19 @@ export default function OperatorPage() {
             <div className="flex-1 md:flex-none bg-surface-container-high p-4 sm:p-6">
               <span className="font-mono text-[10px] text-primary-fixed/60 block mb-2 uppercase tracking-widest">SPEED IMPROVEMENT</span>
               <div className="flex items-baseline gap-2">
-                <span className="text-2xl sm:text-4xl font-headline font-black text-white">12x</span>
+                <span className="text-2xl sm:text-4xl font-headline font-semibold text-on-surface">12x</span>
                 <span className="material-symbols-outlined text-primary-fixed text-sm">trending_down</span>
               </div>
             </div>
             <div className="flex-1 md:flex-none bg-surface-container-high p-4 sm:p-6">
               <span className="font-mono text-[10px] text-primary-fixed/60 block mb-2 uppercase tracking-widest">MANUAL WORK ELIMINATED</span>
               <div className="flex items-baseline gap-2">
-                <span className="text-2xl sm:text-4xl font-headline font-black text-white">88%</span>
+                <span className="text-2xl sm:text-4xl font-headline font-semibold text-on-surface">88%</span>
                 <span className="material-symbols-outlined text-primary-fixed text-sm">auto_mode</span>
               </div>
             </div>
             <div className="flex-1 md:flex-none bg-surface-container-high p-4 sm:p-6 relative overflow-hidden">
-              <div className="scanline absolute inset-0 pointer-events-none"></div>
+              <div className=" absolute inset-0 pointer-events-none"></div>
               <span className="font-mono text-[10px] text-on-surface-variant block mb-2 uppercase tracking-widest hidden sm:block">PERFORMANCE TREND</span>
               <div className="h-12 flex items-end gap-1">
                 <div className="flex-1 bg-primary-fixed/20 h-4"></div>
@@ -82,7 +82,7 @@ export default function OperatorPage() {
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-10 md:mb-16 gap-4">
           <div>
             <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">KEY CAPABILITIES</span>
-            <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-black uppercase text-white tracking-tight">WHAT OPERATOR DOES</h2>
+            <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-semibold text-on-surface tracking-tight">What Operator does</h2>
           </div>
           <div className="hidden md:block w-32 h-px bg-outline-variant"></div>
         </div>
@@ -94,11 +94,11 @@ export default function OperatorPage() {
               <span className="material-symbols-outlined text-3xl md:text-4xl text-primary-fixed">account_tree</span>
               <span className="font-mono text-xs text-on-surface-variant">01</span>
             </div>
-            <h3 className="font-headline text-xl md:text-2xl font-black text-white mb-4 uppercase">Workflow Orchestration</h3>
+            <h3 className="font-headline text-xl md:text-2xl font-semibold text-on-surface mb-4">Workflow Orchestration</h3>
             <p className="text-on-surface-variant max-w-lg mb-6 md:mb-8 text-sm md:text-base">Coordinate work across all your systems — old and new — without manual handoffs or brittle integrations.</p>
             <div className="flex flex-wrap gap-2 md:gap-4">
-              <span className="px-2 py-1 bg-surface-container-lowest font-mono text-[10px] text-primary-fixed border border-primary-fixed/20 uppercase tracking-tighter">RUNS IN PARALLEL</span>
-              <span className="px-2 py-1 bg-surface-container-lowest font-mono text-[10px] text-primary-fixed border border-primary-fixed/20 uppercase tracking-tighter">ALWAYS RELIABLE</span>
+              <span className="px-2 py-1 bg-surface-container-lowest font-mono text-[10px] text-primary-fixed border border-primary-fixed/20 uppercase">RUNS IN PARALLEL</span>
+              <span className="px-2 py-1 bg-surface-container-lowest font-mono text-[10px] text-primary-fixed border border-primary-fixed/20 uppercase">ALWAYS RELIABLE</span>
             </div>
           </div>
           {/* Capability 2 */}
@@ -108,7 +108,7 @@ export default function OperatorPage() {
               <span className="material-symbols-outlined text-3xl md:text-4xl text-primary-fixed">explore</span>
               <span className="font-mono text-xs text-on-surface-variant">02</span>
             </div>
-            <h3 className="font-headline text-xl md:text-2xl font-black text-white mb-4 uppercase">Process Discovery</h3>
+            <h3 className="font-headline text-xl md:text-2xl font-semibold text-on-surface mb-4">Process Discovery</h3>
             <p className="text-on-surface-variant mb-6 text-sm md:text-base">Automatically identifies where your operations slow down and where the biggest opportunities for savings are.</p>
           </div>
           {/* Capability 3 */}
@@ -118,7 +118,7 @@ export default function OperatorPage() {
               <span className="material-symbols-outlined text-3xl md:text-4xl text-primary-fixed">psychology</span>
               <span className="font-mono text-xs text-on-surface-variant">03</span>
             </div>
-            <h3 className="font-headline text-xl md:text-2xl font-black text-white mb-4 uppercase">Intelligent Decisions</h3>
+            <h3 className="font-headline text-xl md:text-2xl font-semibold text-on-surface mb-4">Intelligent Decisions</h3>
             <p className="text-on-surface-variant mb-6 text-sm md:text-base">Makes smart decisions based on your business context. Handles new situations without manual programming.</p>
           </div>
           {/* Capability 4 */}
@@ -128,16 +128,16 @@ export default function OperatorPage() {
               <span className="material-symbols-outlined text-3xl md:text-4xl text-primary-fixed">gavel</span>
               <span className="font-mono text-xs text-on-surface-variant">04</span>
             </div>
-            <h3 className="font-headline text-xl md:text-2xl font-black text-white mb-4 uppercase">Enterprise Governance</h3>
+            <h3 className="font-headline text-xl md:text-2xl font-semibold text-on-surface mb-4">Enterprise Governance</h3>
             <p className="text-on-surface-variant max-w-md mb-6 md:mb-8 text-sm md:text-base">Built-in compliance guardrails and complete audit trails so you always know what happened and why.</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <img
-                className="h-16 w-full object-cover grayscale opacity-50 border border-outline-variant"
+                className="h-16 w-full object-cover opacity-50 border border-outline-variant"
                 alt="Technical security circuitry and abstract hardware components"
                 src="/images/security-circuitry.jpg"
               />
               <img
-                className="h-16 w-full object-cover grayscale opacity-50 border border-outline-variant"
+                className="h-16 w-full object-cover opacity-50 border border-outline-variant"
                 alt="Global satellite data visualization mapping network connectivity"
                 src="/images/satellite-network.jpg"
               />
@@ -150,14 +150,14 @@ export default function OperatorPage() {
       <section className="py-16 md:py-24 bg-surface-container-low border-y border-outline-variant/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
-            <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-black uppercase text-white tracking-tight mb-6 md:mb-8">THE OPERATOR DASHBOARD</h2>
+            <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-semibold text-on-surface tracking-tight mb-6 md:mb-8">The Operator dashboard</h2>
             <div className="space-y-6 md:space-y-8">
               <div className="flex gap-4 sm:gap-6">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 bg-primary-fixed flex items-center justify-center">
-                  <span className="material-symbols-outlined text-black font-bold text-xl sm:text-2xl">terminal</span>
+                  <span className="material-symbols-outlined text-on-primary font-bold text-xl sm:text-2xl">terminal</span>
                 </div>
                 <div>
-                  <h4 className="font-headline text-base sm:text-lg font-bold text-white uppercase mb-2">Visual Workflow Builder</h4>
+                  <h4 className="font-headline text-base sm:text-lg font-bold text-on-surface mb-2">Visual Workflow Builder</h4>
                   <p className="text-on-surface-variant text-sm">Design and modify automation workflows visually. No coding required — your operations team can build and adjust processes directly.</p>
                 </div>
               </div>
@@ -166,17 +166,17 @@ export default function OperatorPage() {
                   <span className="material-symbols-outlined text-primary-fixed text-xl sm:text-2xl">monitoring</span>
                 </div>
                 <div>
-                  <h4 className="font-headline text-base sm:text-lg font-bold text-white uppercase mb-2">Real-Time Performance Monitoring</h4>
+                  <h4 className="font-headline text-base sm:text-lg font-bold text-on-surface mb-2">Real-Time Performance Monitoring</h4>
                   <p className="text-on-surface-variant text-sm">See exactly what's running, what's completed, and what needs attention — all in real time.</p>
                 </div>
               </div>
               <div className="pt-4">
-                <a className="font-mono text-xs text-primary-fixed hover:underline underline-offset-8 transition-all" href="#">SEE CAPABILITIES</a>
+                <a className="font-mono text-xs text-primary-fixed hover:underline underline-offset-8 transition-all" href="#">See capabilities</a>
               </div>
             </div>
           </div>
           <div className="bg-surface-container-lowest p-2 border border-outline-variant/30 shadow-2xl relative">
-            <div className="absolute -top-4 -left-4 bg-primary-fixed text-on-primary-fixed px-3 py-1 font-mono text-[10px] uppercase font-bold">LIVE_PREVIEW</div>
+            <div className="absolute -top-4 -left-4 bg-primary text-on-primary px-3 py-1 font-mono text-[10px] uppercase font-bold">LIVE_PREVIEW</div>
             <img
               className="w-full h-auto object-cover"
               alt="Operator product dashboard screenshot"
@@ -189,12 +189,12 @@ export default function OperatorPage() {
 
       {/* CTA Section */}
       <section className="py-20 md:py-32 px-4 sm:px-6 text-center bg-surface relative overflow-hidden">
-        <div className="absolute inset-0 grid-substrate opacity-30"></div>
+        <div className="absolute inset-0 opacity-30"></div>
         <div className="relative z-10 max-w-3xl mx-auto">
-          <h2 className="font-headline text-3xl sm:text-5xl md:text-7xl font-black uppercase text-white mb-6 md:mb-8 tracking-tighter">READY TO SCALE <span className="text-primary-fixed">YOUR OPERATIONS?</span></h2>
+          <h2 className="font-headline text-3xl sm:text-3xl md:text-4xl font-semibold text-on-surface mb-6 md:mb-8">Ready to scale <span className="text-primary-fixed">your operations?</span></h2>
           <p className="text-on-surface-variant mb-8 md:mb-12 text-base sm:text-lg">Eliminate manual bottlenecks and free your team to focus on what matters. See Operator in action.</p>
-          <button className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-primary-fixed text-on-primary-fixed font-headline font-black uppercase tracking-widest sm:tracking-[0.2em] text-base sm:text-lg hover:shadow-[0_0_30px_rgba(210,240,0,0.4)] transition-all">
-            SCHEDULE A DEMO
+          <button className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-primary text-on-primary font-body font-medium sm:tracking-[0.2em] text-base sm:text-lg transition-all">
+            Schedule a demo
           </button>
         </div>
       </section>

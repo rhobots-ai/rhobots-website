@@ -80,9 +80,9 @@ const TRUST_INDUSTRIES = [
 ];
 
 const HERO_MODES = [
-  { label: 'AUTONOMOUS RESOLUTION', headline: 'AI AGENT — EVERY TICKET RESOLVED.' },
-  { label: 'HUMAN + AI COLLABORATION', headline: 'AI CO-PILOT — AGENTS 3X FASTER.' },
-  { label: 'INTELLIGENT AUTOMATION', headline: 'AI TICKETING — NO MANUAL ENTRY.' },
+  { label: 'AUTONOMOUS RESOLUTION', headline: 'AI agent — every ticket resolved.' },
+  { label: 'HUMAN + AI COLLABORATION', headline: 'AI co-pilot — agents 3x faster.' },
+  { label: 'INTELLIGENT AUTOMATION', headline: 'AI ticketing — no manual entry.' },
 ];
 
 function useLiveCounter(start: number, intervalMs = 2500) {
@@ -145,7 +145,7 @@ export default function PulseCustomerSupportPage() {
   };
 
   return (
-    <main className="min-h-screen grid-substrate">
+    <main className="min-h-screen">
       <SEO
         title={customerConfig?.seoTitle ?? 'AI Customer Support Automation - Pulse'}
         description="Resolve 90% of support tickets automatically across chat, email, voice, and social. Reduce support costs by 62% while improving customer satisfaction to 96%. Powered by Rhobots Pulse."
@@ -171,11 +171,11 @@ export default function PulseCustomerSupportPage() {
           <div className="lg:col-span-7 z-10">
             <div className="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-container px-3 py-1 font-mono text-[10px] tracking-widest uppercase mb-4 sm:mb-6">
               <span className="w-2 h-2 bg-primary-fixed animate-pulse"></span>
-              AI CUSTOMER SUPPORT // ACTIVE
+              AI customer support · Active
             </div>
-            <h1 className="font-headline text-2xl leading-[1.1] sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl sm:leading-[1.0] font-black tracking-tighter uppercase mb-5">
-              <span className="text-white block">
-                {customerConfig?.hero?.headline ?? 'RESOLVE 90% OF TICKETS.'}
+            <h1 className="font-headline text-2xl leading-[1.1] sm:text-3xl md:text-4xl lg:text-4xl xl:text-4xl sm:leading-[1.0] font-semibold mb-5">
+              <span className="text-on-surface block">
+                {customerConfig?.hero?.headline ?? 'Resolve 90% of tickets.'}
               </span>
               <span className="text-primary-fixed block" style={{ minHeight: '1.1em' }}>
                 {typing.displayed}<span className="blink-cursor">|</span>
@@ -189,30 +189,30 @@ export default function PulseCustomerSupportPage() {
                 <>
                   <button
                     onClick={scrollToDemo}
-                    className="bg-primary-fixed text-on-primary-fixed px-5 sm:px-8 py-3 sm:py-4 font-mono font-bold tracking-widest text-xs sm:text-base hover:glow-bleed transition-all"
+                    className="bg-primary text-on-primary px-5 sm:px-8 py-3 sm:py-4 font-body font-medium text-sm hover:bg-primary-fixed transition-colors"
                   >
-                    EXPERIENCE NOW
+                    Experience now
                   </button>
                   <button
                     onClick={scrollToTicketDemo}
-                    className="border border-outline-variant/20 text-primary-fixed px-5 sm:px-8 py-3 sm:py-4 font-mono font-bold tracking-widest text-xs sm:text-base hover:bg-surface-bright/20 transition-all text-center"
+                    className="border border-outline-variant/20 text-primary-fixed px-5 sm:px-8 py-3 sm:py-4 font-body font-medium text-sm hover:bg-surface-bright/20 transition-all text-center"
                   >
-                    SEE IT RESOLVE A TICKET
+                    See it resolve a ticket
                   </button>
                 </>
               ) : (
                 <>
                   <button
                     onClick={scrollToDemo}
-                    className="bg-primary-fixed text-on-primary-fixed px-5 sm:px-8 py-3 sm:py-4 font-mono font-bold tracking-widest text-xs sm:text-base hover:glow-bleed transition-all"
+                    className="bg-primary text-on-primary px-5 sm:px-8 py-3 sm:py-4 font-body font-medium text-sm hover:bg-primary-fixed transition-colors"
                   >
-                    SEE IT RESOLVE A TICKET
+                    See it resolve a ticket
                   </button>
                   <Link
                     to="/demo"
-                    className="border border-outline-variant/20 text-primary-fixed px-5 sm:px-8 py-3 sm:py-4 font-mono font-bold tracking-widest text-xs sm:text-base hover:bg-surface-bright/20 transition-all text-center"
+                    className="border border-outline-variant/20 text-primary-fixed px-5 sm:px-8 py-3 sm:py-4 font-body font-medium text-sm hover:bg-surface-bright/20 transition-all text-center"
                   >
-                    TALK TO OUR TEAM
+                    Talk to our team
                   </Link>
                 </>
               )}
@@ -221,7 +221,7 @@ export default function PulseCustomerSupportPage() {
           {/* Right panel — system connectivity for customer pages, generic feed otherwise */}
           <div className="lg:col-span-5 relative mt-2 lg:mt-0">
             {customerConfig ? (
-              <div className="bg-surface-container-high p-3 sm:p-4 border-l-4 border-primary-fixed relative scanline">
+              <div className="bg-surface-container-high p-3 sm:p-4 border-l-4 border-primary-fixed relative">
                 <div className="flex justify-between items-center mb-3 sm:mb-4 border-b border-outline-variant/10 pb-2">
                   <span className="font-mono text-[10px] text-primary-fixed">SYSTEM CONNECTIVITY</span>
                   <span className="font-mono text-[10px] text-outline">ACTIVE</span>
@@ -259,14 +259,14 @@ export default function PulseCustomerSupportPage() {
                   </div>
                   <div className="bg-surface-container-lowest p-2.5 sm:p-3 font-mono">
                     <div className="text-[10px] text-outline">TICKETS TODAY</div>
-                    <div className={`text-xl sm:text-2xl text-white transition-colors duration-300 ${liveCounter.flash ? 'text-primary-fixed' : 'text-white'}`}>
+                    <div className={`text-xl sm:text-2xl text-on-surface transition-colors duration-300 ${liveCounter.flash ? 'text-primary-fixed' : 'text-on-surface'}`}>
                       {liveCounter.count.toLocaleString()}
                     </div>
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="bg-surface-container-high p-3 sm:p-4 border-l-4 border-primary-container relative scanline">
+              <div className="bg-surface-container-high p-3 sm:p-4 border-l-4 border-primary-container relative">
                 <div className="flex justify-between items-center mb-3 sm:mb-4 border-b border-outline-variant/10 pb-2">
                   <span className="font-mono text-[10px] text-primary-fixed">LIVE RESOLUTION FEED</span>
                   <span className="font-mono text-[10px] text-outline">CONNECTED</span>
@@ -298,7 +298,7 @@ export default function PulseCustomerSupportPage() {
                   </div>
                   <div className="bg-surface-container-lowest p-2.5 sm:p-3 font-mono">
                     <div className="text-[10px] text-outline">CSAT</div>
-                    <div className="text-xl sm:text-2xl text-white">96%</div>
+                    <div className="text-xl sm:text-2xl text-on-surface">96%</div>
                   </div>
                 </div>
               </div>
@@ -311,15 +311,15 @@ export default function PulseCustomerSupportPage() {
       <section id="voice-demo" className="px-4 sm:px-6 py-16 sm:py-24 border-t border-outline-variant/10 bg-surface">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col mb-10 sm:mb-16">
-            <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-2 uppercase">// LIVE VOICE DEMO</span>
-            <h2 className="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-white uppercase">
+            <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-2 uppercase">LIVE VOICE DEMO</span>
+            <h2 className="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-on-surface">
               Talk To Pulse. Right Now.
             </h2>
             <p className="text-on-surface-variant text-sm sm:text-base mt-3 max-w-2xl">
               Pick a scenario, speak naturally, and see how Pulse resolves your query in real time.
             </p>
           </div>
-          <div className="bg-surface-container-high border border-outline-variant/20 scanline">
+          <div className="bg-surface-container-high border border-outline-variant/20">
             <PulseDemoWidget lockedIndustry={customerConfig?.industry} />
           </div>
         </div>
@@ -348,8 +348,8 @@ export default function PulseCustomerSupportPage() {
       <section className="px-4 sm:px-6 py-16 sm:py-20 bg-surface">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col mb-10 sm:mb-16">
-            <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-2 uppercase">// RESOLUTION STACK</span>
-            <h2 className="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-white uppercase">
+            <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-2 uppercase">RESOLUTION STACK</span>
+            <h2 className="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-on-surface">
               Every Channel. One AI.
             </h2>
           </div>
@@ -364,7 +364,7 @@ export default function PulseCustomerSupportPage() {
                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary-fixed/5 border border-primary-fixed/20 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-primary-fixed/10 group-hover:border-primary-fixed/40 transition-all">
                   <span className="material-symbols-outlined text-primary-fixed text-2xl sm:text-3xl">{ch.icon}</span>
                 </div>
-                <h3 className="font-headline text-lg sm:text-xl font-bold text-white uppercase mb-3 sm:mb-4">{ch.title}</h3>
+                <h3 className="font-headline text-lg sm:text-xl font-bold text-on-surface mb-3 sm:mb-4">{ch.title}</h3>
                 <p className="text-on-surface-variant text-xs sm:text-sm mb-4 leading-relaxed">{ch.desc}</p>
                 {ch.tags && (
                   <div className="flex flex-wrap gap-1.5 sm:gap-2">
@@ -395,10 +395,10 @@ export default function PulseCustomerSupportPage() {
             {/* Key Differentiator Banner */}
             <div className="md:col-span-3 lg:col-span-4 bg-surface-container-highest p-5 sm:p-8 flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-12 border-l-4 border-primary-fixed">
               <div className="flex-1">
-                <span className="bg-primary-fixed text-on-primary-fixed px-2 py-0.5 font-mono text-[10px] font-bold mb-4 inline-block uppercase">
+                <span className="bg-primary text-on-primary px-2 py-0.5 font-mono text-[10px] font-bold mb-4 inline-block uppercase">
                   KEY DIFFERENTIATOR
                 </span>
-                <h3 className="font-headline text-xl sm:text-3xl font-black text-white uppercase mb-4">
+                <h3 className="font-headline text-xl sm:text-3xl font-semibold text-on-surface mb-4">
                   Unified Memory Across Channels
                 </h3>
                 <p className="text-on-surface-variant text-sm sm:text-lg leading-relaxed">
@@ -409,10 +409,10 @@ export default function PulseCustomerSupportPage() {
                 <div className="relative">
                   <img
                     alt="Neural network data connections"
-                    className="w-full h-32 sm:h-40 object-cover opacity-40 grayscale"
+                    className="w-full h-32 sm:h-40 object-cover opacity-40"
                     src="/images/neural-network.jpg"
                   />
-                  <div className="absolute inset-0 bg-primary-fixed/5 scanline"></div>
+                  <div className="absolute inset-0 bg-primary-fixed/5"></div>
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5">
                     {['chat → email → call', 'CONTEXT: PRESERVED', 'HANDOFFS: 0'].map((line, i) => (
                       <div key={i} className="bg-surface-container-lowest/90 px-3 py-1.5 font-mono text-[10px] sm:text-xs">
@@ -433,7 +433,7 @@ export default function PulseCustomerSupportPage() {
           <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10">
             <span className="material-symbols-outlined text-primary-fixed text-3xl shrink-0">insights</span>
             <div>
-              <p className="font-headline text-lg sm:text-2xl font-black text-primary-fixed uppercase tracking-tight mb-1">
+              <p className="font-headline text-lg sm:text-2xl font-semibold text-primary-fixed tracking-tight mb-1">
                 {customerConfig.industryStat.headline}
               </p>
               <p className="text-on-surface-variant text-sm sm:text-base leading-relaxed">
@@ -448,8 +448,8 @@ export default function PulseCustomerSupportPage() {
       <section id="live-demo" className="px-4 sm:px-6 py-16 sm:py-24 border-t border-outline-variant/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col mb-10 sm:mb-16">
-            <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-2 uppercase">// LIVE DEMONSTRATION</span>
-            <h2 className="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-white uppercase">
+            <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-2 uppercase">LIVE DEMONSTRATION</span>
+            <h2 className="font-headline text-2xl sm:text-4xl font-bold tracking-tight text-on-surface">
               Watch The AI Resolve A Real Ticket
             </h2>
             <p className="text-on-surface-variant text-sm sm:text-base mt-3 max-w-2xl">
@@ -464,7 +464,7 @@ export default function PulseCustomerSupportPage() {
       <section className="px-4 sm:px-6 py-12 sm:py-24 border-t border-outline-variant/10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-12">
           <div className="max-w-lg">
-            <h2 className="font-headline text-2xl sm:text-5xl font-black text-white uppercase tracking-tighter mb-2 sm:mb-4">
+            <h2 className="font-headline text-2xl sm:text-3xl font-semibold text-on-surface mb-2 sm:mb-4">
               Validated Impact
             </h2>
             <p className="text-on-surface-variant font-mono uppercase text-[10px] sm:text-xs tracking-widest">
@@ -474,7 +474,7 @@ export default function PulseCustomerSupportPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 w-full md:w-auto">
             {METRICS.map((m) => (
               <div key={m.label} className="text-center p-3 sm:p-6 bg-surface-container-high">
-                <div className={`font-mono text-xl sm:text-4xl font-bold mb-1 ${m.highlight ? 'text-primary-fixed' : 'text-white'}`}>
+                <div className={`font-mono text-xl sm:text-4xl font-bold mb-1 ${m.highlight ? 'text-primary-fixed' : 'text-on-surface'}`}>
                   {m.value}
                 </div>
                 <div className="font-mono text-[9px] sm:text-[10px] text-outline text-center uppercase tracking-wider sm:tracking-widest">
@@ -489,10 +489,10 @@ export default function PulseCustomerSupportPage() {
       {/* ===================== SECTION 8: CASE STUDY ===================== */}
       <section className="px-4 sm:px-6 py-12 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto">
-          <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-6 block uppercase">// CASE STUDY</span>
+          <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-6 block uppercase">CASE STUDY</span>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             <div className="flex flex-col justify-center">
-              <h2 className="font-headline text-xl sm:text-4xl font-black text-white uppercase tracking-tighter mb-4 sm:mb-6">
+              <h2 className="font-headline text-xl sm:text-4xl font-semibold text-on-surface mb-4 sm:mb-6">
                 Leading Telecom Provider
               </h2>
               <div className="border-l-4 border-primary-fixed pl-4 sm:pl-6 mb-6 sm:mb-8">
@@ -504,9 +504,9 @@ export default function PulseCustomerSupportPage() {
                 </p>
               </div>
             </div>
-            <div className="bg-surface-container-high p-3 sm:p-6 relative scanline">
+            <div className="bg-surface-container-high p-3 sm:p-6 relative">
               <div className="flex justify-between items-center mb-3 sm:mb-4 border-b border-outline-variant/10 pb-2">
-                <span className="font-mono text-[9px] sm:text-[10px] text-primary-fixed">TRANSFORMATION METRICS</span>
+                <span className="font-mono text-[9px] sm:text-[10px] text-primary-fixed">Transformation metrics</span>
                 <span className="font-mono text-[9px] sm:text-[10px] text-outline">BEFORE → AFTER</span>
               </div>
               <div className="space-y-0">
@@ -533,11 +533,11 @@ export default function PulseCustomerSupportPage() {
       {/* ===================== SECTION 9: AI + HUMAN PHILOSOPHY ===================== */}
       <section className="px-4 sm:px-6 py-12 sm:py-24 border-t border-outline-variant/10">
         <div className="max-w-3xl mx-auto">
-          <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-4 sm:mb-6 block uppercase text-center">// PHILOSOPHY</span>
-          <h2 className="font-headline text-xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tighter text-center mb-2 sm:mb-4 leading-tight">
+          <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-4 sm:mb-6 block uppercase text-center">PHILOSOPHY</span>
+          <h2 className="font-headline text-xl sm:text-4xl md:text-3xl font-semibold text-on-surface text-center mb-2 sm:mb-4 leading-tight">
             AI Handles The Volume.
           </h2>
-          <h2 className="font-headline text-xl sm:text-4xl md:text-5xl font-black text-primary-fixed uppercase tracking-tighter text-center mb-8 sm:mb-16 leading-tight">
+          <h2 className="font-headline text-xl sm:text-4xl md:text-3xl font-semibold text-primary-fixed text-center mb-8 sm:mb-16 leading-tight">
             Your Team Handles The Moments That Matter.
           </h2>
           <div className="space-y-6">
@@ -561,7 +561,7 @@ export default function PulseCustomerSupportPage() {
               <div key={item.title} className="border-l-4 border-primary-fixed/30 pl-6 sm:pl-8 py-4 hover:border-primary-fixed transition-colors">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="material-symbols-outlined text-primary-fixed text-xl">{item.icon}</span>
-                  <h3 className="font-headline text-lg sm:text-xl font-bold text-white uppercase">{item.title}</h3>
+                  <h3 className="font-headline text-lg sm:text-xl font-bold text-on-surface">{item.title}</h3>
                 </div>
                 <p className="text-on-surface-variant text-sm sm:text-base leading-relaxed">{item.desc}</p>
               </div>
@@ -573,8 +573,8 @@ export default function PulseCustomerSupportPage() {
       {/* ===================== SECTION 10: INTEGRATIONS & DEPLOYMENT ===================== */}
       <section className="px-4 sm:px-6 py-16 sm:py-24 bg-surface">
         <div className="max-w-7xl mx-auto text-center">
-          <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-6 block uppercase">// DEPLOYMENT</span>
-          <h2 className="font-headline text-2xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">
+          <span className="font-mono text-primary-fixed text-xs tracking-[0.3em] mb-6 block uppercase">DEPLOYMENT</span>
+          <h2 className="font-headline text-2xl sm:text-4xl md:text-3xl font-semibold text-on-surface mb-4">
             Live In Days. <span className="text-primary-fixed">Not Months.</span>
           </h2>
           <p className="text-on-surface-variant text-sm sm:text-base mb-10 sm:mb-14 max-w-xl mx-auto">
@@ -610,7 +610,7 @@ export default function PulseCustomerSupportPage() {
         <div className="relative z-10 max-w-3xl mx-auto">
           {customerConfig?.cta ? (
             <>
-              <h2 className="font-headline text-2xl sm:text-5xl md:text-6xl font-black uppercase text-white mb-2 sm:mb-4 leading-tight">
+              <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-semibold text-on-surface mb-2 sm:mb-4 leading-tight">
                 {customerConfig.cta.headline}
               </h2>
               <p className="text-on-surface-variant mb-8 md:mb-12 text-base sm:text-lg max-w-xl mx-auto">
@@ -619,10 +619,10 @@ export default function PulseCustomerSupportPage() {
             </>
           ) : (
             <>
-              <h2 className="font-headline text-2xl sm:text-5xl md:text-7xl font-black uppercase text-white mb-2 sm:mb-4 leading-tight">
+              <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-semibold text-on-surface mb-2 sm:mb-4 leading-tight">
                 Stop Scaling Headcount.
               </h2>
-              <h2 className="font-headline text-2xl sm:text-5xl md:text-7xl font-black uppercase text-primary-fixed mb-5 sm:mb-8 leading-tight">
+              <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-semibold text-primary-fixed mb-5 sm:mb-8 leading-tight">
                 Start Scaling Intelligence.
               </h2>
               <p className="text-on-surface-variant mb-8 md:mb-12 text-base sm:text-lg max-w-xl mx-auto">
@@ -633,13 +633,13 @@ export default function PulseCustomerSupportPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/demo"
-              className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-primary-fixed text-on-primary-fixed font-mono font-bold tracking-widest text-sm sm:text-base hover:glow-bleed transition-all"
+              className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 bg-primary text-on-primary font-body font-medium text-sm hover:bg-primary-fixed transition-colors"
             >
               {customerConfig ? `BUILD ${customerConfig.displayName.toUpperCase()}'S ROLLOUT PLAN` : 'SCHEDULE A DEMO'}
             </Link>
             <Link
               to="/pricing"
-              className="font-mono text-sm text-primary-fixed hover:text-white tracking-widest transition-colors"
+              className="font-mono text-sm text-primary-fixed hover:text-on-surface tracking-widest transition-colors"
             >
               Or see pricing →
             </Link>

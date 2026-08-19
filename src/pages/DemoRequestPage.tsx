@@ -87,7 +87,7 @@ export default function DemoRequestPage() {
   };
 
   return (
-    <main className="min-h-screen grid-substrate relative">
+    <main className="min-h-screen relative">
       <SEO
         title="Request a Demo"
         description="See Rhobots AI in action. Request a personalized demo of our enterprise AI platform — intelligent automation, document processing, business analytics, and more."
@@ -101,11 +101,11 @@ export default function DemoRequestPage() {
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div className="mb-4">
               <span className="font-mono text-[10px] tracking-[0.3em] text-primary-fixed uppercase px-2 py-1 bg-primary-fixed/10 border-l-2 border-primary-fixed">
-                REQUEST A DEMO
+                Request a demo
               </span>
             </div>
-            <h1 className="font-headline font-black text-3xl md:text-7xl lg:text-8xl text-white leading-none tracking-tighter uppercase mb-8">
-              SEE AI <br />IN <span className="text-primary-fixed">ACTION</span>
+            <h1 className="font-headline font-semibold text-3xl md:text-4xl lg:text-3xl text-on-surface leading-tight mb-8">
+              See AI <br />in <span className="text-primary-fixed">action</span>
             </h1>
             <div className="space-y-8 max-w-md">
               <p className="text-on-surface-variant text-lg leading-relaxed">
@@ -114,10 +114,10 @@ export default function DemoRequestPage() {
 
               {/* Testimonial Section */}
               <div className="bg-surface-container-high p-6 relative overflow-hidden">
-                <div className="scanline absolute inset-0 opacity-10 pointer-events-none"></div>
+                <div className=" absolute inset-0 opacity-10 pointer-events-none"></div>
                 <div className="absolute top-0 left-0 w-1 h-full bg-primary-fixed"></div>
                 <span className="material-symbols-outlined text-primary-fixed/40 mb-4" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
-                <blockquote className="text-white font-body italic mb-6">
+                <blockquote className="text-on-surface font-body italic mb-6">
                   "Rhobots cut our manual processing time by 60% in the first quarter. We saw ROI within weeks, not years — and we didn't have to change a single existing system."
                 </blockquote>
                 <div className="flex items-center gap-4">
@@ -125,7 +125,7 @@ export default function DemoRequestPage() {
                     <span className="material-symbols-outlined text-primary-fixed">precision_manufacturing</span>
                   </div>
                   <div>
-                    <p className="font-headline font-bold text-xs uppercase tracking-wider text-white">Chief Executive Officer</p>
+                    <p className="font-headline font-bold text-xs tracking-wider text-on-surface">Chief Executive Officer</p>
                     <p className="font-mono text-[10px] text-on-surface-variant uppercase">Enterprise Client</p>
                   </div>
                 </div>
@@ -135,11 +135,11 @@ export default function DemoRequestPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="border-l border-outline-variant/30 pl-4 py-2">
                   <p className="font-mono text-[10px] text-primary-fixed uppercase tracking-widest mb-1">SECURITY</p>
-                  <p className="font-headline text-sm font-bold text-white uppercase">Enterprise-Grade</p>
+                  <p className="font-headline text-sm font-bold text-on-surface">Enterprise-Grade</p>
                 </div>
                 <div className="border-l border-outline-variant/30 pl-4 py-2">
                   <p className="font-mono text-[10px] text-primary-fixed uppercase tracking-widest mb-1">DEPLOYMENT</p>
-                  <p className="font-headline text-sm font-bold text-white uppercase">Your Cloud or Ours</p>
+                  <p className="font-headline text-sm font-bold text-on-surface">Your Cloud or Ours</p>
                 </div>
               </div>
             </div>
@@ -150,7 +150,7 @@ export default function DemoRequestPage() {
             <div className="w-full bg-surface-container-low p-8 md:p-12 relative border-t-4 border-primary-fixed">
               <div className="flex justify-between items-start mb-10">
                 <div>
-                  <h2 className="font-headline font-black text-3xl text-white uppercase tracking-tighter">REQUEST YOUR DEMO</h2>
+                  <h2 className="font-headline font-semibold text-3xl text-on-surface">Request your demo</h2>
                   <p className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">Tell us about your needs</p>
                 </div>
                 <span className="material-symbols-outlined text-primary-fixed text-4xl" style={{ fontVariationSettings: "'FILL' 0" }}>terminal</span>
@@ -166,7 +166,7 @@ export default function DemoRequestPage() {
                       name="first_name"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
-                      className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body placeholder:text-surface-bright uppercase transition-all"
+                      className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-on-surface font-body placeholder:text-surface-bright uppercase transition-all"
                       placeholder="REQUIRED"
                       type="text"
                       required
@@ -178,7 +178,7 @@ export default function DemoRequestPage() {
                       name="last_name"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
-                      className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body placeholder:text-surface-bright uppercase transition-all"
+                      className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-on-surface font-body placeholder:text-surface-bright uppercase transition-all"
                       placeholder="REQUIRED"
                       type="text"
                       required
@@ -193,7 +193,7 @@ export default function DemoRequestPage() {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body placeholder:text-surface-bright transition-all"
+                      className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-on-surface font-body placeholder:text-surface-bright transition-all"
                       placeholder="example@system.org"
                       required
                     />
@@ -207,7 +207,7 @@ export default function DemoRequestPage() {
                       name="company"
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
-                      className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body placeholder:text-surface-bright uppercase transition-all"
+                      className="w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-on-surface font-body placeholder:text-surface-bright uppercase transition-all"
                       placeholder="COMPANY NAME"
                       type="text"
                     />
@@ -238,8 +238,8 @@ export default function DemoRequestPage() {
                           </span>
                           <div className="min-w-0">
                             <div
-                              className={`font-headline text-xs font-bold uppercase tracking-widest transition-colors ${
-                                selectedModules.includes(mod.id) ? 'text-primary-fixed' : 'text-white'
+                              className={`font-headline text-xs font-bold transition-colors ${
+                                selectedModules.includes(mod.id) ? 'text-primary-fixed' : 'text-on-surface'
                               }`}
                             >
                               {mod.name}
@@ -254,7 +254,7 @@ export default function DemoRequestPage() {
 
                 {status === 'success' && (
                   <div className="border border-primary-fixed/30 bg-primary-fixed/5 px-4 py-3">
-                    <p className="font-mono text-[10px] text-primary-fixed uppercase tracking-widest">REQUEST RECEIVED — We'll be in touch within 1 business day.</p>
+                    <p className="font-body text-sm text-on-surface">Request received — We'll be in touch within 1 business day.</p>
                   </div>
                 )}
                 {status === 'error' && (
@@ -265,17 +265,17 @@ export default function DemoRequestPage() {
 
                 <div className="pt-6">
                   <button
-                    className="w-full group relative flex items-center justify-between bg-primary-fixed px-6 py-4 transition-all hover:shadow-[0_0_20px_rgba(210,240,0,0.3)] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none"
+                    className="w-full group relative flex items-center justify-between bg-primary px-6 py-4 transition-colors hover:bg-primary-fixed disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none"
                     type="submit"
                     disabled={!isSubmitEnabled || status === 'submitting'}
                   >
-                    <span className="font-headline font-black text-xl text-on-primary-fixed uppercase tracking-widest">
-                      {status === 'submitting' ? 'SUBMITTING...' : 'REQUEST YOUR DEMO'}
+                    <span className="font-body font-medium text-base text-on-primary">
+                      {status === 'submitting' ? 'Submitting…' : 'Request your demo'}
                     </span>
-                    <span className="material-symbols-outlined text-on-primary-fixed group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                    <span className="material-symbols-outlined text-on-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
                   </button>
-                  <p className="mt-4 font-mono text-[9px] text-center text-on-surface-variant/60 uppercase tracking-widest leading-relaxed">
-                    BY SUBMITTING, YOU AGREE TO OUR TERMS OF SERVICE <br /> AND PRIVACY POLICY.
+                  <p className="mt-4 font-body text-xs text-center text-on-surface-variant leading-relaxed">
+                    By submitting, you agree to our Terms of Service <br /> and Privacy Policy.
                   </p>
                 </div>
               </form>
@@ -287,29 +287,29 @@ export default function DemoRequestPage() {
         <div className="mt-24 border-t border-outline-variant/20 pt-12">
           <h3 className="font-mono text-[10px] text-primary-fixed uppercase tracking-[0.5em] mb-8">TRUSTED ACROSS INDUSTRIES</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
+            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 transition-all cursor-crosshair">
               <span className="material-symbols-outlined text-primary-fixed">local_shipping</span>
-              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Logistics</span>
+              <span className="font-label text-[10px] font-bold text-on-surface tracking-widest uppercase">Logistics</span>
             </div>
-            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
+            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 transition-all cursor-crosshair">
               <span className="material-symbols-outlined text-primary-fixed">shopping_cart</span>
-              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Ecommerce</span>
+              <span className="font-label text-[10px] font-bold text-on-surface tracking-widest uppercase">Ecommerce</span>
             </div>
-            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
+            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 transition-all cursor-crosshair">
               <span className="material-symbols-outlined text-primary-fixed">currency_exchange</span>
-              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Fintech</span>
+              <span className="font-label text-[10px] font-bold text-on-surface tracking-widest uppercase">Fintech</span>
             </div>
-            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
+            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 transition-all cursor-crosshair">
               <span className="material-symbols-outlined text-primary-fixed">factory</span>
-              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Industrial</span>
+              <span className="font-label text-[10px] font-bold text-on-surface tracking-widest uppercase">Industrial</span>
             </div>
-            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
+            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 transition-all cursor-crosshair">
               <span className="material-symbols-outlined text-primary-fixed">health_and_safety</span>
-              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Insurance</span>
+              <span className="font-label text-[10px] font-bold text-on-surface tracking-widest uppercase">Insurance</span>
             </div>
-            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 grayscale hover:grayscale-0 transition-all cursor-crosshair">
+            <div className="bg-surface-container p-4 flex flex-col items-center justify-center gap-3 border border-outline-variant/10 transition-all cursor-crosshair">
               <span className="material-symbols-outlined text-primary-fixed">account_balance</span>
-              <span className="font-label text-[10px] font-bold text-white tracking-widest uppercase">Banking</span>
+              <span className="font-label text-[10px] font-bold text-on-surface tracking-widest uppercase">Banking</span>
             </div>
           </div>
         </div>

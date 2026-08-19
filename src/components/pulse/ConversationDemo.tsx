@@ -150,7 +150,7 @@ const ConversationDemo = forwardRef<ConversationDemoHandle, ConversationDemoProp
             <span className="font-mono text-[9px] sm:text-[10px] text-primary-fixed">RESOLVED IN 12s</span>
             <button
               onClick={play}
-              className="font-mono text-[9px] sm:text-[10px] text-primary-fixed hover:text-white tracking-widest transition-colors flex items-center gap-1.5"
+              className="font-mono text-[9px] sm:text-[10px] text-primary-fixed hover:text-on-surface tracking-widest transition-colors flex items-center gap-1.5"
             >
               <span className="material-symbols-outlined text-sm">replay</span>
               REPLAY

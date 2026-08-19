@@ -12,14 +12,13 @@ export default function SecurityPage() {
         jsonLd={organizationSchema()}
       />
       {/* Hero */}
-      <section className="py-32 px-8 md:px-24 border-b border-outline cyber-grid relative overflow-hidden">
-        <div className="scanline-animated"></div>
+      <section className="py-32 px-8 md:px-24 border-b border-outline relative overflow-hidden">
         <div className="relative z-10 max-w-4xl">
           <div className="inline-flex items-center gap-2 bg-surface-container border border-primary-fixed/30 px-4 py-1 mb-8">
             <span className="w-2 h-2 bg-primary-fixed"></span>
-            <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">RESOURCES // SECURITY</span>
+            <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">RESOURCES / SECURITY</span>
           </div>
-          <h1 className="font-headline text-3xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] mb-8 uppercase italic">
+          <h1 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface leading-[1.1] mb-8">
             Security <span className="text-primary-fixed">First.</span>
           </h1>
           <p className="text-on-surface text-sm md:text-base max-w-xl font-body leading-relaxed border-l-2 border-primary-fixed pl-6 py-2">
@@ -30,7 +29,7 @@ export default function SecurityPage() {
 
       {/* Certifications */}
       <section className="py-24 px-8 md:px-24 bg-background border-b border-outline">
-        <h2 className="font-headline text-3xl md:text-5xl font-black tracking-tighter text-white uppercase mb-16">
+        <h2 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface mb-16">
           Compliance & <span className="text-primary-fixed">Certifications</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-0 border-t border-l border-outline">
@@ -41,7 +40,7 @@ export default function SecurityPage() {
             { cert: 'ISO 27001', desc: 'Information security management system certification.' },
           ].map((c) => (
             <div key={c.cert} className="p-8 border-r border-b border-outline group hover:bg-surface transition-all">
-              <h3 className="font-headline text-xl font-black text-primary-fixed uppercase tracking-tighter mb-4">{c.cert}</h3>
+              <h3 className="font-headline text-xl font-semibold text-primary-fixed mb-4">{c.cert}</h3>
               <p className="text-on-surface text-xs leading-relaxed opacity-70">{c.desc}</p>
             </div>
           ))}
@@ -50,7 +49,7 @@ export default function SecurityPage() {
 
       {/* Security Features */}
       <section className="py-24 px-8 md:px-24 bg-background border-b border-outline">
-        <h2 className="font-headline text-3xl md:text-5xl font-black tracking-tighter text-white uppercase mb-16">
+        <h2 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface mb-16">
           Security <span className="text-primary-fixed">Architecture</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-l border-outline">
@@ -63,10 +62,10 @@ export default function SecurityPage() {
             { icon: 'backup', title: 'Data Residency', desc: 'Choose your data region. On-premise deployment ensures data never leaves your infrastructure.' },
           ].map((f) => (
             <div key={f.title} className="p-10 border-r border-b border-outline group hover:bg-surface transition-all">
-              <div className="w-10 h-10 flex items-center justify-center bg-outline text-primary-fixed mb-6 group-hover:bg-primary-fixed group-hover:text-background transition-colors">
+              <div className="w-10 h-10 flex items-center justify-center bg-surface-container text-primary-fixed mb-6 group-hover:bg-primary-fixed group-hover:text-on-primary-fixed transition-colors">
                 <span className="material-symbols-outlined">{f.icon}</span>
               </div>
-              <h3 className="font-headline text-lg font-black text-white uppercase tracking-tighter mb-3">{f.title}</h3>
+              <h3 className="font-headline text-lg font-semibold text-on-surface mb-3">{f.title}</h3>
               <p className="text-on-surface text-xs leading-relaxed opacity-70">{f.desc}</p>
             </div>
           ))}
@@ -75,13 +74,13 @@ export default function SecurityPage() {
 
       {/* CTA */}
       <section className="py-24 px-8 md:px-24 bg-surface border-b border-outline text-center">
-        <h2 className="font-headline text-3xl md:text-5xl font-black tracking-tighter text-white uppercase mb-8">
+        <h2 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface mb-8">
           Security <span className="text-primary-fixed">Questions?</span>
         </h2>
         <p className="text-on-surface text-sm max-w-lg mx-auto mb-12 opacity-70">
           Request our full security whitepaper or schedule a call with our security engineering team.
         </p>
-        <Link to="/demo" className="inline-block bg-primary-fixed text-background px-10 py-5 font-headline font-black text-sm uppercase tracking-widest hover:bg-white transition-all">
+        <Link to="/demo" className="inline-block bg-primary text-on-primary px-10 py-5 font-body font-medium text-sm hover:bg-primary-fixed-dim transition-all">
           Request Security Review
         </Link>
       </section>

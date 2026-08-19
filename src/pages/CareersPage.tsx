@@ -21,14 +21,13 @@ export default function CareersPage() {
         jsonLd={organizationSchema()}
       />
       {/* Hero */}
-      <section className="py-32 px-8 md:px-24 border-b border-outline cyber-grid relative overflow-hidden">
-        <div className="scanline-animated"></div>
+      <section className="py-32 px-8 md:px-24 border-b border-outline relative overflow-hidden">
         <div className="relative z-10 max-w-4xl">
           <div className="inline-flex items-center gap-2 bg-surface-container border border-primary-fixed/30 px-4 py-1 mb-8">
             <span className="w-2 h-2 bg-primary-fixed"></span>
-            <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">COMPANY // CAREERS</span>
+            <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">COMPANY / CAREERS</span>
           </div>
-          <h1 className="font-headline text-3xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] mb-8 uppercase italic">
+          <h1 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface leading-[1.1] mb-8">
             Build What <br />
             <span className="text-primary-fixed">Matters.</span>
           </h1>
@@ -40,7 +39,7 @@ export default function CareersPage() {
 
       {/* Open Positions */}
       <section className="py-24 px-8 md:px-24 bg-background border-b border-outline">
-        <h2 className="font-headline text-3xl md:text-5xl font-black tracking-tighter text-white uppercase mb-16">
+        <h2 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface mb-16">
           Open <span className="text-primary-fixed">Positions</span>
         </h2>
         <div className="border-t border-outline">
@@ -48,7 +47,7 @@ export default function CareersPage() {
             <div key={i} className="flex flex-col md:flex-row md:items-center justify-between py-6 px-4 border-b border-outline group hover:bg-surface transition-all cursor-pointer">
               <div>
                 <span className="font-mono text-[10px] tracking-widest text-primary-fixed uppercase">{role.team}</span>
-                <h3 className="font-headline text-lg font-black text-white uppercase tracking-tighter group-hover:text-primary-fixed transition-colors">{role.title}</h3>
+                <h3 className="font-headline text-lg font-semibold text-on-surface group-hover:text-primary-fixed transition-colors">{role.title}</h3>
               </div>
               <div className="flex items-center gap-6 mt-2 md:mt-0">
                 <span className="font-mono text-xs text-on-surface opacity-50 uppercase tracking-widest">{role.location}</span>
@@ -62,13 +61,13 @@ export default function CareersPage() {
 
       {/* CTA */}
       <section className="py-24 px-8 md:px-24 bg-surface border-b border-outline text-center">
-        <h2 className="font-headline text-3xl md:text-5xl font-black tracking-tighter text-white uppercase mb-8">
+        <h2 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface mb-8">
           Don't See <span className="text-primary-fixed">Your Role?</span>
         </h2>
         <p className="text-on-surface text-sm max-w-lg mx-auto mb-12 opacity-70">
           We're always looking for exceptional talent. Send us your details and we'll reach out when the right opportunity opens up.
         </p>
-        <Link to="/demo" className="inline-block bg-primary-fixed text-background px-10 py-5 font-headline font-black text-sm uppercase tracking-widest hover:bg-white transition-all">
+        <Link to="/demo" className="inline-block bg-primary text-on-primary px-10 py-5 font-body font-medium text-sm hover:bg-primary-fixed-dim transition-all">
           Get in Touch
         </Link>
       </section>

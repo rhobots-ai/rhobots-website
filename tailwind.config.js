@@ -5,54 +5,82 @@ export default {
   theme: {
     extend: {
       colors: {
-        // MD3 Full Token Set (from product pages)
-        'surface-container-highest': '#353534',
-        'background': '#131313',
-        'surface-container-low': '#1c1b1b',
-        'primary-fixed': '#d2f000',
-        'on-primary-container': '#5d6b00',
-        'on-secondary-fixed-variant': '#394857',
-        'primary-container': '#d2f000',
+        // Light enterprise palette. Token names are unchanged from the previous
+        // dark theme so existing utility classes keep working — only the values
+        // flip. See the redesign brief for contrast rationale.
+
+        // Surfaces (light → progressively tinted greys)
+        'surface-container-lowest': '#ffffff',
+        'background': '#ffffff',
+        'surface': '#ffffff',
+        'surface-bright': '#ffffff',
+        'surface-dim': '#f7f7f5',
+        'surface-container-low': '#fafaf9',
+        'surface-container': '#f5f5f3',
+        'surface-container-high': '#eeeeeb',
+        'surface-container-highest': '#e6e6e2',
+        'surface-variant': '#eeeeeb',
+        'surface-tint': '#4c5a00',
+
+        // Text
+        'on-surface': '#131313', // 16.9:1 on white
+        'on-background': '#131313',
+        'on-surface-variant': '#57534e', // 7.4:1 — secondary body copy
+        'inverse-surface': '#131313',
+        'inverse-on-surface': '#ffffff',
+
+        // Lines + tertiary text
+        'outline': '#6b6b66', // 5.4:1 — used as text, must stay legible
+        'outline-variant': '#e7e5e4', // hairline borders only
+
+        // Accent. #d2f000 is 1.23:1 on white and unusable; #4c5a00 is the same
+        // hue at 7.59:1, and reads AA both as text on white and as white on fill.
+        'primary': '#131313', // solid near-black button surface
+        'on-primary': '#ffffff',
+        'primary-fixed': '#4c5a00',
+        'primary-fixed-dim': '#3a4500',
+        'on-primary-fixed': '#ffffff',
+        'on-primary-fixed-variant': '#3a4500',
+        'inverse-primary': '#c8e07a',
+        'primary-container': '#f2f7d6',
+        'on-primary-container': '#3a4500',
+        'focus': '#4c5a00',
+
+        // Raw brand lime, permitted only on deliberately dark surfaces
+        // (the Pulse agent orb, chart series). Never on white.
+        'accent-hi': '#d2f000',
+
+        // Secondary / tertiary
+        'secondary': '#44546a',
+        'on-secondary': '#ffffff',
+        'secondary-container': '#dde5f0',
+        'on-secondary-container': '#2a3542',
+        'secondary-fixed': '#dde5f0',
+        'secondary-fixed-dim': '#c2cfe0',
         'on-secondary-fixed': '#0d1d2a',
-        'inverse-primary': '#576500',
-        'error-container': '#93000a',
-        'tertiary-container': '#c8e8f1',
-        'on-primary-fixed-variant': '#414c00',
-        'surface': '#131313',
-        'on-tertiary-fixed': '#001f26',
-        'tertiary': '#ffffff',
-        'surface-container-high': '#2a2a2a',
-        'surface-tint': '#b8d300',
-        'outline': '#909378',
-        'surface-variant': '#353534',
-        'on-primary-fixed': '#191e00',
-        'on-primary': '#2c3400',
-        'primary': '#ffffff',
-        'inverse-on-surface': '#313030',
-        'primary-fixed-dim': '#b8d300',
-        'outline-variant': '#454932',
-        'surface-container-lowest': '#0e0e0e',
-        'surface-container': '#201f1f',
+        'on-secondary-fixed-variant': '#394857',
+        'tertiary': '#16343b',
+        'on-tertiary': '#ffffff',
+        'tertiary-container': '#d7eef4',
+        'on-tertiary-container': '#0b2b31',
+        'tertiary-fixed': '#d7eef4',
         'tertiary-fixed-dim': '#acccd4',
-        'tertiary-fixed': '#c8e8f1',
-        'on-secondary-container': '#a7b7c8',
-        'on-error': '#690005',
-        'secondary-fixed-dim': '#b8c8da',
-        'secondary': '#b8c8da',
-        'on-error-container': '#ffdad6',
-        'surface-bright': '#393939',
-        'error': '#ffb4ab',
-        'on-surface': '#e5e2e1',
-        'surface-dim': '#131313',
+        'on-tertiary-fixed': '#001f26',
         'on-tertiary-fixed-variant': '#2e4b52',
-        'secondary-fixed': '#d4e4f6',
-        'inverse-surface': '#e5e2e1',
-        'on-tertiary': '#16343b',
-        'on-background': '#e5e2e1',
-        'on-tertiary-container': '#4b6971',
-        'secondary-container': '#394857',
-        'on-surface-variant': '#c6c9ab',
-        'on-secondary': '#223240',
+
+        // Error
+        'error': '#ba1a1a',
+        'on-error': '#ffffff',
+        'error-container': '#ffdad6',
+        'on-error-container': '#410002',
+      },
+      boxShadow: {
+        // The dark theme needed no elevation; on white, flat + 0px radius
+        // reads as unstyled HTML.
+        sm: '0 1px 2px 0 rgb(19 19 19 / 0.05)',
+        DEFAULT: '0 1px 3px 0 rgb(19 19 19 / 0.08), 0 1px 2px -1px rgb(19 19 19 / 0.06)',
+        md: '0 4px 10px -2px rgb(19 19 19 / 0.08), 0 2px 4px -2px rgb(19 19 19 / 0.05)',
+        lg: '0 12px 24px -6px rgb(19 19 19 / 0.10), 0 4px 8px -4px rgb(19 19 19 / 0.05)',
       },
       fontFamily: {
         headline: ['Public Sans', 'sans-serif'],
@@ -70,9 +98,9 @@ export default {
         'fade-in': 'fade-in 0.4s ease-out forwards',
       },
       borderRadius: {
-        DEFAULT: '0px',
-        lg: '0px',
-        xl: '0px',
+        DEFAULT: '2px',
+        lg: '3px',
+        xl: '4px',
         full: '9999px',
       },
     },
