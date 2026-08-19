@@ -214,7 +214,7 @@ export default function PartnersPage() {
   return (
     <main className=" min-h-screen">
       <SEO
-        title="Partner Program — White-Label Enterprise AI Delivery | Rhobots"
+        title="Partner program — white-label enterprise AI delivery"
         description="Become a Rhobots delivery partner. You own the client; we deliver production-grade, self-hosted AI under your brand — in days, not quarters. UAE · UK · US."
         path="/partners"
         ogType="website"

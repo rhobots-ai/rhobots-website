@@ -13,7 +13,7 @@ export default function PartnersThankYouPage() {
   return (
     <main className=" min-h-screen flex items-center">
       <SEO
-        title="Thank you — Rhobots Partner Program"
+        title="Thank you — Rhobots partner program"
         description="Your partner inquiry has been received. We'll be in touch within one business day."
         path="/partners/thank-you"
         ogType="website"

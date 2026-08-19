@@ -15,7 +15,7 @@ export default function CareersPage() {
   return (
     <main>
       <SEO
-        title="Careers - Join the Team"
+        title="Careers at Rhobots"
         description="Join Rhobots AI and help build the cognitive layer for enterprise. Open positions in engineering, product, design, and go-to-market across San Francisco, New York, and remote."
         path="/careers"
         jsonLd={organizationSchema()}
@@ -28,8 +28,7 @@ export default function CareersPage() {
             <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">COMPANY / CAREERS</span>
           </div>
           <h1 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface leading-[1.1] mb-8">
-            Build What <br />
-            <span className="text-primary-fixed">Matters.</span>
+            Come and build these systems
           </h1>
           <p className="text-on-surface text-sm md:text-base max-w-xl font-body leading-relaxed border-l-2 border-primary-fixed pl-6 py-2">
             Join a team redefining how the world's largest organizations deploy AI — without tearing down what already works.

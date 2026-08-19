@@ -10,7 +10,7 @@ export default function PulseDemoPage() {
   return (
     <>
       <SEO
-        title="Pulse Live Demo — Try AI Voice Support Now"
+        title="Pulse live demo — talk to the voice agent"
         description="Experience Pulse in action. Pick an industry scenario, speak naturally, and watch our AI voice agent resolve customer queries in real time — no sign-up required."
         path="/pulse/demo"
         noIndex

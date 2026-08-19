@@ -32,8 +32,8 @@ export default function CopilotPage() {
   return (
     <main className="flex-grow">
       <SEO
-        title="Copilot - AI-Powered Development Acceleration"
-        description="Accelerate software delivery by 40%. Rhobots Copilot helps engineering teams ship faster with AI-powered code review, generation, and quality assurance."
+        title="Copilot — a coding assistant trained on your codebase"
+        description="Copilot runs where your code already lives, trained on your repositories and conventions. It refines tickets, writes the first pass, and reviews the pull request."
         path="/products/copilot"
         jsonLd={[
           organizationSchema(),
@@ -46,14 +46,13 @@ export default function CopilotPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
           <div className="lg:col-span-8">
             <div className="flex items-center gap-3 mb-4 sm:mb-6">
-              <span className="bg-secondary-container text-on-secondary-container font-label text-[10px] px-2 py-0.5 uppercase tracking-widest">PRODUCT: COPILOT</span>
-              <span className="text-outline-variant font-label text-[10px] uppercase tracking-widest">ENTERPRISE EDITION</span>
+              <span className="font-label text-[10px] uppercase tracking-[0.18em] text-outline">Copilot</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-semibold font-headline leading-[1.1] text-on-surface">
-              Accelerate software delivery
+              A coding assistant that has actually read your codebase.
             </h1>
             <p className="mt-6 sm:mt-8 text-base sm:text-xl text-on-surface-variant max-w-xl font-body leading-relaxed">
-              Help your engineering teams ship faster and with fewer bugs. Copilot automates code reviews, generates solutions, and integrates with the tools your developers already use.
+              Copilot runs where your code already lives, trained on your repositories and your conventions. It refines tickets, writes the first pass, and reviews the pull request before a human does.
             </p>
             <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a href="/demo" className="bg-primary text-on-primary px-6 sm:px-8 py-3 sm:py-4 font-body font-medium text-sm sm:text-base transition-all text-center">
@@ -73,7 +72,7 @@ export default function CopilotPage() {
             </div>
             <div className="space-y-6">
               <div>
-                <span className="font-label text-xs text-outline-variant uppercase">Measured impact</span>
+                <span className="font-label text-xs text-outline uppercase">Measured impact</span>
                 <div className="flex items-baseline gap-2">
                   <AnimatedStat value={10} suffix="x" className="text-5xl font-mono font-bold text-primary-fixed" />
                   <span className="text-on-surface font-headline font-bold">Faster</span>
@@ -82,7 +81,7 @@ export default function CopilotPage() {
               </div>
               <div className="pt-6 border-t border-outline-variant/20">
                 <div>
-                  <span className="block font-label text-[10px] text-outline-variant uppercase">BUG FIX TIME</span>
+                  <span className="block font-label text-[10px] text-outline uppercase">BUG FIX TIME</span>
                   <AnimatedStat value={90} prefix="-" suffix="%" className="font-mono text-lg text-on-surface" />
                 </div>
               </div>
@@ -95,7 +94,7 @@ export default function CopilotPage() {
       <section id="what-copilot-does" className="py-16 sm:py-24 px-4 sm:px-6 bg-surface">
         <div className="max-w-7xl mx-auto">
           <div className="mb-10 sm:mb-16">
-            <span className="font-label text-primary-fixed text-sm uppercase tracking-widest">KEY CAPABILITIES</span>
+            <span className="font-label text-primary-fixed text-sm uppercase tracking-widest">Key capabilities</span>
             <h2 className="text-2xl sm:text-4xl font-semibold font-headline tracking-tight text-on-surface mt-2">What Copilot does</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-6">
@@ -104,12 +103,12 @@ export default function CopilotPage() {
               <div className="w-12 h-12 bg-surface-container-lowest flex items-center justify-center mb-8 border border-outline-variant/30">
                 <span className="material-symbols-outlined text-primary-fixed">assignment_turned_in</span>
               </div>
-              <h3 className="text-2xl font-semibold font-headline mb-4 text-on-surface">Ticket Refinement</h3>
+              <h3 className="text-2xl font-semibold font-headline mb-4 text-on-surface">Ticket refinement</h3>
               <p className="text-on-surface-variant font-body mb-8">
                 Turns vague requirements into clear technical specs. Catches edge cases and dependencies your team might miss.
               </p>
               <div className="bg-surface-container-lowest p-4 border-l-2 border-primary-fixed">
-                <span className="font-mono text-xs text-primary-fixed opacity-70 block mb-1">PROCESSING...</span>
+                <span className="font-mono text-xs text-primary-fixed opacity-70 block mb-1">Processing</span>
                 <div className="h-1 bg-outline-variant/20 w-full overflow-hidden">
                   <div className="bg-primary-fixed h-full w-2/3"></div>
                 </div>
@@ -120,7 +119,7 @@ export default function CopilotPage() {
             <div className="bg-surface-container-low p-6 sm:p-10 flex flex-col justify-between border border-outline-variant/10 group">
               <div>
                 <span className="material-symbols-outlined text-on-surface-variant mb-6">terminal</span>
-                <h3 className="text-xl font-semibold font-headline mb-4 text-on-surface">IDE Integration</h3>
+                <h3 className="text-xl font-semibold font-headline mb-4 text-on-surface">IDE integration</h3>
                 <p className="text-sm text-on-surface-variant leading-relaxed">
                   Works directly inside your developers' tools. Refactor, debug, and explore code with AI assistance built in.
                 </p>
@@ -136,12 +135,12 @@ export default function CopilotPage() {
             <div className="bg-surface-container-low p-6 sm:p-10 flex flex-col justify-between border border-outline-variant/10">
               <div>
                 <span className="material-symbols-outlined text-on-surface-variant mb-6">psychology</span>
-                <h3 className="text-xl font-semibold font-headline mb-4 text-on-surface">Code Generation</h3>
+                <h3 className="text-xl font-semibold font-headline mb-4 text-on-surface">Code generation</h3>
                 <p className="text-sm text-on-surface-variant leading-relaxed">
                   Generates production-quality code from high-level descriptions. Handles complex business logic at enterprise scale.
                 </p>
               </div>
-              <div className="mt-8 font-mono text-[10px] text-outline-variant uppercase">
+              <div className="mt-8 font-mono text-[10px] text-outline uppercase">
                 Accuracy: 99.9% | Ready
               </div>
             </div>
@@ -149,18 +148,18 @@ export default function CopilotPage() {
             {/* PR Validation (Wide Bottom) */}
             <div className="md:col-span-4 flex flex-col md:flex-row bg-surface-container relative overflow-hidden min-h-[250px] sm:min-h-[300px]">
               <div className="p-6 sm:p-10 md:w-1/2 z-10">
-                <h3 className="text-2xl sm:text-3xl font-semibold font-headline mb-4 text-on-surface">PR Validation</h3>
+                <h3 className="text-2xl sm:text-3xl font-semibold font-headline mb-4 text-on-surface">PR validation</h3>
                 <p className="text-on-surface-variant font-body mb-8 max-w-sm">
                   Every code change is automatically reviewed for security, quality, and correctness — before any human sees it.
                 </p>
                 <div className="flex flex-wrap gap-3 sm:gap-4">
                   <div className="flex items-center gap-2 bg-surface-container-lowest px-3 py-1">
                     <span className="material-symbols-outlined text-primary-fixed text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-                    <span className="font-label text-[10px] uppercase">QUALITY CHECK</span>
+                    <span className="font-label text-[10px] uppercase">Quality check</span>
                   </div>
                   <div className="flex items-center gap-2 bg-surface-container-lowest px-3 py-1">
                     <span className="material-symbols-outlined text-primary-fixed text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>security</span>
-                    <span className="font-label text-[10px] uppercase">SECURITY CLEARED</span>
+                    <span className="font-label text-[10px] uppercase">Security cleared</span>
                   </div>
                 </div>
               </div>
@@ -230,14 +229,14 @@ export default function CopilotPage() {
       <section className="py-20 sm:py-32 px-4 sm:px-6 bg-surface-container flex items-center justify-center text-center border-t border-outline-variant">
         <div className="max-w-3xl">
           <h2 className="text-3xl sm:text-3xl md:text-4xl font-semibold font-headline text-on-surface mb-6 sm:mb-8 leading-[1.1]">
-            Ready to ship faster?
+            Point Copilot at one of your repositories.
           </h2>
-          <a href="/demo" className="w-full sm:w-auto bg-primary text-on-primary px-6 py-3 font-body font-medium text-sm hover:bg-primary-fixed transition-colors text-center inline-block">
-            Schedule a demo
-          </a>
-          <p className="mt-8 font-body text-on-surface-variant text-sm">
-            Limited availability. Request early access today.
+          <p className="mx-auto mb-8 sm:mb-12 max-w-xl font-body text-base text-on-surface-variant leading-relaxed">
+            We scope a single service or team first, so you can measure the difference against your own delivery data.
           </p>
+          <a href="/demo" className="w-full sm:w-auto bg-primary text-on-primary px-8 py-4 font-body font-medium text-base hover:bg-primary-fixed transition-colors text-center inline-block">
+            Request a demo
+          </a>
         </div>
       </section>
     </main>

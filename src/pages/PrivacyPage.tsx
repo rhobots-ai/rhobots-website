@@ -5,7 +5,7 @@ export default function PrivacyPage() {
   return (
     <main>
       <SEO
-        title="Privacy Policy"
+        title="Privacy policy"
         description="Rhobots AI privacy policy. Learn how we collect, use, and protect your data across our enterprise AI platform and services."
         path="/privacy"
         jsonLd={organizationSchema()}

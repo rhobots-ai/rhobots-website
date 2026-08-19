@@ -5,7 +5,7 @@ export default function TermsPage() {
   return (
     <main>
       <SEO
-        title="Terms of Service"
+        title="Terms of service"
         description="Terms of service for the Rhobots AI enterprise platform. Read our usage policies, service agreements, and user responsibilities."
         path="/terms"
         jsonLd={organizationSchema()}

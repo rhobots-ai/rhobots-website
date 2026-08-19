@@ -148,7 +148,7 @@ export default function PulseCustomerSupportPage() {
     <main className="min-h-screen">
       <SEO
         title={customerConfig?.seoTitle ?? 'AI Customer Support Automation - Pulse'}
-        description="Resolve 90% of support tickets automatically across chat, email, voice, and social. Reduce support costs by 62% while improving customer satisfaction to 96%. Powered by Rhobots Pulse."
+        description="Pulse handles support conversations across chat, email, voice and social, and hands off to a person the moment a case needs one. Deployed inside your environment."
         path="/pulse/customer-support"
         jsonLd={[
           organizationSchema(),

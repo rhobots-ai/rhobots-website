@@ -5,7 +5,7 @@ export default function SlaPage() {
   return (
     <main>
       <SEO
-        title="Service Level Agreement"
+        title="Service level agreement"
         description="Rhobots AI SLA details. Review our uptime commitments, support response times, and service availability guarantees for enterprise customers."
         path="/sla"
         jsonLd={organizationSchema()}

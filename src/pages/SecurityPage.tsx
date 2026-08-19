@@ -6,7 +6,7 @@ export default function SecurityPage() {
   return (
     <main>
       <SEO
-        title="Security & Compliance"
+        title="Security and compliance"
         description="Enterprise-grade security is our foundation. SOC 2 Type II certified, HIPAA compliant, with end-to-end encryption, air-gapped deployment, and data residency controls."
         path="/security"
         jsonLd={organizationSchema()}
@@ -19,10 +19,10 @@ export default function SecurityPage() {
             <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">RESOURCES / SECURITY</span>
           </div>
           <h1 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface leading-[1.1] mb-8">
-            Security <span className="text-primary-fixed">First.</span>
+            Security and compliance
           </h1>
           <p className="text-on-surface text-sm md:text-base max-w-xl font-body leading-relaxed border-l-2 border-primary-fixed pl-6 py-2">
-            Enterprise-grade security is not a feature — it's our foundation. Your data never leaves your perimeter unless you want it to.
+            Rhobots deploys inside your environment. Your data does not leave your perimeter unless you decide it should.
           </p>
         </div>
       </section>

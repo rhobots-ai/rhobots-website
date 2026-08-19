@@ -21,8 +21,8 @@ export default function SagePage() {
   return (
     <main className="min-h-screen">
       <SEO
-        title="Sage - Business Intelligence in Plain English"
-        description="Get instant answers from your business data in plain English. Rhobots Sage eliminates the wait for reports and dashboards — just ask questions and get answers."
+        title="Sage — ask your business data a question"
+        description="Sage answers questions about your business in plain English, across your existing data sources. No dashboard to build, no analyst queue to join."
         path="/products/sage"
         jsonLd={[
           organizationSchema(),
@@ -34,14 +34,12 @@ export default function SagePage() {
       <section className="relative px-4 sm:px-6 pt-20 sm:pt-24 pb-12 flex flex-col items-start max-w-7xl mx-auto">
         <div className="absolute -top-12 -left-12 w-64 h-64 bg-primary-container/5 blur-[120px] rounded-full pointer-events-none"></div>
         <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-8">
-          <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.3em] text-primary-fixed bg-primary-fixed/10 px-3 py-1 border-l-4 border-primary-fixed">PRODUCT: SAGE</span>
-          <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.3em] text-surface-bright">STATUS: OPERATIONAL</span>
+          <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.18em] uppercase text-outline">Sage</span>
         </div>
         <h1 className="font-headline font-semibold text-3xl sm:text-4xl md:text-3xl leading-tight text-on-surface max-w-4xl mb-4 sm:mb-6">
-          Talk to Data.<br />
-          <span className="text-primary-fixed">Skip the Dashboard.</span>
+          Ask your business a question. Get the answer, not a ticket.
         </h1>
-        <p className="font-body text-secondary text-base sm:text-lg max-w-2xl mb-8 sm:mb-12 leading-relaxed">
+        <p className="font-body text-on-surface-variant text-base sm:text-lg max-w-2xl mb-8 sm:mb-12 leading-relaxed">
           Ask questions about your business in plain English. Get instant answers from all your data sources — no analyst queue, no waiting for reports.
         </p>
         {/* Terminal Interface */}
@@ -64,9 +62,9 @@ export default function SagePage() {
                 disabled={running || ran}
                 className="bg-primary text-on-primary px-6 sm:px-8 py-3 font-body font-medium text-xs sm:text-sm hover:bg-primary-fixed-dim transition-colors w-full sm:w-auto text-center disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {running ? 'RUNNING...' : 'RUN QUERY'}
+                {running ? 'Running…' : 'Run query'}
               </button>
-              <span className="font-mono text-[10px] text-surface-bright uppercase animate-pulse">
+              <span className="font-mono text-[10px] text-outline">
                 {running ? 'Executing query...' : ran ? '' : 'Waiting for system call...'}
               </span>
             </div>
@@ -97,7 +95,7 @@ export default function SagePage() {
                 </div>
                 <div className="mt-6 flex items-center gap-4">
                   <a href="/demo" className="bg-primary text-on-primary px-6 py-3 font-body font-medium text-xs transition-all">
-                    GET THIS FOR YOUR DATA →
+                    Get this for your data →
                   </a>
                 </div>
               </div>
@@ -114,7 +112,7 @@ export default function SagePage() {
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary-fixed/5 -mr-16 -mt-16 rounded-full blur-3xl transition-all group-hover:bg-primary-fixed/10"></div>
             <div>
               <div className="font-mono text-[10px] text-primary-fixed mb-4 sm:mb-6 tracking-widest uppercase">01 / PREDICTIVE ANALYTICS</div>
-              <h3 className="font-headline font-bold text-2xl sm:text-3xl text-on-surface mb-4">Predictive Drift <br />Detection</h3>
+              <h3 className="font-headline font-bold text-2xl sm:text-3xl text-on-surface mb-4">Predictive drift detection</h3>
               <p className="text-on-surface-variant text-sm max-w-md">Spot trends and anomalies in your data before they become problems. Get early warnings on revenue dips, cost spikes, and operational issues.</p>
             </div>
             <div className="mt-8 sm:mt-12 flex items-end justify-between">
@@ -131,10 +129,10 @@ export default function SagePage() {
           {/* Semantic Indexing */}
           <div className="md:col-span-4 bg-surface-bright p-6 sm:p-8 border-l-4 border-primary-fixed">
             <div className="font-mono text-[10px] text-primary-fixed mb-4 sm:mb-6 tracking-widest uppercase">02 / CONTEXTUAL SEARCH</div>
-            <h3 className="font-headline font-bold text-2xl sm:text-3xl text-on-surface mb-4">Deep Context Understanding</h3>
+            <h3 className="font-headline font-bold text-2xl sm:text-3xl text-on-surface mb-4">Deep context understanding</h3>
             <p className="text-on-surface-variant text-sm mb-6 sm:mb-8">Sage understands your business context, not just keywords. It knows that "revenue" in your sales database relates to "bookings" in your CRM.</p>
             <div className="p-3 sm:p-4 bg-surface-container-lowest border border-outline-variant/20">
-              <span className="font-mono text-[10px] text-primary-fixed block mb-2">DATA CONNECTED:</span>
+              <span className="font-mono text-[10px] text-primary-fixed block mb-2">Connected today</span>
               <div className="font-mono text-[10px] text-on-surface-variant leading-relaxed">
                 84M+ Records<br />
                 14 Data Sources<br />
@@ -146,7 +144,7 @@ export default function SagePage() {
           {/* Stack Integration */}
           <div className="md:col-span-12 bg-surface-container p-6 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-12">
             <div className="max-w-xl text-left">
-              <h3 className="font-headline font-semibold text-2xl sm:text-4xl text-on-surface mb-4">Connects to All Your Data Sources</h3>
+              <h3 className="font-headline font-semibold text-2xl sm:text-4xl text-on-surface mb-4">Connects to all your data sources</h3>
               <p className="text-on-surface-variant text-sm sm:text-base">Works with Snowflake, BigQuery, Redshift, Databricks, and more. Connect once, query everything.</p>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full md:w-auto">
@@ -176,32 +174,31 @@ export default function SagePage() {
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-4 sm:-bottom-8 sm:-right-8 bg-surface-bright p-4 sm:p-6 border-l-4 border-primary-fixed shadow-2xl">
-              <div className="font-mono text-primary-fixed text-[10px] sm:text-xs mb-2 tracking-widest">SECURITY STATUS</div>
-              <div className="font-mono text-on-surface text-sm sm:text-lg">FULLY ENCRYPTED</div>
+            <div className="absolute -bottom-6 -right-4 sm:-bottom-8 sm:-right-8 bg-surface-bright p-4 sm:p-6 border-l-4 border-primary-fixed shadow-lg">
+              <div className="font-mono text-on-surface text-sm sm:text-base">Your data never leaves your perimeter.</div>
             </div>
           </div>
           <div className="order-1 lg:order-2">
-            <h2 className="font-headline font-semibold text-3xl sm:text-3xl text-on-surface mb-6 sm:mb-8 leading-[1.1]">Enterprise-Grade Security Built In.</h2>
+            <h2 className="font-headline font-semibold text-3xl sm:text-3xl text-on-surface mb-6 sm:mb-8 leading-[1.1]">Enterprise-grade security, built in</h2>
             <ul className="space-y-6 sm:space-y-8">
               <li className="flex gap-4 sm:gap-6">
                 <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-surface-bright flex items-center justify-center font-mono text-primary-fixed font-bold text-sm sm:text-base">01</div>
                 <div>
-                  <h4 className="font-headline font-bold text-lg sm:text-xl text-on-surface tracking-tight mb-2">End-to-End Encryption</h4>
+                  <h4 className="font-headline font-bold text-lg sm:text-xl text-on-surface tracking-tight mb-2">End-to-end encryption</h4>
                   <p className="text-on-surface-variant text-sm">All your queries and data are encrypted end-to-end. Your information never leaves your security perimeter.</p>
                 </div>
               </li>
               <li className="flex gap-4 sm:gap-6">
                 <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-surface-bright flex items-center justify-center font-mono text-primary-fixed font-bold text-sm sm:text-base">02</div>
                 <div>
-                  <h4 className="font-headline font-bold text-lg sm:text-xl text-on-surface tracking-tight mb-2">SOC2 Type II Compliant</h4>
+                  <h4 className="font-headline font-bold text-lg sm:text-xl text-on-surface tracking-tight mb-2">SOC 2 Type II certified</h4>
                   <p className="text-on-surface-variant text-sm">Regular external audits ensure our infrastructure meets the highest global security standards for data handling.</p>
                 </div>
               </li>
               <li className="flex gap-4 sm:gap-6">
                 <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-surface-bright flex items-center justify-center font-mono text-primary-fixed font-bold text-sm sm:text-base">03</div>
                 <div>
-                  <h4 className="font-headline font-bold text-lg sm:text-xl text-on-surface tracking-tight mb-2">Role-Based Access Control</h4>
+                  <h4 className="font-headline font-bold text-lg sm:text-xl text-on-surface tracking-tight mb-2">Role-based access control</h4>
                   <p className="text-on-surface-variant text-sm">Fine-grained access controls mapped to your existing SSO and directory services.</p>
                 </div>
               </li>
@@ -212,10 +209,10 @@ export default function SagePage() {
 
       {/* Final CTA */}
       <section className="px-4 sm:px-6 py-20 sm:py-32 bg-primary-fixed flex flex-col items-center text-center">
-        <h2 className="font-headline font-semibold text-3xl sm:text-4xl md:text-3xl text-on-primary-fixed mb-6 sm:mb-8">Ready for Instant Business Answers?</h2>
-        <p className="font-body text-on-primary-container text-base sm:text-xl max-w-xl mb-8 sm:mb-12 font-medium">Go live in under 15 minutes. Stop waiting for reports. Start getting answers.</p>
-        <a href="/demo" className="bg-on-primary-fixed text-on-surface px-8 sm:px-12 py-4 sm:py-5 font-headline font-semibold text-lg sm:text-2xl hover:bg-black transition-colors active:scale-95 duration-75 w-full sm:w-auto text-center">
-          Schedule a demo
+        <h2 className="font-headline font-semibold text-3xl sm:text-4xl md:text-3xl text-on-primary-fixed mb-6 sm:mb-8">Bring us the question your dashboards cannot answer.</h2>
+        <p className="font-body text-on-primary-fixed text-base sm:text-xl max-w-xl mb-8 sm:mb-12">We will connect Sage to a slice of your data and you can ask it yourself.</p>
+        <a href="/demo" className="bg-on-primary-fixed text-on-surface px-8 sm:px-12 py-4 sm:py-5 font-headline font-semibold text-lg hover:bg-surface-container transition-colors w-full sm:w-auto text-center">
+          Request a demo
         </a>
       </section>
     </main>

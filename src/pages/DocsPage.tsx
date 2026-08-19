@@ -18,7 +18,7 @@ export default function DocsPage() {
   return (
     <main>
       <SEO
-        title="Developer Documentation"
+        title="Developer documentation"
         description="API reference, SDK guides, and quick start documentation for the Rhobots AI platform. Integrate Operator, Extract, Sage, Pulse, and Copilot into your enterprise systems."
         path="/docs"
         jsonLd={organizationSchema()}
@@ -31,7 +31,7 @@ export default function DocsPage() {
             <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">RESOURCES / DOCUMENTATION</span>
           </div>
           <h1 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface leading-[1.1] mb-8">
-            Developer <span className="text-primary-fixed">Docs.</span>
+            Developer documentation
           </h1>
           <p className="text-on-surface text-sm md:text-base max-w-xl font-body leading-relaxed border-l-2 border-primary-fixed pl-6 py-2">
             Everything you need to integrate Rhobots AI into your enterprise stack — SDKs, API references, and deployment guides.

@@ -6,7 +6,7 @@ export default function CookiePage() {
   return (
     <main>
       <SEO
-        title="Cookie Policy"
+        title="Cookie policy"
         description="Rhobots AI cookie policy. Understand how we use cookies and similar technologies on our website."
         path="/cookie"
         jsonLd={organizationSchema()}

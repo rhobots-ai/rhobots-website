@@ -11,7 +11,7 @@ export default function CaseStudiesPage() {
   return (
     <main>
       <SEO
-        title="Case Studies - Production AI in the Real World"
+        title="Case studies — AI in live enterprise operations"
         description="See how enterprises put production-grade Rhobots AI to work inside their existing operations — real results, no rip-and-replace."
         path="/case-studies"
         jsonLd={[
@@ -33,8 +33,7 @@ export default function CaseStudiesPage() {
             <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">RESOURCES / CASE STUDIES</span>
           </div>
           <h1 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface leading-[1.1] mb-8">
-            Proof, <br />
-            <span className="text-primary-fixed">Not Promises.</span>
+            Case studies
           </h1>
           <p className="text-on-surface text-sm md:text-base max-w-xl font-body leading-relaxed border-l-2 border-primary-fixed pl-6 py-2">
             How enterprises put production-grade AI to work inside the systems that already run their business — measurable results, zero disruption.

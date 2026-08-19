@@ -89,7 +89,7 @@ export default function DemoRequestPage() {
   return (
     <main className="min-h-screen relative">
       <SEO
-        title="Request a Demo"
+        title="Request a demo"
         description="See Rhobots AI in action. Request a personalized demo of our enterprise AI platform — intelligent automation, document processing, business analytics, and more."
         path="/demo"
         jsonLd={organizationSchema()}

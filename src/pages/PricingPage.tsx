@@ -33,7 +33,7 @@ export default function PricingPage() {
   return (
     <main>
       <SEO
-        title="Pricing - Starter, Enterprise & Government Plans"
+        title="Pricing"
         description="Flexible pricing for teams of every size. Choose from Starter, Enterprise, or Government tiers with custom API limits, dedicated infrastructure, SSO, and compliance-ready deployment."
         path="/pricing"
         jsonLd={organizationSchema()}
@@ -46,7 +46,7 @@ export default function PricingPage() {
             <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">PLATFORM / PRICING</span>
           </div>
           <h1 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface leading-[1.1] mb-8">
-            Built for <span className="text-primary-fixed">Scale.</span>
+            Pricing
           </h1>
           <p className="text-on-surface text-sm md:text-base max-w-xl font-body leading-relaxed border-l-2 border-primary-fixed pl-6 py-2">
             Every plan includes enterprise-grade security, full audit trails, and zero-disruption integration with your existing infrastructure.

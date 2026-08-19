@@ -5,7 +5,7 @@ export default function NotFoundPage() {
   return (
     <div className="min-h-screen bg-surface-container-lowest flex items-center justify-center px-8">
       <SEO
-        title="Page Not Found"
+        title="Page not found"
         description="The page you are looking for does not exist."
         path="/404"
         noIndex
