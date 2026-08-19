@@ -11,7 +11,7 @@ interface SEOProps {
 }
 
 const SITE_URL = 'https://rhobots.ai';
-const SITE_NAME = 'RHOBOTS AI';
+const SITE_NAME = 'Rhobots AI';
 const DEFAULT_OG_IMAGE = '/images/og-default.png';
 
 export default function SEO({

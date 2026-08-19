@@ -78,10 +78,10 @@ function ToggleGroup({
               type="button"
               aria-pressed={selected}
               onClick={() => onChange(selected ? '' : opt)}
-              className={`px-3 py-2 border font-headline text-[11px] font-bold uppercase tracking-widest transition-all ${
+              className={`px-3 py-2 border font-headline text-[11px] font-bold transition-all ${
                 selected
                   ? 'border-primary-fixed bg-primary-fixed/5 text-primary-fixed'
-                  : 'border-outline-variant/20 text-white hover:border-primary-fixed/50'
+                  : 'border-outline-variant/20 text-on-surface hover:border-primary-fixed/50'
               }`}
             >
               {opt}
@@ -208,13 +208,13 @@ export default function PartnersPage() {
   };
 
   const inputCls =
-    'w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-white font-body placeholder:text-surface-bright transition-all';
+    'w-full bg-surface-container-lowest border-0 border-b border-outline-variant focus:border-primary-fixed focus:ring-0 text-on-surface font-body placeholder:text-surface-bright transition-all';
   const labelCls = 'font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mb-2 block';
 
   return (
-    <main className="grid-substrate min-h-screen">
+    <main className=" min-h-screen">
       <SEO
-        title="Partner Program — White-Label Enterprise AI Delivery | Rhobots"
+        title="Partner program — white-label enterprise AI delivery"
         description="Become a Rhobots delivery partner. You own the client; we deliver production-grade, self-hosted AI under your brand — in days, not quarters. UAE · UK · US."
         path="/partners"
         ogType="website"
@@ -230,17 +230,17 @@ export default function PartnersPage() {
             <div className="inline-block px-3 py-1 bg-primary-fixed/10 border-l-4 border-primary-fixed mb-6">
               <span className="font-mono text-[10px] sm:text-xs tracking-widest text-primary-fixed uppercase">{HERO.eyebrow}</span>
             </div>
-            <h1 className="font-headline text-3xl sm:text-5xl md:text-7xl font-black tracking-tighter leading-[0.95] uppercase text-white mb-6">
+            <h1 className="font-headline text-3xl sm:text-3xl md:text-4xl font-semibold leading-[0.95] text-on-surface mb-6">
               {HERO.headline_a} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-fixed to-primary-fixed-dim">{HERO.headline_b}</span>
             </h1>
-            <p className="font-headline text-lg sm:text-xl text-white/80 uppercase tracking-tight mb-5">{HERO.headline_tail}</p>
+            <p className="font-headline text-lg sm:text-xl text-on-surface tracking-tight mb-5">{HERO.headline_tail}</p>
             <p className="text-on-surface-variant text-base sm:text-lg max-w-xl mb-8 leading-relaxed">{HERO.subcopy}</p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-              <button onClick={scrollToForm} className="px-6 sm:px-8 py-3 sm:py-4 bg-primary-fixed text-on-primary-fixed font-headline font-black uppercase tracking-widest text-sm sm:text-base hover:shadow-[0_0_20px_rgba(210,240,0,0.3)] transition-all text-center">
+              <button onClick={scrollToForm} className="px-6 sm:px-8 py-3 sm:py-4 bg-primary text-on-primary font-body font-medium text-sm sm:text-base transition-all text-center">
                 {HERO.cta_primary}
               </button>
-              <button onClick={scrollToHow} className="px-6 sm:px-8 py-3 sm:py-4 border border-outline-variant text-white font-headline font-black uppercase tracking-widest text-sm sm:text-base hover:bg-white hover:text-black transition-all text-center">
+              <button onClick={scrollToHow} className="px-6 sm:px-8 py-3 sm:py-4 border border-outline text-on-surface font-body font-medium text-sm sm:text-base hover:bg-surface-container transition-all text-center">
                 {HERO.cta_secondary}
               </button>
             </div>
@@ -249,7 +249,7 @@ export default function PartnersPage() {
               {HERO_BENEFITS.map((b) => (
                 <div key={b.label} className="bg-surface-container-high p-4">
                   <span className="material-symbols-outlined text-primary-fixed mb-2 block" style={{ fontSize: '22px' }}>{b.icon}</span>
-                  <p className="font-headline text-xs font-bold uppercase tracking-widest text-white mb-1">{b.label}</p>
+                  <p className="font-headline text-xs font-bold text-on-surface mb-1">{b.label}</p>
                   <p className="text-on-surface-variant/70 text-[11px] leading-snug">{b.desc}</p>
                 </div>
               ))}
@@ -259,10 +259,10 @@ export default function PartnersPage() {
           <div className="w-full md:w-72 flex flex-row md:flex-col gap-px bg-outline-variant/20">
             {HERO_STATS.map((s, i) => (
               <div key={s.label} className="flex-1 md:flex-none bg-surface-container-high p-4 sm:p-6 relative overflow-hidden">
-                {i === 0 && <div className="scanline absolute inset-0 opacity-20 pointer-events-none" />}
+                {i === 0 && <div className=" absolute inset-0 opacity-20 pointer-events-none" />}
                 <span className="font-mono text-[10px] text-primary-fixed/60 block mb-2 uppercase tracking-widest">{s.label}</span>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl sm:text-4xl font-headline font-black text-white">{s.value}</span>
+                  <span className="text-3xl sm:text-4xl font-headline font-semibold text-on-surface">{s.value}</span>
                   <span className="material-symbols-outlined text-primary-fixed text-sm">{s.icon}</span>
                 </div>
                 <span className="font-mono text-[9px] text-on-surface-variant uppercase tracking-widest">{s.note}</span>
@@ -272,32 +272,32 @@ export default function PartnersPage() {
         </div>
         <div className="absolute top-0 right-0 w-2/3 md:w-1/2 h-full -z-0 opacity-10 md:opacity-20 pointer-events-none overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-l from-primary-fixed/20 to-transparent" />
-          <img className="w-full h-full object-cover mix-blend-overlay" alt="Abstract data grid" src="/images/cyber-grid-datastreams.jpg" />
+          <img className="w-full h-full object-cover mix-blend-overlay" alt="Abstract data grid" src="/images/-datastreams.jpg" />
         </div>
       </section>
 
       {/* ===================== THE OPPORTUNITY (asymmetric big stat) ===================== */}
       <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
         <div className="mb-10 md:mb-14">
-          <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">// WHY NOW · THE MARKET</span>
-          <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-black uppercase text-white tracking-tight">Your clients are asking for AI. It lands on your desk.</h2>
+          <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">WHY NOW · THE MARKET</span>
+          <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-semibold text-on-surface tracking-tight">Your clients are asking for AI. It lands on your desk.</h2>
           <p className="text-on-surface-variant max-w-2xl mt-4 leading-relaxed">Enterprises spend roughly $6 on services for every $1 on software — and AI budgets are compounding. The demand is real, the budgets are funded, and the work flows to the advisors who can actually deliver.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-px bg-outline-variant/20">
           <div className="md:col-span-6 bg-surface-container-high p-8 md:p-10 relative overflow-hidden">
             <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary-fixed" />
-            <span className="text-5xl md:text-7xl font-headline font-black text-primary-fixed">$6 : $1</span>
-            <p className="font-headline text-sm font-bold uppercase tracking-widest text-white mt-4">Services-to-software spend</p>
+            <span className="text-3xl md:text-4xl font-headline font-semibold text-primary-fixed">$6 : $1</span>
+            <p className="font-headline text-sm font-bold text-on-surface mt-4">Services-to-software spend</p>
             <p className="text-on-surface-variant/70 text-sm mt-2 leading-snug">The labour budget AI is now unlocking — far larger than the software line.</p>
           </div>
           <div className="md:col-span-3 bg-surface-container-high p-8">
-            <span className="text-4xl md:text-5xl font-headline font-black text-white">+75%</span>
-            <p className="font-headline text-xs font-bold uppercase tracking-widest text-white mt-3">Annual growth in LLM budgets</p>
+            <span className="text-4xl md:text-3xl font-headline font-semibold text-on-surface">+75%</span>
+            <p className="font-headline text-xs font-bold text-on-surface mt-3">Annual growth in LLM budgets</p>
             <p className="text-on-surface-variant/70 text-xs mt-2 leading-snug">Enterprise AI spend compounds year over year. (a16z CIO survey.)</p>
           </div>
           <div className="md:col-span-3 bg-surface-container-high p-8">
-            <span className="text-4xl md:text-5xl font-headline font-black text-white">61%</span>
-            <p className="font-headline text-xs font-bold uppercase tracking-widest text-white mt-3">Of global VC went to AI in 2025</p>
+            <span className="text-4xl md:text-3xl font-headline font-semibold text-on-surface">61%</span>
+            <p className="font-headline text-xs font-bold text-on-surface mt-3">Of global VC went to AI in 2025</p>
             <p className="text-on-surface-variant/70 text-xs mt-2 leading-snug">Capital, talent and attention are concentrating in this category.</p>
           </div>
         </div>
@@ -308,8 +308,8 @@ export default function PartnersPage() {
       <section className="bg-surface-container-low border-y border-outline-variant/10">
         <div className="py-16 md:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
           <div className="mb-10 md:mb-14">
-            <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">// THE DELIVERY GAP</span>
-            <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-black uppercase text-white tracking-tight">Demand you can sell. Delivery you can't staff.</h2>
+            <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">The delivery gap</span>
+            <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-semibold text-on-surface tracking-tight">Demand you can sell. Delivery you can't staff.</h2>
             <p className="text-on-surface-variant max-w-2xl mt-4 leading-relaxed">Three reasons the AI line item slips away from the firm that already owns the client relationship.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant/20">
@@ -321,7 +321,7 @@ export default function PartnersPage() {
               <div key={c.n} className="bg-surface-container-high p-8 relative">
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary-fixed" />
                 <span className="font-mono text-primary-fixed text-sm tracking-widest">{c.n}</span>
-                <h3 className="font-headline text-xl font-black uppercase text-white mt-3">{c.t}</h3>
+                <h3 className="font-headline text-xl font-semibold text-on-surface mt-3">{c.t}</h3>
                 <p className="font-mono text-[10px] text-primary-fixed uppercase tracking-widest mt-1">{c.tag}</p>
                 <p className="text-on-surface-variant/80 text-sm mt-4 leading-relaxed">{c.d}</p>
               </div>
@@ -333,8 +333,8 @@ export default function PartnersPage() {
       {/* ===================== THE PARTNERSHIP (bento + chip row) ===================== */}
       <section id="how-it-works" className="py-16 md:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto scroll-mt-24">
         <div className="mb-10 md:mb-14">
-          <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">// HOW WE FIT · WHITE-LABEL DELIVERY</span>
-          <h2 className="font-headline text-2xl sm:text-3xl md:text-5xl font-black uppercase text-white tracking-tight">You own the client. <span className="text-primary-fixed">We deliver the AI.</span></h2>
+          <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">HOW WE FIT · WHITE-LABEL DELIVERY</span>
+          <h2 className="font-headline text-2xl sm:text-3xl md:text-3xl font-semibold text-on-surface tracking-tight">You own the client. <span className="text-primary-fixed">We deliver the AI.</span></h2>
           <p className="text-on-surface-variant max-w-2xl mt-4 leading-relaxed">Our wedge is LaaP — LLM-as-a-Person: small, purpose-built models, each trained on exactly what one role does, self-hosted inside your client's perimeter.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-px bg-outline-variant/20">
@@ -345,16 +345,16 @@ export default function PartnersPage() {
           ].map((c) => (
             <div key={c.t} className={`${c.span} bg-surface-container-high p-8`}>
               <span className="material-symbols-outlined text-primary-fixed mb-4 block" style={{ fontSize: '28px' }}>{c.icon}</span>
-              <h3 className="font-headline text-lg font-black uppercase text-white">{c.t}</h3>
+              <h3 className="font-headline text-lg font-semibold text-on-surface">{c.t}</h3>
               <p className="text-on-surface-variant/80 text-sm mt-3 leading-relaxed">{c.d}</p>
             </div>
           ))}
         </div>
         <div className="mt-8">
-          <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-[0.3em] block mb-3">// ONE MODEL PER ROLE</span>
+          <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-[0.3em] block mb-3">ONE MODEL PER ROLE</span>
           <div className="flex flex-wrap gap-2">
             {['Underwriter', 'Loan Officer', 'Support Agent', 'Reviewer', 'Data Analyst', 'Developer', 'QA Engineer', 'Auditor', 'Ops Manager'].map((r) => (
-              <span key={r} className="px-3 py-1 border border-primary-fixed/20 font-mono text-[11px] text-white/80 uppercase tracking-widest">{r}</span>
+              <span key={r} className="px-3 py-1 border border-primary-fixed/20 font-mono text-[11px] text-on-surface uppercase tracking-widest">{r}</span>
             ))}
           </div>
         </div>
@@ -364,8 +364,8 @@ export default function PartnersPage() {
       <section className="bg-surface-container-low border-y border-outline-variant/10">
         <div className="py-16 md:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
           <div className="mb-10 md:mb-14">
-            <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">// PRODUCTIZED SERVICES · WHAT YOU DELIVER</span>
-            <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-black uppercase text-white tracking-tight">Four productized engagements. One platform underneath.</h2>
+            <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">PRODUCTIZED SERVICES · WHAT YOU DELIVER</span>
+            <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-semibold text-on-surface tracking-tight">Four productized engagements. One platform underneath.</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-outline-variant/20">
             {[
@@ -377,7 +377,7 @@ export default function PartnersPage() {
               <div key={c.name} className={`bg-surface-container-high p-8 md:p-10 relative ${c.wedge ? 'overflow-hidden' : ''}`}>
                 {c.wedge && <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary-fixed" />}
                 <span className={`font-mono text-[10px] uppercase tracking-widest ${c.wedge ? 'text-primary-fixed' : 'text-on-surface-variant'}`}>{c.tag}</span>
-                <h3 className="font-headline text-2xl font-black uppercase text-white mt-2">{c.name}</h3>
+                <h3 className="font-headline text-2xl font-semibold text-on-surface mt-2">{c.name}</h3>
                 <p className="text-on-surface-variant/80 text-sm mt-3 leading-relaxed">{c.d}</p>
               </div>
             ))}
@@ -389,8 +389,8 @@ export default function PartnersPage() {
       <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
-            <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">// EASY TO LAND · LAND-AND-EXPAND</span>
-            <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-black uppercase text-white tracking-tight">Start with one painful, budgeted problem.</h2>
+            <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">EASY TO LAND · LAND-AND-EXPAND</span>
+            <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-semibold text-on-surface tracking-tight">Start with one painful, budgeted problem.</h2>
             <p className="text-on-surface-variant mt-4 leading-relaxed">Document AI is the cleanest first sale: universal pain, fixed scope, fast ROI. Land it, prove it, then expand across the suite in the same account.</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-outline-variant/20 mt-8">
               {[
@@ -406,10 +406,10 @@ export default function PartnersPage() {
             </div>
           </div>
           <div className="bg-surface-container-high p-10 relative overflow-hidden border-t-4 border-primary-fixed">
-            <div className="scanline absolute inset-0 opacity-10 pointer-events-none" />
-            <span className="font-mono text-[10px] text-primary-fixed uppercase tracking-widest">// EXTRACTOR · LIVE PROOF</span>
+            <div className=" absolute inset-0 opacity-10 pointer-events-none" />
+            <span className="font-mono text-[10px] text-primary-fixed uppercase tracking-widest">EXTRACTOR · LIVE PROOF</span>
             <div className="flex items-baseline gap-3 mt-4">
-              <span className="text-7xl md:text-8xl font-headline font-black text-primary-fixed">91%</span>
+              <span className="text-4xl md:text-3xl font-headline font-semibold text-primary-fixed">91%</span>
               <span className="font-mono text-sm text-on-surface-variant">vs 83%<br />GPT-4o</span>
             </div>
             <p className="text-on-surface-variant/80 text-sm mt-4 leading-relaxed">Invoice extraction accuracy — at ~1/10 the cost, faster response, and data that never leaves the perimeter.</p>
@@ -421,8 +421,8 @@ export default function PartnersPage() {
       <section className="bg-surface-container-low border-y border-outline-variant/10">
         <div className="py-16 md:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
           <div className="mb-10 md:mb-14">
-            <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">// IN PRODUCTION · MARQUEE ENTERPRISES</span>
-            <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-black uppercase text-white tracking-tight">Already live in marquee enterprises.</h2>
+            <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">IN PRODUCTION · MARQUEE ENTERPRISES</span>
+            <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-semibold text-on-surface tracking-tight">Already live in marquee enterprises.</h2>
             <p className="text-on-surface-variant max-w-2xl mt-4 leading-relaxed">Live, recurring, expanding contracts. Customers anonymized here — named references available to qualified partners.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-outline-variant/20">
@@ -433,8 +433,8 @@ export default function PartnersPage() {
               { v: '5×', l: 'Throughput target', d: 'Government EPC — design automation, +5% margin; POC → retainer.' },
             ].map((m) => (
               <div key={m.l} className="bg-surface-container-high p-7">
-                <span className="text-4xl font-headline font-black text-primary-fixed">{m.v}</span>
-                <p className="font-headline text-xs font-bold uppercase tracking-widest text-white mt-2">{m.l}</p>
+                <span className="text-4xl font-headline font-semibold text-primary-fixed">{m.v}</span>
+                <p className="font-headline text-xs font-bold text-on-surface mt-2">{m.l}</p>
                 <p className="text-on-surface-variant/70 text-xs mt-3 leading-snug">{m.d}</p>
               </div>
             ))}
@@ -442,7 +442,7 @@ export default function PartnersPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-outline-variant/20 mt-px">
             {[['100%', 'Data residency'], ['50%', 'Fewer errors'], ['100%', 'Client ownership'], ['90%', 'Cost reduction']].map(([v, l]) => (
               <div key={l} className="bg-surface-container-high p-5 text-center">
-                <span className="text-2xl font-headline font-black text-white">{v}</span>
+                <span className="text-2xl font-headline font-semibold text-on-surface">{v}</span>
                 <p className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">{l}</p>
               </div>
             ))}
@@ -452,7 +452,7 @@ export default function PartnersPage() {
           <div className="bg-surface-container-high p-8 relative overflow-hidden mt-8">
             <div className="absolute top-0 left-0 w-1 h-full bg-primary-fixed" />
             <span className="material-symbols-outlined text-primary-fixed/40 mb-3 block" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
-            <blockquote className="text-white font-body italic text-lg max-w-3xl">
+            <blockquote className="text-on-surface font-body italic text-lg max-w-3xl">
               "We sold the AI engagement our client was already asking for — Rhobots shipped it under our brand in weeks. It converted into a retainer, and we kept the account."
             </blockquote>
             <p className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mt-4">Managing Partner · Enterprise Advisory Firm</p>
@@ -460,7 +460,7 @@ export default function PartnersPage() {
 
           {/* Trust / compliance badges (T4) */}
           <div className="mt-10">
-            <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-[0.3em] block mb-4">// SECURITY & SOVEREIGNTY</span>
+            <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-[0.3em] block mb-4">SECURITY & SOVEREIGNTY</span>
             <div className="flex flex-wrap gap-3">
               {[
                 { icon: 'dns', t: 'Self-hosted' },
@@ -471,7 +471,7 @@ export default function PartnersPage() {
               ].map((b) => (
                 <div key={b.t} className="flex items-center gap-2 px-3 py-2 border border-outline-variant/20 bg-surface-container">
                   <span className="material-symbols-outlined text-primary-fixed" style={{ fontSize: '18px' }}>{b.icon}</span>
-                  <span className="font-label text-[11px] font-bold text-white tracking-widest uppercase">{b.t}</span>
+                  <span className="font-label text-[11px] font-bold text-on-surface tracking-widest uppercase">{b.t}</span>
                 </div>
               ))}
             </div>
@@ -482,8 +482,8 @@ export default function PartnersPage() {
       {/* ===================== THE MODEL (horizontal flow) ===================== */}
       <section className="py-16 md:py-24 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
         <div className="mb-10 md:mb-14">
-          <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">// HOW WE PARTNER</span>
-          <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-black uppercase text-white tracking-tight">Recurring revenue. You own the account.</h2>
+          <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">How we partner</span>
+          <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-semibold text-on-surface tracking-tight">Recurring revenue. You own the account.</h2>
           <p className="text-on-surface-variant max-w-2xl mt-4 leading-relaxed">A simple, repeatable model: co-sell, co-deliver, and earn a recurring share that compounds as scope expands.</p>
         </div>
         <div className="flex flex-col md:flex-row items-stretch gap-4">
@@ -495,7 +495,7 @@ export default function PartnersPage() {
             <div key={s.n} className="flex items-stretch flex-1">
               <div className="bg-surface-container-high p-7 flex-1 border-t-2 border-primary-fixed/40">
                 <p className="font-mono text-[11px] text-primary-fixed uppercase tracking-widest">{s.n}</p>
-                <h3 className="font-headline text-lg font-black uppercase text-white mt-2">{s.t}</h3>
+                <h3 className="font-headline text-lg font-semibold text-on-surface mt-2">{s.t}</h3>
                 <p className="text-on-surface-variant/80 text-sm mt-3 leading-relaxed">{s.d}</p>
               </div>
               {i < arr.length - 1 && (
@@ -515,8 +515,8 @@ export default function PartnersPage() {
           <div className="bg-surface-container-low p-6 md:p-10 border-t-4 border-primary-fixed bg-surface-container">
             <div className="flex justify-between items-start mb-8">
               <div>
-                <span className="font-mono text-[10px] text-primary-fixed uppercase tracking-[0.3em] block mb-2">// LET'S PARTNER</span>
-                <h2 className="font-headline font-black text-2xl md:text-3xl text-white uppercase tracking-tighter">Become a delivery partner</h2>
+                <span className="font-mono text-[10px] text-primary-fixed uppercase tracking-[0.3em] block mb-2">LET'S PARTNER</span>
+                <h2 className="font-headline font-semibold text-2xl md:text-3xl text-on-surface">Become a delivery partner</h2>
                 <p className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">UAE · UK · US — we'll be in touch within 1 business day</p>
               </div>
               <span className="material-symbols-outlined text-primary-fixed text-3xl hidden sm:block" style={{ fontVariationSettings: "'FILL' 0" }}>handshake</span>
@@ -575,8 +575,8 @@ export default function PartnersPage() {
               )}
 
               <div className="pt-2">
-                <button type="submit" disabled={status === 'submitting'} className="w-full group relative flex items-center justify-between bg-primary-fixed px-6 py-4 transition-all hover:shadow-[0_0_20px_rgba(210,240,0,0.3)] disabled:opacity-50 disabled:cursor-not-allowed">
-                  <span className="font-headline font-black text-lg md:text-xl text-on-primary-fixed uppercase tracking-widest">{status === 'submitting' ? 'SUBMITTING...' : 'Become a delivery partner'}</span>
+                <button type="submit" disabled={status === 'submitting'} className="w-full group relative flex items-center justify-between bg-primary-fixed px-6 py-4 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                  <span className="font-headline font-semibold text-lg md:text-xl text-on-primary-fixed">{status === 'submitting' ? 'SUBMITTING...' : 'Become a delivery partner'}</span>
                   <span className="material-symbols-outlined text-on-primary-fixed group-hover:translate-x-2 transition-transform">arrow_forward</span>
                 </button>
                 {!isSubmitEnabled && (
@@ -593,7 +593,7 @@ export default function PartnersPage() {
 
       {/* ===================== NEXT STEPS STRIP ===================== */}
       <section className="py-16 md:py-20 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
-        <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-6 block">// NEXT STEPS</span>
+        <span className="font-mono text-primary-fixed tracking-[0.3em] uppercase text-xs mb-6 block">Next steps</span>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-outline-variant/20">
           {[
             { n: '01', t: 'Intro & fit call', d: 'Map your client base to where Rhobots wins.' },
@@ -602,13 +602,13 @@ export default function PartnersPage() {
           ].map((s) => (
             <div key={s.n} className="bg-surface-container-high p-7">
               <span className="font-mono text-primary-fixed text-sm tracking-widest">{s.n}</span>
-              <h3 className="font-headline text-lg font-black uppercase text-white mt-2">{s.t}</h3>
+              <h3 className="font-headline text-lg font-semibold text-on-surface mt-2">{s.t}</h3>
               <p className="text-on-surface-variant/80 text-sm mt-2 leading-relaxed">{s.d}</p>
             </div>
           ))}
         </div>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface-container-high p-6 border-l-4 border-primary-fixed">
-          <p className="font-headline text-lg font-black uppercase text-white tracking-tight">Become a Rhobots delivery partner.</p>
+          <p className="font-headline text-lg font-semibold text-on-surface tracking-tight">Become a Rhobots delivery partner.</p>
           <a href="mailto:tech@rhobots.ai" className="font-mono text-sm text-primary-fixed hover:underline">tech@rhobots.ai</a>
         </div>
       </section>
@@ -617,8 +617,8 @@ export default function PartnersPage() {
       <div className={`fixed bottom-0 inset-x-0 z-40 transition-transform duration-300 ${showSticky ? 'translate-y-0' : 'translate-y-full'}`}>
         <div className="bg-surface-container-low/95 backdrop-blur border-t-2 border-primary-fixed px-4 py-3">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-            <p className="font-headline text-xs sm:text-sm font-black uppercase tracking-tight text-white hidden sm:block">You own the client. We deliver the AI.</p>
-            <button onClick={scrollToForm} className="w-full sm:w-auto bg-primary-fixed text-on-primary-fixed font-headline font-black uppercase tracking-widest text-sm px-6 py-3 hover:shadow-[0_0_20px_rgba(210,240,0,0.3)] transition-all">
+            <p className="font-headline text-xs sm:text-sm font-semibold tracking-tight text-on-surface hidden sm:block">You own the client. We deliver the AI.</p>
+            <button onClick={scrollToForm} className="w-full sm:w-auto bg-primary text-on-primary font-body font-medium text-sm px-6 py-3 transition-all">
               Become a delivery partner
             </button>
           </div>

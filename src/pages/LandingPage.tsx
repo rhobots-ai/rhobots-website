@@ -1,253 +1,367 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { organizationSchema } from '../lib/structuredData';
-import HeroAnimation from '../components/HeroAnimation';
+import { Button, Eyebrow, Heading, Hero, Section } from '../components/ui';
+
+const industries = ['Logistics', 'Insurance', 'Banking', 'Fintech', 'Industrial', 'IT services'];
+
+/** Market context. Figures and sources mirror the Partners page. */
+const whyNow = [
+  {
+    value: '$6 : $1',
+    label: 'Services-to-software spend',
+    body: 'The labour budget AI is now unlocking, far larger than the software line it sits next to.',
+  },
+  {
+    value: '+75%',
+    label: 'Annual growth in LLM budgets',
+    body: 'Enterprise AI spend compounds year over year rather than plateauing.',
+  },
+  {
+    value: '61%',
+    label: 'Of global VC went to AI in 2025',
+    body: 'Capital, talent and attention are concentrating in this category.',
+  },
+];
+
+const delivery = [
+  {
+    kicker: 'Platform',
+    title: 'Rhobots Studio',
+    body: 'Configure, fine-tune, host and govern every agent from one place, inside your perimeter. Each engagement starts from what the last one built.',
+  },
+  {
+    kicker: 'People',
+    title: 'A small, senior team on the ground',
+    body: 'One forward-deployed team works alongside yours for the life of the programme, rather than a rotating bench.',
+  },
+  {
+    kicker: 'Commercial',
+    title: 'Fixed first scope, then expand',
+    body: 'We agree one painful, budgeted problem and a definition of done before we start. Scope grows role by role once it is proven.',
+  },
+];
+
+/** The role-agents that sit on top of Studio. */
+const layers = [
+  {
+    name: 'Operator',
+    role: 'Runs the process',
+    path: '/products/operator',
+    body: 'Takes over the repetitive and judgment-heavy steps of an existing workflow, coordinating across old and new systems without brittle integrations.',
+  },
+  {
+    name: 'Extract',
+    role: 'Reads the documents',
+    path: '/products/extract',
+    body: 'Turns PDFs, emails, scans and handwritten notes into typed fields your systems can consume directly.',
+  },
+  {
+    name: 'Sage',
+    role: 'Answers the questions',
+    path: '/products/sage',
+    body: 'Answers questions about the business in plain English, against your existing data sources, with the reasoning attached.',
+  },
+  {
+    name: 'Pulse',
+    role: 'Handles the conversation',
+    path: '/products/pulse',
+    body: 'Listens to calls live, prompts the agent with the next best step, and flags compliance risk in the moment.',
+  },
+  {
+    name: 'Copilot',
+    role: 'Writes the software',
+    path: '/products/copilot',
+    body: 'Refines the ticket, writes the first pass and reviews the pull request, trained on your repositories and conventions.',
+  },
+];
+
+const focusAreas = [
+  ['High-volume operations', 'Data entry, document handling and the judgment-heavy work around them.'],
+  ['Customer-facing conversations', 'Contact centre and support, with a human decision point kept where it counts.'],
+  ['Engineering throughput', 'Ticket-to-production delivery inside your existing toolchain.'],
+];
+
+const engagements = [
+  {
+    industry: 'Logistics',
+    title: 'One of India’s largest logistics companies',
+    summary:
+      'High-volume data entry and document handling automated inside the existing operation. $2M saved and 300 people redeployed in year one, with no process overhaul. Targeting $10M and 700 people in year two.',
+    to: '/case-studies/logistics-operator',
+  },
+  {
+    industry: 'Insurance / BFSI',
+    title: 'On-premise document AI, fine-tuned',
+    summary:
+      'Field extraction accuracy raised from under 60% to 99% on a fine-tuned model running entirely inside the customer’s own environment.',
+    to: '/case-studies/insurance-extract',
+  },
+];
 
 export default function LandingPage() {
   return (
     <main>
       <SEO
-        title="Production-Grade Enterprise AI Platform"
-        description="Add production-grade AI to your enterprise without replacing your existing systems. Drive revenue, cut costs, and automate operations with Rhobots AI."
+        title="AI built to your specification, 10× cheaper and faster to deploy"
+        description="Rhobots builds production-grade AI inside your own perimeter — one purpose-built model per role, not one general model for everything. $2M saved and 300 people redeployed in year one for a national logistics operator."
         path="/"
         jsonLd={organizationSchema()}
       />
-      {/* Hero Section */}
-      <section className="min-h-[85vh] flex items-center relative overflow-hidden px-8 md:px-24 cyber-grid border-b border-outline">
-        <div className="scanline-animated"></div>
-        <div className="absolute top-0 right-0 w-full md:w-1/2 h-full pointer-events-none md:border-l border-outline/50 opacity-40 md:opacity-100">
-          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-background via-background/80 md:via-background/40 to-transparent z-10 pointer-events-none"></div>
-          <HeroAnimation />
-        </div>
-        <div className="relative z-10 max-w-4xl">
-          <div className="inline-flex items-center gap-2 bg-surface-container border border-primary-fixed/30 px-4 py-1 mb-8">
-            <span className="w-2 h-2 bg-primary-fixed"></span>
-            <span className="text-label text-[10px] font-bold tracking-[0.2em] text-primary-fixed uppercase">PLATFORM UPDATE // NOW AVAILABLE</span>
-          </div>
-          <h1 className="font-headline text-3xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] mb-8 uppercase italic">
-            Production-Grade AI <br />
-            <span className="text-primary-fixed bg-transparent">Without the Disruption.</span>
-          </h1>
-          <p className="text-on-surface text-sm md:text-base max-w-xl font-body mb-12 leading-relaxed border-l-2 border-primary-fixed pl-6 py-2">
-            Add AI to your enterprise without replacing the systems that run your business. Rhobots works alongside your existing infrastructure — delivering results from day one.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-0">
-            <Link to="/demo" className="bg-primary-fixed text-background px-10 py-5 font-headline font-black text-sm uppercase tracking-widest hover:bg-white transition-all text-center">
-              Request a Demo
-            </Link>
-            <a href="#intelligence-suite" className="bg-surface border border-outline text-white px-10 py-5 font-headline font-black text-sm uppercase tracking-widest hover:bg-outline transition-all flex items-center justify-center gap-3">
-              See How It Works
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
-            </a>
+
+      <Hero
+        eyebrow="The Future of Enterprise Work"
+        title={
+          <>
+            AI built to your specification.
+            <br />
+            10&times; cheaper and faster to deploy.
+          </>
+        }
+        subtitle="Build the AI that fits how your business actually works, and keep the systems, the process and the people that already make it work. Rhobots works alongside your internal teams to map, build and run production-grade AI inside your own perimeter, using an LLM-as-a-Person approach — one small, purpose-built model per role, rather than one general model for everything."
+        actions={
+          <>
+            <Button to="/demo" size="lg">
+              Work with us
+            </Button>
+            <Button to="/case-studies" variant="ghost" size="lg">
+              Read the case studies
+            </Button>
+          </>
+        }
+      />
+
+      {/* Headline proof, in the position hangten gives its funding stat */}
+      <section className="border-y border-outline-variant bg-surface-container-low py-12 md:py-16">
+        <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
+          <div className="grid gap-8 md:grid-cols-[auto_1fr] md:items-baseline md:gap-14">
+            <p className="font-headline text-5xl font-semibold text-on-surface md:text-6xl">$2M</p>
+            <p className="max-w-xl font-body text-base leading-relaxed text-on-surface-variant">
+              Operating cost saved in year one for a national logistics operator, with 300 people
+              redeployed off data entry and zero changes to the underlying process.{' '}
+              <Link
+                to="/case-studies/logistics-operator"
+                className="text-primary-fixed underline underline-offset-4"
+              >
+                Read the case study
+              </Link>
+              .
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Value Proposition */}
-      <section className="py-24 px-8 md:px-24 bg-background border-b border-outline">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-l border-outline">
-          <div className="p-12 border-r border-b border-outline group hover:bg-surface transition-all">
-            <div className="w-10 h-10 flex items-center justify-center bg-outline text-primary-fixed mb-8 group-hover:bg-primary-fixed group-hover:text-background transition-colors">
-              <span className="material-symbols-outlined">account_tree</span>
-            </div>
-            <h3 className="font-headline text-xl font-black text-white uppercase tracking-tighter mb-4">Legacy Integration</h3>
-            <p className="text-on-surface text-xs leading-relaxed opacity-70">Connects to your existing mainframe and on-premise systems without changing the way you work today.</p>
-          </div>
-          <div className="p-12 border-r border-b border-outline group hover:bg-surface transition-all">
-            <div className="w-10 h-10 flex items-center justify-center bg-outline text-primary-fixed mb-8 group-hover:bg-primary-fixed group-hover:text-background transition-colors">
-              <span className="material-symbols-outlined">published_with_changes</span>
-            </div>
-            <h3 className="font-headline text-xl font-black text-white uppercase tracking-tighter mb-4">Zero Overhaul</h3>
-            <p className="text-on-surface text-xs leading-relaxed opacity-70">Skip the multi-year migration. Rhobots layers on top of your current systems, delivering value in weeks, not years.</p>
-          </div>
-          <div className="p-12 border-r border-b border-outline group hover:bg-surface transition-all">
-            <div className="w-10 h-10 flex items-center justify-center bg-outline text-primary-fixed mb-8 group-hover:bg-primary-fixed group-hover:text-background transition-colors">
-              <span className="material-symbols-outlined">security</span>
-            </div>
-            <h3 className="font-headline text-xl font-black text-white uppercase tracking-tighter mb-4">Enterprise Security</h3>
-            <p className="text-on-surface text-xs leading-relaxed opacity-70">Built to meet the strictest compliance standards. Your sensitive data stays protected and within your control.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Product Showcase: Bento Grid */}
-      <section id="intelligence-suite" className="py-32 px-8 md:px-24 bg-background cyber-grid">
-        <div className="mb-20 space-y-4">
-          <span className="text-primary-fixed font-bold text-xs tracking-[0.3em] uppercase">// THE PLATFORM</span>
-          <h2 className="font-headline text-3xl md:text-7xl font-black italic uppercase tracking-tighter text-white">The Intelligence Suite</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-0 border border-outline">
-          {/* Operator */}
-          <Link to="/products/operator" className="md:col-span-8 bg-surface p-6 md:p-12 border-r border-b border-outline flex flex-col justify-between group">
-            <div className="flex justify-between items-start">
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <span className="material-symbols-outlined text-primary-fixed text-4xl">settings_input_component</span>
-                  <h3 className="font-headline text-3xl font-black uppercase italic text-white tracking-tighter">Operator</h3>
-                </div>
-                <p className="text-on-surface text-sm max-w-lg leading-relaxed border-l border-outline pl-6">Intelligent automation that learns your business processes. Cut manual work by 84% without brittle scripts or constant maintenance.</p>
-              </div>
-            </div>
-            <div className="mt-12 industrial-border p-2 grayscale hover:grayscale-0 transition-all duration-500 overflow-hidden">
-              <img className="w-full h-48 object-cover object-top" alt="Operator product dashboard screenshot" src="/images/operator.png" loading="lazy" />
-            </div>
-          </Link>
-          {/* Pulse */}
-          <Link to="/products/pulse" className="md:col-span-4 bg-surface p-6 md:p-12 border-b border-outline flex flex-col group hover:bg-[#1a1a1a] transition-all">
-            <span className="material-symbols-outlined text-primary-fixed text-4xl mb-8">insights</span>
-            <h3 className="font-headline text-2xl font-black uppercase italic text-white mb-6">Pulse</h3>
-            <p className="text-on-surface text-xs leading-relaxed flex-grow opacity-70">Real-time intelligence for your contact center. Reduce handle time by 40% and boost customer satisfaction with live agent guidance.</p>
-            <div className="pt-8 mt-8 border-t border-outline flex items-center justify-between">
-              <span className="text-[10px] font-bold text-primary-fixed tracking-widest uppercase">CUSTOMER EXPERIENCE</span>
-              <span className="text-[10px] text-outline font-bold">MODE: ACTIVE</span>
-            </div>
-          </Link>
-          {/* Extract */}
-          <Link to="/products/extract" className="md:col-span-4 bg-surface p-6 md:p-12 border-t md:border-t-0 border-r border-outline flex flex-col group hover:bg-[#1a1a1a] transition-all">
-            <span className="material-symbols-outlined text-primary-fixed text-4xl mb-8">database_upload</span>
-            <h3 className="font-headline text-2xl font-black uppercase italic text-white mb-6">Extract</h3>
-            <p className="text-on-surface text-xs leading-relaxed flex-grow opacity-70">Turn unstructured documents — PDFs, emails, handwritten notes — into clean, usable data for your business systems.</p>
-            <div className="pt-8 mt-8 border-t border-outline">
-              <span className="text-[10px] font-bold text-primary-fixed tracking-widest uppercase">DATA INTELLIGENCE</span>
-            </div>
-          </Link>
-          {/* Sage */}
-          <Link to="/products/sage" className="md:col-span-4 bg-surface p-6 md:p-12 border-t md:border-t-0 border-r border-outline flex flex-col group hover:bg-[#1a1a1a] transition-all">
-            <span className="material-symbols-outlined text-primary-fixed text-4xl mb-8">psychology</span>
-            <h3 className="font-headline text-2xl font-black uppercase italic text-white mb-6">Sage</h3>
-            <p className="text-on-surface text-xs leading-relaxed flex-grow opacity-70">Ask questions about your business data in plain English and get answers in seconds. No dashboards to build, no analysts to wait on.</p>
-            <div className="pt-8 mt-8 border-t border-outline flex justify-between items-center">
-              <span className="text-[10px] font-bold text-primary-fixed tracking-widest uppercase">BUSINESS INSIGHTS</span>
-              <div className="flex gap-1">
-                <div className="w-1.5 h-1.5 bg-primary-fixed"></div>
-                <div className="w-1.5 h-1.5 bg-outline"></div>
-              </div>
-            </div>
-          </Link>
-          {/* Dev Copilot */}
-          <Link to="/products/copilot" className="md:col-span-4 bg-primary-fixed p-6 md:p-12 border-t md:border-t-0 border-outline flex flex-col group relative overflow-hidden">
-            <div className="absolute -right-6 -bottom-6 opacity-20 group-hover:scale-110 transition-transform">
-              <span className="material-symbols-outlined text-[160px] text-background">terminal</span>
-            </div>
-            <span className="material-symbols-outlined text-background text-4xl mb-8">code</span>
-            <h3 className="font-headline text-2xl font-black uppercase italic text-background mb-6">Dev Copilot</h3>
-            <p className="text-background text-xs leading-relaxed flex-grow font-bold">AI coding assistant trained on your codebase. Accelerate delivery by 40% while keeping your code private and secure.</p>
-            <div className="pt-8 mt-8 border-t border-background/20">
-              <span className="inline-block px-3 py-1 bg-background text-primary-fixed text-[10px] font-bold uppercase tracking-tighter">ENTERPRISE EXCLUSIVE</span>
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* Platform Layer: Studio */}
-      <section className="py-32 px-8 md:px-24 bg-surface border-y border-outline relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <div className="grid grid-cols-12 h-full">
-            {Array.from({ length: 11 }).map((_, i) => (
-              <div key={i} className="border-r border-white/20 h-full"></div>
+      {/* Customers */}
+      <section className="border-b border-outline-variant bg-background py-8">
+        <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-3 font-mono text-xs uppercase tracking-[0.18em] text-outline">
+            <span className="text-on-surface-variant">In production across</span>
+            {industries.map((industry) => (
+              <span key={industry}>{industry}</span>
             ))}
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row items-center gap-20 relative z-10">
-          <div className="lg:w-1/2 space-y-10">
-            <div className="space-y-4">
-              <span className="text-primary-fixed text-xs font-bold tracking-[0.4em]">// COMMAND CENTER</span>
-              <h2 className="font-headline text-3xl md:text-6xl font-black text-white leading-[0.9] uppercase italic tracking-tighter">
-                Rhobots Studio:<br />
-                <span className="text-primary-fixed">Command Center</span>
-              </h2>
-            </div>
-            <p className="text-on-surface text-sm leading-relaxed border-l-4 border-outline pl-8">
-              Every Rhobots product is managed from Studio — your single pane of glass for configuring AI, tracking performance, and ensuring governance across the organization.
-            </p>
-            <div className="grid grid-cols-1 gap-4 font-label">
-              {['Runs in your data center or private cloud', 'Train AI on your proprietary data', 'Full audit trails for compliance'].map((item) => (
-                <div key={item} className="flex items-center gap-4 text-xs font-bold text-white uppercase group">
-                  <span className="w-8 h-[1px] bg-primary-fixed transition-all group-hover:w-12"></span>
-                  {item}
-                </div>
-              ))}
-            </div>
-            <div className="pt-4">
-              <button className="bg-background border border-outline text-white px-8 py-4 font-headline font-black text-xs uppercase tracking-widest hover:border-primary-fixed transition-all">Explore the Platform</button>
-            </div>
-          </div>
-          <div className="lg:w-1/2 w-full">
-            <div className="industrial-border p-4 bg-background">
-              <div className="flex items-center justify-between mb-6 border-b border-outline pb-4 px-2">
-                <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary-fixed text-sm">terminal</span>
-                  <span className="text-primary-fixed font-bold animate-[blink_0.7s_step-start_infinite]">_</span>
-                </div>
-                <span className="text-[10px] text-outline uppercase font-bold tracking-[0.2em]">RHOBOTS STUDIO // LIVE</span>
-              </div>
-              <div className="relative">
-                <img className="w-full h-auto grayscale" alt="High tech server room" src="/images/server-room.jpg" loading="lazy" />
-                <div className="absolute bottom-4 right-4 bg-background border border-primary-fixed p-4 shadow-2xl">
-                  <div className="text-[10px] font-bold text-primary-fixed mb-1 uppercase tracking-tighter">ACCURACY RATE</div>
-                  <div className="text-4xl font-black italic text-white tracking-tighter leading-none">99.8%</div>
-                  <div className="w-full h-1 bg-outline mt-3">
-                    <div className="bg-primary-fixed h-full w-[99%]"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
-      {/* Target Industries */}
-      <section className="py-32 bg-background border-b border-outline">
-        <div className="max-w-7xl mx-auto px-8 md:px-24">
-          <p className="text-center font-bold tracking-[0.4em] text-outline text-[10px] uppercase mb-16">TRUSTED ACROSS INDUSTRIES</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-outline">
-            <div className="p-12 border-r border-outline hover:bg-surface transition-colors text-center group">
-              <div className="w-16 h-16 bg-surface border border-outline flex items-center justify-center mx-auto mb-8 group-hover:border-primary-fixed transition-all">
-                <span className="material-symbols-outlined text-primary-fixed text-3xl">account_balance</span>
-              </div>
-              <h4 className="font-headline text-2xl font-black italic uppercase text-white mb-6 tracking-tighter">BFSI</h4>
-              <p className="text-on-surface text-xs leading-relaxed opacity-60">Automate compliance, detect fraud faster, and reduce operational risk across banking and insurance operations.</p>
-            </div>
-            <div className="p-12 border-r border-outline hover:bg-surface transition-colors text-center group">
-              <div className="w-16 h-16 bg-surface border border-outline flex items-center justify-center mx-auto mb-8 group-hover:border-primary-fixed transition-all">
-                <span className="material-symbols-outlined text-primary-fixed text-3xl">terminal</span>
-              </div>
-              <h4 className="font-headline text-2xl font-black italic uppercase text-white mb-6 tracking-tighter">IT Services</h4>
-              <p className="text-on-surface text-xs leading-relaxed opacity-60">Ship products faster, reduce development costs, and maintain code quality with AI-powered engineering workflows.</p>
-            </div>
-            <div className="p-12 hover:bg-surface transition-colors text-center group">
-              <div className="w-16 h-16 bg-surface border border-outline flex items-center justify-center mx-auto mb-8 group-hover:border-primary-fixed transition-all">
-                <span className="material-symbols-outlined text-primary-fixed text-3xl">factory</span>
-              </div>
-              <h4 className="font-headline text-2xl font-black italic uppercase text-white mb-6 tracking-tighter">Operations</h4>
-              <p className="text-on-surface text-xs leading-relaxed opacity-60">Streamline supply chain and warehouse operations. Reduce errors, cut processing time, and gain real-time visibility.</p>
-            </div>
-          </div>
+      {/* 01 — Offering */}
+      <Section id="offering">
+        <Eyebrow number="01" className="mb-4">
+          Offering
+        </Eyebrow>
+        <Heading level={2} className="max-w-3xl">
+          10&times; value on the work you already fund.
+        </Heading>
+        <div className="mt-8 grid gap-6 md:max-w-3xl">
+          <p className="font-body text-base leading-relaxed text-on-surface-variant">
+            We take work your business already runs and already budgets for, and we make it run far
+            more efficiently — without a migration, a re-platform, or a rewrite of how the work is
+            done.
+          </p>
+          <p className="font-body text-base leading-relaxed text-on-surface-variant">
+            10&times; takes different shapes. On some engagements it shows up mostly as cost taken
+            out, on others as people freed for higher-value work, and often as a mix of both. We
+            agree which one matters most to you before we scope the work.
+          </p>
+          <p className="font-body text-base leading-relaxed text-on-surface-variant">
+            Where AI does not genuinely fit, we say so. That judgment is the first thing we deliver.
+          </p>
         </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-40 px-8 md:px-24 bg-background cyber-grid">
-        <div className="industrial-border bg-surface px-4 py-12 md:p-24 text-center relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-primary-fixed"></div>
-          <div className="relative z-10 max-w-3xl mx-auto space-y-10">
-            <h2 className="font-headline text-3xl md:text-7xl font-black italic uppercase text-white tracking-tighter leading-none">
-              Lead Your <span className="text-primary-fixed">AI Transformation.</span>
-            </h2>
-            <p className="text-on-surface text-sm max-w-xl mx-auto leading-relaxed border-y border-outline py-6 font-bold uppercase tracking-tight">
-              Join 40+ enterprise leaders already driving measurable results with production-ready AI.
-            </p>
-            <div className="flex justify-center">
-              <Link to="/demo" className="bg-primary-fixed text-background px-12 py-6 font-headline font-black text-sm uppercase tracking-[0.2em] hover:bg-white hover:scale-105 active:scale-95 transition-all">
-                Talk to Our Team
+        {/* Why now */}
+        <div className="mt-20">
+          <Heading level={3} as="h3" className="mb-4">
+            Why now
+          </Heading>
+          <p className="max-w-3xl font-body text-base leading-relaxed text-on-surface-variant">
+            The cost of building software around how a specific business actually works is falling
+            fast. For years that cost was the labour needed to bend generic products into shape.
+            Purpose-built models now do much of that work, and the budget it unlocks sits in the
+            services line, not the software line.
+          </p>
+          <div className="mt-10 grid gap-px border border-outline-variant bg-outline-variant md:grid-cols-3">
+            {whyNow.map((stat) => (
+              <div key={stat.value} className="bg-background p-6">
+                <p className="font-headline text-3xl font-semibold text-on-surface">{stat.value}</p>
+                <p className="mt-3 font-body text-sm font-medium text-on-surface">{stat.label}</p>
+                <p className="mt-2 font-body text-sm leading-relaxed text-on-surface-variant">
+                  {stat.body}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 font-mono text-xs uppercase tracking-[0.18em] text-outline">
+            Sources: Sequoia � a16z CIO survey � OECD venture data � 2025–26
+          </p>
+        </div>
+
+        {/* How we deliver it */}
+        <div className="mt-20">
+          <Heading level={3} as="h3" className="mb-10">
+            How we deliver it
+          </Heading>
+          <dl className="grid gap-px border border-outline-variant bg-outline-variant md:grid-cols-3">
+            {delivery.map((item) => (
+              <div key={item.kicker} className="bg-background p-6">
+                <p className="font-mono text-xs uppercase tracking-[0.18em] text-outline">
+                  {item.kicker}
+                </p>
+                <dt className="mt-3 font-headline text-base font-semibold text-on-surface">
+                  {item.title}
+                </dt>
+                <dd className="mt-2 font-body text-sm leading-relaxed text-on-surface-variant">
+                  {item.body}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </Section>
+
+      {/* 02 — Platform */}
+      <Section id="platform" tone="muted" divided>
+        <Eyebrow number="02" className="mb-4">
+          Platform
+        </Eyebrow>
+        <Heading level={2} className="max-w-3xl">
+          One model per role, not one model for everything.
+        </Heading>
+        <p className="mt-6 max-w-3xl font-body text-base leading-relaxed text-on-surface-variant">
+          Rhobots Studio is the foundation: it configures, fine-tunes, hosts and governs every agent
+          inside your environment. On top of it sit small, purpose-built models, each trained on
+          exactly what one role does. They cost a fraction of a general-purpose model, they can be
+          audited, and the weights and data stay yours.
+        </p>
+        <div className="mt-14 border-t border-outline-variant">
+          {layers.map((layer) => (
+            <Link
+              key={layer.path}
+              to={layer.path}
+              className="group grid gap-2 border-b border-outline-variant py-7 transition-colors hover:bg-background md:grid-cols-[7rem_14rem_1fr] md:items-baseline md:gap-8"
+            >
+              <span className="font-headline text-lg font-semibold text-on-surface">
+                {layer.name}
+              </span>
+              <span className="font-mono text-xs uppercase tracking-[0.18em] text-outline">
+                {layer.role}
+              </span>
+              <span className="font-body text-sm leading-relaxed text-on-surface-variant">
+                {layer.body}
+              </span>
+            </Link>
+          ))}
+        </div>
+        <p className="mt-8 max-w-3xl font-body text-sm leading-relaxed text-on-surface-variant">
+          Work flows down into the agents from the systems you already run. Results flow back into
+          those same systems, and Studio records every step for audit.
+        </p>
+        <div className="mt-10">
+          <Button to="/security" variant="secondary">
+            See our security posture
+          </Button>
+        </div>
+      </Section>
+
+      {/* 03 — Case studies */}
+      <Section id="case-studies" divided>
+        <Eyebrow number="03" className="mb-4">
+          Case studies
+        </Eyebrow>
+        <Heading level={2} className="max-w-3xl">
+          Where it goes to work.
+        </Heading>
+        <p className="mt-6 max-w-2xl font-body text-base leading-relaxed text-on-surface-variant">
+          Three areas of focus, and the engagements running against them today.
+        </p>
+
+        <div className="mt-14">
+          <Eyebrow className="mb-6">Three areas of focus</Eyebrow>
+          <dl className="grid gap-px border border-outline-variant bg-outline-variant md:grid-cols-3">
+            {focusAreas.map(([term, description]) => (
+              <div key={term} className="bg-background p-6">
+                <dt className="font-headline text-base font-semibold text-on-surface">{term}</dt>
+                <dd className="mt-2 font-body text-sm leading-relaxed text-on-surface-variant">
+                  {description}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div className="mt-16">
+          <Eyebrow className="mb-6">Selected engagements</Eyebrow>
+          <div className="border-t border-outline-variant">
+            {engagements.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="group block border-b border-outline-variant py-8 transition-colors hover:bg-surface-container-low"
+              >
+                <p className="font-mono text-xs uppercase tracking-[0.18em] text-outline">
+                  {item.industry}
+                </p>
+                <p className="mt-3 font-headline text-lg font-semibold text-on-surface">{item.title}</p>
+                <p className="mt-3 max-w-3xl font-body text-sm leading-relaxed text-on-surface-variant">{item.summary}</p>
+                <span className="mt-4 inline-block font-mono text-xs text-outline transition-colors group-hover:text-on-surface">
+                  Read the case study →
+                </span>
               </Link>
-            </div>
+            ))}
           </div>
-          {/* Decorative Corners */}
-          <div className="absolute bottom-4 left-4 text-[10px] text-outline font-black tracking-widest">// ENTERPRISE ACCESS</div>
-          <div className="absolute bottom-4 right-4 text-[10px] text-outline font-black tracking-widest">RHOBOTS //</div>
         </div>
-      </section>
+      </Section>
+
+      {/* Hiring */}
+      <Section tone="muted" divided>
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-xl">
+            <Heading level={3} as="h2">
+              We&rsquo;re hiring
+            </Heading>
+            <p className="mt-4 font-body text-base leading-relaxed text-on-surface-variant">
+              We&rsquo;re growing across delivery, engineering and research.
+            </p>
+          </div>
+          <Button to="/careers" variant="secondary">
+            See our open roles
+          </Button>
+        </div>
+      </Section>
+
+      {/* Closing CTA */}
+      <Section divided container="narrow">
+        <Heading level={2} align="center">
+          Let&rsquo;s look at your process first.
+        </Heading>
+        <p className="mx-auto mt-6 max-w-xl text-center font-body text-base leading-relaxed text-on-surface-variant">
+          We start by mapping how the work runs today. If AI does not belong somewhere, we will tell
+          you.
+        </p>
+        <div className="mt-10 flex justify-center">
+          <Button to="/demo" size="lg">
+            Work with us
+          </Button>
+        </div>
+      </Section>
     </main>
   );
 }

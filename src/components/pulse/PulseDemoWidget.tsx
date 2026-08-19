@@ -68,7 +68,7 @@ export function PulseUseCases({ industry }: { industry: string }) {
           <div key={uc.title} className="bg-surface-container-lowest border border-outline-variant/10 p-4 lg:p-6">
             <div className="flex items-center gap-3 mb-4">
               <span className="material-symbols-outlined text-primary-fixed text-2xl lg:text-3xl">{uc.icon}</span>
-              <span className="font-headline text-lg font-bold text-white uppercase tracking-tight">{uc.title}</span>
+              <span className="font-headline text-lg font-bold text-on-surface tracking-tight">{uc.title}</span>
             </div>
             <div className="flex flex-col gap-2">
               {uc.queries.map((q) => (
@@ -135,7 +135,7 @@ export default function PulseDemoWidget({ lockedIndustry, defaultUserName = '', 
     <div className="p-4 sm:p-6" data-lk-theme="default">
       <div className="flex items-center gap-2 mb-4">
         <span className="w-1.5 h-1.5 bg-primary-fixed rounded-full animate-pulse"></span>
-        <span className="font-mono text-[10px] text-primary-fixed tracking-widest uppercase">// LIVE VOICE DEMO</span>
+        <span className="font-mono text-[10px] text-primary-fixed tracking-widest uppercase">LIVE VOICE DEMO</span>
       </div>
       <RoomContext.Provider value={room}>
         <PulseVoiceAssistant

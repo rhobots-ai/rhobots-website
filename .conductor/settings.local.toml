@@ -1,0 +1,48 @@
+"$schema" = "https://conductor.build/schemas/settings.repo.schema.json"
+
+# Machine-local Conductor config for rhobots-website.
+# Vite + React SPA, npm (package-lock.json is the tracked lockfile), no backend,
+# no database and no Docker stack — so workspaces are fully independent.
+
+[scripts]
+# npm ci over npm install: deterministic, non-interactive, and it fails loudly
+# if package.json and package-lock.json drift apart.
+setup = "npm ci"
+
+# Each workspace binds its own $CONDUCTOR_PORT and there is no shared state,
+# so several workspaces can serve at once.
+run_mode = "concurrent"
+
+# Workspaces are archived, not resumed. Reclaim ~150 MB of node_modules plus the
+# build output. Scoped to the workspace directory; touches nothing tracked.
+archive = "rm -rf node_modules dist"
+
+[scripts.run.dev]
+# --strictPort so Vite fails instead of silently drifting off the allocated port.
+command = "npm run dev -- --port $CONDUCTOR_PORT --strictPort"
+default = true
+icon = "play"
+available_in = [ "local" ]
+
+[scripts.run.preview]
+# Production build served on CONDUCTOR_PORT+1 so it can run alongside dev.
+command = "npm run build && npm run preview -- --port $((CONDUCTOR_PORT + 1)) --strictPort"
+icon = "eye"
+available_in = [ "local" ]
+
+[scripts.run.build]
+# tsc -b && vite build. No port needed, so it works in cloud workspaces too.
+command = "npm run build"
+icon = "hammer"
+
+[scripts.run.lint]
+command = "npm run lint"
+icon = "list-checks"
+
+[[preview_urls]]
+name = "Dev server"
+url = "http://localhost:$CONDUCTOR_PORT"
+
+[[preview_urls]]
+name = "Preview build"
+url = "http://localhost:$((CONDUCTOR_PORT + 1))"

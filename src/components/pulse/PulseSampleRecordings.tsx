@@ -94,7 +94,7 @@ export default function PulseSampleRecordings() {
       <div className="flex items-center gap-3 px-5 pt-5 pb-4 border-b border-outline-variant/10">
         <span className="material-symbols-outlined text-primary-fixed text-xl">local_shipping</span>
         <div className="flex-1 min-w-0">
-          <div className="font-headline text-sm font-bold text-white uppercase tracking-tight">
+          <div className="font-headline text-sm font-bold text-on-surface tracking-tight">
             Shipment Tracking
           </div>
           <div className="font-mono text-[10px] text-outline tracking-widest uppercase">
@@ -112,7 +112,7 @@ export default function PulseSampleRecordings() {
             className="w-9 h-9 bg-primary-fixed flex items-center justify-center shrink-0 hover:opacity-90 transition-opacity"
             aria-label={playing ? 'Pause' : 'Play'}
           >
-            <span className="material-symbols-outlined text-black text-lg">
+            <span className="material-symbols-outlined text-on-primary text-lg">
               {playing ? 'pause' : 'play_arrow'}
             </span>
           </button>
@@ -124,7 +124,7 @@ export default function PulseSampleRecordings() {
                   className="flex-1 rounded-full transition-colors duration-100"
                   style={{
                     height: `${h}%`,
-                    backgroundColor: i < activeBars ? '#D2F000' : 'rgba(210,240,0,0.18)',
+                    backgroundColor: i < activeBars ? '#4c5a00' : 'rgba(76,90,0,0.18)',
                     minHeight: '15%',
                   }}
                 />
@@ -145,7 +145,7 @@ export default function PulseSampleRecordings() {
       <div className="px-5 py-3 border-b border-outline-variant/10">
         <button
           onClick={() => setShowTranscript(v => !v)}
-          className="flex items-center gap-2 font-mono text-[10px] text-outline tracking-widest uppercase hover:text-white transition-colors"
+          className="flex items-center gap-2 font-mono text-[10px] text-outline tracking-widest uppercase hover:text-on-surface transition-colors"
         >
           <span className="material-symbols-outlined text-sm">{showTranscript ? 'expand_less' : 'expand_more'}</span>
           {showTranscript ? 'Hide Transcript' : 'Show Transcript'}
@@ -167,7 +167,7 @@ export default function PulseSampleRecordings() {
                 {line.speaker === 'agent' ? 'AI' : 'User'}
               </span>
               <p className={`text-xs leading-relaxed ${
-                line.speaker === 'agent' ? 'text-white' : 'text-on-surface-variant'
+                line.speaker === 'agent' ? 'text-on-surface' : 'text-on-surface-variant'
               }`}>
                 {line.text}
               </p>
