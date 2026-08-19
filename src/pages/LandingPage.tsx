@@ -103,21 +103,22 @@ export default function LandingPage() {
   return (
     <main>
       <SEO
-        title="Enterprise AI that runs inside your existing systems"
-        description="Rhobots puts AI to work inside the systems you already run — no migration, no process change. $2M saved and 300 people redeployed in year one for a national logistics operator."
+        title="AI built to your specification, 10× cheaper and faster to deploy"
+        description="Rhobots builds production-grade AI inside your own perimeter — one purpose-built model per role, not one general model for everything. $2M saved and 300 people redeployed in year one for a national logistics operator."
         path="/"
         jsonLd={organizationSchema()}
       />
 
       <Hero
+        eyebrow="The Future of Enterprise Work"
         title={
           <>
-            AI built into the operation you already run.
+            AI built to your specification.
             <br />
-            In production in weeks, not years.
+            10&times; cheaper and faster to deploy.
           </>
         }
-        subtitle="Keep the systems, the process and the people that already work. Rhobots works alongside your teams to map, deploy and run production-grade AI inside your own perimeter — one small, purpose-built model per role, rather than one general model for everything."
+        subtitle="Build the AI that fits how your business actually works, and keep the systems, the process and the people that already make it work. Rhobots works alongside your internal teams to map, build and run production-grade AI inside your own perimeter, using an LLM-as-a-Person approach — one small, purpose-built model per role, rather than one general model for everything."
         actions={
           <>
             <Button to="/demo" size="lg">
@@ -168,18 +169,18 @@ export default function LandingPage() {
           Offering
         </Eyebrow>
         <Heading level={2} className="max-w-3xl">
-          More output from the operations you already fund.
+          10&times; value on the work you already fund.
         </Heading>
         <div className="mt-8 grid gap-6 md:max-w-3xl">
           <p className="font-body text-base leading-relaxed text-on-surface-variant">
-            We take a process your business already runs and already budgets for, and we make it run
-            far more efficiently — without a migration, a re-platform, or a rewrite of how the work
-            is done.
+            We take work your business already runs and already budgets for, and we make it run far
+            more efficiently — without a migration, a re-platform, or a rewrite of how the work is
+            done.
           </p>
           <p className="font-body text-base leading-relaxed text-on-surface-variant">
-            That value takes different shapes. On some engagements it shows up mostly as cost taken
-            out, on others as people freed for higher-value work, and often as both. We agree which
-            one matters to you before we scope anything.
+            10&times; takes different shapes. On some engagements it shows up mostly as cost taken
+            out, on others as people freed for higher-value work, and often as a mix of both. We
+            agree which one matters most to you before we scope the work.
           </p>
           <p className="font-body text-base leading-relaxed text-on-surface-variant">
             Where AI does not genuinely fit, we say so. That judgment is the first thing we deliver.

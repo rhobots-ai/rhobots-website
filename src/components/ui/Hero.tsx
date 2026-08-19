@@ -22,14 +22,18 @@ export default function Hero({
   align = 'left',
   className = '',
 }: HeroProps) {
+  // The headline gets the wider measure so a two-line hero holds two lines;
+  // body copy stays at a readable measure underneath it.
   const copy = (
-    <div className={align === 'center' ? 'mx-auto max-w-3xl text-center' : 'max-w-2xl'}>
+    <div className={align === 'center' ? 'mx-auto max-w-3xl text-center' : 'max-w-3xl'}>
       {eyebrow && <Eyebrow className="mb-5">{eyebrow}</Eyebrow>}
       <Heading level={1} align={align}>
         {title}
       </Heading>
       {subtitle && (
-        <p className="mt-6 font-body text-lg leading-relaxed text-on-surface-variant">{subtitle}</p>
+        <p className="mt-6 max-w-2xl font-body text-lg leading-relaxed text-on-surface-variant">
+          {subtitle}
+        </p>
       )}
       {actions && (
         <div
