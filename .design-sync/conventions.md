@@ -1,6 +1,6 @@
 # Rhobots — how to build with this system
 
-Light enterprise UI. White surfaces, near-black text and buttons, one olive accent, **square corners everywhere** (radius is `0px`), sentence-case headings, monospace micro-labels.
+Light enterprise UI. White surfaces, near-black text and buttons, one olive accent, **near-square corners** (the radius scale is deliberately tight: `rounded` = 2px, `rounded-lg` = 3px, `rounded-xl` = 4px; `rounded-full` exists for dots and rings), sentence-case headings, monospace micro-labels.
 
 ## Build from the primitives first
 
