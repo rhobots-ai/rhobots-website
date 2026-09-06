@@ -1,60 +1,67 @@
 # Rhobots — how to build with this system
 
-Dark cyber-industrial marketing UI. Near-black surfaces, one electric-lime accent, **square corners everywhere**, condensed uppercase headlines, monospace micro-labels.
+Light enterprise UI. White surfaces, near-black text and buttons, one olive accent, **square corners everywhere** (radius is `0px`), sentence-case headings, monospace micro-labels.
+
+## Build from the primitives first
+
+`Section`, `Hero`, `Heading`, `Eyebrow`, `Card` and `Button` carry the design language. Compose these before writing your own markup — a page is normally a stack of `Section`s, each opening with an `Eyebrow` + `Heading`.
+
+```jsx
+<Section tone="muted" divided>
+  <Eyebrow tone="accent">Platform</Eyebrow>
+  <Heading level={2} className="mt-5">Six products, one platform</Heading>
+  <div className="mt-10 grid gap-6 md:grid-cols-2">
+    <Card tone="base" padding="lg">
+      <Heading level={3}>Extract</Heading>
+      <p className="mt-3 font-body text-sm leading-relaxed text-on-surface-variant">
+        Structured, validated records from any document.
+      </p>
+    </Card>
+  </div>
+  <Button variant="primary" to="/demo" className="mt-10">Request a demo</Button>
+</Section>
+```
 
 ## Setup
 
-No provider is required for styling — the design language lives entirely in the stylesheet, so `styles.css` (and its `@import` closure) is all a page needs. Two components do need context:
+Styling needs no provider — `styles.css` and its `@import` closure is all a page needs. Two contexts matter:
 
-- `Layout`, `NavbarLanding`, `FooterLanding` render react-router `<Link>`/`<Outlet>` — mount them inside a router. `Routes` and `Route` are exported from the bundle for exactly this; use those, not a separately imported copy of react-router, or `<Outlet/>` gets a different context and renders nothing.
-- The Pulse voice components (`PulseVoiceAssistant`, `PulseAgentOrb`, `PulseTranscriptionView`) read a LiveKit `RoomContext`. Outside a room they render their pre-call / idle state, which is the correct static appearance.
-
-```jsx
-<Routes>
-  <Route element={<Layout />}>
-    <Route index element={
-      <section className="cyber-grid bg-background px-8 py-20">
-        <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary-fixed">Platform</p>
-        <h1 className="font-headline text-5xl font-black uppercase leading-none tracking-tighter text-white">
-          Production-grade intelligence, zero disruption
-        </h1>
-        <p className="mt-6 max-w-xl font-body text-sm leading-relaxed text-white/50">
-          Six products that plug into the systems you already run.
-        </p>
-      </section>
-    } />
-  </Route>
-</Routes>
-```
+- **Router.** `Layout`, `NavbarLanding`, `FooterLanding`, and any `Button`/`Card` given a `to` prop render react-router `<Link>`/`<Outlet>`. Use the `Routes` and `Route` exported from this bundle, not a separately imported copy of react-router — a second copy gives `<Outlet/>` a different context and renders nothing.
+- **LiveKit.** `PulseVoiceAssistant`, `PulseAgentOrb` and `PulseTranscriptionView` read a LiveKit room context. Outside a room they render their pre-call / idle state, which is the correct static appearance.
 
 ## The styling idiom: Tailwind with a custom MD3 token scale
 
-Style with Tailwind utility classes. Do **not** invent hex values — the palette is a fixed MD3 token set exposed as color names. Border radius is `0px` by default (`rounded-full` is the only round thing; it exists for dots and rings).
+Style with Tailwind utilities and **never invent hex values** — the palette is a fixed token set exposed as colour names.
 
 | Family | Use these names |
 |---|---|
-| Page / surface backgrounds | `bg-background` (`#131313`), `bg-surface`, `bg-surface-dim`, `bg-surface-bright`, `bg-surface-container-lowest`, `bg-surface-container-low`, `bg-surface-container`, `bg-surface-container-high`, `bg-surface-container-highest`, `bg-surface-variant` |
-| Accent (the lime) | `bg-primary-fixed` / `text-primary-fixed` (`#D2F000`), `bg-primary-container`, `primary-fixed-dim`, `surface-tint`, `inverse-primary`, `on-primary`, `on-primary-fixed`, `on-primary-fixed-variant`, `on-primary-container` |
-| Text | `text-on-surface`, `text-on-surface-variant`, `text-on-background`, `text-white`, plus opacity variants the site leans on: `text-white/70`, `text-white/50`, `text-white/40` |
-| Secondary / tertiary | `secondary`, `secondary-container`, `secondary-fixed`, `secondary-fixed-dim`, `on-secondary*`, `tertiary`, `tertiary-container`, `tertiary-fixed`, `tertiary-fixed-dim`, `on-tertiary*` |
-| Lines | `border-outline`, `border-outline-variant`, and the site's own hairlines `border-white/5`, `border-white/10` |
-| Error | `error`, `error-container`, `on-error`, `on-error-container` |
-| Type | `font-headline` (Public Sans — condensed black uppercase headings), `font-body` (Inter — prose), `font-label` (Space Grotesk), `font-mono` (JetBrains Mono — all micro-labels) |
-| Motion | `animate-fade-in` (the house 0.4s enter) |
+| Page / surface backgrounds | `bg-background` (`#ffffff`), `bg-surface`, `bg-surface-dim`, `bg-surface-bright`, `bg-surface-container-lowest`, `bg-surface-container-low`, `bg-surface-container`, `bg-surface-container-high`, `bg-surface-container-highest`, `bg-surface-variant` |
+| Text | `text-on-surface` (near-black body/headings), `text-on-surface-variant` (secondary copy), `text-on-background`, `text-outline` (micro-labels) |
+| Accent (olive) | `text-primary-fixed` / `bg-primary-fixed` (`#4c5a00`), `bg-primary-container`, `text-on-primary-container`, `focus` |
+| Buttons / inverse | `bg-primary` (near-black surface) with `text-on-primary`; `bg-inverse-surface` with `text-inverse-on-surface` |
+| Lines | `border-outline-variant` (hairlines), `border-outline` |
+| Secondary / tertiary / error | `secondary`, `tertiary`, `error` |
+| Type | `font-headline` (Public Sans), `font-body` (Inter), `font-label` (Space Grotesk), `font-mono` (JetBrains Mono — all micro-labels) |
+| Motion | `animate-fade-in` |
 
-House typographic habits, worth copying: headlines are `font-headline font-black uppercase tracking-tighter`; every small label is `font-mono text-[10px] uppercase tracking-widest`, usually in `text-primary-fixed` or `text-white/40`.
+**Headings are sentence case.** No uppercase, italic, heavy weight or negative tracking — the redesign removed them deliberately. Prefer `<Heading>`; hand-rolled headings should read `font-headline text-on-surface font-semibold`.
 
-## Custom effect classes (defined in the stylesheet, not Tailwind)
+**Micro-labels** are the one place uppercase survives: `font-mono text-xs uppercase tracking-[0.18em] text-outline` (that is what `Eyebrow` renders).
 
-`cyber-grid` (dotted landing background) · `grid-substrate` (finer product-page grid) · `industrial-border` (1px border with lime corner ticks) · `scanline` / `scanline-animated` · `glow-bleed` · `blink-cursor` · `pulse-spinner` · the voice-orb set `logo-container` / `logo-wrapper` / `logo-glow` / `logo-ring` / `logo-ring-2` with state modifiers `logo-idle|listening|thinking|speaking` (+ `-glow` / `-ring` suffixes) · the Pulse form skins `pulse-industry-option`, `pulse-language-option`, `pulse-name-input`, `pulse-join-button`, `pulse-demo-widget`.
+### Two gotchas
 
-Icons are Google **Material Symbols Outlined** — `<span className="material-symbols-outlined">insights</span>`.
+- `Heading` applies `text-on-surface`, which sits later in the stylesheet than `text-inverse-on-surface` and therefore wins over any plain `text-*` you pass. On `Section tone="inverse"` force it: `<Heading className="!text-inverse-on-surface">`.
+- The dark-era effect classes `cyber-grid`, `grid-substrate`, `industrial-border`, `scanline`, `glow-bleed` **were deleted**. Do not use them; they resolve to nothing.
+
+## Still available
+
+`blink-cursor`, `pulse-spinner`, the voice-orb set (`logo-container`, `logo-wrapper`, `logo-glow`, `logo-ring`, `logo-ring-2` with `logo-idle|listening|thinking|speaking`), and the Pulse form skins (`pulse-industry-option`, `pulse-language-option`, `pulse-name-input`, `pulse-join-button`, `pulse-demo-widget`). Icons are Google **Material Symbols Outlined**: `<span className="material-symbols-outlined">insights</span>`.
 
 ## Where the truth lives
 
-- `_ds/<folder>/styles.css` and its imports — every token, font face and effect class above, compiled from the site's Tailwind build.
+- `_ds/<folder>/styles.css` and its imports — every token, font face and effect class above.
 - `components/<group>/<Name>/<Name>.prompt.md` and `<Name>.d.ts` — per-component API and usage.
 
 ## One caveat about assets
 
-`NavbarLanding`, `Layout` and `PulseAgentOrb` load the logo from the absolute path `/icon.svg`, and `PulseSampleRecordings` loads `/audio/pulse-demo-logistics-tracking.mov`. Those are served by the Rhobots site, not by this design system, so in a design they fall back to alt text / an "audio unavailable" notice. Supply your own asset at those paths, or place your own `<img>` where the mark should go.
+`PulseAgentOrb` loads a logo from the absolute path `/icon.svg`, and `PulseSampleRecordings` loads `/audio/pulse-demo-logistics-tracking.mov`. Those are served by the Rhobots site, not by this design system, so they fall back to alt text and an "audio unavailable" notice. Supply your own asset at those paths, or place your own `<img>` where the mark should go. (`NavbarLanding` and `FooterLanding` now render a text wordmark and need no asset.)

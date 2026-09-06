@@ -7,16 +7,18 @@ export const Default = () => (
       <Route
         index
         element={
-          <div className="cyber-grid bg-background px-8 py-20">
-            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-[#D2F000]">Platform</p>
-            <h1 className="max-w-3xl font-headline text-5xl font-black uppercase leading-none tracking-tighter text-white">
-              Production-grade intelligence, zero disruption
-            </h1>
-            <p className="mt-6 max-w-xl font-body text-sm leading-relaxed text-white/50">
-              Six products that plug into the systems you already run — no rip-and-replace, no migration
-              project, no six-month rollout.
-            </p>
-          </div>
+          <section className="bg-background py-20 md:py-32">
+            <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
+              <p className="mb-5 font-mono text-xs uppercase tracking-[0.18em] text-outline">Platform</p>
+              <h1 className="max-w-3xl font-headline text-4xl font-semibold leading-[1.1] text-on-surface md:text-5xl">
+                Production-grade intelligence, zero disruption
+              </h1>
+              <p className="mt-6 max-w-2xl font-body text-lg leading-relaxed text-on-surface-variant">
+                Six products that plug into the systems you already run — no rip-and-replace, no migration
+                project, no six-month rollout.
+              </p>
+            </div>
+          </section>
         }
       />
     </Route>

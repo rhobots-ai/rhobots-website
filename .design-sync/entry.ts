@@ -20,6 +20,16 @@ export { Routes, Route } from 'react-router-dom';
 // animation; the shipped components animate normally in real designs.
 export { MotionGlobalConfig } from 'framer-motion';
 
+// The light-redesign primitives — the reusable vocabulary the site is now
+// built from. These carry the design language (tone/variant/size axes), so the
+// design agent should compose with these rather than reinventing them.
+export { default as Button } from '../src/components/ui/Button';
+export { default as Card } from '../src/components/ui/Card';
+export { default as Eyebrow } from '../src/components/ui/Eyebrow';
+export { default as Heading } from '../src/components/ui/Heading';
+export { default as Hero } from '../src/components/ui/Hero';
+export { default as Section } from '../src/components/ui/Section';
+
 export { default as Layout } from '../src/components/layout/Layout';
 export { default as NavbarLanding } from '../src/components/layout/NavbarLanding';
 export { default as FooterLanding } from '../src/components/layout/FooterLanding';

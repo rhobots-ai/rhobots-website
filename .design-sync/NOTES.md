@@ -15,14 +15,26 @@ node .ds-sync/package-build.mjs --config .design-sync/config.json \
 node .ds-sync/package-validate.mjs ./ds-bundle
 ```
 
-- Node 24 (`.nvmrc` says `v24`). Both `package-lock.json` and `pnpm-lock.yaml` exist; `node_modules` was already installed and was used as-is.
+- Node 24 (`.nvmrc` says `v24`). Both `package-lock.json` and `pnpm-lock.yaml` exist. **Use `npm ci`** — `package-lock.json` is the maintained one (it tracks the current dep set; `pnpm-lock.yaml` is stale, from March). On a fresh clone `node_modules` is absent and `build-css.sh` fails with `npm error could not determine executable to run` (that is just missing tailwind, not a config problem) — run `npm ci` first.
 - Playwright: chromium builds 1187/1208/1234 were already in `~/Library/Caches/ms-playwright`. **playwright@1.58.2 pins chromium 1208**, so that exact version was installed into `.ds-sync/` with `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1`. Don't install a different playwright — it will download 200MB or fail with "Executable doesn't exist".
+
+## The light redesign (2026-09-06, main @ 51ba3b4)
+
+The site was rebuilt as a **light enterprise theme**. This invalidated a lot of the dark-era notes below — read this section first.
+
+- `background` is now `#ffffff`, `on-surface` `#131313`, `primary` a near-black button surface, and the accent is olive `primary-fixed` `#4c5a00`. **`#D2F000` no longer exists anywhere in the theme.**
+- `cyber-grid`, `grid-substrate`, `industrial-border`, `scanline`/`scanline-animated` and `glow-bleed` **were deleted**; `src/index.css` says so explicitly ("Do not reintroduce them"). The voice-orb classes, Pulse form skins, `blink-cursor`, `pulse-spinner` and `animate-fade-in` all survive.
+- Headings are **sentence case, semibold** — `Heading`'s docstring bans uppercase/italic/heavy/negative-tracking. The old "font-black uppercase tracking-tighter" habit is gone.
+- **The `src/components/ui/` primitives (`Button`, `Card`, `Eyebrow`, `Heading`, `Hero`, `Section`) are now synced**, in group `primitives` (pinned via `cfg.docsMap` stubs in `.design-sync/docs/`, because `ui` is a generic dir name that otherwise lands in `general`).
+- **Gotcha worth keeping:** `Heading` hardcodes `text-on-surface`, and that rule sits LATER in the compiled stylesheet than `text-inverse-on-surface` — so on `Section tone="inverse"` a plain `className="text-inverse-on-surface"` loses and the heading renders black-on-black. It needs the important modifier: `!text-inverse-on-surface`. The site never uses `tone="inverse"` today, so this is latent, but the design agent will hit it.
+- `NavbarLanding`/`FooterLanding` now render a **text wordmark**, so the old broken-`/icon.svg` caveat no longer applies to them. It still applies to `PulseAgentOrb`.
+- `.design-sync/tailwind.designsync.config.js` now also scans `.design-sync/previews/**/*.tsx`. Without it, an arbitrary value used only in a preview (`aspect-[4/3]`, `min-h-[220px]`) is never generated and the card renders unstyled while the site looks fine. **Re-run `build-css.sh` after adding a new arbitrary class to a preview** — `preview-rebuild.mjs` does not regenerate the stylesheet.
 
 ## CSS: why there's a separate Tailwind config
 
 The site's own compiled CSS is **purged to the classes the site happens to use**. That is wrong for a design system — the design agent composes new layouts, so `bg-surface-dim`, `px-24`, `md:grid-cols-3` etc. must already exist in the shipped stylesheet.
 
-`.design-sync/tailwind.designsync.config.js` reuses the repo's real theme (single source of truth for tokens) and safelists a broad generic utility surface: the full MD3 colour scale × bg/text/border × opacity steps, the spacing/size scales, and a fixed list of layout/type/effect utilities, with per-group variants. Result: **~1.4MB `ds.css`** (was 76KB purged). Variants are assigned per group on purpose — a global variant matrix over every colour × opacity tripled the file for rules nothing will use.
+`.design-sync/tailwind.designsync.config.js` reuses the repo's real theme (single source of truth for tokens) and safelists a broad generic utility surface: the full MD3 colour scale × bg/text/border × opacity steps, the spacing/size scales, and a fixed list of layout/type/effect utilities, with per-group variants. Result: **~1.4MB `ds.css`** (was 76KB purged). It also scans `.design-sync/previews/**/*.tsx` — see the light-redesign section above. Variants are assigned per group on purpose — a global variant matrix over every colour × opacity tripled the file for rules nothing will use.
 
 `build-css.sh` also prepends the two Google Fonts `@import`s from `index.html`, so `[FONT_REMOTE]` is expected and correct — the brand families load from fonts.googleapis.com at runtime, nothing ships in `fonts/`.
 
@@ -32,7 +44,8 @@ The site's own compiled CSS is **purged to the classes the site happens to use**
 - **`ConversationDemo` is timer-driven** (800ms after mount, then 600ms, then per-step delays, ~11s total) so it always captured "WAITING FOR CONVERSATION…". Fix: the preview clamps `window.setTimeout` to 1ms for the card.
 - **LiveKit components** (`PulseAgentOrb`, `PulseTranscriptionView`, `PulseVoiceAssistant`) throw outside a room. `PreviewProvider` supplies a never-connected `Room`, which puts them in their `disconnected`/idle state — the right static appearance. Without it they fell back to the floor card.
 - **`Layout` grouping**: its src dir segment is a generic name, so it landed in group `general`. Pinned to `layout` with a frontmatter stub at `.design-sync/docs/Layout.md` via `cfg.docsMap`.
-- `cfg.overrides.<Name>.cardMode = "column"` is set for every full-width component (Layout, Navbar, Footer, ConversationDemo, PulseDemoWidget, PulseVoiceAssistant, PulseUseCases) — without it the product's grid view crops them.
+- `cfg.overrides.<Name>.cardMode = "column"` is set for every full-width component (Navbar, Footer, ConversationDemo, PulseDemoWidget, PulseVoiceAssistant, PulseUseCases) — without it the product's grid view crops them.
+- **`Layout` is `cardMode: "single"`, not `column`** (with `primaryStory: "Default"`). Its fixed-position navbar is a portal/fixed escape that positions content outside any grid cell, which `column` cannot fix — validate raises `[GRID_OVERFLOW] … (fixed/portal)` and prescribes `single`. Applied 2026-09-06. Do not "restore" it to `column`.
 
 ## Known render warns
 
@@ -43,6 +56,12 @@ The site's own compiled CSS is **purged to the classes the site happens to use**
 
 - **Site-root assets don't exist in the design project.** `NavbarLanding`, `Layout` and `PulseAgentOrb` load `/icon.svg`; `PulseSampleRecordings` loads `/audio/pulse-demo-logistics-tracking.mov`. Both are absolute paths served by the Rhobots site. In the design project the logo falls back to alt text and the player shows "AUDIO UNAVAILABLE". Documented in `conventions.md`. Two possible fixes for a future run: (a) change the source components to `import` the SVG so it inlines into the bundle — the proper fix; (b) widen the upload plan to include root `icon.svg` / `audio/`, which needs a fresh `finalize_plan` approval and only works if the app serves project files from the URL root.
 - **`PulseTranscriptionView` has no populated state.** Its lines stream from LiveKit transcription tracks; nothing short of a live call fills it. Its card is deliberately the pre-call empty surface, framed with a header so it reads as a transcript pane.
+
+## Re-sync history
+
+- **2026-09-06, second pass — the light redesign.** The first pass this day synced the DARK theme, because the working branch (`design-sync-setup`) predated `51ba3b4 Rebuild site as light enterprise theme (#7)` on main. **Lesson: check `git log HEAD..origin/main` for theme/source drift before trusting an "all unchanged" verdict.** Note the anchor legitimately reported all 10 `unchanged` even after the theme flip — sourceKeys track the component CONTRACT (`.jsx` stub, `.d.ts`, `.prompt.md`) and authored previews, and styling churn deliberately never invalidates grades. A whole-theme inversion is exactly the "major bump / suspicion" case that needs `package-capture.mjs --force`, not a diff you can read off the verdict.
+- Two authored previews (`Layout`, `NavbarLanding`) hardcoded `text-white` and went invisible on the new white background. Both rewritten against the site's real light idiom. **Any preview that hardcodes a colour instead of a token is a theme-flip liability.**
+- **2026-09-06 first pass (dark).** Fresh clone (no `node_modules`). All 10 components came back `unchanged` against the project's `_ds_sync.json` anchor — zero re-grading needed; only `Layout` re-rendered, from the `cardMode` change below, and its canary sheet was confirmed by eye. `conventions.md` was re-validated name-by-name against the fresh build (every colour/effect class, the four `font-*` families, all component names, and the bundle-only `Routes`/`Route`/`PreviewProvider`/`MotionGlobalConfig` exports): **no drift, file left untouched.** The project had been missing `guidelines/` — the full-writes upload added it.
 
 ## Re-sync risks
 

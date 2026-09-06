@@ -8,10 +8,18 @@
   "tsconfig": "tsconfig.app.json",
   "cssEntry": ".design-sync/assets/ds.css",
   "provider": { "component": "PreviewProvider" },
-  "docsMap": { "Layout": ".design-sync/docs/Layout.md" },
+  "docsMap": {
+    "Layout": ".design-sync/docs/Layout.md",
+    "Button": ".design-sync/docs/Button.md",
+    "Card": ".design-sync/docs/Card.md",
+    "Eyebrow": ".design-sync/docs/Eyebrow.md",
+    "Heading": ".design-sync/docs/Heading.md",
+    "Hero": ".design-sync/docs/Hero.md",
+    "Section": ".design-sync/docs/Section.md"
+  },
   "readmeHeader": ".design-sync/conventions.md",
   "overrides": {
-    "Layout": { "cardMode": "column" },
+    "Layout": { "cardMode": "single", "primaryStory": "Default" },
     "NavbarLanding": { "cardMode": "column" },
     "FooterLanding": { "cardMode": "column" },
     "ConversationDemo": { "cardMode": "column" },
@@ -20,6 +28,12 @@
     "PulseVoiceAssistant": { "cardMode": "column" }
   },
   "componentSrcMap": {
+    "Button": "src/components/ui/Button.tsx",
+    "Card": "src/components/ui/Card.tsx",
+    "Eyebrow": "src/components/ui/Eyebrow.tsx",
+    "Heading": "src/components/ui/Heading.tsx",
+    "Hero": "src/components/ui/Hero.tsx",
+    "Section": "src/components/ui/Section.tsx",
     "Layout": "src/components/layout/Layout.tsx",
     "NavbarLanding": "src/components/layout/NavbarLanding.tsx",
     "FooterLanding": "src/components/layout/FooterLanding.tsx",

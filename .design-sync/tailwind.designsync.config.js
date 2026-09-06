@@ -109,4 +109,11 @@ for (const [names, variants] of groups) {
   }
 }
 
-export default { ...base, safelist };
+// The authored preview cards are compiled separately from the site, so any
+// class they use (arbitrary values especially) must be scanned here too —
+// otherwise the card renders unstyled while the site looks fine.
+export default {
+  ...base,
+  content: [...base.content, './.design-sync/previews/**/*.tsx'],
+  safelist,
+};
