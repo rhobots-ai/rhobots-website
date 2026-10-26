@@ -1,12 +1,13 @@
 import SEO from '../components/SEO';
 import { organizationSchema } from '../lib/structuredData';
+import { company, companyAddress } from '../lib/company';
 
 export default function TermsPage() {
   return (
     <main>
       <SEO
         title="Terms of service"
-        description="Terms of service for the Rhobots AI enterprise platform. Read our usage policies, service agreements, and user responsibilities."
+        description="Terms of service for Rhobots, a brand of MayvionAI Intelligence Private Limited. Read our usage policies, service agreements, and user responsibilities."
         path="/terms"
         jsonLd={organizationSchema()}
       />
@@ -19,7 +20,7 @@ export default function TermsPage() {
           <h1 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface leading-[1.1] mb-8">
             Terms of <span className="text-primary-fixed">Service.</span>
           </h1>
-          <p className="text-on-surface text-sm opacity-50">Last updated: March 2026</p>
+          <p className="text-on-surface text-sm opacity-50">Last updated: October 2026</p>
         </div>
       </section>
 
@@ -28,7 +29,8 @@ export default function TermsPage() {
           <div>
             <h2 className="font-headline text-2xl font-semibold text-on-surface mb-6">Acceptance of Terms</h2>
             <div className="text-on-surface text-sm leading-relaxed opacity-70 space-y-4">
-              <p>By accessing or using the Rhobots AI platform and services ("Services"), you agree to be bound by these Terms of Service. If you are using the Services on behalf of an organization, you represent that you have the authority to bind that organization to these terms.</p>
+              <p>These Terms of Service are an agreement between you and {company.legalName} (CIN {company.cin}), a company incorporated in India with its registered office at {companyAddress()} ("{company.brand}", "we", "us"). Rhobots is a brand of {company.legalName}.</p>
+              <p>By accessing or using rhobots.ai or any Rhobots product, including Insac ("Services"), you agree to be bound by these Terms of Service. If you are using the Services on behalf of an organization, you represent that you have the authority to bind that organization to these terms.</p>
             </div>
           </div>
 
@@ -43,21 +45,21 @@ export default function TermsPage() {
           <div>
             <h2 className="font-headline text-2xl font-semibold text-on-surface mb-6">Data Ownership</h2>
             <div className="text-on-surface text-sm leading-relaxed opacity-70 space-y-4">
-              <p>You retain all rights to the data you provide to the Services ("Customer Data"). Rhobots AI processes Customer Data solely to provide the Services and does not use Customer Data to train or improve models for other customers.</p>
+              <p>You retain all rights to the data you provide to the Services ("Customer Data"). {company.legalName} processes Customer Data solely to provide the Services and does not use Customer Data to train or improve models for other customers.</p>
             </div>
           </div>
 
           <div>
             <h2 className="font-headline text-2xl font-semibold text-on-surface mb-6">Limitation of Liability</h2>
             <div className="text-on-surface text-sm leading-relaxed opacity-70 space-y-4">
-              <p>To the maximum extent permitted by applicable law, Rhobots AI shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly.</p>
+              <p>To the maximum extent permitted by applicable law, {company.legalName} shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly.</p>
             </div>
           </div>
 
           <div>
             <h2 className="font-headline text-2xl font-semibold text-on-surface mb-6">Governing Law</h2>
             <div className="text-on-surface text-sm leading-relaxed opacity-70">
-              <p>These terms shall be governed by the laws of the State of Delaware, without regard to conflict of law principles.</p>
+              <p>These terms shall be governed by the laws of India, without regard to conflict of law principles. The courts at Gurugram, Haryana shall have exclusive jurisdiction over any dispute arising from these terms.</p>
             </div>
           </div>
         </div>

@@ -1,12 +1,13 @@
 import SEO from '../components/SEO';
 import { organizationSchema } from '../lib/structuredData';
+import { company, companyAddress } from '../lib/company';
 
 export default function PrivacyPage() {
   return (
     <main>
       <SEO
         title="Privacy policy"
-        description="Rhobots AI privacy policy. Learn how we collect, use, and protect your data across our enterprise AI platform and services."
+        description="Rhobots privacy policy, issued by MayvionAI Intelligence Private Limited. Learn how we collect, use, and protect your data across our enterprise AI platform and services."
         path="/privacy"
         jsonLd={organizationSchema()}
       />
@@ -19,12 +20,20 @@ export default function PrivacyPage() {
           <h1 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface leading-[1.1] mb-8">
             Privacy <span className="text-primary-fixed">Policy.</span>
           </h1>
-          <p className="text-on-surface text-sm opacity-50">Last updated: March 2026</p>
+          <p className="text-on-surface text-sm opacity-50">Last updated: October 2026</p>
         </div>
       </section>
 
       <section className="py-24 px-8 md:px-24 bg-background border-b border-outline max-w-4xl">
         <div className="space-y-12">
+          <div>
+            <h2 className="font-headline text-2xl font-semibold text-on-surface mb-6">Who We Are</h2>
+            <div className="text-on-surface text-sm leading-relaxed opacity-70 space-y-4">
+              <p>Rhobots is a brand of {company.legalName} (CIN {company.cin}), registered office at {companyAddress()} ("{company.brand}", "we", "us").</p>
+              <p>{company.legalName} is the data controller (and, under India's Digital Personal Data Protection Act, 2023, the data fiduciary) for personal data collected through rhobots.ai and through Rhobots products, including Insac (insac.rhobots.ai) and its WhatsApp-based service. Where we process data on behalf of an enterprise customer under a contract, that customer is the controller and we act as its processor.</p>
+            </div>
+          </div>
+
           <div>
             <h2 className="font-headline text-2xl font-semibold text-on-surface mb-6">Information We Collect</h2>
             <div className="text-on-surface text-sm leading-relaxed opacity-70 space-y-4">
@@ -58,7 +67,7 @@ export default function PrivacyPage() {
           <div>
             <h2 className="font-headline text-2xl font-semibold text-on-surface mb-6">Contact</h2>
             <div className="text-on-surface text-sm leading-relaxed opacity-70">
-              <p>For privacy-related inquiries, contact our Data Protection Officer at <span className="text-primary-fixed">tech@rhobots.ai</span></p>
+              <p>For privacy-related inquiries, or to raise a grievance, contact our Data Protection Officer at <span className="text-primary-fixed">{company.email}</span>, or write to {company.legalName}, {companyAddress()}.</p>
             </div>
           </div>
         </div>

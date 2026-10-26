@@ -1,3 +1,5 @@
+import { company } from './company';
+
 const SITE_URL = 'https://rhobots.ai';
 
 export function organizationSchema() {
@@ -5,10 +7,24 @@ export function organizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'RHOBOTS AI',
+    legalName: company.legalName,
+    alternateName: company.brand,
     url: SITE_URL,
     logo: `${SITE_URL}/icon.svg`,
     description:
       'Enterprise AI platform that works with your existing systems — intelligent automation, document processing, business analytics, and more.',
+    email: company.email,
+    ...(company.phone && { telephone: company.phone }),
+    ...(company.gstin && { taxID: company.gstin }),
+    identifier: { '@type': 'PropertyValue', propertyID: 'CIN', value: company.cin },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: company.address.street,
+      addressLocality: company.address.locality,
+      addressRegion: company.address.region,
+      postalCode: company.address.postalCode,
+      addressCountry: 'IN',
+    },
   };
 }
 

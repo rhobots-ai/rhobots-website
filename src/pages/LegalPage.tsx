@@ -1,12 +1,13 @@
 import SEO from '../components/SEO';
 import { organizationSchema } from '../lib/structuredData';
+import { company, companyAddress } from '../lib/company';
 
 export default function LegalPage() {
   return (
     <main>
       <SEO
         title="Legal"
-        description="Legal information and corporate disclosures for Rhobots AI."
+        description={`Legal information and corporate disclosures for Rhobots, a brand of ${company.legalName}.`}
         path="/legal"
         jsonLd={organizationSchema()}
       />
@@ -27,15 +28,16 @@ export default function LegalPage() {
           <div>
             <h2 className="font-headline text-2xl font-semibold text-on-surface mb-6">Corporate Information</h2>
             <div className="text-on-surface text-sm leading-relaxed opacity-70 space-y-4">
-              <p>Rhobots AI, Inc. is a Delaware corporation headquartered in San Francisco, California.</p>
-              <p>All content on this website, including text, graphics, logos, and software, is the property of Rhobots AI, Inc. and is protected by international copyright and trademark laws.</p>
+              <p>This website and all Rhobots products are operated by {company.legalName}, a private limited company incorporated in India under the Companies Act, 2013. Rhobots is a brand of {company.legalName}.</p>
+              <p>Registered office: {companyAddress()}. CIN: {company.cin}.{company.gstin && ` GSTIN: ${company.gstin}.`}</p>
+              <p>All content on this website, including text, graphics, logos, and software, is the property of {company.legalName} and is protected by international copyright and trademark laws.</p>
             </div>
           </div>
 
           <div>
             <h2 className="font-headline text-2xl font-semibold text-on-surface mb-6">Intellectual Property</h2>
             <div className="text-on-surface text-sm leading-relaxed opacity-70 space-y-4">
-              <p>RHOBOTS, the RHOBOTS logo, Operator, Extract, Sage, Pulse, and Copilot are trademarks of Rhobots AI, Inc. All other trademarks are the property of their respective owners.</p>
+              <p>RHOBOTS, the RHOBOTS logo, Studio, Operator, Extract, Sage, Pulse, Copilot, and Insac are trademarks of {company.legalName}. All other trademarks are the property of their respective owners.</p>
               <p>No license to any intellectual property is granted by this website, whether by implication, estoppel, or otherwise.</p>
             </div>
           </div>
@@ -43,7 +45,7 @@ export default function LegalPage() {
           <div>
             <h2 className="font-headline text-2xl font-semibold text-on-surface mb-6">Limitation of Liability</h2>
             <div className="text-on-surface text-sm leading-relaxed opacity-70 space-y-4">
-              <p>The information on this website is provided "as is" without warranty of any kind. Rhobots AI, Inc. shall not be liable for any damages arising from the use of this website or the information contained herein.</p>
+              <p>The information on this website is provided "as is" without warranty of any kind. {company.legalName} shall not be liable for any damages arising from the use of this website or the information contained herein.</p>
             </div>
           </div>
 
