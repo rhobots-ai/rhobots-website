@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { INSAC_URL } from '../../lib/company';
 
-const products = [
+const products: { name: string; path: string; desc: string; external?: boolean }[] = [
   { name: 'Operator', path: '/products/operator', desc: 'Intelligent workflow automation' },
   { name: 'Extract', path: '/products/extract', desc: 'Automated document processing' },
   { name: 'Sage', path: '/products/sage', desc: 'Business intelligence in plain English' },
   { name: 'Pulse', path: '/products/pulse', desc: 'Real-time contact center intelligence' },
   { name: 'Copilot', path: '/products/copilot', desc: 'AI-powered development acceleration' },
+  { name: 'Insac', path: INSAC_URL, desc: 'WhatsApp-first accounting assistant', external: true },
 ];
 
 const linkClass = ({ isActive }: { isActive: boolean }) =>
@@ -41,16 +43,25 @@ export default function NavbarLanding() {
                 </span>
               </button>
               <div className="invisible absolute left-0 top-full mt-2 w-72 border border-outline-variant bg-background opacity-0 shadow-lg transition-all duration-150 group-hover:visible group-hover:opacity-100">
-                {products.map((product) => (
-                  <Link
-                    key={product.path}
-                    to={product.path}
-                    className="block border-b border-outline-variant px-4 py-3 last:border-0 hover:bg-surface-container"
-                  >
-                    <div className="text-sm font-medium text-on-surface">{product.name}</div>
-                    <div className="mt-0.5 text-xs font-normal text-on-surface-variant">{product.desc}</div>
-                  </Link>
-                ))}
+                {products.map((product) => {
+                  const className =
+                    'block border-b border-outline-variant px-4 py-3 last:border-0 hover:bg-surface-container';
+                  const content = (
+                    <>
+                      <div className="text-sm font-medium text-on-surface">{product.name}</div>
+                      <div className="mt-0.5 text-xs font-normal text-on-surface-variant">{product.desc}</div>
+                    </>
+                  );
+                  return product.external ? (
+                    <a key={product.path} href={product.path} target="_blank" rel="noopener noreferrer" className={className}>
+                      {content}
+                    </a>
+                  ) : (
+                    <Link key={product.path} to={product.path} className={className}>
+                      {content}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 
@@ -103,17 +114,31 @@ export default function NavbarLanding() {
             </button>
             {productsOpen && (
               <div className="flex flex-col pl-3">
-                {products.map((product) => (
-                  <Link
-                    key={product.path}
-                    to={product.path}
-                    className="border-b border-outline-variant py-3 last:border-0"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    <div className="text-sm text-on-surface">{product.name}</div>
-                    <div className="mt-0.5 text-xs font-normal text-on-surface-variant">{product.desc}</div>
-                  </Link>
-                ))}
+                {products.map((product) => {
+                  const className = 'border-b border-outline-variant py-3 last:border-0';
+                  const content = (
+                    <>
+                      <div className="text-sm text-on-surface">{product.name}</div>
+                      <div className="mt-0.5 text-xs font-normal text-on-surface-variant">{product.desc}</div>
+                    </>
+                  );
+                  return product.external ? (
+                    <a
+                      key={product.path}
+                      href={product.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={className}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    <Link key={product.path} to={product.path} className={className} onClick={() => setMobileOpen(false)}>
+                      {content}
+                    </Link>
+                  );
+                })}
               </div>
             )}
 

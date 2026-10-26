@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { organizationSchema } from '../lib/structuredData';
+import { INSAC_URL } from '../lib/company';
 import { Button, Eyebrow, Heading, Hero, Section } from '../components/ui';
 
 const industries = ['Logistics', 'Insurance', 'Banking', 'Fintech', 'Industrial', 'IT services'];
@@ -42,8 +43,8 @@ const delivery = [
   },
 ];
 
-/** The role-agents that sit on top of Studio. */
-const layers = [
+/** The role-agents that sit on top of Studio. Internal pages use `path`; standalone products use `href`. */
+const layers: { name: string; role: string; path?: string; href?: string; body: string }[] = [
   {
     name: 'Operator',
     role: 'Runs the process',
@@ -73,6 +74,12 @@ const layers = [
     role: 'Writes the software',
     path: '/products/copilot',
     body: 'Refines the ticket, writes the first pass and reviews the pull request, trained on your repositories and conventions.',
+  },
+  {
+    name: 'Insac',
+    role: 'Keeps the books',
+    href: INSAC_URL,
+    body: 'Insac: WhatsApp-first accounting assistant. Send invoices, receipts and questions over WhatsApp; Insac records the entries and answers in plain language.',
   },
 ];
 
@@ -252,23 +259,32 @@ export default function LandingPage() {
           audited, and the weights and data stay yours.
         </p>
         <div className="mt-14 border-t border-outline-variant">
-          {layers.map((layer) => (
-            <Link
-              key={layer.path}
-              to={layer.path}
-              className="group grid gap-2 border-b border-outline-variant py-7 transition-colors hover:bg-background md:grid-cols-[7rem_14rem_1fr] md:items-baseline md:gap-8"
-            >
-              <span className="font-headline text-lg font-semibold text-on-surface">
-                {layer.name}
-              </span>
-              <span className="font-mono text-xs uppercase tracking-[0.18em] text-outline">
-                {layer.role}
-              </span>
-              <span className="font-body text-sm leading-relaxed text-on-surface-variant">
-                {layer.body}
-              </span>
-            </Link>
-          ))}
+          {layers.map((layer) => {
+            const className =
+              'group grid gap-2 border-b border-outline-variant py-7 transition-colors hover:bg-background md:grid-cols-[7rem_14rem_1fr] md:items-baseline md:gap-8';
+            const content = (
+              <>
+                <span className="font-headline text-lg font-semibold text-on-surface">
+                  {layer.name}
+                </span>
+                <span className="font-mono text-xs uppercase tracking-[0.18em] text-outline">
+                  {layer.role}
+                </span>
+                <span className="font-body text-sm leading-relaxed text-on-surface-variant">
+                  {layer.body}
+                </span>
+              </>
+            );
+            return layer.href ? (
+              <a key={layer.name} href={layer.href} target="_blank" rel="noopener noreferrer" className={className}>
+                {content}
+              </a>
+            ) : (
+              <Link key={layer.name} to={layer.path!} className={className}>
+                {content}
+              </Link>
+            );
+          })}
         </div>
         <p className="mt-8 max-w-3xl font-body text-sm leading-relaxed text-on-surface-variant">
           Work flows down into the agents from the systems you already run. Results flow back into

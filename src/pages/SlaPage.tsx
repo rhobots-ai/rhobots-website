@@ -28,7 +28,7 @@ export default function SlaPage() {
           <div>
             <h2 className="font-headline text-2xl font-semibold text-on-surface mb-6">Uptime Commitment</h2>
             <div className="text-on-surface text-sm leading-relaxed opacity-70 space-y-4">
-              <p>Rhobots AI commits to 99.9% uptime for all production API endpoints, measured monthly. Scheduled maintenance windows are excluded from uptime calculations and will be communicated at least 72 hours in advance.</p>
+              <p>MayvionAI Intelligence Private Limited (Rhobots) commits to 99.9% uptime for all production API endpoints, measured monthly. Scheduled maintenance windows are excluded from uptime calculations and will be communicated at least 72 hours in advance.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-outline mt-8">
               {[

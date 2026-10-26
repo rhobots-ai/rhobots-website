@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
+import { company, companyAddress, companyTel, INSAC_URL } from '../../lib/company';
 
-const columns = [
+type FooterLink = { label: string; to?: string; href?: string };
+
+const columns: { heading: string; links: FooterLink[] }[] = [
   {
     heading: 'Products',
     links: [
@@ -10,6 +13,7 @@ const columns = [
       { label: 'Sage', to: '/products/sage' },
       { label: 'Pulse', to: '/products/pulse' },
       { label: 'Copilot', to: '/products/copilot' },
+      { label: 'Insac', href: INSAC_URL },
     ],
   },
   {
@@ -23,6 +27,7 @@ const columns = [
     heading: 'Company',
     links: [
       { label: 'About', to: '/about' },
+      { label: 'Contact', to: '/contact' },
       { label: 'Legal', to: '/legal' },
       { label: 'Privacy', to: '/privacy' },
     ],
@@ -50,10 +55,21 @@ export default function FooterLanding() {
               </h5>
               <ul className="space-y-3 font-body text-sm text-on-surface-variant">
                 {column.links.map((link) => (
-                  <li key={link.to + link.label}>
-                    <Link className="transition-colors hover:text-on-surface" to={link.to}>
-                      {link.label}
-                    </Link>
+                  <li key={link.label}>
+                    {link.href ? (
+                      <a
+                        className="transition-colors hover:text-on-surface"
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link className="transition-colors hover:text-on-surface" to={link.to!}>
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -61,9 +77,26 @@ export default function FooterLanding() {
           ))}
         </div>
 
-        <div className="flex flex-col items-start justify-between gap-4 border-t border-outline-variant pt-8 font-body text-sm text-on-surface-variant md:flex-row md:items-center">
-          <p>&copy; 2026 Rhobots AI. All rights reserved.</p>
-          <div className="flex flex-wrap gap-6">
+        <div className="flex flex-col items-start justify-between gap-4 border-t border-outline-variant pt-8 font-body text-sm text-on-surface-variant md:flex-row md:items-start">
+          <div className="space-y-2">
+            <p>
+              &copy; 2026 {company.legalName}. {company.brand} is a brand of {company.legalName}.
+            </p>
+            <p className="flex flex-wrap gap-x-4 gap-y-1 text-xs">
+              <span>Registered office: {companyAddress()}</span>
+              <span className="whitespace-nowrap">CIN {company.cin}</span>
+              {company.gstin && <span className="whitespace-nowrap">GSTIN {company.gstin}</span>}
+              <a className="transition-colors hover:text-on-surface" href={`mailto:${company.email}`}>
+                {company.email}
+              </a>
+              {company.phone && (
+                <a className="whitespace-nowrap transition-colors hover:text-on-surface" href={`tel:${companyTel()}`}>
+                  {company.phone}
+                </a>
+              )}
+            </p>
+          </div>
+          <div className="flex shrink-0 flex-wrap gap-6">
             <Link className="transition-colors hover:text-on-surface" to="/demo">Request a demo</Link>
             <Link className="transition-colors hover:text-on-surface" to="/terms">Terms</Link>
             <Link className="transition-colors hover:text-on-surface" to="/cookie">Cookie</Link>

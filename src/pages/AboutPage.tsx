@@ -1,6 +1,17 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { organizationSchema } from '../lib/structuredData';
+import { company, companyAddress, INSAC_URL } from '../lib/company';
+
+const brandProducts: { name: string; desc: string; to?: string; href?: string }[] = [
+  { name: 'Studio', desc: 'Configures, hosts and governs every agent', to: '/' },
+  { name: 'Operator', desc: 'Intelligent workflow automation', to: '/products/operator' },
+  { name: 'Extract', desc: 'Automated document processing', to: '/products/extract' },
+  { name: 'Sage', desc: 'Business intelligence in plain English', to: '/products/sage' },
+  { name: 'Pulse', desc: 'Real-time contact center intelligence', to: '/products/pulse' },
+  { name: 'Copilot', desc: 'AI-powered development acceleration', to: '/products/copilot' },
+  { name: 'Insac', desc: 'WhatsApp-first accounting assistant', href: INSAC_URL },
+];
 
 export default function AboutPage() {
   return (
@@ -61,6 +72,44 @@ export default function AboutPage() {
               <p className="text-on-surface-variant text-xs leading-relaxed">{v.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Company */}
+      <section className="py-24 px-8 md:px-24 bg-background border-b border-outline">
+        <p className="font-mono text-[10px] tracking-[0.18em] text-outline uppercase mb-8">Company</p>
+        <h2 className="font-headline text-3xl md:text-3xl font-semibold text-on-surface mb-8">
+          The company behind Rhobots
+        </h2>
+        <div className="max-w-3xl space-y-4 text-on-surface-variant text-sm md:text-base leading-relaxed font-body">
+          <p>
+            Rhobots is a brand of <span className="text-on-surface">{company.legalName}</span>, a private limited
+            company incorporated in India under the Companies Act, 2013 (CIN {company.cin}). Its registered office
+            is at {companyAddress()}.
+          </p>
+          <p>
+            {company.legalName} builds, operates and sells every product under the Rhobots brand, including Insac.
+          </p>
+        </div>
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-l border-outline">
+          {brandProducts.map((p) => {
+            const className = 'p-8 border-r border-b border-outline hover:bg-surface transition-all';
+            const content = (
+              <>
+                <h3 className="font-headline text-lg font-semibold text-on-surface mb-2">Rhobots {p.name}</h3>
+                <p className="text-on-surface-variant text-xs leading-relaxed">{p.desc}</p>
+              </>
+            );
+            return p.href ? (
+              <a key={p.name} href={p.href} target="_blank" rel="noopener noreferrer" className={className}>
+                {content}
+              </a>
+            ) : (
+              <Link key={p.name} to={p.to!} className={className}>
+                {content}
+              </Link>
+            );
+          })}
         </div>
       </section>
 

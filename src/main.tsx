@@ -15,6 +15,7 @@ import CopilotPage from './pages/CopilotPage';
 import DemoRequestPage from './pages/DemoRequestPage';
 import NotFoundPage from './pages/NotFoundPage';
 import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 import CareersPage from './pages/CareersPage';
 import LegalPage from './pages/LegalPage';
 import PrivacyPage from './pages/PrivacyPage';
@@ -48,6 +49,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/products/copilot" element={<CopilotPage />} />
           <Route path="/demo" element={<DemoRequestPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/legal" element={<LegalPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
