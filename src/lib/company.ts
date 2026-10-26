@@ -7,8 +7,8 @@ export const company = {
   legalName: 'MayvionAI Intelligence Private Limited',
   brand: 'Rhobots',
   cin: 'U62090HR2024PTC126993',
-  gstin: '' as string, // TODO: fill in GSTIN
-  phone: '' as string, // TODO: fill in phone, e.g. '+91 98xxxxxxxx'
+  gstin: '06AASCM7810M1ZV' as string,
+  phone: '+91 70420 08497' as string,
   email: 'tech@rhobots.ai',
   address: {
     street: '628, 2nd Floor, Sector 9A, Neki Ram Marg, Sadar Bazar',
